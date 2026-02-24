@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<robot name="bravo7_no_ee_v2_copy">
+
+    <material name="green">
+        <color rgba="0.235 0.702 0.443 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0.263 0.733 0.984 1"/>
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="black">
+        <color rgba="0.8 0.8 0.8 1"/>
+    </material>
+    <material name="orange">
+        <color rgba="1 0.369 0.047 1"/>
+    </material>
+
+    <link name="link1">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-266.stl"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <inertial>
+            <origin xyz="0.0525 -0.001 0.04345" rpy="0 0 0"/>
+            <mass value="1.85"/>
+            <inertia ixx="0.002528" ixy="-2.0e-05" ixz="2.3e-05" iyy="0.002593" iyz="-7.0e-06" izz="0.003312"/>
+        </inertial>
+        <collision>
+            <!-- <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-266_convex_hull.stl"/>
+            </geometry> -->
+            <origin xyz="0.05 0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.085" radius="0.074"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint1" type="continuous">
+        <parent link="link1"/>
+        <child link="link2"/>
+        <origin rpy="3.141592654 0 0" xyz="0.0665 0 0.078"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link2">
+        <visual>
+            <origin xyz="0 0 0" rpy="-3.141592654 0 0"/>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-217.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <inertial>
+            <!-- Rx(pi): (x, y, z) -> (x, -y, -z) and flip ixy, ixz -->
+            <origin xyz="-0.03 -0.01 -0.06145" rpy="0 0 0"/>
+            <mass value="1.62"/>
+            <inertia ixx="0.003179" ixy="-0.000233" ixz="-0.001024"
+                    iyy="0.004209" iyz="-0.000344" izz="0.002387"/>
+        </inertial>
+        <collision>
+            <origin xyz="-0.03 0 -0.06" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.11" radius="0.074"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint2" type="revolute">
+        <parent link="link2"/>
+        <child link="link3"/>
+        <origin rpy="3.141592654 0 0" xyz="-0.046 0 -0.0674"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="9.0" lower="0.0" upper="3.5" velocity="0.5"/>
+    </joint>
+
+    <link name="link3">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-250-212-214.stl"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <inertial>
+            <origin xyz="-0.0241436 0.00399889 -0.1620485" rpy="0 0 0"/>
+            <mass value="2.12"/>
+            <!-- no net Rx(pi): keep original -->
+            <inertia ixx="0.0352226436" ixy="-2.26528218e-05" ixz="0.00129923425" iyy="0.0359810399" iyz="0.00315070263" izz="0.00336331658"/>
+        </inertial>
+        <collision>
+            <origin xyz="-0.03 0 -0.15" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.06"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint3" type="revolute">
+        <parent link="link3"/>
+        <child link="link4"/>
+        <origin rpy="0 0 0" xyz="-0.0052 0 -0.29055"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="9.0" lower="0.0" upper="3.5" velocity="0.5"/>
+    </joint>
+
+    <link name="link4">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-268.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <origin xyz="0.035 0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.12" radius="0.055"/>
+            </geometry>
+            <material name="green"/>
+        </collision>
+        <inertial>
+            <origin xyz="0.03499989 -0.00300155 0.05931046" rpy="0 0 0"/>
+            <mass value="1.33"/>
+            <!-- no net Rx(pi): keep original -->
+            <inertia ixx="0.001809" ixy="-0.000156" ixz="-0.000398" iyy="0.002024" iyz="-0.000197" izz="0.001557"/>
+        </inertial>
+    </link>
+
+    <joint name="joint4" type="continuous">
+        <parent link="link4"/>
+        <child link="link5"/>
+        <origin rpy="3.141592654 0 0" xyz="0.0408 0 0.09695"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link5">
+        <visual>
+            <origin xyz="0 0 0" rpy="-3.141592654 0 0"/>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-214.stl"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <inertial>
+            <!-- Rx(pi): (x, y, z) -> (x, -y, -z) and flip ixy, ixz -->
+            <origin xyz="-0.02699995 -0.01199816 -0.06136048" rpy="0 0 0"/>
+            <mass value="1.33"/>
+            <inertia ixx="0.001983" ixy="-0.00018" ixz="-0.000641"
+                    iyy="0.002676" iyz="-0.000264" izz="0.001526"/>
+        </inertial>
+        <collision>
+            <origin xyz="-0.005 0 -0.04" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.055"/>
+            </geometry>
+            <material name="green"/>
+        </collision>
+    </link>
+
+    <joint name="joint5" type="revolute">
+        <parent link="link5"/>
+        <child link="link6"/>
+        <origin rpy="3.141592654 0 0" xyz="-0.0408 0 -0.063"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="9.0" lower="0.0" upper="3.5" velocity="0.5"/>
+    </joint>
+
+    <link name="link6">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-161.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <inertial>
+            <origin xyz="-0.02999999 -0.00600209 -0.02537941" rpy="0 0 0"/>
+            <mass value="0.97"/>
+            <!-- no net Rx(pi): keep original -->
+            <inertia ixx="0.001272" ixy="0.000116" ixz="-0.000346" iyy="0.001511" iyz="0.000189" izz="0.001205"/>
+        </inertial>
+        <collision>
+            <origin xyz="-0.04 0 -0.05" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.055"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint6" type="continuous">
+        <parent link="link6"/>
+        <child link="link7"/>
+        <origin rpy="0 3.14159 0" xyz="-0.0408 0 -0.08863"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link7">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/RS2-180.stl"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <inertial>
+            <origin xyz="-0.000999865 -0.00000344664 0.0247494355" rpy="0 0 0"/>
+            <mass value="1.09"/>
+            <inertia ixx="0.00197699995" ixy="1.88170062e-10" ixz="-1.50015577e-05" iyy="0.00198600003" iyz="-9.87966436e-07" izz="0.00103500002"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0.07" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.12" radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="end_effector_ball">
+        <visual>
+            <geometry>
+                <mesh filename="package://bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere.stl"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <origin xyz="0.055 0.035 0.045" rpy="0 1.57 0"/>
+            <geometry>
+                <cylinder length="0.09" radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="bravo_EE_joint" type="fixed">
+        <origin rpy="0 -1.57 0" xyz=" 0.045 -0.035 0.113"/>
+        <parent link="link7"/>
+        <child link="end_effector_ball"/>
+    </joint>
+
+    <link name="contact_point"/>
+    <joint name="contact_point_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.24"/>
+        <parent link="link7"/>
+        <child link="contact_point"/>
+    </joint>
+</robot>

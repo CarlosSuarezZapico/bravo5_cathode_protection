@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+
+<robot name = "bravo7">
+
+    <link name = "DH-FRAME-0"/>
+
+    <joint name = "DH-JOINT-0-1" type = "fixed">
+        <parent link = "DH-FRAME-0"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0.04145"/>
+        <child link = "DH-FRAME-0-1"/>
+    </joint>
+
+    <link name = "DH-FRAME-0-1"/>
+
+    <joint name = "DH-JOINT-0-2" type = "fixed">
+        <parent link = "DH-FRAME-0-1"/>
+        <origin rpy = "3.14159 0 0" xyz = "0.0675 0 0"/>
+        <child link = "DH-FRAME-1"/>
+    </joint>
+
+    <link name = "DH-FRAME-1"/>
+
+    <joint name = "BRAVO_AXIS_G" type = "revolute">
+        <parent link = "DH-FRAME-1"/>
+        <origin rpy = "0 0 3.14159" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-1-1"/>
+        <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-1-1"/>
+   
+    <joint name = "DH-JOINT-1-1" type = "fixed">
+        <parent link = "DH-FRAME-1-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 -0.11748"/>
+        <child link = "DH-FRAME-1-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-1-2"/>
+
+    <joint name = "DH-JOINT-1-2" type = "fixed">
+        <parent link = "DH-FRAME-1-2"/>
+        <origin rpy = "-1.57079 0 0" xyz = "0.046 0 0"/>
+        <child link = "DH-FRAME-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-2"/>
+
+    <joint name = "BRAVO_AXIS_F" type = "revolute">
+        <parent link = "DH-FRAME-2"/>
+        <origin rpy = "0 0 -1.552914" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-2-1"/>
+        <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-2-1"/>
+
+    <joint name = "DH-JOINT-2-1" type = "fixed">
+        <parent link = "DH-FRAME-2-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "DH-FRAME-2-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-2-2"/>
+
+    <joint name = "DH-JOINT-2-2" type = "fixed">
+        <parent link = "DH-FRAME-2-2"/>
+        <origin rpy = "0 0 0" xyz = "0.290816 0 0"/>
+        <child link = "DH-FRAME-3"/>
+    </joint>
+
+    <link name = "DH-FRAME-3"/>
+
+    <joint name = "BRAVO_AXIS_E" type = "revolute">
+        <parent link = "DH-FRAME-3"/>
+        <origin rpy = "0 0 -1.588677" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-3-1"/>
+        <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-3-1"/>
+
+    <joint name = "DH-JOINT-3-1" type = "fixed">
+        <parent link = "DH-FRAME-3-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "DH-FRAME-3-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-3-2"/>
+
+    <joint name = "DH-JOINT-3-2" type = "fixed">
+        <parent link = "DH-FRAME-3-2"/>
+        <origin rpy = "-1.57079 0 0" xyz = "0.0408 0 0"/>
+        <child link = "DH-FRAME-4"/>
+    </joint>
+
+    <link name = "DH-FRAME-4"/>
+
+    <joint name = "BRAVO_AXIS_D" type = "revolute">
+        <parent link = "DH-FRAME-4"/>
+        <origin rpy = "0 0 3.14159" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-4-1"/>
+        <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-4-1"/>
+    
+    <joint name = "DH-JOINT-4-1" type = "fixed">
+        <parent link = "DH-FRAME-4-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 -0.16026"/>
+        <child link = "DH-FRAME-4-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-4-2"/>
+
+    <joint name = "DH-JOINT4-2" type = "fixed">
+        <parent link = "DH-FRAME-4-2"/>
+        <origin rpy = "-1.57079 0 0" xyz = "0.0408 0 0"/>
+        <child link = "DH-FRAME-5"/>
+    </joint>
+
+    <link name = "DH-FRAME-5"/>
+
+    <joint name = "BRAVO_AXIS_C" type = "revolute">
+        <parent link = "DH-FRAME-5"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-5-1"/>
+        <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-5-1"/>
+
+    <joint name = "DH-JOINT-5-1" type = "fixed">
+        <parent link = "DH-FRAME-5-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "DH-FRAME-5-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-5-2"/>
+
+    <joint name = "DH-JOINT-5-2" type = "fixed">
+        <parent link = "DH-FRAME-5-2"/>
+        <origin rpy = "-1.57079 0 0" xyz = "0.0408 0 0"/>
+        <child link = "DH-FRAME-6"/>
+    </joint>
+
+    <link name = "DH-FRAME-6"/>
+
+    <joint name = "BRAVO_AXIS_B" type = "revolute">
+        <parent link = "DH-FRAME-6"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <axis xyz = "0 0 1"/>
+        <child link = "DH-FRAME-6-1"/>
+         <limit effort = "0" lower = "0.0" upper = "6.2" velocity = "1.0"/>
+    </joint>
+
+    <link name = "DH-FRAME-6-1"/>
+
+    <joint name = "DH-JOINT-6-1" type = "fixed">
+        <parent link = "DH-FRAME-6-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 -0.22416"/>
+        <child link = "DH-FRAME-6-2"/>
+    </joint>
+
+    <link name = "DH-FRAME-6-2"/>
+
+    <joint name = "DH-JOINT-7" type = "fixed">
+        <parent link = "DH-FRAME-6-2"/>
+        <origin rpy = "1.57079 0 0" xyz = "0 0 0"/>
+        <child link = "DH-FRAME-7"/>
+    </joint>
+
+    <link name = "DH-FRAME-7"/>
+
+    <joint name = "EE-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-7"/>
+        <origin rpy = "1.57079 0 0" xyz = "0 0 0"/>
+        <child link = "EE"/>
+    </joint>
+
+    <link name = "EE"/>
+
+    <link name = "LINK-0">
+        <inertial>
+            <origin xyz = "-0.015 0.001 -0.002" rpy = "0 0 0"/>
+            <mass value = "1.85"/>
+            <inertia ixx = "2528e-6" ixy = "20e-6" ixz = "-23e-6" iyy = "2593e-6" iyz = "-7e-6" izz = "3312e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-0-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-0"/>
+    </joint>
+
+    <link name = "LINK-1">
+        <inertial>
+            <origin xyz = "0.031 0.010 -0.098" rpy = "0 0 0"/>
+            <mass value = "1.62"/>
+            <inertia ixx = "3179e-6" ixy = "-233e-6" ixz = "1024e-6" iyy = "4209e-6" iyz = "344e-6" izz = "2387e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-1-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-1-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-1"/>
+    </joint>
+
+    <link name = "LINK-2">
+        <inertial>
+            <origin xyz = "0.176 0.022 0.004" rpy = "0 0 0"/>
+            <mass value = "2.12"/>
+            <inertia ixx = "3420e-6" ixy = "1868e-6" ixz = "-3150e-6" iyy = "35166e-6" iyz = "79e-6" izz = "35981e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-2-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-2-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-2"/>
+    </joint>
+
+    <link name = "LINK-3">
+        <inertial>
+            <origin xyz = "0.034 -0.046 -0.003" rpy = "0 0 0"/>
+            <mass value = "1.33"/>
+            <inertia ixx = "1809e-6" ixy = "398e-6" ixz = "-156e-6" iyy = "1557e-6" iyz = "197e-6" izz = "2024e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-3-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-3-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-3"/>
+    </joint>
+
+    <link name = "LINK-4">
+        <inertial>
+            <origin xyz = "0.028 0.012 -0.145" rpy = "0 0 0"/>
+            <mass value = "1.33"/>
+            <inertia ixx = "1983e-6" ixy = "-180e-6" ixz = "641e-6" iyy = "2676e-6" iyz = "264e-6" izz = "1526e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-4-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-4-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-4"/>
+    </joint>
+
+    <link name = "LINK-5">
+        <inertial>
+            <origin xyz = "0.031 -0.039 -0.006" rpy = "0 0 0"/>
+            <mass value = "0.97"/>
+            <inertia ixx = "1272e-6" ixy = "346e-6" ixz = "-116e-6" iyy = "1205e-6" iyz = "189e-6" izz = "1511e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-5-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-5-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-5"/>
+    </joint>
+
+    <link name = "LINK-6">
+        <inertial>
+            <origin xyz = "0 0 -0.127" rpy = "0 0 0"/>
+            <mass value = "1.09"/>
+            <inertia ixx = "1977e-6" ixy = "0" ixz = "15e-6" iyy = "1986e-6" iyz = "-1e-6" izz = "1035e-6"/>
+        </inertial>
+    </link>
+
+    <joint name = "LINK-6-JOINT" type = "fixed">
+        <parent link = "DH-FRAME-6-1"/>
+        <origin rpy = "0 0 0" xyz = "0 0 0"/>
+        <child link = "LINK-6"/>
+    </joint>
+
+</robot>

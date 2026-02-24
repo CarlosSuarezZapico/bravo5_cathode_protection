@@ -1,0 +1,20 @@
+# Whether a joint is continuous(true) or not(false)
+continuous: [true, false, false, false, false, true]
+# Motor Constant [N.m / A]
+Kt: [0.222, 0.222, 0.215, 0.215, 0.215, 0.209]
+# Gearbox Reduction 
+Gr: [120.0, 120.0, 120.0, 120.0, 120.0, 120.0]
+# Coulomb Friction Constant [N.m]
+Fc: [5.87652, 6.82228, 7.28559, 6.59424, 7.13838, 6.9421]
+# Maximum Static Friction [mA]
+Fs: [400.0, 400.0, 400.0, 400.0, 400.0, 400.0] 
+# Damping Coefficient [N.m * s / rad]
+Fd: [34.4495, 27.2997, 14.8187, 11.3938, 15.6846, 18.301] 
+# Position Filter Gain (Smaller the gain = less noise but more delay)
+Tq: 0.10 
+# Velocity Filter Gain (Smaller the gain = less noise but more delay)
+Tv: 0.10 
+# Acceleration Filter Gain (Smaller the gain = less noise but more delay)
+Ta: 0.10
+# Current Filter Gain (Smaller the gain = less noise but more delay)
+Tc: 0.10 

@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<robot name="reach_bravo_7">
+
+  <!-- ================================================================================= -->
+  <!-- Links -->
+  <!-- ================================================================================= -->
+  
+  <!-- Base Link -->
+  <link name="base_link">
+    <!-- Placeholder for visual and collision properties of the base -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+    </collision>
+    <!-- Placeholder inertia. Mass and inertia values are not provided in DH table. -->
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- ================================================================================= -->
+  <!-- Joint and Link Definitions from DH Table -->
+  <!-- ================================================================================= -->
+
+  <!-- Joint 0: Fixed joint to connect the base_link to link_0 -->
+  <joint name="joint_0" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_0"/>
+    <!-- Origin based on DH parameters: a=67.5mm, d=41.45mm, alpha=pi -->
+    <!-- URDF units are meters -->
+    <origin xyz="0.0675 0 0.04145" rpy="3.14159 0 0"/>
+        <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  
+  <link name="link_0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.02"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <!-- Joint 1: Revolute joint from link_0 to link_1 -->
+  <joint name="joint_1" type="revolute">
+    <parent link="link_0"/>
+    <child link="link_1"/>
+    <!-- Origin based on DH parameters: a=46.0mm, d=-117.48mm, alpha=-pi/2 -->
+    <origin xyz="0.046 0 -0.11748" rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- Joint 2: Revolute joint from link_1 to link_2 -->
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <!-- Origin based on DH parameters: a=a2 (290.817mm), d=0.0mm, alpha=0.0 -->
+    <origin xyz="0.290817 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- Joint 3: Revolute joint from link_2 to link_3 -->
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <!-- Origin based on DH parameters: a=40.8mm, d=0.0mm, alpha=-pi/2 -->
+    <origin xyz="0.0408 0 0" rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- Joint 4: Revolute joint from link_3 to link_4 -->
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <!-- Origin based on DH parameters: a=40.8mm, d=-160.26mm, alpha=-pi/2 -->
+    <origin xyz="0.0408 0 -0.16026" rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- Joint 5: Revolute joint from link_4 to link_5 -->
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <!-- Origin based on DH parameters: a=40.8mm, d=0.0mm, alpha=-pi/2 -->
+    <origin xyz="0.0408 0 0" rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- Joint 6: Revolute joint from link_5 to link_6 -->
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <!-- Origin based on DH parameters: a=0.0mm, d=-224.16mm, alpha=pi/2 -->
+    <origin xyz="0 0 -0.22416" rpy="1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100.0" velocity="100.0"/>
+  </joint>
+  <link name="link_6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <!-- Joint 7: Fixed joint from link_6 to link_7 (end-effector) -->
+  <joint name="joint_7" type="fixed">
+    <parent link="link_6"/>
+    <child link="link_7"/>
+    <!-- Origin based on DH parameters: a=120.0mm, d=0.0mm, alpha=0.0 -->
+    <origin xyz="0.120 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="link_7">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+</robot>

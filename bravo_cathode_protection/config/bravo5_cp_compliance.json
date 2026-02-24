@@ -1,0 +1,8 @@
+{
+  "pos_stiffness": [80.0, 1000.0, 500.0],
+  "pos_damping":   [15.0, 100.0, 60.0],
+  "gain_force":    [0.02, 0.0, 0.0],
+  "nominal_vel":   [0.25, 0.0, 0.0],
+  "desired_force": [5.5, 0.0, 0.0],
+  "maximum_vel":   [0.1, 0.1, 0.1]
+}

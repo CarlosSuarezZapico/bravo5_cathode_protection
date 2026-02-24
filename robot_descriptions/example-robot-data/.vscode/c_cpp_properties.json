@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/carlos/unite_ws/install/uvm_falcon_bravo/include/**",
+        "/home/carlos/unite_ws/install/stonefish_ros2/include/**",
+        "/home/carlos/unite_ws/install/pose_graph_editor_panel/include/**",
+        "/home/carlos/unite_ws/install/my_rviz2_panel/include/**",
+        "/home/carlos/unite_ws/install/manipulator_lib/include/**",
+        "/home/carlos/unite_ws/install/falcon_bravo_rviz_panel/include/**",
+        "/home/carlos/unite_ws/install/falcon_bravo_panel/include/**",
+        "/home/carlos/unite_ws/install/falcon_msgs/include/**",
+        "/home/carlos/unite_ws/install/demo_panel/include/**",
+        "/home/carlos/unite_ws/install/custom_interfaces/include/**",
+        "/home/carlos/unite_ws/install/bpl_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/carlos/unite_ws/src/bravo7/bpl_control/include/**",
+        "/home/carlos/unite_ws/src/bravo7/bravo_interface_cpp/include/**",
+        "/home/carlos/unite_ws/src/bravo7/debug_bravo/include/**",
+        "/home/carlos/unite_ws/src/bravo7/manipulator_lib/include/**",
+        "/home/carlos/unite_ws/src/bravo7/program_test/include/**",
+        "/home/carlos/unite_ws/src/falcon_bravo_panel/include/**",
+        "/home/carlos/unite_ws/src/falcon_msgs/include/**",
+        "/home/carlos/unite_ws/src/motion_libs/include/**",
+        "/home/carlos/unite_ws/src/stonefish_ros2/include/**",
+        "/home/carlos/unite_ws/src/unite/example-robot-data/include/**",
+        "/home/carlos/unite_ws/src/unite/falcon_bravo_rviz_panel/include/**",
+        "/home/carlos/unite_ws/src/unite/uvm_falcon_bravo/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

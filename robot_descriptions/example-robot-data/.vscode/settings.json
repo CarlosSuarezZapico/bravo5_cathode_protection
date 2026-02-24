@@ -1,0 +1,30 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/openrobots/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/stonefish_ros2/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/py_topic/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/py_service/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/falcon_msgs/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/cola2_msgs/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/bpl_passthrough/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/bpl_control/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/bpl_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/openrobots/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/stonefish_ros2/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/py_topic/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/py_service/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/falcon_msgs/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/cola2_msgs/local/lib/python3.10/dist-packages",
+        "/home/carlos/unite_ws/install/bpl_passthrough/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/bpl_control/lib/python3.10/site-packages",
+        "/home/carlos/unite_ws/install/bpl_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

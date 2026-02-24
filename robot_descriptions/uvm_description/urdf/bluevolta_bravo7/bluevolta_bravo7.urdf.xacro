@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<robot name="bluevolta_bravo_example" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find uvm_description)/urdf/bluevolta_bravo7/bluevolta_bravo7_def.urdf.xacro"/>
+    <link name="world"/>
+
+    <xacro:bluevolta_bravo parent="world" name="bluevolta_bravo">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:bluevolta_bravo>
+</robot>
+
