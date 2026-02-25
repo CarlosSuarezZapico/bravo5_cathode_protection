@@ -1,0 +1,66 @@
+{
+    "PARAMS_FORCE_CONTROL": {
+        "FORCE_MAX": {
+          "_comment": "Maximum force sensed before stopping continuous force control",
+          "X": 100.0,
+          "Y": 100.0,
+          "Z": 100.0
+        },
+        "TORQUE_MAX": {
+          "_comment": "Maximum torque sensed before stopping continuous force control",
+          "X": 2.0,
+          "Y": 2.0,
+          "Z": 2.0
+        },
+        "FORCE_MIN_LOSS": {
+          "_comment": "Threshold to detect loss of contact",
+          "X": 3.0,
+          "Y": 3.0,
+          "Z": 3.0
+        },
+        "VEL_MAX": {
+          "_comment": "Maximum velocity to saturate force control",
+          "X": 0.3,
+          "Y": 0.3,
+          "Z": 0.3
+        },
+        "VEL_FREE": {
+          "_comment": "Velocity to regain contact",
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.05
+        },
+        "FORCE_CONTROL_GAINS": {
+          "_comment": "Mass-Damping Admittance Gains for linear axis",
+          "M_x": 0.1,
+          "B_x": 0.1,
+          "M_y": 0.1,
+          "B_y": 0.1,
+          "M_z": 0.1,
+          "B_z": 0.1
+        },
+        "FORCE_SETPOINT": {
+          "_comment": "Desired contact force for each axis",
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 25.0
+        },
+        "MAXIMUM_MANIPULABILITY": {
+          "VALUE": 15.0
+        }
+    },
+
+    "PARAMS_BRAVO7":{
+        "JOINT_CONFIGURATIONS": {
+            "STORE_CONFIGURAION": [0.323, 2.957, 0.05, 3.387, 0.066, 0.2304], 
+            "HOME_CONFIGURATION": [1.062, 0.757, -0.757, -1.066, -1.570, 0.0]
+        }, 
+        "FRAME_EE_NAME": "contact_frame", 
+        "URDF_FILE": "/robot_descriptions/bpl_bravo_description/urdf/bravo_7_pinocchio.urdf"
+    },
+
+    "TELEOP_PARAMS": {
+        "FACTOR_FINE_MOTION_BASE": 0.5,
+        "FACTOR_COARSE_MOTION_BASE": 1.0
+    }
+}

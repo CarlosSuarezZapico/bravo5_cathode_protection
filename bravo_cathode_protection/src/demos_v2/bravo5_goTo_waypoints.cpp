@@ -21,7 +21,7 @@
 #include "pinocchio/algorithm/jacobian.hpp"
 #include "pinocchio/algorithm/frames.hpp"
 #include <ament_index_cpp/get_package_share_directory.hpp>
-#include "bravo_compliance/bravo_cpp/bravo_handler/bravo_handler_v2.h"
+#include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include "general_libs_unite/general_utils/general_utils.h"
 #include <string>
 #include <iostream>
@@ -172,8 +172,9 @@ int main(int argc, char ** argv)
     rclcpp::init(argc, argv);       
     //const std::string urdf_filename = std::string("/home/carlos/cp_unite_ws/src/robot_descriptions/bpl_bravo_description/urdf/bravo_7_amir_2.urdf");
     const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bpl_bravo_description") + "/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf";
-    const std::string tool_link = std::string("contact_point");  
-    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link);//(urdf_filename); //! CONSTRUCTOR
+    const std::string tool_link = std::string("contact_point");
+    const std::string ip_address = std::string("192.168.2.51");
+    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, ip_address);//(urdf_filename); //! CONSTRUCTOR
     auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
     std::thread executor_thread([&executor]() {
             executor->spin();
@@ -183,6 +184,5 @@ int main(int argc, char ** argv)
     rclcpp::shutdown();
     return 0;
 }
-
 
 

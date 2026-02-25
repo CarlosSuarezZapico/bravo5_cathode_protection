@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  *    @file  bravo_dashboard.h
  *    @brief methods, structures used....
@@ -14,6 +16,7 @@
  */
 #include <atomic>
 #include <chrono>
+#include <cstdint>
 #include <deque>
 #include <mutex>
 #include <string>
@@ -21,10 +24,10 @@
 #include <vector>
 #include <iostream>
 
+#include "bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h"
+
 namespace bravo_utils
 {
-    enum class LogLevel { Info, Warn, Error };
-
     struct LogLine {
     uint64_t seq;
     std::chrono::steady_clock::time_point t;
@@ -87,8 +90,14 @@ namespace bravo_utils
             std::cout << "\n";
             std::cout << "Recent logs (tail):\n";
             for (auto const& l : snapshot) {
-                const char* tag = (l.lvl==LogLevel::Error) ? "[ERROR]" :
-                                (l.lvl==LogLevel::Warn)  ? "[WARN ]" : "[INFO ]";
+                const char* tag = "[INFO ]";
+                if (l.lvl == LogLevel::Error) {
+                    tag = "[ERROR]";
+                } else if (l.lvl == LogLevel::Warn) {
+                    tag = "[WARN ]";
+                } else if (l.lvl == LogLevel::Debug) {
+                    tag = "[DEBUG]";
+                }
                 std::cout << tag << " " << l.text << "\n";
             }
 

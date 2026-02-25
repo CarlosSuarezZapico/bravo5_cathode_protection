@@ -58,7 +58,7 @@ namespace bravo_control{
             if (itByteMap != diagnosticMessages.end()) {
                 for (const auto& [bitMask, message] : itByteMap->second) {
                     if (byte & bitMask) {
-                        BRAVO_LOG_INFO(logger_, "[bravo_UDP]: " << message);
+                        BRAVO_LOG_INFO(logger_, "[bravo_UDP]: ", message);
                     }
                 }
             }
@@ -75,5 +75,4 @@ namespace bravo_control{
             
         }
 }
-
 

@@ -82,15 +82,15 @@ namespace bravo_control
                 //& FEEDBACK FROM BRAVO
                 //$ JOINT FEEDBACK
                 feedback<T_data> position_jointFdb, current_jointFdb, velocity_jointFdb, torque_jointFdb;
-                vector<int> device_ids; // gripper, joint6, joint5, joint4, joint3, joint2, joint1
+                std::vector<int> device_ids; // gripper, joint6, joint5, joint4, joint3, joint2, joint1
                 bool diagnosis = true;
 
                 //& COMMANDS
-                vector<T_data> joint_cmd_position; 
-                vector<T_data> joint_cmd_velocity;
-                vector<T_data> joint_cmd_current ;
-                vector<T_data> joint_cmd_torque  ;
-                vector<T_data> twist_ee_cmd  {0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; // Local Twist ee in m/s and rad/s
+                std::vector<T_data> joint_cmd_position; 
+                std::vector<T_data> joint_cmd_velocity;
+                std::vector<T_data> joint_cmd_current ;
+                std::vector<T_data> joint_cmd_torque  ;
+                std::vector<T_data> twist_ee_cmd  {0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; // Local Twist ee in m/s and rad/s
 
                 //& socket UDP for communication
                 int sockfd;
@@ -149,7 +149,10 @@ namespace bravo_control
             public:            
             //& METHODS        
 
-                bravo_udp(bravo_control::ArmModel model, const std::string& ip, int port = 6789);
+                bravo_udp(bravo_control::ArmModel model,
+                          const std::string& ip,
+                          int port = 6789,
+                          bravo_utils::LogCallback cb = {});
 
                 int reconnect();
 

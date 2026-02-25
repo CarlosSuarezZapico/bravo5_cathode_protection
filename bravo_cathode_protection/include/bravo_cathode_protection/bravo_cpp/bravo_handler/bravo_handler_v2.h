@@ -34,8 +34,9 @@
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 
 #include "general_libs_unite/serial_manipulator/kinodynamics_manipulator.h"
-#include "bravo5_cp/bravo_cpp/bravo_io_v2/bravo_udp_v2.h"
-#include "bravo5_cp/bravo_cpp/utils/utils.h"
+#include "bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h"
+#include "bravo_cathode_protection/bravo_cpp/utils/utils.h"
+#include "bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h"
 
 using namespace std;
 using namespace Eigen;
@@ -48,12 +49,16 @@ enum set_bravo_control_mode {position_control, velocity_control, current_control
 
 template <bravo_control::Floating32or64 T_data>
 	class bravo_handler : public rclcpp::Node{
-		public: 
-			//& PINOCCHIO LIBRARY FOR KINODYNAMICS
-			kinodynamics_manipulator<T_data> kinodynamics;	
-		private:
-			//& LOW-LEVEL INTERFACE WITH BRAVO
-			std::unique_ptr<bravo_control::bravo_udp<T_data>> bravo_io;
+			public: 
+				//& PINOCCHIO LIBRARY FOR KINODYNAMICS
+				kinodynamics_manipulator<T_data> kinodynamics;	
+			private:
+				//& TERMINAL DASHBOARD FOR BRAVO UDP LOGS
+				bravo_utils::TerminalDashboard terminal_dashboard_;
+				std::atomic<bool> dashboard_enabled_{false};
+
+				//& LOW-LEVEL INTERFACE WITH BRAVO
+				std::unique_ptr<bravo_control::bravo_udp<T_data>> bravo_io;
 			size_t number_joints; 
 
 			//& THREAD FOR BRAVO IO INPUT/OUTPUT

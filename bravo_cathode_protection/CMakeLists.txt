@@ -42,14 +42,6 @@ set(dependencies
 )
 
 
-# --- Message generation ---
-rosidl_generate_interfaces(${PROJECT_NAME}
-    "msg/StampedFloat32Array.msg"
-    DEPENDENCIES std_msgs
-)
-# Make sure the node sees generated messages
-rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
-
 include_directories(include
                     ${PINOCCHIO_INCLUDE_DIRS}
                     ${EIGEN3_INCLUDE_DIR}
@@ -70,7 +62,8 @@ add_library(bravo_handler_v2 SHARED include/bravo_cathode_protection/bravo_cpp/b
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
-                                  include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp)
+                                  include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
+                                  include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp)
 ament_target_dependencies(bravo_handler_v2 rclcpp std_msgs sensor_msgs urdf Eigen3 visualization_msgs general_libs_unite)
 ament_export_libraries(bravo_handler_v2)
 ament_export_include_directories(include)
@@ -274,10 +267,6 @@ install(TARGETS bravo_handler_v2
 # ament_target_dependencies(program_cp_improved_2 rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 # target_link_libraries(program_cp_improved_2     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
 
-add_executable(bravo5_gravity_and_joint_friction            src/demos_v2/bravo5_gravity_and_joint_friction.cpp)
-ament_target_dependencies(bravo5_gravity_and_joint_friction rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
-target_link_libraries(bravo5_gravity_and_joint_friction     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
 add_executable(bravo5_gravity_and_joint_friction_identification            src/demos_v2/bravo5_gravity_and_joint_friction_identification.cpp)
 ament_target_dependencies(bravo5_gravity_and_joint_friction_identification rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
@@ -285,10 +274,6 @@ target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinoc
 # add_executable(bravo7_gravity_and_joint_friction            src/demos_v2/bravo7_gravity_and_joint_friction.cpp)
 # ament_target_dependencies(bravo7_gravity_and_joint_friction rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 # target_link_libraries(bravo7_gravity_and_joint_friction     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
-add_executable(bravo5_goTo_waypoints            src/demos_v2/bravo5_goTo_waypoints.cpp)
-ament_target_dependencies(bravo5_goTo_waypoints rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
-target_link_libraries(bravo5_goTo_waypoints     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
 
 # add_executable(bravo5_diff_kinematics  src/demos_v2/bravo5_diff_kinematics.cpp)
 # ament_target_dependencies(bravo5_diff_kinematics rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
@@ -314,9 +299,9 @@ target_link_libraries(bravo5_goTo_waypoints     pinocchio::pinocchio bravo_handl
 # ament_target_dependencies(bravo_cathode_protection_whole_program_3 rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 # target_link_libraries(bravo_cathode_protection_whole_program_3 pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
 
-add_executable(bravo_cathode_protection_whole_program_7  src/demos_v2/bravo_cathode_protection_whole_program_7.cpp)
-ament_target_dependencies(bravo_cathode_protection_whole_program_7 rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
-target_link_libraries(bravo_cathode_protection_whole_program_7 pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
+add_executable(bravo5_cp_whole_program_7  src/demos_v2/bravo5_cp_whole_program_7.cpp)
+ament_target_dependencies(bravo5_cp_whole_program_7 rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
+target_link_libraries(bravo5_cp_whole_program_7 pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
 
 # add_executable(bravo7_cp_compliance            src/demos_v2/bravo7_cp_compliance.cpp)
 # ament_target_dependencies(bravo7_cp_compliance rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
@@ -379,17 +364,15 @@ install(TARGETS
   #check_airbus
   # goToStore
   #program_cp_underwater
-  bravo5_gravity_and_joint_friction
   bravo5_gravity_and_joint_friction_identification
   #bravo7_gravity_and_joint_friction
-  bravo5_goTo_waypoints
   # joystick_bravo5_sim_diff
   # bravo5_diff_kinematics
   # bravo_cathode_protection_compliance_2
   # bravo_cathode_protection_whole_program
   # bravo_cathode_protection_whole_program_2
   # bravo_cathode_protection_whole_program_3
-  bravo_cathode_protection_whole_program_7
+  bravo5_cp_whole_program_7
   #bravo7_cp_compliance
   #gravity_compensation_and_stiction_stribeck_smooth
   # program_cp_improved_1

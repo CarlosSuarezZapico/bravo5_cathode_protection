@@ -49,7 +49,7 @@ namespace bravo_control{
                 }
             }
             else{
-+               BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ FATAL Unknown arm model configured.");
+                BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ FATAL Unknown arm model configured.");
                 std::exit(EXIT_FAILURE);
             }
 
@@ -75,10 +75,9 @@ namespace bravo_control{
                 case 0x04: control_mode_state = control_mode_states::joint_current_mode;  break;
                 case 0x0B: control_mode_state = control_mode_states::joint_torque_mode;   break;
                 default:
-                    BRAVO_LOG_ERROR(logger_, "[bravo_UDP]:❗ Unknown control mode " << packet.data[0]);
+                    BRAVO_LOG_ERROR(logger_, "[bravo_UDP]:❗ Unknown control mode ", packet.data[0]);
                     break;
             }
         }
 }
-
 

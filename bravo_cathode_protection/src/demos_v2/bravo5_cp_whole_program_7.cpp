@@ -20,7 +20,7 @@
 #include "pinocchio/algorithm/frames.hpp"
 #include <ament_index_cpp/get_package_share_directory.hpp>
 
-#include "bravo_compliance/bravo_cpp/bravo_handler/bravo_handler_v2.h"
+#include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include "general_libs_unite/joysticks/airbus_joystick.h"
 #include "general_libs_unite/interaction/stiffness_control_position.h"
 
@@ -342,8 +342,9 @@ int main(int argc, char ** argv)
         rclcpp::init(argc, argv);
         // Choose a path (example: first CLI arg)
         const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bpl_bravo_description") + "/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf";
-        const std::string tool_link = std::string("contact_point");  
-        const std::string config_filename = ament_index_cpp::get_package_share_directory("bravo_compliance") + "/config/bravo5_cp_compliance.json";
+        const std::string tool_link = std::string("contact_point");
+        const std::string ip_address = std::string("192.168.2.51");
+        const std::string config_filename = ament_index_cpp::get_package_share_directory("bravo_cathode_protection") + "/config/bravo5_cp_compliance.json";
         StiffnessJsonParams stiff_params; //& PARAMETERS LOADED FROM JSON CONFIG FILE
         try {
             stiff_params = load_stiffness_params_json(config_filename);
@@ -354,7 +355,7 @@ int main(int argc, char ** argv)
             return 1;
         }
         auto joystick         = std::make_shared<airbus_joystick_bravo5_CP>();
-        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link);//(urdf_filename);
+        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, ip_address);//(urdf_filename);
         auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
         executor->add_node(joystick);
         std::thread executor_thread([&executor]() {

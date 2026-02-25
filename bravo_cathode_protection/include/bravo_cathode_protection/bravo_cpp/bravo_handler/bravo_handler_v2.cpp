@@ -13,7 +13,8 @@
  *    Company  Heriot-Watt University / National Robotarium
  * ===============================================================
  */
-#include "bravo5_cp/bravo_cpp/bravo_handler/bravo_handler_v2.h"
+#include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
+#include <unistd.h>
 
 template <bravo_control::Floating32or64 T_data>
     bravo_handler<T_data>::bravo_handler(const std::string urdf_filename, const std::string &toolLink, const std::string& ip, int port, bool ROS_enable) : rclcpp::Node("bravo7_io_node"),
@@ -30,22 +31,53 @@ template <bravo_control::Floating32or64 T_data>
             }
             // Extract the robot name from the URDF
             std::string robot_name = robot_model.getName();
+
+            // Forward all low-level UDP logs to a terminal dashboard (if interactive terminal is available).
+            const bool has_tty = (::isatty(STDOUT_FILENO) == 1);
+            const char* dashboard_env = std::getenv("BRAVO_DASHBOARD");
+            const bool dashboard_requested = (dashboard_env == nullptr) || (std::string(dashboard_env) != "0");
+            dashboard_enabled_.store(has_tty && dashboard_requested, std::memory_order_relaxed);
+            if (dashboard_enabled_.load(std::memory_order_relaxed)) {
+                terminal_dashboard_.start();
+            }
+
+            auto udp_log_callback = [this](bravo_utils::LogLevel lvl, std::string_view msg) {
+                if (dashboard_enabled_.load(std::memory_order_relaxed)) {
+                    terminal_dashboard_.push(lvl, std::string(msg));
+                    return;
+                }
+
+                const std::string line(msg);
+                switch (lvl) {
+                    case bravo_utils::LogLevel::Debug:
+                        RCLCPP_DEBUG(this->get_logger(), "%s", line.c_str());
+                        break;
+                    case bravo_utils::LogLevel::Info:
+                        RCLCPP_INFO(this->get_logger(), "%s", line.c_str());
+                        break;
+                    case bravo_utils::LogLevel::Warn:
+                        RCLCPP_WARN(this->get_logger(), "%s", line.c_str());
+                        break;
+                    case bravo_utils::LogLevel::Error:
+                        RCLCPP_ERROR(this->get_logger(), "%s", line.c_str());
+                        break;
+                }
+            };
+
             if (robot_name == "bravo5"){
                 RCLCPP_INFO(this->get_logger(), "[bravo_handler]: ✅ Initializing BRAVO 5 model");
                 //bravo_io = bravo_control::bravo_udp<T_data>(bravo_control::bravo_udp<T_data>::ArmModel::BRAVO_5, "192.168.2.51");
-                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo5, ip, port);
-                max_q_vel.resize(4); sim_joint_whole_integration.resize(4); motor_constants.resize(4);  
+                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo5, ip, port, udp_log_callback);
+                max_q_vel.resize(4); motor_constants.resize(4);  
                 motor_constants << 0.222, 0.222, 0.215, 0.209;
                 max_q_vel << 1.0, 1.0, 1.0, 1.0;
-                sim_joint_whole_integration << 1.7, 2.7, 0.66, 0.0;
             }
             else if (robot_name == "bravo7"){
                 RCLCPP_INFO(this->get_logger(), "[bravo_handler]: ✅ Initializing BRAVO 7 model");
                 //bravo_io = bravo_control::bravo_udp<T_data>(bravo_control::bravo_udp<T_data>::ArmModel::BRAVO_7, "192.168.2.51");
-                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo7, ip, port);
-                max_q_vel.resize(6); sim_joint_whole_integration.resize(6);  motor_constants.resize(6);
+                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo7, ip, port, udp_log_callback);
+                max_q_vel.resize(6);  motor_constants.resize(6);
                 max_q_vel << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0;
-                sim_joint_whole_integration << 1.7, 2.7, 0.66, 1.8, 3.0, 0.0;
                 motor_constants << 0.222, 0.222, 0.215, 0.215, 0.215, 0.209;
             }
             else {
@@ -81,9 +113,6 @@ template <bravo_control::Floating32or64 T_data>
             lowerJointInfLimits = lowerJointLimits + offset;
             upperJointInfLimits.resize(6);
             upperJointInfLimits = upperJointLimits - offset;
-            //& INTIALIZE EE TWIST COMMAND
-            cmdLocalTwist.data << 0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
-            cmdLocalTwist.last_update = std::chrono::high_resolution_clock::now();
 
             //&START BRAVO_IO THREAD for input and output
             bravo_io->set_dianosis_debug(true); //& SET TO TRUE FOR DEBUGGING
@@ -97,6 +126,9 @@ template <bravo_control::Floating32or64 T_data>
             bravo_io_run_thread = false;
             if (bravo_io_thread.joinable()) {
                 bravo_io_thread.join();
+            }
+            if (dashboard_enabled_.exchange(false, std::memory_order_relaxed)) {
+                terminal_dashboard_.stop();
             }
         }
 
@@ -209,32 +241,6 @@ template <bravo_control::Floating32or64 T_data>
                 }
             }
             return true;
-        }
-
-        /**
-         * @brief Function to drive the arm to a goal joint position
-         * @param goal_joint_position desired joint configuration
-         * @param current_joint_position current joint configuration
-         * @param joint_vel joint velocity used in the interpolation
-         * @param sampling_time integration time
-         * @return joint_cmd joint command to be sent to the arm
-         */ 
-    template <bravo_control::Floating32or64 T_data>
-        Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::going2joint_interpolation(Eigen::Vector<T_data, Eigen::Dynamic> goal_joint_position, Eigen::Vector<T_data, Eigen::Dynamic> current_joint_position, T_data joint_vel, T_data sampling_time){            
-            Eigen::Vector<T_data, Eigen::Dynamic> delta_joint = goal_joint_position - current_joint_position;     
-            for (int i=0; i<number_joints; i++){   
-                delta_joint[i] = fmod(goal_joint_position[i] - current_joint_position[i] + 3 * M_PI, 2 * M_PI) - M_PI; //THE JOINTS HAVE A RANGE FROM 0.0 TO 6.28, for that reason we use this formula 
-            }       
-            // Normalize the delta to get direction of movement and scale by velocity
-            Eigen::Vector<T_data, Eigen::Dynamic> delta_joint_normalized = delta_joint.normalized();            
-            Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd = current_joint_position + delta_joint_normalized * joint_vel * sampling_time;
-            // Make sure we don't overshoot the goal
-            for (int i = 0; i < number_joints; i++) {
-                if (std::abs(delta_joint[i]) < std::abs(0.02)) {
-                    joint_cmd[i] = goal_joint_position[i];  // Clamp to goal if overshooting
-                }
-            }
-            return joint_cmd;
         }
 
     template <bravo_control::Floating32or64 T_data>

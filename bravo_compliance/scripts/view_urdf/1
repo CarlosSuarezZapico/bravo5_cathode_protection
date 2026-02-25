@@ -1,0 +1,90 @@
+import numpy as np
+import pinocchio as pin
+import meshcat.geometry as g
+import ipywidgets as widgets
+from ipywidgets import interact
+
+# Draw with U (principal directions) and radii already computed (no extra sqrt inside)
+def draw_ellipsoid_from_svd(viz, path, U, radii, placement, color, opacity=0.4, scale=0.05):
+    radii = np.asarray(radii, dtype=float)
+    radii = np.maximum(radii, 1e-12)  # clamp to avoid zeros
+    T = placement.copy()
+    T[:3, :3] = T[:3, :3] @ U
+    material = g.MeshLambertMaterial(color=color, transparent=True, opacity=opacity)
+    viz.viewer[path].set_object(g.Ellipsoid(scale * radii), material)
+    viz.viewer[path].set_transform(T)
+
+# Global config (keep your q_current logic)
+q_current = pin.neutral(model_amir)
+q_current[:6] = CONFIGURATION_2_GOOD
+
+# Sliders (we keep references so we can reset them)
+slider_layout = widgets.Layout(width='80%')  # 600px wide
+dx_slider = widgets.FloatSlider(min=-0.3, max=0.3, step=0.001, value=0.0, layout=slider_layout)
+dy_slider = widgets.FloatSlider(min=-0.3, max=0.3, step=0.001, value=0.0, layout=slider_layout)
+dz_slider = widgets.FloatSlider(min=-0.3, max=0.3, step=0.001, value=0.0, layout=slider_layout)
+rx_slider = widgets.FloatSlider(min=-0.2, max=0.2, step=0.001, value=0.0, layout=slider_layout)
+ry_slider = widgets.FloatSlider(min=-0.2, max=0.2, step=0.001, value=0.0, layout=slider_layout)
+rz_slider = widgets.FloatSlider(min=-0.2, max=0.2, step=0.001, value=0.0, layout=slider_layout)
+
+def update_pose(dx=0.0, dy=0.0, dz=0.0, rx=0.0, ry=0.0, rz=0.0, scale_factor=0.05):
+    global q_current
+
+    # Use the real EE frame id; do NOT overwrite it with a hard-coded number
+    frame_id = model_amir.getFrameId(tool_link)
+
+    # FK/Jacobian at current config
+    pin.forwardKinematics(model_amir, data_amir, q_current)
+    pin.updateFramePlacements(model_amir, data_amir)
+    J = pin.computeFrameJacobian(model_amir, data_amir, q_current, frame_id, pin.LOCAL)
+    Jlin = J[:3, :]
+
+    # Small damped IK step (more stable than raw pinv)
+    dx_local = np.array([dx, dy, dz, rx, ry, rz])
+    mu = 1e-4
+    JJt = J @ J.T
+    dq = J.T @ np.linalg.solve(JJt + (mu**2)*np.eye(6), dx_local)
+
+    # Update only valid DOFs
+    q_current[:len(dq)] += dq[:len(q_current)]
+
+    # Update kinematics again after the move
+    viz.display(q_current)
+    pin.forwardKinematics(model_amir, data_amir, q_current)
+    pin.updateFramePlacements(model_amir, data_amir)
+
+    # ⬇️ SVD-based manipulability (clean and aligned)
+    U, s, Vt = np.linalg.svd(Jlin, full_matrices=False)
+    eps = 1e-12
+    s = np.maximum(s, eps)
+    motion_radii = s
+    force_radii  = 1.0 / s
+
+    # Place ellipsoids at the actual EE pose
+    placement = data_amir.oMf[frame_id].homogeneous
+
+    # Colors: motion = BLUE, force = RED
+    draw_ellipsoid_from_svd(viz, "world/motion_ellipsoid", U, motion_radii, placement,
+                            color=0x2609DE, opacity=0.45, scale=0.2)
+    draw_ellipsoid_from_svd(viz, "world/force_ellipsoid", U, force_radii, placement,
+                            color=0xFF0000, opacity=0.35, scale=0.02)
+
+    # Quick sanity print
+    print("singular values σ (motion radii):", s)
+    print("1/σ (force radii):", 1.0/s)
+
+    # 🔄 Reset sliders back to zero after applying the move
+    dx_slider.value = 0.0
+    dy_slider.value = 0.0
+    dz_slider.value = 0.0
+    rx_slider.value = 0.0
+    ry_slider.value = 0.0
+    rz_slider.value = 0.0
+
+# Build interactive UI with fixed sliders
+ui = widgets.VBox([dx_slider, dy_slider, dz_slider, rx_slider, ry_slider, rz_slider])
+out = widgets.interactive_output(update_pose, 
+                                 {'dx': dx_slider, 'dy': dy_slider, 'dz': dz_slider,
+                                  'rx': rx_slider, 'ry': ry_slider, 'rz': rz_slider})
+
+display(ui, out)

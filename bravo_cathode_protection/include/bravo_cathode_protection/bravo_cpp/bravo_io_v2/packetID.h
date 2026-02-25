@@ -6,7 +6,7 @@
  * 
  */
 //! TORQUE ID ADDED
-typedef enum packetID{
+enum packetID{
 
 	MODE = 0x01,
 	VELOCITY = 0X02,

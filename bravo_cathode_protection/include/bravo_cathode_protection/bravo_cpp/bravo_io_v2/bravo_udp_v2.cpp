@@ -17,7 +17,11 @@
 namespace bravo_control{ 
 
     template <typename T_data> 
-        bravo_udp<T_data>::bravo_udp(bravo_control::ArmModel model, const std::string& ip, int port) : running_loop(true), arm_model(model), 
+        bravo_udp<T_data>::bravo_udp(bravo_control::ArmModel model,
+                                     const std::string& ip,
+                                     int port,
+                                     bravo_utils::LogCallback cb)
+            : running_loop(true), arm_model(model), 
             number_joints(model == bravo_control::ArmModel::bravo5 ? 5 : 7),  // Set number of joints based on arm model
             position_jointFdb(number_joints), 
             current_jointFdb(number_joints), 
@@ -26,7 +30,8 @@ namespace bravo_control{
             joint_cmd_position(number_joints), 
             joint_cmd_velocity(number_joints), 
             joint_cmd_current(number_joints), 
-            joint_cmd_torque(number_joints)
+            joint_cmd_torque(number_joints),
+            logger_(std::move(cb))
         {
             //& UDP SOCKET CLIENT 
             //*TIMEOUT FOR RECV FUNCTION IN SOCKET
@@ -49,18 +54,20 @@ namespace bravo_control{
                 BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Invalid IP address: ", ip);
                 std::exit(EXIT_FAILURE);            
             }
-            BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Using IP: " << ip << ", Port: " << port);
+            BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Using IP: ", ip, ", Port: ", port);
             // servaddr.sin_addr.s_addr = inet_addr("192.168.2.51"); // IP 192.168.2.4
             // std::cout << "[bravo_UDP]: Connected at IP: " << inet_ntoa(servaddr.sin_addr) << ", PORT: " << port << std::endl;
             if (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1){
                 //! ERROR: Failed to connect to the host!
-                BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Failed to connect to Bravo Arm! (errno =" << errno  << " (" << strerror(errno) << ")");
+                BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Failed to connect to Bravo Arm! (errno =",
+                                errno, " (", strerror(errno), ")");
                 close(sockfd);
                 control_mode_state = control_mode_states::error;
                 std::exit(EXIT_FAILURE);
             }
             else {
-                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: ✅ Connected to bravo using IP: " << ip << "and port " << port << "...ok!");
+                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: ✅ Connected to bravo using IP: ",
+                               ip, "and port ", port, "...ok!");
             }
             control_mode_state = control_mode_states::joint_current_mode;
             // Initialize the joint positions (example: home position)
@@ -84,7 +91,8 @@ namespace bravo_control{
         int bravo_udp<T_data>::reconnect() 
         {
             if (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1){
-                BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Failed to connect to Bravo Arm! (errno =" << errno  << " (" << strerror(errno) << ")");
+                BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Failed to connect to Bravo Arm! (errno =",
+                                errno, " (", strerror(errno), ")");
                 return -1;  // Return -1 to indicate failure
             }
             else {
@@ -294,22 +302,26 @@ namespace bravo_control{
             //& POSITION JOINT FEEDBACK
             if (options_fdb_cmd.joint_pos_fdb && position_jointFdb.received) {
                 std::chrono::duration<T_data> elapsed = now - position_jointFdb.last_msg;
-                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Position joint feedback time elapsed between two last readings: " << elapsed.count() << " seconds");
+                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Position joint feedback time elapsed between two last readings: ",
+                               elapsed.count(), " seconds");
             }
             //& AMPERAGE JOINT FEEDBACK
             if (options_fdb_cmd.joint_amp_fdb && current_jointFdb.received) {
                 std::chrono::duration<T_data> elapsed = now - current_jointFdb.last_msg;
-                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Amperage joint feedback time elapsed between two last readings: " << elapsed.count() << " seconds");
+                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Amperage joint feedback time elapsed between two last readings: ",
+                               elapsed.count(), " seconds");
             }
             //& VELOCITY JOINT FEEDBACK
             if (options_fdb_cmd.joint_vel_fdb && velocity_jointFdb.received) {
                 std::chrono::duration<T_data> elapsed = now - velocity_jointFdb.last_msg;
-                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Velocity joint feedback time elapsed between two last readings: " << elapsed.count() << " seconds");
+                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Velocity joint feedback time elapsed between two last readings: ",
+                               elapsed.count(), " seconds");
             }
             // & TORQUE JOINT FEEDBACK
             if (options_fdb_cmd.joint_torque_fdb && torque_jointFdb.received) {
                 std::chrono::duration<T_data> elapsed = now - torque_jointFdb.last_msg;
-                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Torque joint feedback time elapsed between two last readings: " << elapsed.count() << " seconds");
+                BRAVO_LOG_INFO(logger_, "[bravo_UDP]: Torque joint feedback time elapsed between two last readings: ",
+                               elapsed.count(), " seconds");
             }
         }
     
@@ -426,7 +438,7 @@ namespace bravo_control{
                             BRAVO_LOG_WARN(logger_, "[bravo_UDP]:❗recv() timed out");
                             request_cmd_fdb = true; // Set the flag to request feedback again
                         } else {
-                           BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ recv() failed with error: " << strerror(errno));
+                           BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ recv() failed with error: ", strerror(errno));
                         }
                         continue; // Skip to the next iteration of the loop
                     }
@@ -463,7 +475,8 @@ namespace bravo_control{
                                 bravoDiagnoseWarnings(packets[i], diagnosis);
                             }
                             else{
-                                BRAVO_LOG_WARN(logger_, "[bravo_UDP]:❗Unknown packet ID received: " << packets[i].packetID);
+                                BRAVO_LOG_WARN(logger_, "[bravo_UDP]:❗Unknown packet ID received: ",
+                                               packets[i].packetID);
                             }
                         }
                         //* MAKE SURE ALL FEEDBACKS ARE RECEIVED TO REQUEST MORE DATA
@@ -480,5 +493,3 @@ namespace bravo_control{
 
 
 }
-
-
