@@ -17,7 +17,11 @@
 #include <chrono>
 #include <math.h>
 #include <exception>
+#include <fstream>
+#include <stdexcept>
+#include <string>
 #include <type_traits>
+#include <nlohmann/json.hpp>
 
 #include "general_libs_unite/general_utils/general_utils.h"
 #include "general_libs_unite/serial_manipulator/diff_kinematics.h"
@@ -27,6 +31,49 @@ using namespace general_utils;
 using namespace Eigen;
 
 enum class armModel{bravo5, bravo7};
+
+namespace stiffness_control_config {
+
+    struct StiffnessJsonParams
+    {
+        Eigen::Vector3d pos_stiffness{50.0, 1000.0, 200.0};
+        Eigen::Vector3d pos_damping{1.0, 100.0, 20.0};
+        Eigen::Vector3d gain_force{0.03, 0.0, 0.0};
+        Eigen::Vector3d nominal_vel{0.05, 0.0, 0.0};
+        Eigen::Vector3d desired_force{1.5, 0.0, 0.0};
+        Eigen::Vector3d maximum_vel{0.25, 0.25, 0.25};
+    };
+
+    inline Eigen::Vector3d json_vec3(const nlohmann::json& j, const std::string& key)
+    {
+        if (!j.contains(key) || !j.at(key).is_array() || j.at(key).size() != 3) {
+            throw std::runtime_error("JSON key '" + key + "' must be an array of 3 numbers");
+        }
+        return Eigen::Vector3d(
+            j.at(key).at(0).get<double>(),
+            j.at(key).at(1).get<double>(),
+            j.at(key).at(2).get<double>()
+        );
+    }
+
+    inline StiffnessJsonParams load_stiffness_params_json(const std::string& path)
+    {
+        StiffnessJsonParams p;
+        std::ifstream f(path);
+        if (!f.is_open()) {
+            throw std::runtime_error("Could not open stiffness config file: " + path);
+        }
+        nlohmann::json j;
+        f >> j;
+        p.pos_stiffness = json_vec3(j, "pos_stiffness");
+        p.pos_damping   = json_vec3(j, "pos_damping");
+        p.gain_force    = json_vec3(j, "gain_force");
+        p.nominal_vel   = json_vec3(j, "nominal_vel");
+        p.desired_force = json_vec3(j, "desired_force");
+        p.maximum_vel   = json_vec3(j, "maximum_vel");
+        return p;
+    }
+}
 
 template <FloatingPoint T> 
     class stiffness_control_position{

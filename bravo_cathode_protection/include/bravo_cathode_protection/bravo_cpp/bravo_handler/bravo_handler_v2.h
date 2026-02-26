@@ -30,18 +30,12 @@
 #include <geometry_msgs/msg/vector3_stamped.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
-#include <std_msgs/msg/float32.hpp>			
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 
 #include "general_libs_unite/serial_manipulator/kinodynamics_manipulator.h"
 #include "bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/utils.h"
-#include "bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h"
-
-using namespace std;
-using namespace Eigen;
-using namespace bravo_utils;
-using namespace bravo_control;
+#include "bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h"
 
 //& CONTROL MODES AND ARM STATES
 enum set_bravo_control_mode {position_control, velocity_control, current_control, torque_control}; // Bravo list of control modes
@@ -53,9 +47,8 @@ template <bravo_control::Floating32or64 T_data>
 				//& PINOCCHIO LIBRARY FOR KINODYNAMICS
 				kinodynamics_manipulator<T_data> kinodynamics;	
 			private:
-				//& TERMINAL DASHBOARD FOR BRAVO UDP LOGS
-				bravo_utils::TerminalDashboard terminal_dashboard_;
-				std::atomic<bool> dashboard_enabled_{false};
+				//& LOGGER SHARED WITH MAIN/HANDLER/UDP
+				std::shared_ptr<bravo_utils::Logger> logger_;
 
 				//& LOW-LEVEL INTERFACE WITH BRAVO
 				std::unique_ptr<bravo_control::bravo_udp<T_data>> bravo_io;
@@ -66,11 +59,7 @@ template <bravo_control::Floating32or64 T_data>
 			std::atomic<bool> bravo_io_run_thread;
 
 			//& JOINT LIMITS
-			Eigen::Vector<T_data, Eigen::Dynamic> upperJointLimits, upperJointInfLimits, lowerJointLimits, lowerJointInfLimits, maskJointLimits;
-
-			//& SAFETY VARIABLES - MAXIMUM JOINT VELOCITY & JOINT CURRENT
-			Eigen::Vector<T_data, Eigen::Dynamic> max_q_vel;
-			Eigen::Vector<T_data, Eigen::Dynamic> max_q_current;
+			Eigen::Vector<T_data, Eigen::Dynamic> upperJointLimits, upperJointInfLimits, lowerJointLimits, lowerJointInfLimits;
 
 			//& CURRENT MOTOR CONSTANT (Nm/A)
 			Eigen::Vector<T_data, Eigen::Dynamic> motor_constants;
@@ -80,13 +69,6 @@ template <bravo_control::Floating32or64 T_data>
 			rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr       pubWrenchEstimation;
 			rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr            pubFdbJointStates;
 			rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr            pubJointsStateRviz;
-			rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr                  pubJointsStateFreq;
-			rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr                  pubCurrentJointsFreq;
-			rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr                  pubFTFreq;
-			
-			bool print_warn_cond = true;
-			T_data manipulability = 1000.0;
-			T_data MAX_MANIPULABILITY = 25.0; //& Safety threshold for manipulability
 
 		//MEMBER FUNCTIONS
 		public:
@@ -95,11 +77,18 @@ template <bravo_control::Floating32or64 T_data>
 			 * 
 			 * @param urdf_filename urdf file location
 			 * @param toolLink ee frame name
-			 * @param ip ip address of the arm
+			 * @param ip optional ip address of the arm. If empty, defaults are:
+			 * bravo5 -> 10.43.0.146, bravo7 -> 192.168.2.51
 			 * @param port port for the communication
 			 * @param ROS_enable if true, it initializes the ROS publishers for the feedback from the arm
+			 * @param shared_logger optional logger created in main and shared with handler/udp
 			 */
-			bravo_handler(const std::string urdf_filename, const std::string &toolLink, const std::string& ip, int port = 6789, bool ROS_enable = true);
+			bravo_handler(const std::string urdf_filename,
+			             const std::string &toolLink,
+			             const std::string& ip = "",
+			             int port = 6789,
+			             bool ROS_enable = true,
+			             std::shared_ptr<bravo_utils::Logger> shared_logger = nullptr);
 
 			~bravo_handler();
 
@@ -185,9 +174,9 @@ template <bravo_control::Floating32or64 T_data>
 			//& SAFETY AND DEBUGGING
 			bool isConnected();
 
-			bool arm_is_healthy(const T_data max_time_without_fdb);
+			T_data get_udp_rx_frequency_hz() const;
 
-			void exceeding_joint_current_limit(Eigen::Vector<T_data, Eigen::Dynamic> q_cmd, Eigen::Vector<T_data, Eigen::Dynamic> MAX_CURRENT);
-	};
+			bool arm_is_healthy(const T_data max_time_without_fdb);
+		};
 
 #endif

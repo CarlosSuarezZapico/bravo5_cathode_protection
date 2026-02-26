@@ -360,6 +360,12 @@ namespace bravo_control{
             if (frequency <= 0) throw std::invalid_argument("[bravo_UDP]: frequency must be > 0");
             request_time_delay_sec = T_data(1) / std::abs(frequency);
         }
+
+    template <typename T_data>
+        T_data bravo_udp<T_data>::get_rx_packet_frequency_hz() const
+        {
+            return rx_packet_frequency_hz.load(std::memory_order_relaxed);
+        }
     
     template <typename T_data> 
         bool bravo_udp<T_data>::check_feedback_rate(T_data MAX_TIME, std::chrono::high_resolution_clock::time_point time_point)
@@ -416,6 +422,10 @@ namespace bravo_control{
         {
             bool request_cmd_fdb = true; 
             bool pos_fdb_received = false, vel_fdb_received = false, torque_fdb_received = false, current_fdb_received = false;
+            auto last_no_data_warn = std::chrono::steady_clock::now() - std::chrono::seconds(10);
+            auto last_timeout_warn = std::chrono::steady_clock::now() - std::chrono::seconds(10);
+            auto last_full_feedback_cycle = std::chrono::steady_clock::time_point{};
+            bool have_last_full_feedback_cycle = false;
             while  (running_loop){           
                 //& REQUESTING FEEDBACK AND COMMANDS AT A SPECIFIC FREQUENCY RATE
                 elapsed_request = std::chrono::high_resolution_clock::now()-last_request_time;
@@ -431,14 +441,29 @@ namespace bravo_control{
                     std::array<uint8_t, 20> buffer{};
                     int len = ::recv(sockfd, buffer.data(), buffer.size(), 0);
                     //* SET TIMEOUT TO AVOID BLOCKING
-                    if (len < 0) {
+                    if (len <= 0) {
                         //* ERROR: No data received AFTER TIMEOUT
-                        BRAVO_LOG_WARN(logger_, "[bravo_UDP]: recv() No data received from Bravo Arm");
+                        const auto now = std::chrono::steady_clock::now();
+                        if (have_last_full_feedback_cycle &&
+                            (now - last_full_feedback_cycle > std::chrono::milliseconds(300))) {
+                            rx_packet_frequency_hz.store(T_data(0), std::memory_order_relaxed);
+                        }
+                        if (now - last_no_data_warn > std::chrono::milliseconds(50)) {
+                            BRAVO_LOG_WARN(logger_, "[bravo_UDP]: recv() No data received from Bravo Arm");
+                            last_no_data_warn = now;
+                        }
                         if (errno == EWOULDBLOCK || errno == EAGAIN) {
-                            BRAVO_LOG_WARN(logger_, "[bravo_UDP]:❗recv() timed out");
+                            if (now - last_timeout_warn > std::chrono::milliseconds(50)) {
+                                BRAVO_LOG_WARN(logger_, "[bravo_UDP]:❗recv() timed out");
+                                last_timeout_warn = now;
+                            }
                             request_cmd_fdb = true; // Set the flag to request feedback again
                         } else {
                            BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ recv() failed with error: ", strerror(errno));
+                        }
+                        if (len == 0) {
+                            BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ recv() Connection closed by peer");
+                            reconnect();
                         }
                         continue; // Skip to the next iteration of the loop
                     }
@@ -482,11 +507,20 @@ namespace bravo_control{
                         //* MAKE SURE ALL FEEDBACKS ARE RECEIVED TO REQUEST MORE DATA
                         if ((options_fdb_cmd.joint_pos_fdb == pos_fdb_received) && (options_fdb_cmd.joint_amp_fdb == current_fdb_received) 
                                 && (options_fdb_cmd.joint_vel_fdb == vel_fdb_received) && (options_fdb_cmd.joint_torque_fdb == torque_fdb_received)){
+                            const auto now = std::chrono::steady_clock::now();
+                            if (have_last_full_feedback_cycle) {
+                                const T_data dt = std::chrono::duration<T_data>(now - last_full_feedback_cycle).count();
+                                if (dt > T_data(1e-6)) {
+                                    rx_packet_frequency_hz.store(T_data(1) / dt, std::memory_order_relaxed);
+                                }
+                            }
+                            last_full_feedback_cycle = now;
+                            have_last_full_feedback_cycle = true;
+
                             request_cmd_fdb = true;
                             pos_fdb_received = false, vel_fdb_received = false, torque_fdb_received = false, current_fdb_received = false;
                         }
                     }   
-                    last_request_time = std::chrono::high_resolution_clock::now(); // Update the last request time
                 }
             }
         }

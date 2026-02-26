@@ -27,6 +27,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <string>
+#include <atomic>
 
 //bravo libraries
 #include "bravo_cathode_protection/bravo_cpp/bravo_io_v2/packetID.h"
@@ -100,6 +101,7 @@ namespace bravo_control
                 T_data request_time_delay_sec  = 0.0005;
                 std::chrono::high_resolution_clock::time_point last_request_time;
                 std::chrono::duration<T_data> elapsed_request;
+                std::atomic<T_data> rx_packet_frequency_hz{T_data(0)};
                 
                 //&PACKET READER 
                 PacketReader  packet_reader;   
@@ -193,6 +195,8 @@ namespace bravo_control
                 void set_mode_all_devices(control_mode_states mode);
 
                 void set_frequency_requests(T_data frequency);
+
+                T_data get_rx_packet_frequency_hz() const;
 
                 bool check_feedback_rate(T_data MAX_TIME, std::chrono::high_resolution_clock::time_point time_point);
                  

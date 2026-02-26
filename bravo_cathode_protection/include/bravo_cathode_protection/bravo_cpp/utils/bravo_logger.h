@@ -15,6 +15,8 @@
 #pragma once
 #include <cstdint>
 #include <functional>
+#include <iostream>
+#include <mutex>
 #include <sstream>
 #include <string>
 #include <string_view>
@@ -25,6 +27,36 @@ namespace bravo_utils {
     enum class LogLevel : uint8_t { Debug=0, Info=1, Warn=2, Error=3 };
 
     using LogCallback = std::function<void(LogLevel, std::string_view)>;
+
+    inline const char* log_level_tag(LogLevel lvl) noexcept {
+        switch (lvl) {
+            case LogLevel::Debug: return "[DEBUG]";
+            case LogLevel::Info:  return "[INFO ]";
+            case LogLevel::Warn:  return "[WARN ]";
+            case LogLevel::Error: return "[ERROR]";
+        }
+        return "[INFO ]";
+    }
+
+    inline void write_log_stderr(LogLevel lvl, std::string_view message) {
+        static std::mutex output_mutex;
+        std::lock_guard<std::mutex> lock(output_mutex);
+        std::cerr << log_level_tag(lvl) << " " << message << '\n';
+    }
+
+    template <typename DashboardEnabledFn, typename DashboardPushFn>
+    inline LogCallback make_dashboard_or_stderr_callback(
+        DashboardEnabledFn&& dashboard_enabled,
+        DashboardPushFn&& dashboard_push) {
+        return [enabled = std::forward<DashboardEnabledFn>(dashboard_enabled),
+                push = std::forward<DashboardPushFn>(dashboard_push)](LogLevel lvl, std::string_view message) {
+            if (enabled()) {
+                push(lvl, message);
+                return;
+            }
+            write_log_stderr(lvl, message);
+        };
+    }
 
     class Logger {
         public:

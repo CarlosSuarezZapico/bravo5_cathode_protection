@@ -14,75 +14,62 @@
  * ===============================================================
  */
 #include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
-#include <unistd.h>
+#include <iostream>
 
 template <bravo_control::Floating32or64 T_data>
-    bravo_handler<T_data>::bravo_handler(const std::string urdf_filename, const std::string &toolLink, const std::string& ip, int port, bool ROS_enable) : rclcpp::Node("bravo7_io_node"),
-                    kinodynamics(urdf_filename, toolLink), bravo_io(nullptr){
+    bravo_handler<T_data>::bravo_handler(const std::string urdf_filename,
+                                         const std::string &toolLink,
+                                         const std::string& ip,
+                                         int port,
+                                         bool ROS_enable,
+                                         std::shared_ptr<bravo_utils::Logger> shared_logger)
+                    : rclcpp::Node("bravo7_io_node"),
+                    kinodynamics(urdf_filename, toolLink),
+                    logger_(shared_logger),
+                    bravo_io(nullptr){
 
+            if (!logger_) {
+                logger_ = std::make_shared<bravo_utils::Logger>();
+            }
             
             // Load the URDF model using urdf::Model
             ::urdf::Model robot_model;
             if (!robot_model.initFile(urdf_filename)) {
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Failed to parse URDF file");
-                std::cerr << "❌ Failed to parse URDF file: " << urdf_filename << std::endl;
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Failed to parse URDF file: ", urdf_filename);
                 rclcpp::shutdown();
                 std::exit(EXIT_FAILURE);
             }
             // Extract the robot name from the URDF
             std::string robot_name = robot_model.getName();
-
-            // Forward all low-level UDP logs to a terminal dashboard (if interactive terminal is available).
-            const bool has_tty = (::isatty(STDOUT_FILENO) == 1);
-            const char* dashboard_env = std::getenv("BRAVO_DASHBOARD");
-            const bool dashboard_requested = (dashboard_env == nullptr) || (std::string(dashboard_env) != "0");
-            dashboard_enabled_.store(has_tty && dashboard_requested, std::memory_order_relaxed);
-            if (dashboard_enabled_.load(std::memory_order_relaxed)) {
-                terminal_dashboard_.start();
-            }
+            std::string resolved_ip = ip;
 
             auto udp_log_callback = [this](bravo_utils::LogLevel lvl, std::string_view msg) {
-                if (dashboard_enabled_.load(std::memory_order_relaxed)) {
-                    terminal_dashboard_.push(lvl, std::string(msg));
-                    return;
-                }
-
-                const std::string line(msg);
-                switch (lvl) {
-                    case bravo_utils::LogLevel::Debug:
-                        RCLCPP_DEBUG(this->get_logger(), "%s", line.c_str());
-                        break;
-                    case bravo_utils::LogLevel::Info:
-                        RCLCPP_INFO(this->get_logger(), "%s", line.c_str());
-                        break;
-                    case bravo_utils::LogLevel::Warn:
-                        RCLCPP_WARN(this->get_logger(), "%s", line.c_str());
-                        break;
-                    case bravo_utils::LogLevel::Error:
-                        RCLCPP_ERROR(this->get_logger(), "%s", line.c_str());
-                        break;
-                }
+                logger_->log(lvl, msg);
             };
 
             if (robot_name == "bravo5"){
-                RCLCPP_INFO(this->get_logger(), "[bravo_handler]: ✅ Initializing BRAVO 5 model");
-                //bravo_io = bravo_control::bravo_udp<T_data>(bravo_control::bravo_udp<T_data>::ArmModel::BRAVO_5, "192.168.2.51");
-                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo5, ip, port, udp_log_callback);
-                max_q_vel.resize(4); motor_constants.resize(4);  
+                BRAVO_LOG_INFO((*logger_), "[bravo_handler]: Initializing BRAVO 5 model");
+                if (resolved_ip.empty()) {
+                    resolved_ip = "10.43.0.146";
+                    BRAVO_LOG_INFO((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 5 IP: ", resolved_ip);
+                }
+                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo5, resolved_ip, port, udp_log_callback);
+                motor_constants.resize(4);  
                 motor_constants << 0.222, 0.222, 0.215, 0.209;
-                max_q_vel << 1.0, 1.0, 1.0, 1.0;
             }
             else if (robot_name == "bravo7"){
-                RCLCPP_INFO(this->get_logger(), "[bravo_handler]: ✅ Initializing BRAVO 7 model");
-                //bravo_io = bravo_control::bravo_udp<T_data>(bravo_control::bravo_udp<T_data>::ArmModel::BRAVO_7, "192.168.2.51");
-                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo7, ip, port, udp_log_callback);
-                max_q_vel.resize(6);  motor_constants.resize(6);
-                max_q_vel << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0;
+                BRAVO_LOG_INFO((*logger_), "[bravo_handler]: Initializing BRAVO 7 model");
+                if (resolved_ip.empty()) {
+                    resolved_ip = "192.168.2.51";
+                    BRAVO_LOG_INFO((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 7 IP: ", resolved_ip);
+                }
+                bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo7, resolved_ip, port, udp_log_callback);
+                motor_constants.resize(6);
                 motor_constants << 0.222, 0.222, 0.215, 0.215, 0.215, 0.209;
             }
             else {
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Unknown robot model in URDF: %s", robot_name.c_str());
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ The name of the robot in the URDF must be either 'bravo5' or 'bravo7'");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Unknown robot model in URDF: ", robot_name);
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: The name of the robot in the URDF must be either 'bravo5' or 'bravo7'");
                 rclcpp::shutdown();
                 std::exit(EXIT_FAILURE);
             }
@@ -92,17 +79,12 @@ template <bravo_control::Floating32or64 T_data>
                 pubWrenchEstimation    = this->create_publisher<geometry_msgs::msg::WrenchStamped>  ("/bravo/fdb/wrench_estimation", 10);
                 pubFdbJointStates      = this->create_publisher<sensor_msgs::msg::JointState>       ("/bravo/fdb/joint_states", 10);
                 pubJointsStateRviz     = this->create_publisher<sensor_msgs::msg::JointState>       ("/bravo/cmd/joint_states", 10);  
-                pubJointsStateFreq     = this->create_publisher<std_msgs::msg::Float32>             ("/bravo/frequency_joint_position", 10);  
-                pubCurrentJointsFreq   = this->create_publisher<std_msgs::msg::Float32>             ("/bravo/frequency_joint_current", 10);  
-                pubFTFreq              = this->create_publisher<std_msgs::msg::Float32>             ("/bravo/frequency_FT", 10);  
             }
             number_joints = bravo_io->get_number_joints()-1; //without gripper
             std::cout << "OK UNTIL HERE, NUMBER OF JOINTS IS " << number_joints;          
             //& DEFINING BRAVO JOINT LIMITS  
             //* The first, fourth and sixth joints are continuous so they have no limits
             T_data angle_limit_smooth = 10;
-            maskJointLimits.resize(6);
-            maskJointLimits << 0, 1, 1, 0, 1, 0;
             lowerJointLimits.resize(6);
             lowerJointLimits << -1000, 0.0, 0.0, -1000, 0.0, -1000;
             upperJointLimits.resize(6);
@@ -127,9 +109,6 @@ template <bravo_control::Floating32or64 T_data>
             if (bravo_io_thread.joinable()) {
                 bravo_io_thread.join();
             }
-            if (dashboard_enabled_.exchange(false, std::memory_order_relaxed)) {
-                terminal_dashboard_.stop();
-            }
         }
 
     template <bravo_control::Floating32or64 T_data>
@@ -144,20 +123,20 @@ template <bravo_control::Floating32or64 T_data>
             switch (mode)
             {
             case set_bravo_control_mode::position_control:
-                bravo_io->set_mode_all_devices(control_mode_states::joint_position_mode);
+                bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_position_mode);
                 break;
             case set_bravo_control_mode::velocity_control:
-                bravo_io->set_mode_all_devices(control_mode_states::joint_velocity_mode);
+                bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_velocity_mode);
                 break;	
             case set_bravo_control_mode::current_control:
-                bravo_io->set_mode_all_devices(control_mode_states::joint_current_mode);
+                bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_current_mode);
                 break;	
             case set_bravo_control_mode::torque_control:
-                bravo_io->set_mode_all_devices(control_mode_states::joint_torque_mode);
+                bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_torque_mode);
                 break;		
             default:
-                bravo_io->set_mode_all_devices(control_mode_states::joint_position_mode);
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Control mode not recognized, setting to position control by default");
+                bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_position_mode);
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Control mode not recognized, setting to position control by default");
                 break;
             }
         }
@@ -173,7 +152,7 @@ template <bravo_control::Floating32or64 T_data>
                 bravo_io->set_joint_cmd_current(cmdJointCurrent);
             }
             else{
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Number of components received for bravo_handler::cmdJointCurrent does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointCurrent does not match the number of joints");
                 rclcpp::shutdown(); // Clean up ROS 2 resources
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
@@ -184,12 +163,12 @@ template <bravo_control::Floating32or64 T_data>
             if(cmdJointCurrent.size() == number_joints){
                 Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_current(number_joints);
                 for (int i = 0; i < number_joints; i++){
-                    joint_cmd_current(i) = VAL_SAT<T_data>(cmdJointCurrent(i), MAX, -MAX);
+                    joint_cmd_current(i) = bravo_utils::VAL_SAT<T_data>(cmdJointCurrent(i), MAX, -MAX);
                 }
                 bravo_io->set_joint_cmd_current(joint_cmd_current);
             }
             else{
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Number of components received for bravo_handler::cmdJointCurrent does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointCurrent_SAT does not match the number of joints");
                 rclcpp::shutdown(); // Clean up ROS 2 resources
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
@@ -201,7 +180,7 @@ template <bravo_control::Floating32or64 T_data>
                 bravo_io->set_joint_cmd_velocity(cmdJointVel);
             }
             else{
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Number of components received for bravo_handler::cmdJointVel does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointVelocity does not match the number of joints");
                 rclcpp::shutdown(); // Clean up ROS 2 resources
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
@@ -212,12 +191,12 @@ template <bravo_control::Floating32or64 T_data>
             if(cmdJointVel.size() == number_joints){
                 Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_velocity(number_joints);
                 for (int i = 0; i < number_joints; i++){
-                    joint_cmd_velocity(i) = VAL_SAT<T_data>(cmdJointVel(i), MAX, -MAX);
+                    joint_cmd_velocity(i) = bravo_utils::VAL_SAT<T_data>(cmdJointVel(i), MAX, -MAX);
                 }
                 bravo_io->set_joint_cmd_velocity(joint_cmd_velocity);
             }
             else{
-                RCLCPP_FATAL(this->get_logger(), "[bravo_handler]: ❌ Number of components received for bravo_handler::cmdJointVel does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointVelocity_SAT does not match the number of joints");
                 rclcpp::shutdown(); // Clean up ROS 2 resources
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
@@ -390,6 +369,27 @@ template <bravo_control::Floating32or64 T_data>
             // Copy into Eigen vector (safe)
             return Eigen::Map<const Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), n);
         }
+
+    template <bravo_control::Floating32or64 T_data>
+        Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::get_bravo_joint_torques(){
+            const std::vector<T_data>& joint_states = bravo_io->get_bravo_joint_torques(); // no copy
+
+            if (joint_states.size() < 1) {
+                throw std::runtime_error("[bravo_handler]: joint_states empty");
+            }
+            const Eigen::Index n = static_cast<Eigen::Index>(joint_states.size() - 1); // exclude gripper
+            if (n <= 0) {
+                throw std::runtime_error("[bravo_handler]: no non-gripper joints");
+            }
+
+            // Copy into Eigen vector (safe)
+            return Eigen::Map<const Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), n);
+        }
+
+    template <bravo_control::Floating32or64 T_data>
+        size_t bravo_handler<T_data>::get_number_joints(){
+            return number_joints;
+        }
     
     template <bravo_control::Floating32or64 T_data>  
     	void bravo_handler<T_data>::publish_RVIZ_sim_bravo_joint_states(Eigen::Vector<T_data, Eigen::Dynamic> q_arm, T_data gripper){
@@ -452,6 +452,19 @@ template <bravo_control::Floating32or64 T_data>
             msg_wrench.wrench.torque.z = force_estimation(5);
             pubWrenchEstimation->publish(msg_wrench);
         }
+
+    template <bravo_control::Floating32or64 T_data>
+        void bravo_handler<T_data>::publish_force_estimation(const Eigen::Vector3d force_estimation){
+            geometry_msgs::msg::WrenchStamped msg_wrench;
+            msg_wrench.header.stamp = rclcpp::Clock().now();
+            msg_wrench.wrench.force.x = force_estimation(0);
+            msg_wrench.wrench.force.y = force_estimation(1);
+            msg_wrench.wrench.force.z = force_estimation(2);
+            msg_wrench.wrench.torque.x = 0.0;
+            msg_wrench.wrench.torque.y = 0.0;
+            msg_wrench.wrench.torque.z = 0.0;
+            pubWrenchEstimation->publish(msg_wrench);
+        }
     
     template <bravo_control::Floating32or64 T_data>  
     	T_data bravo_handler<T_data>::signedAngleDistance(T_data goal, T_data current) {
@@ -473,6 +486,12 @@ template <bravo_control::Floating32or64 T_data>
     	bool bravo_handler<T_data>::isConnected(){
             return bravo_io->isConnected();
         }
+
+    template <bravo_control::Floating32or64 T_data>
+        T_data bravo_handler<T_data>::get_udp_rx_frequency_hz() const
+        {
+            return bravo_io->get_rx_packet_frequency_hz();
+        }
     
     template <bravo_control::Floating32or64 T_data>  
     	bool bravo_handler<T_data>::arm_is_healthy(const T_data max_time_without_fdb)
@@ -485,15 +504,6 @@ template <bravo_control::Floating32or64 T_data>
             {
                 return false;
             }
-        }
-
-    template <bravo_control::Floating32or64 T_data>
-        void bravo_handler<T_data>::exceeding_joint_current_limit(Eigen::Vector<T_data, Eigen::Dynamic> q_cmd, Eigen::Vector<T_data, Eigen::Dynamic> MAX_CURRENT_mA){
-            for (int i = 0; i < number_joints; i++) {
-                    if (std::abs(q_cmd[i]) > std::abs(MAX_CURRENT_mA[i])){
-
-                    }
-                } 
         }
 
 template class bravo_handler<double>;
