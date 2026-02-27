@@ -1,0 +1,464 @@
+[0.007s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection
+[0.016s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.093s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.094s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.096s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.115s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.129s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.149s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.150s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.212s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.240s] -- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so
+[0.241s] -- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so
+[0.241s] -- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so
+[0.241s] -- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+[0.242s] -- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so
+[0.243s] -- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so
+[0.248s] -- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+[0.249s] CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+[0.249s]   Please update your CMake from 'hpp-fcl' to 'coal'
+[0.249s] Call Stack (most recent call first):
+[0.249s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[0.249s]   /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+[0.249s]   CMakeLists.txt:18 (find_package)
+[0.249s] 
+[0.249s] 
+[0.249s] -- coal FOUND. coal at /opt/openrobots/lib/libcoal.so
+[0.255s] -- Found Boost: /usr/include (found version "1.74.0") found components: chrono thread date_time serialization filesystem atomic 
+[0.497s] -- Default C++ standard: 202002
+[0.497s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[0.498s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[0.499s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.516s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[0.529s] -- Found general_libs_unite: 0.0.0 (/home/carlos/bravo5_cp_ws/install/general_libs_unite/share/general_libs_unite/cmake)
+[0.538s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[0.561s] -- Found nlohmann_json: /usr/lib/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.10.5") 
+[0.572s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.625s] -- Configuring done
+[0.639s] CMake Warning at CMakeLists.txt:68 (add_library):
+[0.639s]   Cannot generate a safe runtime search path for target bravo_handler_v2
+[0.639s]   because files in some directories may conflict with libraries in implicit
+[0.639s]   directories:
+[0.639s] 
+[0.639s]     runtime library [liburdfdom_sensor.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s]     runtime library [liburdfdom_model_state.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s]     runtime library [liburdfdom_model.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s]     runtime library [liburdfdom_world.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s]     runtime library [liboctomap.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s]     runtime library [liboctomath.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.639s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.639s] 
+[0.639s]   Some of these libraries may not be found correctly.
+[0.639s] 
+[0.640s] 
+[0.643s] CMake Warning at CMakeLists.txt:279 (add_executable):
+[0.643s]   Cannot generate a safe runtime search path for target
+[0.643s]   bravo5_gravity_and_joint_friction_identification because files in some
+[0.643s]   directories may conflict with libraries in implicit directories:
+[0.643s] 
+[0.643s]     runtime library [liburdfdom_sensor.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.643s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.643s]     runtime library [liburdfdom_model_state.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.643s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.643s]     runtime library [liburdfdom_model.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.644s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.644s]     runtime library [liburdfdom_world.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.644s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.644s]     runtime library [liboctomap.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.644s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.644s]     runtime library [liboctomath.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.644s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.644s] 
+[0.644s]   Some of these libraries may not be found correctly.
+[0.644s] 
+[0.644s] 
+[0.647s] CMake Warning at CMakeLists.txt:311 (add_executable):
+[0.647s]   Cannot generate a safe runtime search path for target
+[0.647s]   bravo5_cp_whole_program_7 because files in some directories may conflict
+[0.647s]   with libraries in implicit directories:
+[0.647s] 
+[0.647s]     runtime library [liburdfdom_sensor.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s]     runtime library [liburdfdom_model_state.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s]     runtime library [liburdfdom_model.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s]     runtime library [liburdfdom_world.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s]     runtime library [liboctomap.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s]     runtime library [liboctomath.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.648s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.648s] 
+[0.648s]   Some of these libraries may not be found correctly.
+[0.648s] 
+[0.648s] 
+[0.651s] CMake Warning at CMakeLists.txt:315 (add_executable):
+[0.651s]   Cannot generate a safe runtime search path for target bravo5_cp_fixed_axis
+[0.651s]   because files in some directories may conflict with libraries in implicit
+[0.651s]   directories:
+[0.651s] 
+[0.651s]     runtime library [liburdfdom_sensor.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s]     runtime library [liburdfdom_model_state.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s]     runtime library [liburdfdom_model.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s]     runtime library [liburdfdom_world.so.3.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s]     runtime library [liboctomap.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s]     runtime library [liboctomath.so.1.9] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+[0.652s]       /opt/ros/humble/lib/x86_64-linux-gnu
+[0.652s] 
+[0.652s]   Some of these libraries may not be found correctly.
+[0.652s] 
+[0.652s] 
+[0.652s] -- Generating done
+[0.658s] -- Build files have been written to: /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection
+[0.665s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection
+[0.667s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20
+[0.713s] [  6%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp.o
+[0.713s] [ 13%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp.o
+[0.713s] [ 20%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp.o
+[0.714s] [ 26%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp.o
+[0.718s] [ 33%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp.o
+[0.718s] [ 40%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp.o
+[0.720s] [ 46%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp.o
+[0.720s] [ 53%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp.o
+[1.020s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp: In function ‘uint8_t cobs_encode_unite2(const std::vector<unsigned char>&, size_t, std::vector<unsigned char>&)’:
+[1.020s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:46:70: warning: unused parameter ‘length’ [-Wunused-parameter]
+[1.020s]    46 | uint8_t cobs_encode_unite2(const std::vector<uint8_t>& input, size_t length, std::vector<uint8_t>& output)
+[1.021s]       |                                                               ~~~~~~~^~~~~~
+[1.022s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp: In function ‘uint8_t* encodeFloat(float)’:
+[1.022s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:208:12: warning: address of local variable ‘outputBuffer’ returned [-Wreturn-local-addr]
+[1.022s]   208 |     return outputBuffer;
+[1.022s]       |            ^~~~~~~~~~~~
+[1.022s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:202:13: note: declared here
+[1.022s]   202 |     uint8_t outputBuffer[4];
+[1.022s]       |             ^~~~~~~~~~~~
+[1.022s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp: In function ‘size_t encode_packet_float_list(uint8_t*, uint8_t, uint8_t, float*, size_t)’:
+[1.022s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:212:13: warning: ISO C++ forbids variable length array ‘encodedFloatData’ [-Wvla]
+[1.023s]   212 |     uint8_t encodedFloatData[4*lengthList];
+[1.023s]       |             ^~~~~~~~~~~~~~~~
+[1.023s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp: In function ‘size_t decodeFloats_unite(float*, uint8_t*, size_t)’:
+[1.023s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:268:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.023s]   268 |     for(int i = 0; i < floatLength; i++)
+[1.023s]       |                    ~~^~~~~~~~~~~~~
+[1.035s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp: In static member function ‘static std::tuple<int, int, std::vector<unsigned char, std::allocator<unsigned char> >, int> BPLProtocol::parse_packet(const std::vector<unsigned char>&)’:
+[1.035s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp:429:17: warning: unused variable ‘size_decoded’ [-Wunused-variable]
+[1.035s]   429 |         uint8_t size_decoded = cobs_decode_unite(packet_in, decoded_packet);
+[1.035s]       |                 ^~~~~~~~~~~~
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_velocity(Eigen::Vector<T_data, -1>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:224:97: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.742s]   224 |             if ((control_mode_state == control_mode_states::joint_velocity_mode) && (cmd.size() <= number_joints)){
+[1.742s]       |                                                                                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_current(Eigen::Vector<T_data, -1>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.742s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:238:110: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.742s]   238 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_current_mode) && (cmd.size() <= number_joints)){
+[1.742s]       |                                                                                                  ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_position(Eigen::Vector<T_data, -1>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:265:111: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.743s]   265 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_position_mode) && (cmd.size() <= number_joints)){
+[1.743s]       |                                                                                                   ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_torque(Eigen::Vector<T_data, -1>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.743s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:252:109: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.743s]   252 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_torque_mode) && (cmd.size() <= number_joints)){
+[1.743s]       |                                                                                                 ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.752s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘bool bravo_control::bravo_udp<T_data>::joint_configuration_difference_safety(std::vector<T>, std::vector<T>, T_data) [with T_data = double]’:
+[1.752s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.753s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:406:28: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.753s]   406 |             for (int i=0; i<n_joints; i++){
+[1.753s]       |                           ~^~~~~~~~~
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_velocity(Eigen::Vector<T_data, -1>) [with T_data = float; Eigen::Vector<T_data, -1> = Eigen::Matrix<float, -1, 1>]’:
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:224:97: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<float, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.767s]   224 |             if ((control_mode_state == control_mode_states::joint_velocity_mode) && (cmd.size() <= number_joints)){
+[1.767s]       |                                                                                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_current(Eigen::Vector<T_data, -1>) [with T_data = float; Eigen::Vector<T_data, -1> = Eigen::Matrix<float, -1, 1>]’:
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.767s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:238:110: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<float, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.767s]   238 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_current_mode) && (cmd.size() <= number_joints)){
+[1.767s]       |                                                                                                  ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_position(Eigen::Vector<T_data, -1>) [with T_data = float; Eigen::Vector<T_data, -1> = Eigen::Matrix<float, -1, 1>]’:
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:265:111: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<float, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.768s]   265 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_position_mode) && (cmd.size() <= number_joints)){
+[1.768s]       |                                                                                                   ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::set_joint_cmd_torque(Eigen::Vector<T_data, -1>) [with T_data = float; Eigen::Vector<T_data, -1> = Eigen::Matrix<float, -1, 1>]’:
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.768s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:252:109: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<float, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.768s]   252 |             if ((options_fdb_cmd.control_mode_cmd == control_mode_states::joint_torque_mode) && (cmd.size() <= number_joints)){
+[1.768s]       |                                                                                                 ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[1.777s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp: In instantiation of ‘bool bravo_control::bravo_udp<T_data>::joint_configuration_difference_safety(std::vector<T>, std::vector<T>, T_data) [with T_data = float]’:
+[1.777s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.777s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:406:28: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.778s]   406 |             for (int i=0; i<n_joints; i++){
+[1.778s]       |                           ~^~~~~~~~~
+[1.824s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::request_command_and_feedback() [with T_data = double]’:
+[1.824s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.825s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp:170:32: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.825s]   170 |                 for(int i= 0; i<number_joints; i++){
+[1.825s]       |                               ~^~~~~~~~~~~~~~
+[1.825s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::request_command() [with T_data = double]’:
+[1.825s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:216:24:   required from here
+[1.825s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp:118:32: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.825s]   118 |                 for(int i= 0; i<number_joints; i++){
+[1.826s]       |                               ~^~~~~~~~~~~~~~
+[1.834s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::request_command_and_feedback() [with T_data = float]’:
+[1.835s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.835s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp:170:32: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.835s]   170 |                 for(int i= 0; i<number_joints; i++){
+[1.835s]       |                               ~^~~~~~~~~~~~~~
+[1.835s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp: In instantiation of ‘void bravo_control::bravo_udp<T_data>::request_command() [with T_data = float]’:
+[1.835s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:217:24:   required from here
+[1.835s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp:118:32: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[1.835s]   118 |                 for(int i= 0; i<number_joints; i++){
+[1.835s]       |                               ~^~~~~~~~~~~~~~
+[5.189s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[5.189s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[5.189s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[5.189s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[5.189s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[5.189s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[5.189s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[5.189s]                  from /home/carlos/bravo5_cp_ws/install/general_libs_unite/include/general_libs_unite/serial_manipulator/kinodynamics_manipulator.h:30,
+[5.189s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:35,
+[5.189s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:16:
+[5.189s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[5.189s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[5.190s]       |                                                                       ^
+[6.641s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘Eigen::Vector<T_data, -1> bravo_handler<T_data>::std_2_eigen(std::vector<BufferT>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.641s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.641s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:229:28: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.641s]   229 |             for (int i=0; i<number_joints; i++){
+[6.641s]       |                           ~^~~~~~~~~~~~~~
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘bool bravo_handler<T_data>::is_in_desired_configuration(T_data, Eigen::Vector<T_data, -1>, Eigen::Vector<T_data, -1>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:216:28: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.761s]   216 |             for (int i=0; i< number_joints; i++){
+[6.761s]       |                           ~^~~~~~~~~~~~~~~
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘void bravo_handler<T_data>::cmdJointCurrent(Eigen::Vector<T_data, -1>&) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:151:39: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.761s]   151 |             if(cmdJointCurrent.size() == number_joints){
+[6.761s]       |                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘void bravo_handler<T_data>::cmdJointCurrent_SAT(Eigen::Vector<T_data, -1>&, T_data) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:163:39: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.761s]   163 |             if(cmdJointCurrent.size() == number_joints){
+[6.761s]       |                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+[6.761s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:165:35: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.761s]   165 |                 for (int i = 0; i < number_joints; i++){
+[6.761s]       |                                 ~~^~~~~~~~~~~~~~~
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘void bravo_handler<T_data>::cmdJointVelocity(Eigen::Vector<T_data, -1>&) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:179:35: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.762s]   179 |             if(cmdJointVel.size() == number_joints){
+[6.762s]       |                ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘void bravo_handler<T_data>::cmdJointVelocity_SAT(Eigen::Vector<T_data, -1>&, T_data) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:191:35: warning: comparison of integer expressions of different signedness: ‘Eigen::EigenBase<Eigen::Matrix<double, -1, 1> >::Index’ {aka ‘long int’} and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.762s]   191 |             if(cmdJointVel.size() == number_joints){
+[6.762s]       |                ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+[6.762s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:193:35: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.762s]   193 |                 for (int i = 0; i < number_joints; i++){
+[6.762s]       |                                 ~~^~~~~~~~~~~~~~~
+[6.784s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘Eigen::Vector<T_data, -1> bravo_handler<T_data>::get_bravo_joint_penalization() [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.784s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.784s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:307:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<double, std::allocator<double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.784s]   307 |             for(int i=0; i<(joint_states.size()-1); i++){
+[6.784s]       |                          ~^~~~~~~~~~~~~~~~~~~~~~~~
+[6.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp: In instantiation of ‘Eigen::Vector<T_data, -1> bravo_handler<T_data>::get_bravo_joint_penalization(std::vector<BufferT>) [with T_data = double; Eigen::Vector<T_data, -1> = Eigen::Matrix<double, -1, 1>]’:
+[6.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:509:16:   required from here
+[6.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:318:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<double, std::allocator<double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+[6.785s]   318 |             for(int i=0; i<(joint_states.size()); i++){
+[6.785s]       |                          ~^~~~~~~~~~~~~~~~~~~~~~
+[23.504s] [ 60%] Linking CXX shared library libbravo_handler_v2.so
+[24.643s] [ 60%] Built target bravo_handler_v2
+[24.666s] [ 80%] Building CXX object CMakeFiles/bravo5_gravity_and_joint_friction_identification.dir/src/demos_v2/bravo5_gravity_and_joint_friction_identification.cpp.o
+[24.666s] [ 80%] Building CXX object CMakeFiles/bravo5_cp_fixed_axis.dir/src/demos_v2/bravo5_cp_fixed_axis.cpp.o
+[24.666s] [ 80%] Building CXX object CMakeFiles/bravo5_cp_whole_program_7.dir/src/demos_v2/bravo5_cp_whole_program_7.cpp.o
+[27.539s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[27.539s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[27.539s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[27.539s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[27.539s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[27.539s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[27.539s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[27.539s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_gravity_and_joint_friction_identification.cpp:18:
+[27.540s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[27.540s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[27.540s]       |                                                                       ^
+[27.600s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[27.600s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[27.600s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[27.600s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[27.601s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[27.601s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[27.601s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[27.601s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_cp_whole_program_7.cpp:16:
+[27.601s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[27.601s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[27.601s]       |                                                                       ^
+[27.606s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[27.606s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[27.606s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[27.606s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[27.606s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[27.606s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[27.606s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[27.606s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_cp_fixed_axis.cpp:16:
+[27.606s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[27.606s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[27.606s]       |                                                                       ^
+[30.913s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_cp_whole_program_7.cpp: In function ‘void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP>, std::shared_ptr<bravo_handler<double> >, const StiffnessJsonParams&)’:
+[30.913s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_cp_whole_program_7.cpp:173:14: warning: variable ‘loop_start’ set but not used [-Wunused-but-set-variable]
+[30.913s]   173 |         auto loop_start = std::chrono::high_resolution_clock::now();
+[30.913s]       |              ^~~~~~~~~~
+[30.913s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/demos_v2/bravo5_cp_whole_program_7.cpp:123:10: warning: variable ‘switch_state’ set but not used [-Wunused-but-set-variable]
+[30.913s]   123 |     bool switch_state = true;
+[30.913s]       |          ^~~~~~~~~~~~
+[32.600s] [ 86%] Linking CXX executable bravo5_gravity_and_joint_friction_identification
+[33.096s] [ 86%] Built target bravo5_gravity_and_joint_friction_identification
+[51.654s] [ 93%] Linking CXX executable bravo5_cp_fixed_axis
+[53.152s] [ 93%] Built target bravo5_cp_fixed_axis
+[54.665s] [100%] Linking CXX executable bravo5_cp_whole_program_7
+[56.176s] [100%] Built target bravo5_cp_whole_program_7
+[56.185s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20
+[56.194s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection
+[56.200s] -- Install configuration: ""
+[56.200s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include
+[56.201s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection
+[56.201s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp
+[56.201s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2
+[56.201s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp
+[56.201s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp
+[56.202s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
+[56.202s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/packetID.h
+[56.202s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h
+[56.202s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp
+[56.202s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.h
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
+[56.203s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.cpp
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance_FAST_STRONG.json
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance _FAST_WEAK.json
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/test.json
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance.json
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/torque_admittance_control_bravo_7.json
+[56.204s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/contact_maintenance_.json
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance_fast.json
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance_WORKS_FINE.json
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance_conservative.json
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo7_dynamic_params.yaml
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/bravo5_cp_compliance_SLOW_WEAK.json
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_no_ee.urdf
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_pinocchio.urdf
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_pinocchio_cp.urdf
+[56.205s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_7_dynamics_no_ee.urdf
+[56.206s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes
+[56.206s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-214.stl
+[56.208s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266_convex_hull.stl
+[56.208s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_0_end copy.stl
+[56.209s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217_convex_hull.stl
+[56.210s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_0_base copy.stl
+[56.210s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_1_end.stl
+[56.212s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-214_convex_hull.stl
+[56.212s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1030 copy.stl
+[56.213s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1019_base copy.stl
+[56.216s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217.stl
+[56.216s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1013_end.stl
+[56.218s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217 copy.stl
+[56.220s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1028.stl
+[56.221s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_0_base.stl
+[56.222s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268_convex_hull.stl
+[56.222s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_0_end.stl
+[56.223s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-161.stl
+[56.224s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266.stl
+[56.227s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/view_bravo5_manipulability_motion_force.ipynb
+[56.227s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1013_base copy.stl
+[56.228s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214.stl
+[56.229s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-161_convex_hull.stl
+[56.229s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1013_end copy.stl
+[56.231s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180_convex_hull.stl
+[56.231s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268.stl
+[56.233s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1019_end.stl
+[56.233s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_1_end copy.stl
+[56.234s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors
+[56.234s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-282.stl
+[56.236s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-283.stl
+[56.238s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-281.stl
+[56.238s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-256.stl
+[56.239s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-301.stl
+[56.241s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-255.stl
+[56.243s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere_convex_hull.stl
+[56.243s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-257.stl
+[56.245s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-265.stl
+[56.247s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere.stl
+[56.248s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-258.stl
+[56.249s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-300.stl
+[56.251s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/RS2-278.stl
+[56.254s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_1_end.stl
+[56.255s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1019_end copy.stl
+[56.256s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1030.stl
+[56.257s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1026_0_end.stl
+[56.258s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_1_end copy.stl
+[56.259s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1013_base.stl
+[56.260s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_0_base.stl
+[56.261s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266 copy.stl
+[56.263s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_0_base copy.stl
+[56.264s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180.stl
+[56.266s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214_convex_hull.stl
+[56.267s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1028 copy.stl
+[56.268s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1019_base.stl
+[56.271s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-1023_0_end copy.stl
+[56.272s] -- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection
+[56.272s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/view_bravo_5.launch.py
+[56.272s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.sh
+[56.272s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.dsv
+[56.273s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so
+[56.286s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so" to ""
+[56.286s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification
+[56.286s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification" to ""
+[56.286s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_whole_program_7
+[56.298s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_whole_program_7" to ""
+[56.298s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis
+[56.310s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis" to ""
+[56.310s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/package_run_dependencies/bravo_cathode_protection
+[56.310s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/parent_prefix_path/bravo_cathode_protection
+[56.310s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.sh
+[56.311s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.dsv
+[56.311s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.sh
+[56.311s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.dsv
+[56.311s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.bash
+[56.311s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.sh
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.zsh
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.dsv
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.dsv
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/packages/bravo_cathode_protection
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_libraries-extras.cmake
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_include_directories-extras.cmake
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig.cmake
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig-version.cmake
+[56.312s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.xml
+[56.314s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection

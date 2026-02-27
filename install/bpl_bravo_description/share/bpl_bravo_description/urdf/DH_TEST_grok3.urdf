@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<robot name="reach_bravo_7">
+  <!-- Link 0 (Base) -->
+  <link name="link_0">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Link 1 -->
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <cylinder length="41.45" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 20.725" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_0_to_1" type="revolute">
+    <parent link="link_0"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 41.45" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 2 -->
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder length="46.0" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 23.0" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_1_to_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 -117.48" rpy="0 -1.5708 0"/> <!-- -π/2 for α -->
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 3 -->
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <cylinder length="40.8" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 20.4" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_2_to_3" type="fixed">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/> <!-- θ₂ - π/2 + θₛ, treated as fixed for simplicity -->
+  </joint>
+
+  <!-- Link 4 -->
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <cylinder length="40.8" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 20.4" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_3_to_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0 -160.26" rpy="0 -1.5708 0"/> <!-- -π/2 for α -->
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 5 -->
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <cylinder length="40.8" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 20.4" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_4_to_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0 0" rpy="0 -1.5708 0"/> <!-- θ₄ + π, simplified -->
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 6 -->
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <cylinder length="0.0" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_5_to_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0 0 -224.16" rpy="0 1.5708 0"/> <!-- π/2 for α -->
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 7 (End Effector) -->
+  <link name="link_7">
+    <visual>
+      <geometry>
+        <cylinder length="120.0" radius="5"/>
+      </geometry>
+      <origin xyz="0 0 60.0" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <joint name="joint_6_to_7" type="fixed">
+    <parent link="link_6"/>
+    <child link="link_7"/>
+    <origin xyz="0 0 0" rpy="0 -1.5708 0"/> <!-- -π/2 for α -->
+  </joint>
+</robot>

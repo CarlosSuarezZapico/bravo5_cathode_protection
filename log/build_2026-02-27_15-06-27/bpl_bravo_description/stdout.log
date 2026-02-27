@@ -1,0 +1,164 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description
+-- Install configuration: ""
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_double.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_dh_test.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_sim.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_revolute.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics_v2.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__/view_bravo_7.launch.cpython-310.pyc
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_dynamics.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_dynamics.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics.launch.py
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030 copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217 copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/view_bravo5_manipulability_motion_force.ipynb
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-282.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-283.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-281.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-256.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-301.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-255.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-257.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-265.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-258.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-300.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-278.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266 copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028 copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end copy.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-301.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-257.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-300.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255-Jaw-Inside.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214_convex_hull.stl
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz/rviz.rviz
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_UVM_local.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/falcon_bravo7_pinocchio.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics_v2.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification_revolute.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio_dynamic.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision_revolute.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_grok3.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_edit.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee copy.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_original.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf copy.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2_posture_1.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_example.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors/finger_jaws.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee copy.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_pinocchio.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_with_claws.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_gemini.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf copy.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision.urdf
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_double_example.urdf.xacro
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/package_run_dependencies/bpl_bravo_description
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/parent_prefix_path/bpl_bravo_description
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.sh
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.sh
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.bash
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.sh
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.zsh
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/packages/bpl_bravo_description
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig.cmake
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig-version.cmake
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.xml

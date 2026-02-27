@@ -21,6 +21,8 @@ template <FloatingPoint T>
           vel_ee  << 0.0, 0.0, 0.0;
           pos_stiff_matrix = Kposition.asDiagonal();
           pos_damp_matrix  = Dposition.asDiagonal();
+          local_to_world_rotation = Eigen::Matrix<T, 3, 3>::Identity();
+          reference_motion_in_local_frame = false;
           last_computed_action = std::chrono::high_resolution_clock::now();
      }
 
@@ -87,6 +89,16 @@ template <FloatingPoint T>
           last_computed_action = std::chrono::high_resolution_clock::now();
      }
 
+template <FloatingPoint T>
+     void stiffness_control_position<T>::set_reference_integration_local(bool use_local_frame){
+          reference_motion_in_local_frame = use_local_frame;
+     }
+
+template <FloatingPoint T>
+     void stiffness_control_position<T>::set_reference_integration_rotation(const Eigen::Matrix<T, 3, 3>& rotation_local_to_world){
+          local_to_world_rotation = rotation_local_to_world;
+     }
+
 template <FloatingPoint T> 
      Eigen::Vector<T, 3> stiffness_control_position<T>::get_ref_ee_position(){
           return ref_ee_pos;
@@ -140,22 +152,18 @@ template <FloatingPoint T>
      void stiffness_control_position<T>::compute_motion(Eigen::Vector<T, 3> exerted_force){   
           Eigen::Vector<T, 3> vel_cmd; 
           debug_stiffness = exerted_force(0);
-          if (true){
-              vel_cmd = -(nominal_velocity - gain_force.cwiseProduct(desired_force - exerted_force)); // task_space_stiffness.head<3>() is the estimated exerted force
-          }
-          else{
-               double F_scale = std::max(0.5, std::fabs(desired_force[0]));
-               double Vf = 1.0* nominal_velocity[0]; 
-               vel_cmd[0] = -(nominal_velocity[0] - Vf*std::tanh((-desired_force[0] - exerted_force[0])/ F_scale));  // task_space_stiffness.head<3>() is the estimated exerted force
-               vel_cmd[1] = 0.0;
-               vel_cmd[2] = 0.0;
-          }          
+          vel_cmd = nominal_velocity + gain_force.cwiseProduct(desired_force - exerted_force); // task_space_stiffness.head<3>() is the estimated exerted force    
           for (int i = 0; i < 3; ++i){
                vel_ee(i) = VAL_SAT<T>(vel_cmd(i), MAX_TASK_VEL(i), -MAX_TASK_VEL(i));
           }
           T duration = VAL_SAT<T>(std::chrono::duration<T>(std::chrono::high_resolution_clock::now() - last_computed_action).count(), MIN_SAMPLING_TIME, 0.0);
           debug_duration = duration; 
-          ref_ee_pos += vel_ee * duration; // Update reference position
+          if (reference_motion_in_local_frame){
+               ref_ee_pos += local_to_world_rotation * vel_ee * duration;
+          }
+          else{
+               ref_ee_pos += vel_ee * duration;
+          }
           last_computed_action = std::chrono::high_resolution_clock::now();
      }
 

@@ -68,6 +68,8 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     const double MAX_CURRENT_mA = 2000.0;
     const double MAX_CURRENT_mA_GO_HOME = 1000.0;
     const double MAX_MANIPULABILITY = 6.0;
+    const double MAX_MANIPULABILITY_RELEASE_HOME = 5.7;
+    const double HOME_STABLE_DWELL_SEC = 0.35;
     const double MAX_RATIO_FORCE_ELLIPSOID = 0.3;
     const double MAX_SPEED_JOY = 0.25; // m/s
     const Eigen::Vector<double, 4> HOME = (Eigen::Vector<double, 4>() << 3.14, 2.706, 0.946, 0.0).finished(); //! define home for bravo5
@@ -99,6 +101,9 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     StateMachine prev_state    = StateMachine::GO_HOME;
     StateMachine current_state = StateMachine::GO_HOME;
     bool arrived2HOME = false;
+    bool force_go_home = true;
+    bool home_stability_timer_running = false;
+    std::chrono::steady_clock::time_point home_stable_since = std::chrono::steady_clock::now();
     Eigen::Vector4d desired_joint_pos = HOME; 
 
     //& AUX VARIABLES
@@ -111,6 +116,9 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     Eigen::Vector4d Nm_gravity               = Eigen::Vector4d::Zero();
     Eigen::Vector4d Nm_gravity_compensation  = Eigen::Vector4d::Zero();
     Eigen::Vector3d force_cmd                = Eigen::Vector3d::Zero();
+    double dashboard_vel_ee_x                = 0.0;
+    double dashboard_exerted_force_x         = 0.0;
+    const double dashboard_desired_force_x   = stiff_params.desired_force[0];
     Eigen::MatrixXd jacobian3x4              = Eigen::MatrixXd::Zero(3,4);
     Eigen::Vector3d twist_joy_fixed          = Eigen::Vector3d::Zero();
     double manipulabilityXy = 0.0;
@@ -171,16 +179,43 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
         twist_joy_fixed[2] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[2], MAX_SPEED_JOY, -MAX_SPEED_JOY);
         motion_teleop = airbus_joy->enableBaseMotion;
         perform_reading = airbus_joy->makeReading;
+        const auto now_steady = std::chrono::steady_clock::now();
 
         //& MACHINE STATES (legacy one-pass state branching)
-        if ( (manipulability > MAX_MANIPULABILITY) || (!arrived2HOME) || (airbus_joy->goHome)){
+        if ((manipulability > MAX_MANIPULABILITY) || airbus_joy->goHome || !arrived2HOME) {
+            force_go_home = true;
+        }
+
+        if (force_go_home){
             if (prev_state != StateMachine::GO_HOME){      
             }
             desired_joint_pos = HOME;
-            arrived2HOME = bravo->is_in_desired_configuration(0.2, desired_joint_pos, bravo->get_bravo_joint_states());        
-            joint_velocity_friction = bravo->get_bravo_joint_velocities();
+            const bool arm_at_home = bravo->is_in_desired_configuration(0.2, desired_joint_pos, joint_postion_fdb);
+            const bool can_exit_go_home = arm_at_home && !airbus_joy->goHome &&
+                                          (manipulability < MAX_MANIPULABILITY_RELEASE_HOME);
+            if (can_exit_go_home) {
+                if (!home_stability_timer_running) {
+                    home_stability_timer_running = true;
+                    home_stable_since = now_steady;
+                }
+                const double home_stable_time =
+                    std::chrono::duration<double>(now_steady - home_stable_since).count();
+                if (home_stable_time >= HOME_STABLE_DWELL_SEC) {
+                    arrived2HOME = true;
+                    force_go_home = false;
+                    home_stability_timer_running = false;
+                } else {
+                    arrived2HOME = false;
+                }
+            } else {
+                arrived2HOME = false;
+                home_stability_timer_running = false;
+            }
+            joint_velocity_friction = joint_velocity_fdb;
             joint_velocity_cmd = Eigen::Vector4d::Zero();
             reading_latched = false;
+            dashboard_vel_ee_x = 0.0;
+            dashboard_exerted_force_x = 0.0;
             prev_state = StateMachine::GO_HOME;
             current_state = StateMachine::GO_HOME;
         }
@@ -190,6 +225,8 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             if (perform_reading){
                 reading_latched = true;
             }
+            dashboard_vel_ee_x = 0.0;
+            dashboard_exerted_force_x = 0.0;
             prev_state = StateMachine::HOME_WAITING;
             current_state = StateMachine::HOME_WAITING;
         }
@@ -208,6 +245,8 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             sim_start_integration_time = std::chrono::high_resolution_clock::now();
             desired_joint_pos = sim_joint_whole_integration;
             joint_velocity_friction = sim_joint_vel_integration;
+            dashboard_vel_ee_x = 0.0;
+            dashboard_exerted_force_x = 0.0;
             prev_state = StateMachine::TELEOP;
             current_state = StateMachine::TELEOP;
         }
@@ -215,15 +254,20 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             if (prev_state != StateMachine::STIFFNESS_CONTROL){       
                 stiffness_controller.set_ref_ee_position(bravo->kinodynamics.FK_ee_pos(bravo->get_bravo_joint_states()));
             }
+            const Eigen::Vector3d output_vel_ee = stiffness_controller.get_vel_ee();
             force_cmd = stiffness_controller.compute_force_action(
                         stiffness_controller.get_ref_ee_position() - bravo->kinodynamics.FK_ee_pos(bravo->get_bravo_joint_states()), 
-                        stiffness_controller.get_vel_ee() - jacobian3x4 * bravo->get_bravo_joint_velocities(), perform_reading);
-            joint_velocity_cmd = jacobian3x4.colPivHouseholderQr().solve(stiffness_controller.get_vel_ee());
+                        output_vel_ee - jacobian3x4 * joint_velocity_fdb, perform_reading);
+            joint_velocity_cmd = jacobian3x4.colPivHouseholderQr().solve(output_vel_ee);
             joint_velocity_friction = bravo->get_bravo_joint_velocities();
             joint_torque_cmd = jacobian3x4.colPivHouseholderQr().solve(force_cmd); // ! MAYBE BETTER USE DAMPING
             mA_stiffness_current_cmd = bravo->torqueNm_2_currentmA(joint_torque_cmd);          
+            dashboard_vel_ee_x = output_vel_ee[0];
+            dashboard_exerted_force_x = force_cmd[0];
             if ((manipulabilityXy < MAX_RATIO_FORCE_ELLIPSOID) || (manipulabilityXz < MAX_RATIO_FORCE_ELLIPSOID)) {
                 arrived2HOME = false;
+                force_go_home = true;
+                home_stability_timer_running = false;
             }
             last_call_pd = std::chrono::high_resolution_clock::now();
             prev_state = StateMachine::STIFFNESS_CONTROL;
@@ -260,6 +304,10 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
         bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA); 
 
         if (dashboard) {
+            dashboard->setInteractionStatusX(
+                dashboard_vel_ee_x,
+                dashboard_desired_force_x,
+                dashboard_exerted_force_x);
             dashboard->setArmStatus(
                 state_machine_to_string(current_state),
                 manipulability,
@@ -279,7 +327,7 @@ int main(int argc, char ** argv)
 {
         rclcpp::init(argc, argv);
         const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path().string();
-        const std::string config_filename = (package_path + "/config/bravo5_cp_compliance.json");
+        const std::string config_filename = (package_path + "/config/bravo5_cp_compliance_fixed_axis.json");
         const std::string urdf_filename   = (package_path + "/urdf/bravo_5_dynamics_pinocchio.urdf");
         const std::string tool_link  = std::string("contact_point");
         const std::string ip_address = std::string("10.43.0.146");

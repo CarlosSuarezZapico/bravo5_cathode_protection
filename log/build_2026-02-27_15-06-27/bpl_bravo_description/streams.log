@@ -1,0 +1,170 @@
+[0.005s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description
+[0.124s] -- The C compiler identification is GNU 11.4.0
+[0.225s] -- The CXX compiler identification is GNU 11.4.0
+[0.232s] -- Detecting C compiler ABI info
+[0.282s] -- Detecting C compiler ABI info - done
+[0.286s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.287s] -- Detecting C compile features
+[0.287s] -- Detecting C compile features - done
+[0.289s] -- Detecting CXX compiler ABI info
+[0.351s] -- Detecting CXX compiler ABI info - done
+[0.356s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.356s] -- Detecting CXX compile features
+[0.356s] -- Detecting CXX compile features - done
+[0.358s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.447s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.512s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.570s] -- Configuring done
+[0.573s] -- Generating done
+[0.574s] -- Build files have been written to: /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description
+[30.035s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description
+[30.035s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description -- -j20 -l20
+[30.090s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description -- -j20 -l20
+[30.101s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description
+[30.114s] -- Install configuration: ""
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_double.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_dh_test.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_sim.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_revolute.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics_v2.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__/view_bravo_7.launch.cpython-310.pyc
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_dynamics.launch.py
+[30.116s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_dynamics.launch.py
+[30.117s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics.launch.py
+[30.117s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes
+[30.117s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214.stl
+[30.118s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266_convex_hull.stl
+[30.118s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end copy.stl
+[30.119s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217_convex_hull.stl
+[30.119s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base copy.stl
+[30.119s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end.stl
+[30.120s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214_convex_hull.stl
+[30.120s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030 copy.stl
+[30.120s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base copy.stl
+[30.122s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217.stl
+[30.122s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end.stl
+[30.123s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217 copy.stl
+[30.125s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028.stl
+[30.126s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base.stl
+[30.126s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268_convex_hull.stl
+[30.126s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end.stl
+[30.127s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161.stl
+[30.128s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266.stl
+[30.130s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/view_bravo5_manipulability_motion_force.ipynb
+[30.130s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base copy.stl
+[30.131s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214.stl
+[30.132s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161_convex_hull.stl
+[30.132s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end copy.stl
+[30.133s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180_convex_hull.stl
+[30.133s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268.stl
+[30.134s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end.stl
+[30.134s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end copy.stl
+[30.135s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors
+[30.135s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-282.stl
+[30.136s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-283.stl
+[30.138s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-281.stl
+[30.138s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-256.stl
+[30.138s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-301.stl
+[30.140s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-255.stl
+[30.142s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere_convex_hull.stl
+[30.142s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-257.stl
+[30.143s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-265.stl
+[30.145s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere.stl
+[30.145s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-258.stl
+[30.145s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-300.stl
+[30.147s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-278.stl
+[30.150s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end.stl
+[30.150s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end copy.stl
+[30.151s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030.stl
+[30.151s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end.stl
+[30.151s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end copy.stl
+[30.152s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base.stl
+[30.153s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base.stl
+[30.153s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266 copy.stl
+[30.155s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base copy.stl
+[30.156s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180.stl
+[30.157s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214_convex_hull.stl
+[30.157s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028 copy.stl
+[30.159s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base.stl
+[30.160s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end copy.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266_convex_hull.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217_convex_hull.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214_convex_hull.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217.stl
+[30.161s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268_convex_hull.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161_convex_hull.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180_convex_hull.stl
+[30.162s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268.stl
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-301.stl
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255.stl
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere_convex_hull.stl
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-257.stl
+[30.163s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere.stl
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-300.stl
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255-Jaw-Inside.stl
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180.stl
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214_convex_hull.stl
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz/rviz.rviz
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf
+[30.164s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_UVM_local.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/falcon_bravo7_pinocchio.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf.xacro
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics_v2.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification_revolute.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio_dynamic.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision_revolute.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_grok3.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_edit.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee copy.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf.xacro
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf
+[30.165s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_original.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf copy.xacro
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2_posture_1.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_example.urdf.xacro
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors/finger_jaws.urdf.xacro
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee copy.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_pinocchio.urdf
+[30.166s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf.xacro
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_with_claws.urdf
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_gemini.urdf
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf copy.xacro
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision.urdf
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_double_example.urdf.xacro
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/package_run_dependencies/bpl_bravo_description
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/parent_prefix_path/bpl_bravo_description
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.sh
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.dsv
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.sh
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.dsv
+[30.167s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.bash
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.sh
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.zsh
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.dsv
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.dsv
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/packages/bpl_bravo_description
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig.cmake
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig-version.cmake
+[30.168s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.xml
+[60.061s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description

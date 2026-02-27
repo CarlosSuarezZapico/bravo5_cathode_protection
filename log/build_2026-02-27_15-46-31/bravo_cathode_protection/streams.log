@@ -1,0 +1,73 @@
+[30.034s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection
+[30.156s] -- The C compiler identification is GNU 11.4.0
+[30.207s] -- The CXX compiler identification is GNU 11.4.0
+[30.215s] -- Detecting C compiler ABI info
+[30.294s] -- Detecting C compiler ABI info - done
+[30.299s] -- Check for working C compiler: /usr/bin/cc - skipped
+[30.299s] -- Detecting C compile features
+[30.300s] -- Detecting C compile features - done
+[30.302s] -- Detecting CXX compiler ABI info
+[30.369s] -- Detecting CXX compiler ABI info - done
+[30.376s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[30.376s] -- Detecting CXX compile features
+[30.376s] -- Detecting CXX compile features - done
+[30.379s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[30.482s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[30.551s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[30.553s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[30.557s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[30.589s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[30.613s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[30.653s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[30.655s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[30.724s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[30.742s] -- Found FastRTPS: /opt/ros/humble/include  
+[30.770s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[30.777s] -- Looking for pthread.h
+[30.844s] -- Looking for pthread.h - found
+[30.844s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[30.907s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[30.908s] -- Found Threads: TRUE  
+[30.954s] -- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so
+[30.954s] -- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so
+[30.955s] -- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so
+[30.955s] -- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+[30.956s] -- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so
+[30.957s] -- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so
+[30.997s] -- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+[30.998s] CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+[30.998s]   Please update your CMake from 'hpp-fcl' to 'coal'
+[30.998s] Call Stack (most recent call first):
+[30.998s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[30.998s]   /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+[30.998s]   CMakeLists.txt:18 (find_package)
+[30.998s] 
+[30.998s] 
+[30.999s] -- coal FOUND. coal at /opt/openrobots/lib/libcoal.so
+[31.015s] -- Found Boost: /usr/include (found version "1.74.0") found components: chrono thread date_time serialization filesystem atomic 
+[31.357s] -- Default C++ standard: 202002
+[31.357s] -- Minimal C++ standard upgraded to 11
+[31.357s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[31.359s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[31.361s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[31.387s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[31.405s] CMake Error at CMakeLists.txt:24 (find_package):
+[31.405s]   By not providing "Findgeneral_libs_unite.cmake" in CMAKE_MODULE_PATH this
+[31.405s]   project has asked CMake to find a package configuration file provided by
+[31.405s]   "general_libs_unite", but CMake did not find one.
+[31.405s] 
+[31.405s]   Could not find a package configuration file provided by
+[31.405s]   "general_libs_unite" with any of the following names:
+[31.405s] 
+[31.405s]     general_libs_uniteConfig.cmake
+[31.405s]     general_libs_unite-config.cmake
+[31.405s] 
+[31.405s]   Add the installation prefix of "general_libs_unite" to CMAKE_PREFIX_PATH or
+[31.405s]   set "general_libs_unite_DIR" to a directory containing one of the above
+[31.406s]   files.  If "general_libs_unite" provides a separate development package or
+[31.406s]   SDK, be sure it has been installed.
+[31.406s] 
+[31.406s] 
+[31.406s] -- Configuring incomplete, errors occurred!
+[31.406s] See also "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection/CMakeFiles/CMakeOutput.log".
+[60.061s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection

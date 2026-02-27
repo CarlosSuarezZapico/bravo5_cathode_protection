@@ -112,6 +112,16 @@ namespace bravo_utils
             udp_rx_hz_ = udp_rx_hz;
         }
 
+        void setInteractionStatusX(double vel_ee_x, double desired_force_x, double exerted_force_x) {
+            if (!enabled_) {
+                return;
+            }
+            std::lock_guard<std::mutex> lk(m_);
+            vel_ee_x_ = vel_ee_x;
+            desired_force_x_ = desired_force_x;
+            exerted_force_x_ = exerted_force_x;
+        }
+
         private:
         static bool shouldEnable() {
             const bool has_tty = (::isatty(STDOUT_FILENO) == 1);
@@ -170,6 +180,9 @@ namespace bravo_utils
             double manip;
             bool udp_running;
             double udp_rx_hz;
+            double vel_ee_x;
+            double desired_force_x;
+            double exerted_force_x;
 
             {
                 std::lock_guard<std::mutex> lk(m_);
@@ -178,6 +191,9 @@ namespace bravo_utils
                 manip = manip_;
                 udp_running = udp_running_;
                 udp_rx_hz = udp_rx_hz_;
+                vel_ee_x = vel_ee_x_;
+                desired_force_x = desired_force_x_;
+                exerted_force_x = exerted_force_x_;
             }
 
             std::vector<std::string> log_rows;
@@ -213,6 +229,9 @@ namespace bravo_utils
             print_line("  manipulability:       " + std::to_string(manip));
             print_line(std::string("  udp running:          ") + (udp_running ? "YES" : "NO"));
             print_line("  Freq Feedback [Hz]:     " + formatHz(udp_rx_hz));
+            print_line("  vel_ee.x [m/s]:         " + std::to_string(vel_ee_x));
+            print_line("  desired_force.x [N]:    " + std::to_string(desired_force_x));
+            print_line("  exerted_force.x [N]:    " + std::to_string(exerted_force_x));
             print_line("----------------------------------------");
             print_line("Recent logs (tail):");
 
@@ -244,5 +263,8 @@ namespace bravo_utils
         double manip_ = 0.0;
         bool udp_running_ = false;
         double udp_rx_hz_ = 0.0;
+        double vel_ee_x_ = 0.0;
+        double desired_force_x_ = 0.0;
+        double exerted_force_x_ = 0.0;
     };
 }

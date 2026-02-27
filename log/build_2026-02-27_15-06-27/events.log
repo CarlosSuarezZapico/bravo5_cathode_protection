@@ -1,0 +1,782 @@
+[0.000000] (-) TimerEvent: {}
+[0.000379] (-) JobUnselected: {'identifier': 'bravo_arm_description'}
+[0.000406] (-) JobUnselected: {'identifier': 'bravo_cathode_protection'}
+[0.000456] (-) JobUnselected: {'identifier': 'bravo_compliance'}
+[0.000473] (-) JobUnselected: {'identifier': 'example-robot-data'}
+[0.000488] (-) JobUnselected: {'identifier': 'general_libs_unite'}
+[0.000505] (-) JobUnselected: {'identifier': 'uvm_description'}
+[0.000521] (bpl_bravo_description) JobQueued: {'identifier': 'bpl_bravo_description', 'dependencies': OrderedDict()}
+[0.000545] (bpl_bravo_description) JobStarted: {'identifier': 'bpl_bravo_description'}
+[0.004530] (bpl_bravo_description) JobProgress: {'identifier': 'bpl_bravo_description', 'progress': 'cmake'}
+[0.004918] (bpl_bravo_description) Command: {'cmd': ['/usr/bin/cmake', '/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description', '-DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2304'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2727'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5257'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:24937'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0wKt47E:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-0.4.76-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2694,unix/carlos:/tmp/.ICE-unix/2694'), ('INVOCATION_ID', '0598132596564519a8eb2ab8eecbd4af'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019c9fa2-3d2d-7750-9f50-18e836bb3498'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '5257')]), 'shell': False}
+[0.099992] (-) TimerEvent: {}
+[0.124330] (bpl_bravo_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.200122] (-) TimerEvent: {}
+[0.225530] (bpl_bravo_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.232452] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.282428] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.286852] (bpl_bravo_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.287104] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.287457] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.289689] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300252] (-) TimerEvent: {}
+[0.351821] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.356321] (bpl_bravo_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.356540] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.356740] (bpl_bravo_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.358970] (bpl_bravo_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.400328] (-) TimerEvent: {}
+[0.447137] (bpl_bravo_description) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.500421] (-) TimerEvent: {}
+[0.512995] (bpl_bravo_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.570817] (bpl_bravo_description) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.573403] (bpl_bravo_description) StdoutLine: {'line': b'-- Generating done\n'}
+[0.574320] (bpl_bravo_description) StdoutLine: {'line': b'-- Build files have been written to: /home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description\n'}
+[0.600513] (-) TimerEvent: {}
+[0.700732] (-) TimerEvent: {}
+[0.801080] (-) TimerEvent: {}
+[0.901417] (-) TimerEvent: {}
+[1.001595] (-) TimerEvent: {}
+[1.101891] (-) TimerEvent: {}
+[1.202248] (-) TimerEvent: {}
+[1.302496] (-) TimerEvent: {}
+[1.402960] (-) TimerEvent: {}
+[1.503370] (-) TimerEvent: {}
+[1.603676] (-) TimerEvent: {}
+[1.704114] (-) TimerEvent: {}
+[1.804581] (-) TimerEvent: {}
+[1.904959] (-) TimerEvent: {}
+[2.005246] (-) TimerEvent: {}
+[2.105417] (-) TimerEvent: {}
+[2.205588] (-) TimerEvent: {}
+[2.305799] (-) TimerEvent: {}
+[2.406091] (-) TimerEvent: {}
+[2.506310] (-) TimerEvent: {}
+[2.606476] (-) TimerEvent: {}
+[2.706776] (-) TimerEvent: {}
+[2.806980] (-) TimerEvent: {}
+[2.907281] (-) TimerEvent: {}
+[3.007481] (-) TimerEvent: {}
+[3.107702] (-) TimerEvent: {}
+[3.207873] (-) TimerEvent: {}
+[3.308055] (-) TimerEvent: {}
+[3.408258] (-) TimerEvent: {}
+[3.508549] (-) TimerEvent: {}
+[3.608788] (-) TimerEvent: {}
+[3.708976] (-) TimerEvent: {}
+[3.809299] (-) TimerEvent: {}
+[3.909483] (-) TimerEvent: {}
+[4.009798] (-) TimerEvent: {}
+[4.110078] (-) TimerEvent: {}
+[4.210326] (-) TimerEvent: {}
+[4.310550] (-) TimerEvent: {}
+[4.410764] (-) TimerEvent: {}
+[4.511092] (-) TimerEvent: {}
+[4.611350] (-) TimerEvent: {}
+[4.711712] (-) TimerEvent: {}
+[4.811983] (-) TimerEvent: {}
+[4.912406] (-) TimerEvent: {}
+[5.012822] (-) TimerEvent: {}
+[5.113097] (-) TimerEvent: {}
+[5.213504] (-) TimerEvent: {}
+[5.313899] (-) TimerEvent: {}
+[5.414302] (-) TimerEvent: {}
+[5.514683] (-) TimerEvent: {}
+[5.615133] (-) TimerEvent: {}
+[5.715463] (-) TimerEvent: {}
+[5.815938] (-) TimerEvent: {}
+[5.916454] (-) TimerEvent: {}
+[6.016912] (-) TimerEvent: {}
+[6.117334] (-) TimerEvent: {}
+[6.217792] (-) TimerEvent: {}
+[6.318161] (-) TimerEvent: {}
+[6.418516] (-) TimerEvent: {}
+[6.518856] (-) TimerEvent: {}
+[6.619262] (-) TimerEvent: {}
+[6.719642] (-) TimerEvent: {}
+[6.819953] (-) TimerEvent: {}
+[6.920451] (-) TimerEvent: {}
+[7.020829] (-) TimerEvent: {}
+[7.121230] (-) TimerEvent: {}
+[7.221595] (-) TimerEvent: {}
+[7.321816] (-) TimerEvent: {}
+[7.422398] (-) TimerEvent: {}
+[7.522697] (-) TimerEvent: {}
+[7.622985] (-) TimerEvent: {}
+[7.723299] (-) TimerEvent: {}
+[7.823590] (-) TimerEvent: {}
+[7.923865] (-) TimerEvent: {}
+[8.024111] (-) TimerEvent: {}
+[8.124441] (-) TimerEvent: {}
+[8.224717] (-) TimerEvent: {}
+[8.324967] (-) TimerEvent: {}
+[8.425314] (-) TimerEvent: {}
+[8.525657] (-) TimerEvent: {}
+[8.626131] (-) TimerEvent: {}
+[8.726485] (-) TimerEvent: {}
+[8.826825] (-) TimerEvent: {}
+[8.927300] (-) TimerEvent: {}
+[9.027701] (-) TimerEvent: {}
+[9.128005] (-) TimerEvent: {}
+[9.228245] (-) TimerEvent: {}
+[9.328471] (-) TimerEvent: {}
+[9.428777] (-) TimerEvent: {}
+[9.529157] (-) TimerEvent: {}
+[9.629377] (-) TimerEvent: {}
+[9.729675] (-) TimerEvent: {}
+[9.829999] (-) TimerEvent: {}
+[9.930255] (-) TimerEvent: {}
+[10.030482] (-) TimerEvent: {}
+[10.130750] (-) TimerEvent: {}
+[10.231054] (-) TimerEvent: {}
+[10.331313] (-) TimerEvent: {}
+[10.431734] (-) TimerEvent: {}
+[10.532220] (-) TimerEvent: {}
+[10.632658] (-) TimerEvent: {}
+[10.733046] (-) TimerEvent: {}
+[10.833433] (-) TimerEvent: {}
+[10.933711] (-) TimerEvent: {}
+[11.034214] (-) TimerEvent: {}
+[11.134672] (-) TimerEvent: {}
+[11.234949] (-) TimerEvent: {}
+[11.335158] (-) TimerEvent: {}
+[11.435387] (-) TimerEvent: {}
+[11.535662] (-) TimerEvent: {}
+[11.635990] (-) TimerEvent: {}
+[11.736392] (-) TimerEvent: {}
+[11.836616] (-) TimerEvent: {}
+[11.936767] (-) TimerEvent: {}
+[12.036975] (-) TimerEvent: {}
+[12.137154] (-) TimerEvent: {}
+[12.237457] (-) TimerEvent: {}
+[12.337695] (-) TimerEvent: {}
+[12.438021] (-) TimerEvent: {}
+[12.538383] (-) TimerEvent: {}
+[12.638740] (-) TimerEvent: {}
+[12.739073] (-) TimerEvent: {}
+[12.839428] (-) TimerEvent: {}
+[12.939723] (-) TimerEvent: {}
+[13.039986] (-) TimerEvent: {}
+[13.140263] (-) TimerEvent: {}
+[13.240549] (-) TimerEvent: {}
+[13.340879] (-) TimerEvent: {}
+[13.441160] (-) TimerEvent: {}
+[13.541542] (-) TimerEvent: {}
+[13.641845] (-) TimerEvent: {}
+[13.742033] (-) TimerEvent: {}
+[13.842336] (-) TimerEvent: {}
+[13.942574] (-) TimerEvent: {}
+[14.042829] (-) TimerEvent: {}
+[14.143294] (-) TimerEvent: {}
+[14.243742] (-) TimerEvent: {}
+[14.344131] (-) TimerEvent: {}
+[14.444619] (-) TimerEvent: {}
+[14.545028] (-) TimerEvent: {}
+[14.645422] (-) TimerEvent: {}
+[14.745719] (-) TimerEvent: {}
+[14.846077] (-) TimerEvent: {}
+[14.946331] (-) TimerEvent: {}
+[15.046578] (-) TimerEvent: {}
+[15.146758] (-) TimerEvent: {}
+[15.246967] (-) TimerEvent: {}
+[15.347146] (-) TimerEvent: {}
+[15.447331] (-) TimerEvent: {}
+[15.547522] (-) TimerEvent: {}
+[15.647691] (-) TimerEvent: {}
+[15.748015] (-) TimerEvent: {}
+[15.848231] (-) TimerEvent: {}
+[15.948491] (-) TimerEvent: {}
+[16.048663] (-) TimerEvent: {}
+[16.149076] (-) TimerEvent: {}
+[16.249576] (-) TimerEvent: {}
+[16.349869] (-) TimerEvent: {}
+[16.450040] (-) TimerEvent: {}
+[16.550246] (-) TimerEvent: {}
+[16.650495] (-) TimerEvent: {}
+[16.750804] (-) TimerEvent: {}
+[16.851133] (-) TimerEvent: {}
+[16.951422] (-) TimerEvent: {}
+[17.051670] (-) TimerEvent: {}
+[17.151942] (-) TimerEvent: {}
+[17.252134] (-) TimerEvent: {}
+[17.352481] (-) TimerEvent: {}
+[17.452653] (-) TimerEvent: {}
+[17.552872] (-) TimerEvent: {}
+[17.653067] (-) TimerEvent: {}
+[17.753296] (-) TimerEvent: {}
+[17.853577] (-) TimerEvent: {}
+[17.953796] (-) TimerEvent: {}
+[18.054070] (-) TimerEvent: {}
+[18.154470] (-) TimerEvent: {}
+[18.254746] (-) TimerEvent: {}
+[18.354997] (-) TimerEvent: {}
+[18.455205] (-) TimerEvent: {}
+[18.555502] (-) TimerEvent: {}
+[18.655719] (-) TimerEvent: {}
+[18.755934] (-) TimerEvent: {}
+[18.856234] (-) TimerEvent: {}
+[18.956451] (-) TimerEvent: {}
+[19.056725] (-) TimerEvent: {}
+[19.157072] (-) TimerEvent: {}
+[19.257487] (-) TimerEvent: {}
+[19.357790] (-) TimerEvent: {}
+[19.457995] (-) TimerEvent: {}
+[19.558212] (-) TimerEvent: {}
+[19.658483] (-) TimerEvent: {}
+[19.758690] (-) TimerEvent: {}
+[19.858847] (-) TimerEvent: {}
+[19.959037] (-) TimerEvent: {}
+[20.059234] (-) TimerEvent: {}
+[20.159430] (-) TimerEvent: {}
+[20.259608] (-) TimerEvent: {}
+[20.359821] (-) TimerEvent: {}
+[20.460031] (-) TimerEvent: {}
+[20.560240] (-) TimerEvent: {}
+[20.660494] (-) TimerEvent: {}
+[20.760806] (-) TimerEvent: {}
+[20.861069] (-) TimerEvent: {}
+[20.961252] (-) TimerEvent: {}
+[21.061493] (-) TimerEvent: {}
+[21.161685] (-) TimerEvent: {}
+[21.261919] (-) TimerEvent: {}
+[21.362173] (-) TimerEvent: {}
+[21.462571] (-) TimerEvent: {}
+[21.562858] (-) TimerEvent: {}
+[21.663080] (-) TimerEvent: {}
+[21.763489] (-) TimerEvent: {}
+[21.863877] (-) TimerEvent: {}
+[21.964263] (-) TimerEvent: {}
+[22.064776] (-) TimerEvent: {}
+[22.165113] (-) TimerEvent: {}
+[22.265348] (-) TimerEvent: {}
+[22.365793] (-) TimerEvent: {}
+[22.466125] (-) TimerEvent: {}
+[22.566567] (-) TimerEvent: {}
+[22.666877] (-) TimerEvent: {}
+[22.767072] (-) TimerEvent: {}
+[22.867403] (-) TimerEvent: {}
+[22.967792] (-) TimerEvent: {}
+[23.068323] (-) TimerEvent: {}
+[23.168661] (-) TimerEvent: {}
+[23.268956] (-) TimerEvent: {}
+[23.369374] (-) TimerEvent: {}
+[23.469640] (-) TimerEvent: {}
+[23.569860] (-) TimerEvent: {}
+[23.670056] (-) TimerEvent: {}
+[23.770260] (-) TimerEvent: {}
+[23.870412] (-) TimerEvent: {}
+[23.970709] (-) TimerEvent: {}
+[24.070882] (-) TimerEvent: {}
+[24.171039] (-) TimerEvent: {}
+[24.271234] (-) TimerEvent: {}
+[24.371403] (-) TimerEvent: {}
+[24.471567] (-) TimerEvent: {}
+[24.571848] (-) TimerEvent: {}
+[24.672044] (-) TimerEvent: {}
+[24.772281] (-) TimerEvent: {}
+[24.872809] (-) TimerEvent: {}
+[24.973272] (-) TimerEvent: {}
+[25.073691] (-) TimerEvent: {}
+[25.174046] (-) TimerEvent: {}
+[25.274475] (-) TimerEvent: {}
+[25.374770] (-) TimerEvent: {}
+[25.475206] (-) TimerEvent: {}
+[25.575499] (-) TimerEvent: {}
+[25.675788] (-) TimerEvent: {}
+[25.776225] (-) TimerEvent: {}
+[25.876463] (-) TimerEvent: {}
+[25.976687] (-) TimerEvent: {}
+[26.077101] (-) TimerEvent: {}
+[26.177429] (-) TimerEvent: {}
+[26.277729] (-) TimerEvent: {}
+[26.378091] (-) TimerEvent: {}
+[26.478391] (-) TimerEvent: {}
+[26.578678] (-) TimerEvent: {}
+[26.679098] (-) TimerEvent: {}
+[26.779410] (-) TimerEvent: {}
+[26.879813] (-) TimerEvent: {}
+[26.980152] (-) TimerEvent: {}
+[27.080721] (-) TimerEvent: {}
+[27.181118] (-) TimerEvent: {}
+[27.281526] (-) TimerEvent: {}
+[27.381914] (-) TimerEvent: {}
+[27.482122] (-) TimerEvent: {}
+[27.582480] (-) TimerEvent: {}
+[27.682750] (-) TimerEvent: {}
+[27.783116] (-) TimerEvent: {}
+[27.883411] (-) TimerEvent: {}
+[27.983810] (-) TimerEvent: {}
+[28.084240] (-) TimerEvent: {}
+[28.184578] (-) TimerEvent: {}
+[28.284948] (-) TimerEvent: {}
+[28.385292] (-) TimerEvent: {}
+[28.485590] (-) TimerEvent: {}
+[28.585850] (-) TimerEvent: {}
+[28.686202] (-) TimerEvent: {}
+[28.786460] (-) TimerEvent: {}
+[28.886877] (-) TimerEvent: {}
+[28.987281] (-) TimerEvent: {}
+[29.087546] (-) TimerEvent: {}
+[29.187907] (-) TimerEvent: {}
+[29.288232] (-) TimerEvent: {}
+[29.388677] (-) TimerEvent: {}
+[29.488982] (-) TimerEvent: {}
+[29.589369] (-) TimerEvent: {}
+[29.689559] (-) TimerEvent: {}
+[29.789726] (-) TimerEvent: {}
+[29.889913] (-) TimerEvent: {}
+[29.990087] (-) TimerEvent: {}
+[30.035339] (bpl_bravo_description) CommandEnded: {'returncode': 0}
+[30.035776] (bpl_bravo_description) JobProgress: {'identifier': 'bpl_bravo_description', 'progress': 'build'}
+[30.035799] (bpl_bravo_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description', '--', '-j20', '-l20'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2304'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2727'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5257'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:24937'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0wKt47E:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-0.4.76-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2694,unix/carlos:/tmp/.ICE-unix/2694'), ('INVOCATION_ID', '0598132596564519a8eb2ab8eecbd4af'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019c9fa2-3d2d-7750-9f50-18e836bb3498'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '5257')]), 'shell': False}
+[30.090263] (bpl_bravo_description) CommandEnded: {'returncode': 0}
+[30.090699] (-) TimerEvent: {}
+[30.090726] (bpl_bravo_description) JobProgress: {'identifier': 'bpl_bravo_description', 'progress': 'install'}
+[30.101526] (bpl_bravo_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2304'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2727'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5257'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:24937'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0wKt47E:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-0.4.76-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2694,unix/carlos:/tmp/.ICE-unix/2694'), ('INVOCATION_ID', '0598132596564519a8eb2ab8eecbd4af'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019c9fa2-3d2d-7750-9f50-18e836bb3498'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bpl_bravo_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '5257')]), 'shell': False}
+[30.114872] (bpl_bravo_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[30.116001] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch\n'}
+[30.116526] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_double.launch.py\n'}
+[30.116574] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5.launch.py\n'}
+[30.116612] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_dh_test.launch.py\n'}
+[30.116650] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_sim.launch.py\n'}
+[30.116683] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_revolute.launch.py\n'}
+[30.116716] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics_v2.launch.py\n'}
+[30.116752] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__\n'}
+[30.116896] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/__pycache__/view_bravo_7.launch.cpython-310.pyc\n'}
+[30.116972] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7.launch.py\n'}
+[30.117007] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_dynamics.launch.py\n'}
+[30.117037] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_5_dynamics.launch.py\n'}
+[30.117071] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/launch/view_bravo_7_geometry_dynamics.launch.py\n'}
+[30.117100] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes\n'}
+[30.117128] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214.stl\n'}
+[30.118349] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266_convex_hull.stl\n'}
+[30.118387] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end copy.stl\n'}
+[30.119311] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217_convex_hull.stl\n'}
+[30.119462] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base copy.stl\n'}
+[30.119877] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end.stl\n'}
+[30.120910] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-214_convex_hull.stl\n'}
+[30.120949] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030 copy.stl\n'}
+[30.121019] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base copy.stl\n'}
+[30.122597] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217.stl\n'}
+[30.122694] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end.stl\n'}
+[30.123851] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-217 copy.stl\n'}
+[30.125775] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028.stl\n'}
+[30.126553] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_base.stl\n'}
+[30.126801] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268_convex_hull.stl\n'}
+[30.126871] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end.stl\n'}
+[30.127537] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161.stl\n'}
+[30.128282] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266.stl\n'}
+[30.130484] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/view_bravo5_manipulability_motion_force.ipynb\n'}
+[30.130597] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base copy.stl\n'}
+[30.131105] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214.stl\n'}
+[30.132406] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-161_convex_hull.stl\n'}
+[30.132509] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_end copy.stl\n'}
+[30.133719] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180_convex_hull.stl\n'}
+[30.133806] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-268.stl\n'}
+[30.134422] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end.stl\n'}
+[30.134742] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end copy.stl\n'}
+[30.135270] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors\n'}
+[30.135684] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-282.stl\n'}
+[30.136224] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-283.stl\n'}
+[30.138363] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-281.stl\n'}
+[30.138685] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-256.stl\n'}
+[30.138982] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-301.stl\n'}
+[30.140895] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-255.stl\n'}
+[30.142442] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere_convex_hull.stl\n'}
+[30.142582] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-257.stl\n'}
+[30.143604] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-265.stl\n'}
+[30.145046] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/contact_sphere.stl\n'}
+[30.145750] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-258.stl\n'}
+[30.145848] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-300.stl\n'}
+[30.147404] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/end_effectors/RS2-278.stl\n'}
+[30.150138] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_1_end.stl\n'}
+[30.150902] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_end copy.stl\n'}
+[30.151422] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1030.stl\n'}
+[30.151473] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1026_0_end.stl\n'}
+[30.152021] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_1_end copy.stl\n'}
+[30.152843] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1013_base.stl\n'}
+[30.153432] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base.stl\n'}
+[30.153986] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-266 copy.stl\n'}
+[30.155623] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_base copy.stl\n'}
+[30.156123] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-180.stl\n'}
+[30.157840] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-250-212-214_convex_hull.stl\n'}
+[30.157905] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1028 copy.stl\n'}
+[30.159082] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1019_base.stl\n'}
+[30.160613] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes/RS2-1023_0_end copy.stl\n'}
+[30.161180] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio\n'}
+[30.161208] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214.stl\n'}
+[30.161426] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266_convex_hull.stl\n'}
+[30.161456] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217_convex_hull.stl\n'}
+[30.161481] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-214_convex_hull.stl\n'}
+[30.161504] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-217.stl\n'}
+[30.161556] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268_convex_hull.stl\n'}
+[30.162532] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161.stl\n'}
+[30.162635] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-266.stl\n'}
+[30.162911] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214.stl\n'}
+[30.162939] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-161_convex_hull.stl\n'}
+[30.163002] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180_convex_hull.stl\n'}
+[30.163026] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-268.stl\n'}
+[30.163135] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors\n'}
+[30.163234] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-301.stl\n'}
+[30.163550] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255.stl\n'}
+[30.163588] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere_convex_hull.stl\n'}
+[30.163657] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-257.stl\n'}
+[30.163683] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/contact_sphere.stl\n'}
+[30.164295] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-300.stl\n'}
+[30.164382] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/end_effectors/RS2-255-Jaw-Inside.stl\n'}
+[30.164508] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-180.stl\n'}
+[30.164726] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/meshes_pinocchio/RS2-250-212-214_convex_hull.stl\n'}
+[30.164855] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz\n'}
+[30.164985] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/rviz/rviz.rviz\n'}
+[30.165016] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf\n'}
+[30.165048] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee.urdf\n'}
+[30.165079] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_UVM_local.urdf\n'}
+[30.165229] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics.urdf\n'}
+[30.165267] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/falcon_bravo7_pinocchio.urdf\n'}
+[30.165297] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf.xacro\n'}
+[30.165371] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_dynamics_v2.urdf\n'}
+[30.165398] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification_revolute.urdf\n'}
+[30.165424] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio_dynamic.urdf\n'}
+[30.165450] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_noFT_pinocchio.urdf\n'}
+[30.165475] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision_revolute.urdf\n'}
+[30.165501] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_grok3.urdf\n'}
+[30.165640] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_edit.urdf\n'}
+[30.165670] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_identification.urdf\n'}
+[30.165697] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee.urdf\n'}
+[30.165724] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee copy.urdf\n'}
+[30.165751] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf.xacro\n'}
+[30.165777] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf\n'}
+[30.165806] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf\n'}
+[30.165933] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_original.urdf\n'}
+[30.165963] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2.urdf\n'}
+[30.166235] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7.urdf copy.xacro\n'}
+[30.166435] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_dynamics_no_ee_pinocchio.urdf\n'}
+[30.166510] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_2_posture_1.urdf\n'}
+[30.166581] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5_example.urdf.xacro\n'}
+[30.166648] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2.urdf\n'}
+[30.166786] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors\n'}
+[30.166846] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/end_effectors/finger_jaws.urdf.xacro\n'}
+[30.166903] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_dynamics_no_ee copy.urdf\n'}
+[30.166962] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_pinocchio.urdf\n'}
+[30.167021] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_example.urdf.xacro\n'}
+[30.167369] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_7_amir_with_claws.urdf\n'}
+[30.167476] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/DH_TEST_gemini.urdf\n'}
+[30.167540] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_5.urdf copy.xacro\n'}
+[30.167596] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo7_no_ee_v2_example_robot_data_collision.urdf\n'}
+[30.167650] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/urdf/bravo_double_example.urdf.xacro\n'}
+[30.167702] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/package_run_dependencies/bpl_bravo_description\n'}
+[30.167754] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/parent_prefix_path/bpl_bravo_description\n'}
+[30.167805] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.sh\n'}
+[30.167857] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/ament_prefix_path.dsv\n'}
+[30.167908] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.sh\n'}
+[30.167959] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/environment/path.dsv\n'}
+[30.168011] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.bash\n'}
+[30.168067] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.sh\n'}
+[30.168661] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.zsh\n'}
+[30.168733] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/local_setup.dsv\n'}
+[30.168791] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.dsv\n'}
+[30.168885] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/ament_index/resource_index/packages/bpl_bravo_description\n'}
+[30.168937] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig.cmake\n'}
+[30.168988] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/cmake/bpl_bravo_descriptionConfig-version.cmake\n'}
+[30.169039] (bpl_bravo_description) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bpl_bravo_description/share/bpl_bravo_description/package.xml\n'}
+[30.190808] (-) TimerEvent: {}
+[30.290971] (-) TimerEvent: {}
+[30.391134] (-) TimerEvent: {}
+[30.491331] (-) TimerEvent: {}
+[30.591516] (-) TimerEvent: {}
+[30.691845] (-) TimerEvent: {}
+[30.792219] (-) TimerEvent: {}
+[30.892609] (-) TimerEvent: {}
+[30.992919] (-) TimerEvent: {}
+[31.093326] (-) TimerEvent: {}
+[31.193534] (-) TimerEvent: {}
+[31.293882] (-) TimerEvent: {}
+[31.394204] (-) TimerEvent: {}
+[31.494474] (-) TimerEvent: {}
+[31.594761] (-) TimerEvent: {}
+[31.694977] (-) TimerEvent: {}
+[31.795268] (-) TimerEvent: {}
+[31.895488] (-) TimerEvent: {}
+[31.995802] (-) TimerEvent: {}
+[32.096079] (-) TimerEvent: {}
+[32.196395] (-) TimerEvent: {}
+[32.296664] (-) TimerEvent: {}
+[32.396908] (-) TimerEvent: {}
+[32.497121] (-) TimerEvent: {}
+[32.597316] (-) TimerEvent: {}
+[32.697506] (-) TimerEvent: {}
+[32.797797] (-) TimerEvent: {}
+[32.898087] (-) TimerEvent: {}
+[32.998335] (-) TimerEvent: {}
+[33.098533] (-) TimerEvent: {}
+[33.198877] (-) TimerEvent: {}
+[33.299308] (-) TimerEvent: {}
+[33.399604] (-) TimerEvent: {}
+[33.499862] (-) TimerEvent: {}
+[33.600189] (-) TimerEvent: {}
+[33.700461] (-) TimerEvent: {}
+[33.800695] (-) TimerEvent: {}
+[33.900940] (-) TimerEvent: {}
+[34.001364] (-) TimerEvent: {}
+[34.101671] (-) TimerEvent: {}
+[34.201985] (-) TimerEvent: {}
+[34.302349] (-) TimerEvent: {}
+[34.402549] (-) TimerEvent: {}
+[34.502776] (-) TimerEvent: {}
+[34.603022] (-) TimerEvent: {}
+[34.703344] (-) TimerEvent: {}
+[34.803601] (-) TimerEvent: {}
+[34.904037] (-) TimerEvent: {}
+[35.004411] (-) TimerEvent: {}
+[35.104606] (-) TimerEvent: {}
+[35.204864] (-) TimerEvent: {}
+[35.305140] (-) TimerEvent: {}
+[35.405351] (-) TimerEvent: {}
+[35.505581] (-) TimerEvent: {}
+[35.605864] (-) TimerEvent: {}
+[35.706109] (-) TimerEvent: {}
+[35.806369] (-) TimerEvent: {}
+[35.906533] (-) TimerEvent: {}
+[36.006673] (-) TimerEvent: {}
+[36.106860] (-) TimerEvent: {}
+[36.207159] (-) TimerEvent: {}
+[36.307564] (-) TimerEvent: {}
+[36.407923] (-) TimerEvent: {}
+[36.508317] (-) TimerEvent: {}
+[36.608528] (-) TimerEvent: {}
+[36.708710] (-) TimerEvent: {}
+[36.808911] (-) TimerEvent: {}
+[36.909251] (-) TimerEvent: {}
+[37.009497] (-) TimerEvent: {}
+[37.109861] (-) TimerEvent: {}
+[37.210094] (-) TimerEvent: {}
+[37.310308] (-) TimerEvent: {}
+[37.410499] (-) TimerEvent: {}
+[37.510801] (-) TimerEvent: {}
+[37.611062] (-) TimerEvent: {}
+[37.711466] (-) TimerEvent: {}
+[37.811871] (-) TimerEvent: {}
+[37.912222] (-) TimerEvent: {}
+[38.012615] (-) TimerEvent: {}
+[38.112834] (-) TimerEvent: {}
+[38.213113] (-) TimerEvent: {}
+[38.313523] (-) TimerEvent: {}
+[38.413896] (-) TimerEvent: {}
+[38.514222] (-) TimerEvent: {}
+[38.614593] (-) TimerEvent: {}
+[38.714936] (-) TimerEvent: {}
+[38.815208] (-) TimerEvent: {}
+[38.915439] (-) TimerEvent: {}
+[39.015643] (-) TimerEvent: {}
+[39.115873] (-) TimerEvent: {}
+[39.216203] (-) TimerEvent: {}
+[39.316589] (-) TimerEvent: {}
+[39.416930] (-) TimerEvent: {}
+[39.517315] (-) TimerEvent: {}
+[39.617544] (-) TimerEvent: {}
+[39.717832] (-) TimerEvent: {}
+[39.818052] (-) TimerEvent: {}
+[39.918550] (-) TimerEvent: {}
+[40.018982] (-) TimerEvent: {}
+[40.119312] (-) TimerEvent: {}
+[40.219678] (-) TimerEvent: {}
+[40.319932] (-) TimerEvent: {}
+[40.420237] (-) TimerEvent: {}
+[40.520460] (-) TimerEvent: {}
+[40.620751] (-) TimerEvent: {}
+[40.721113] (-) TimerEvent: {}
+[40.821428] (-) TimerEvent: {}
+[40.921742] (-) TimerEvent: {}
+[41.021993] (-) TimerEvent: {}
+[41.122251] (-) TimerEvent: {}
+[41.222514] (-) TimerEvent: {}
+[41.322767] (-) TimerEvent: {}
+[41.423020] (-) TimerEvent: {}
+[41.523403] (-) TimerEvent: {}
+[41.623823] (-) TimerEvent: {}
+[41.724101] (-) TimerEvent: {}
+[41.824317] (-) TimerEvent: {}
+[41.924499] (-) TimerEvent: {}
+[42.024732] (-) TimerEvent: {}
+[42.125017] (-) TimerEvent: {}
+[42.225303] (-) TimerEvent: {}
+[42.325606] (-) TimerEvent: {}
+[42.425924] (-) TimerEvent: {}
+[42.526274] (-) TimerEvent: {}
+[42.626713] (-) TimerEvent: {}
+[42.726921] (-) TimerEvent: {}
+[42.827130] (-) TimerEvent: {}
+[42.927508] (-) TimerEvent: {}
+[43.027821] (-) TimerEvent: {}
+[43.128263] (-) TimerEvent: {}
+[43.228619] (-) TimerEvent: {}
+[43.328828] (-) TimerEvent: {}
+[43.429011] (-) TimerEvent: {}
+[43.529285] (-) TimerEvent: {}
+[43.629749] (-) TimerEvent: {}
+[43.730175] (-) TimerEvent: {}
+[43.830682] (-) TimerEvent: {}
+[43.930923] (-) TimerEvent: {}
+[44.031140] (-) TimerEvent: {}
+[44.131340] (-) TimerEvent: {}
+[44.231525] (-) TimerEvent: {}
+[44.331767] (-) TimerEvent: {}
+[44.432118] (-) TimerEvent: {}
+[44.532548] (-) TimerEvent: {}
+[44.633002] (-) TimerEvent: {}
+[44.733297] (-) TimerEvent: {}
+[44.833492] (-) TimerEvent: {}
+[44.933848] (-) TimerEvent: {}
+[45.034292] (-) TimerEvent: {}
+[45.134741] (-) TimerEvent: {}
+[45.235100] (-) TimerEvent: {}
+[45.335485] (-) TimerEvent: {}
+[45.435886] (-) TimerEvent: {}
+[45.536154] (-) TimerEvent: {}
+[45.636473] (-) TimerEvent: {}
+[45.736883] (-) TimerEvent: {}
+[45.837112] (-) TimerEvent: {}
+[45.937331] (-) TimerEvent: {}
+[46.037595] (-) TimerEvent: {}
+[46.137936] (-) TimerEvent: {}
+[46.238290] (-) TimerEvent: {}
+[46.338479] (-) TimerEvent: {}
+[46.438666] (-) TimerEvent: {}
+[46.538947] (-) TimerEvent: {}
+[46.639280] (-) TimerEvent: {}
+[46.739553] (-) TimerEvent: {}
+[46.839793] (-) TimerEvent: {}
+[46.940073] (-) TimerEvent: {}
+[47.040250] (-) TimerEvent: {}
+[47.140566] (-) TimerEvent: {}
+[47.240832] (-) TimerEvent: {}
+[47.341192] (-) TimerEvent: {}
+[47.441475] (-) TimerEvent: {}
+[47.541722] (-) TimerEvent: {}
+[47.642018] (-) TimerEvent: {}
+[47.742281] (-) TimerEvent: {}
+[47.842586] (-) TimerEvent: {}
+[47.942831] (-) TimerEvent: {}
+[48.043052] (-) TimerEvent: {}
+[48.143284] (-) TimerEvent: {}
+[48.243571] (-) TimerEvent: {}
+[48.343862] (-) TimerEvent: {}
+[48.444242] (-) TimerEvent: {}
+[48.544458] (-) TimerEvent: {}
+[48.644796] (-) TimerEvent: {}
+[48.745041] (-) TimerEvent: {}
+[48.845429] (-) TimerEvent: {}
+[48.945783] (-) TimerEvent: {}
+[49.046203] (-) TimerEvent: {}
+[49.146500] (-) TimerEvent: {}
+[49.246835] (-) TimerEvent: {}
+[49.347059] (-) TimerEvent: {}
+[49.447329] (-) TimerEvent: {}
+[49.547574] (-) TimerEvent: {}
+[49.648064] (-) TimerEvent: {}
+[49.748413] (-) TimerEvent: {}
+[49.848786] (-) TimerEvent: {}
+[49.949033] (-) TimerEvent: {}
+[50.049264] (-) TimerEvent: {}
+[50.149658] (-) TimerEvent: {}
+[50.249916] (-) TimerEvent: {}
+[50.350230] (-) TimerEvent: {}
+[50.450465] (-) TimerEvent: {}
+[50.550651] (-) TimerEvent: {}
+[50.650897] (-) TimerEvent: {}
+[50.751132] (-) TimerEvent: {}
+[50.851322] (-) TimerEvent: {}
+[50.951591] (-) TimerEvent: {}
+[51.051909] (-) TimerEvent: {}
+[51.152193] (-) TimerEvent: {}
+[51.252423] (-) TimerEvent: {}
+[51.352782] (-) TimerEvent: {}
+[51.453014] (-) TimerEvent: {}
+[51.553316] (-) TimerEvent: {}
+[51.653780] (-) TimerEvent: {}
+[51.754116] (-) TimerEvent: {}
+[51.854441] (-) TimerEvent: {}
+[51.954657] (-) TimerEvent: {}
+[52.054924] (-) TimerEvent: {}
+[52.155263] (-) TimerEvent: {}
+[52.255462] (-) TimerEvent: {}
+[52.355760] (-) TimerEvent: {}
+[52.455995] (-) TimerEvent: {}
+[52.556353] (-) TimerEvent: {}
+[52.656721] (-) TimerEvent: {}
+[52.757108] (-) TimerEvent: {}
+[52.857375] (-) TimerEvent: {}
+[52.957637] (-) TimerEvent: {}
+[53.057797] (-) TimerEvent: {}
+[53.157985] (-) TimerEvent: {}
+[53.258250] (-) TimerEvent: {}
+[53.358529] (-) TimerEvent: {}
+[53.458759] (-) TimerEvent: {}
+[53.558989] (-) TimerEvent: {}
+[53.659279] (-) TimerEvent: {}
+[53.759458] (-) TimerEvent: {}
+[53.859651] (-) TimerEvent: {}
+[53.959903] (-) TimerEvent: {}
+[54.060285] (-) TimerEvent: {}
+[54.160544] (-) TimerEvent: {}
+[54.260919] (-) TimerEvent: {}
+[54.361293] (-) TimerEvent: {}
+[54.461499] (-) TimerEvent: {}
+[54.561785] (-) TimerEvent: {}
+[54.661973] (-) TimerEvent: {}
+[54.762271] (-) TimerEvent: {}
+[54.862490] (-) TimerEvent: {}
+[54.962733] (-) TimerEvent: {}
+[55.063124] (-) TimerEvent: {}
+[55.163537] (-) TimerEvent: {}
+[55.263790] (-) TimerEvent: {}
+[55.363997] (-) TimerEvent: {}
+[55.464345] (-) TimerEvent: {}
+[55.564565] (-) TimerEvent: {}
+[55.664817] (-) TimerEvent: {}
+[55.765215] (-) TimerEvent: {}
+[55.865591] (-) TimerEvent: {}
+[55.965828] (-) TimerEvent: {}
+[56.066136] (-) TimerEvent: {}
+[56.166410] (-) TimerEvent: {}
+[56.266631] (-) TimerEvent: {}
+[56.366855] (-) TimerEvent: {}
+[56.467309] (-) TimerEvent: {}
+[56.567930] (-) TimerEvent: {}
+[56.668286] (-) TimerEvent: {}
+[56.768594] (-) TimerEvent: {}
+[56.868902] (-) TimerEvent: {}
+[56.969284] (-) TimerEvent: {}
+[57.069674] (-) TimerEvent: {}
+[57.170030] (-) TimerEvent: {}
+[57.270484] (-) TimerEvent: {}
+[57.370885] (-) TimerEvent: {}
+[57.471245] (-) TimerEvent: {}
+[57.571431] (-) TimerEvent: {}
+[57.671775] (-) TimerEvent: {}
+[57.772111] (-) TimerEvent: {}
+[57.872534] (-) TimerEvent: {}
+[57.972851] (-) TimerEvent: {}
+[58.073229] (-) TimerEvent: {}
+[58.173447] (-) TimerEvent: {}
+[58.273615] (-) TimerEvent: {}
+[58.373883] (-) TimerEvent: {}
+[58.474268] (-) TimerEvent: {}
+[58.574568] (-) TimerEvent: {}
+[58.674996] (-) TimerEvent: {}
+[58.775437] (-) TimerEvent: {}
+[58.875841] (-) TimerEvent: {}
+[58.976091] (-) TimerEvent: {}
+[59.076404] (-) TimerEvent: {}
+[59.176706] (-) TimerEvent: {}
+[59.277030] (-) TimerEvent: {}
+[59.377407] (-) TimerEvent: {}
+[59.477840] (-) TimerEvent: {}
+[59.578244] (-) TimerEvent: {}
+[59.678577] (-) TimerEvent: {}
+[59.778807] (-) TimerEvent: {}
+[59.879018] (-) TimerEvent: {}
+[59.979346] (-) TimerEvent: {}
+[60.060979] (bpl_bravo_description) CommandEnded: {'returncode': 0}
+[60.072773] (bpl_bravo_description) JobEnded: {'identifier': 'bpl_bravo_description', 'rc': 0}
+[60.072969] (-) EventReactorShutdown: {}

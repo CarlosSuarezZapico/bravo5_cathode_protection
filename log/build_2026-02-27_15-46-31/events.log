@@ -1,0 +1,684 @@
+[0.000000] (-) TimerEvent: {}
+[0.000147] (-) JobUnselected: {'identifier': 'bpl_bravo_description'}
+[0.000362] (-) JobUnselected: {'identifier': 'bravo_arm_description'}
+[0.000445] (-) JobUnselected: {'identifier': 'bravo_compliance'}
+[0.000538] (-) JobUnselected: {'identifier': 'example-robot-data'}
+[0.000600] (-) JobUnselected: {'identifier': 'general_libs_unite'}
+[0.000621] (-) JobUnselected: {'identifier': 'uvm_description'}
+[0.000645] (bravo_cathode_protection) JobQueued: {'identifier': 'bravo_cathode_protection', 'dependencies': OrderedDict()}
+[0.000666] (bravo_cathode_protection) JobStarted: {'identifier': 'bravo_cathode_protection'}
+[0.099914] (-) TimerEvent: {}
+[0.200362] (-) TimerEvent: {}
+[0.300685] (-) TimerEvent: {}
+[0.400989] (-) TimerEvent: {}
+[0.501430] (-) TimerEvent: {}
+[0.601707] (-) TimerEvent: {}
+[0.702038] (-) TimerEvent: {}
+[0.802349] (-) TimerEvent: {}
+[0.902624] (-) TimerEvent: {}
+[1.002938] (-) TimerEvent: {}
+[1.103239] (-) TimerEvent: {}
+[1.203665] (-) TimerEvent: {}
+[1.303971] (-) TimerEvent: {}
+[1.404520] (-) TimerEvent: {}
+[1.504966] (-) TimerEvent: {}
+[1.605389] (-) TimerEvent: {}
+[1.705797] (-) TimerEvent: {}
+[1.806174] (-) TimerEvent: {}
+[1.906456] (-) TimerEvent: {}
+[2.006722] (-) TimerEvent: {}
+[2.107096] (-) TimerEvent: {}
+[2.207403] (-) TimerEvent: {}
+[2.307754] (-) TimerEvent: {}
+[2.407941] (-) TimerEvent: {}
+[2.508159] (-) TimerEvent: {}
+[2.608461] (-) TimerEvent: {}
+[2.708873] (-) TimerEvent: {}
+[2.809315] (-) TimerEvent: {}
+[2.909676] (-) TimerEvent: {}
+[3.010035] (-) TimerEvent: {}
+[3.110275] (-) TimerEvent: {}
+[3.210682] (-) TimerEvent: {}
+[3.311072] (-) TimerEvent: {}
+[3.411506] (-) TimerEvent: {}
+[3.511901] (-) TimerEvent: {}
+[3.612328] (-) TimerEvent: {}
+[3.712745] (-) TimerEvent: {}
+[3.813164] (-) TimerEvent: {}
+[3.913592] (-) TimerEvent: {}
+[4.013938] (-) TimerEvent: {}
+[4.114415] (-) TimerEvent: {}
+[4.214742] (-) TimerEvent: {}
+[4.315147] (-) TimerEvent: {}
+[4.415640] (-) TimerEvent: {}
+[4.516068] (-) TimerEvent: {}
+[4.616387] (-) TimerEvent: {}
+[4.716800] (-) TimerEvent: {}
+[4.817206] (-) TimerEvent: {}
+[4.917589] (-) TimerEvent: {}
+[5.017819] (-) TimerEvent: {}
+[5.118162] (-) TimerEvent: {}
+[5.218501] (-) TimerEvent: {}
+[5.318957] (-) TimerEvent: {}
+[5.419530] (-) TimerEvent: {}
+[5.519927] (-) TimerEvent: {}
+[5.620365] (-) TimerEvent: {}
+[5.720635] (-) TimerEvent: {}
+[5.820866] (-) TimerEvent: {}
+[5.921116] (-) TimerEvent: {}
+[6.021490] (-) TimerEvent: {}
+[6.121778] (-) TimerEvent: {}
+[6.222088] (-) TimerEvent: {}
+[6.322391] (-) TimerEvent: {}
+[6.422658] (-) TimerEvent: {}
+[6.522978] (-) TimerEvent: {}
+[6.623419] (-) TimerEvent: {}
+[6.723841] (-) TimerEvent: {}
+[6.824250] (-) TimerEvent: {}
+[6.924560] (-) TimerEvent: {}
+[7.024843] (-) TimerEvent: {}
+[7.125115] (-) TimerEvent: {}
+[7.225487] (-) TimerEvent: {}
+[7.325757] (-) TimerEvent: {}
+[7.426104] (-) TimerEvent: {}
+[7.526520] (-) TimerEvent: {}
+[7.626836] (-) TimerEvent: {}
+[7.727091] (-) TimerEvent: {}
+[7.827406] (-) TimerEvent: {}
+[7.927703] (-) TimerEvent: {}
+[8.027970] (-) TimerEvent: {}
+[8.128231] (-) TimerEvent: {}
+[8.228493] (-) TimerEvent: {}
+[8.328742] (-) TimerEvent: {}
+[8.429069] (-) TimerEvent: {}
+[8.529324] (-) TimerEvent: {}
+[8.629531] (-) TimerEvent: {}
+[8.729736] (-) TimerEvent: {}
+[8.830025] (-) TimerEvent: {}
+[8.930268] (-) TimerEvent: {}
+[9.030655] (-) TimerEvent: {}
+[9.131109] (-) TimerEvent: {}
+[9.231308] (-) TimerEvent: {}
+[9.331487] (-) TimerEvent: {}
+[9.431705] (-) TimerEvent: {}
+[9.531889] (-) TimerEvent: {}
+[9.632177] (-) TimerEvent: {}
+[9.732380] (-) TimerEvent: {}
+[9.832592] (-) TimerEvent: {}
+[9.932843] (-) TimerEvent: {}
+[10.033048] (-) TimerEvent: {}
+[10.133270] (-) TimerEvent: {}
+[10.233458] (-) TimerEvent: {}
+[10.333639] (-) TimerEvent: {}
+[10.433892] (-) TimerEvent: {}
+[10.534135] (-) TimerEvent: {}
+[10.634540] (-) TimerEvent: {}
+[10.734808] (-) TimerEvent: {}
+[10.835066] (-) TimerEvent: {}
+[10.935346] (-) TimerEvent: {}
+[11.035691] (-) TimerEvent: {}
+[11.135923] (-) TimerEvent: {}
+[11.236194] (-) TimerEvent: {}
+[11.336553] (-) TimerEvent: {}
+[11.436860] (-) TimerEvent: {}
+[11.537158] (-) TimerEvent: {}
+[11.637503] (-) TimerEvent: {}
+[11.737682] (-) TimerEvent: {}
+[11.837990] (-) TimerEvent: {}
+[11.938360] (-) TimerEvent: {}
+[12.038697] (-) TimerEvent: {}
+[12.139090] (-) TimerEvent: {}
+[12.239565] (-) TimerEvent: {}
+[12.339929] (-) TimerEvent: {}
+[12.440246] (-) TimerEvent: {}
+[12.540507] (-) TimerEvent: {}
+[12.640949] (-) TimerEvent: {}
+[12.741301] (-) TimerEvent: {}
+[12.841617] (-) TimerEvent: {}
+[12.941897] (-) TimerEvent: {}
+[13.042235] (-) TimerEvent: {}
+[13.142524] (-) TimerEvent: {}
+[13.242821] (-) TimerEvent: {}
+[13.343118] (-) TimerEvent: {}
+[13.443345] (-) TimerEvent: {}
+[13.543687] (-) TimerEvent: {}
+[13.644000] (-) TimerEvent: {}
+[13.744322] (-) TimerEvent: {}
+[13.844579] (-) TimerEvent: {}
+[13.944861] (-) TimerEvent: {}
+[14.045183] (-) TimerEvent: {}
+[14.145348] (-) TimerEvent: {}
+[14.245566] (-) TimerEvent: {}
+[14.345844] (-) TimerEvent: {}
+[14.446094] (-) TimerEvent: {}
+[14.546486] (-) TimerEvent: {}
+[14.646815] (-) TimerEvent: {}
+[14.747068] (-) TimerEvent: {}
+[14.847305] (-) TimerEvent: {}
+[14.947559] (-) TimerEvent: {}
+[15.047855] (-) TimerEvent: {}
+[15.148104] (-) TimerEvent: {}
+[15.248380] (-) TimerEvent: {}
+[15.348836] (-) TimerEvent: {}
+[15.449118] (-) TimerEvent: {}
+[15.549452] (-) TimerEvent: {}
+[15.649883] (-) TimerEvent: {}
+[15.750193] (-) TimerEvent: {}
+[15.850416] (-) TimerEvent: {}
+[15.950588] (-) TimerEvent: {}
+[16.050874] (-) TimerEvent: {}
+[16.151139] (-) TimerEvent: {}
+[16.251396] (-) TimerEvent: {}
+[16.351642] (-) TimerEvent: {}
+[16.451854] (-) TimerEvent: {}
+[16.552167] (-) TimerEvent: {}
+[16.652630] (-) TimerEvent: {}
+[16.753081] (-) TimerEvent: {}
+[16.853398] (-) TimerEvent: {}
+[16.953638] (-) TimerEvent: {}
+[17.053936] (-) TimerEvent: {}
+[17.154228] (-) TimerEvent: {}
+[17.254491] (-) TimerEvent: {}
+[17.354749] (-) TimerEvent: {}
+[17.454978] (-) TimerEvent: {}
+[17.555299] (-) TimerEvent: {}
+[17.655584] (-) TimerEvent: {}
+[17.755830] (-) TimerEvent: {}
+[17.856223] (-) TimerEvent: {}
+[17.956414] (-) TimerEvent: {}
+[18.056638] (-) TimerEvent: {}
+[18.156902] (-) TimerEvent: {}
+[18.257165] (-) TimerEvent: {}
+[18.357479] (-) TimerEvent: {}
+[18.457658] (-) TimerEvent: {}
+[18.557838] (-) TimerEvent: {}
+[18.658001] (-) TimerEvent: {}
+[18.758212] (-) TimerEvent: {}
+[18.858348] (-) TimerEvent: {}
+[18.958549] (-) TimerEvent: {}
+[19.058753] (-) TimerEvent: {}
+[19.159051] (-) TimerEvent: {}
+[19.259324] (-) TimerEvent: {}
+[19.359499] (-) TimerEvent: {}
+[19.459713] (-) TimerEvent: {}
+[19.559882] (-) TimerEvent: {}
+[19.660150] (-) TimerEvent: {}
+[19.760344] (-) TimerEvent: {}
+[19.860693] (-) TimerEvent: {}
+[19.961084] (-) TimerEvent: {}
+[20.061476] (-) TimerEvent: {}
+[20.161776] (-) TimerEvent: {}
+[20.262172] (-) TimerEvent: {}
+[20.362465] (-) TimerEvent: {}
+[20.462733] (-) TimerEvent: {}
+[20.563142] (-) TimerEvent: {}
+[20.663555] (-) TimerEvent: {}
+[20.763962] (-) TimerEvent: {}
+[20.864364] (-) TimerEvent: {}
+[20.964745] (-) TimerEvent: {}
+[21.065136] (-) TimerEvent: {}
+[21.165487] (-) TimerEvent: {}
+[21.265908] (-) TimerEvent: {}
+[21.366171] (-) TimerEvent: {}
+[21.466498] (-) TimerEvent: {}
+[21.566742] (-) TimerEvent: {}
+[21.667074] (-) TimerEvent: {}
+[21.767574] (-) TimerEvent: {}
+[21.868017] (-) TimerEvent: {}
+[21.968335] (-) TimerEvent: {}
+[22.068852] (-) TimerEvent: {}
+[22.169197] (-) TimerEvent: {}
+[22.269514] (-) TimerEvent: {}
+[22.369745] (-) TimerEvent: {}
+[22.470076] (-) TimerEvent: {}
+[22.570469] (-) TimerEvent: {}
+[22.670873] (-) TimerEvent: {}
+[22.771174] (-) TimerEvent: {}
+[22.871605] (-) TimerEvent: {}
+[22.972015] (-) TimerEvent: {}
+[23.072427] (-) TimerEvent: {}
+[23.172670] (-) TimerEvent: {}
+[23.272981] (-) TimerEvent: {}
+[23.373340] (-) TimerEvent: {}
+[23.473550] (-) TimerEvent: {}
+[23.573897] (-) TimerEvent: {}
+[23.674318] (-) TimerEvent: {}
+[23.774663] (-) TimerEvent: {}
+[23.874946] (-) TimerEvent: {}
+[23.975269] (-) TimerEvent: {}
+[24.075472] (-) TimerEvent: {}
+[24.175691] (-) TimerEvent: {}
+[24.276060] (-) TimerEvent: {}
+[24.376410] (-) TimerEvent: {}
+[24.476734] (-) TimerEvent: {}
+[24.577040] (-) TimerEvent: {}
+[24.677375] (-) TimerEvent: {}
+[24.777784] (-) TimerEvent: {}
+[24.878205] (-) TimerEvent: {}
+[24.978726] (-) TimerEvent: {}
+[25.079190] (-) TimerEvent: {}
+[25.179484] (-) TimerEvent: {}
+[25.279748] (-) TimerEvent: {}
+[25.380173] (-) TimerEvent: {}
+[25.480596] (-) TimerEvent: {}
+[25.581027] (-) TimerEvent: {}
+[25.681341] (-) TimerEvent: {}
+[25.781709] (-) TimerEvent: {}
+[25.882072] (-) TimerEvent: {}
+[25.982412] (-) TimerEvent: {}
+[26.082682] (-) TimerEvent: {}
+[26.183056] (-) TimerEvent: {}
+[26.283392] (-) TimerEvent: {}
+[26.383651] (-) TimerEvent: {}
+[26.483914] (-) TimerEvent: {}
+[26.584215] (-) TimerEvent: {}
+[26.684443] (-) TimerEvent: {}
+[26.784592] (-) TimerEvent: {}
+[26.884751] (-) TimerEvent: {}
+[26.985034] (-) TimerEvent: {}
+[27.085259] (-) TimerEvent: {}
+[27.185622] (-) TimerEvent: {}
+[27.285998] (-) TimerEvent: {}
+[27.386410] (-) TimerEvent: {}
+[27.486715] (-) TimerEvent: {}
+[27.586992] (-) TimerEvent: {}
+[27.687301] (-) TimerEvent: {}
+[27.787501] (-) TimerEvent: {}
+[27.887817] (-) TimerEvent: {}
+[27.988092] (-) TimerEvent: {}
+[28.088361] (-) TimerEvent: {}
+[28.188742] (-) TimerEvent: {}
+[28.289051] (-) TimerEvent: {}
+[28.389297] (-) TimerEvent: {}
+[28.489473] (-) TimerEvent: {}
+[28.589662] (-) TimerEvent: {}
+[28.689956] (-) TimerEvent: {}
+[28.790303] (-) TimerEvent: {}
+[28.890580] (-) TimerEvent: {}
+[28.990802] (-) TimerEvent: {}
+[29.091139] (-) TimerEvent: {}
+[29.191322] (-) TimerEvent: {}
+[29.291586] (-) TimerEvent: {}
+[29.391871] (-) TimerEvent: {}
+[29.492111] (-) TimerEvent: {}
+[29.592446] (-) TimerEvent: {}
+[29.692817] (-) TimerEvent: {}
+[29.793116] (-) TimerEvent: {}
+[29.893404] (-) TimerEvent: {}
+[29.993636] (-) TimerEvent: {}
+[30.032646] (bravo_cathode_protection) JobProgress: {'identifier': 'bravo_cathode_protection', 'progress': 'cmake'}
+[30.034217] (bravo_cathode_protection) Command: {'cmd': ['/usr/bin/cmake', '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection', '-DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2304'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2727'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5257'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:24937'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0wKt47E:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-0.4.76-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2694,unix/carlos:/tmp/.ICE-unix/2694'), ('INVOCATION_ID', '0598132596564519a8eb2ab8eecbd4af'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019c9fa2-3d2d-7750-9f50-18e836bb3498'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '5257')]), 'shell': False}
+[30.093759] (-) TimerEvent: {}
+[30.156413] (bravo_cathode_protection) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[30.193944] (-) TimerEvent: {}
+[30.208027] (bravo_cathode_protection) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[30.215190] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[30.294335] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[30.294456] (-) TimerEvent: {}
+[30.299765] (bravo_cathode_protection) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[30.299986] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[30.300389] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[30.303041] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[30.369767] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[30.376406] (bravo_cathode_protection) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[30.376552] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[30.376762] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[30.379976] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[30.394557] (-) TimerEvent: {}
+[30.482462] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[30.494826] (-) TimerEvent: {}
+[30.551260] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[30.553521] (bravo_cathode_protection) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[30.557998] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[30.589680] (bravo_cathode_protection) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[30.594997] (-) TimerEvent: {}
+[30.613633] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[30.653470] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[30.655221] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[30.695093] (-) TimerEvent: {}
+[30.724745] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[30.742130] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[30.770489] (bravo_cathode_protection) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[30.777398] (bravo_cathode_protection) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[30.795224] (-) TimerEvent: {}
+[30.842281] (bravo_cathode_protection) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[30.844469] (bravo_cathode_protection) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[30.895455] (-) TimerEvent: {}
+[30.908074] (bravo_cathode_protection) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[30.909133] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[30.954904] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so\n'}
+[30.955121] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so\n'}
+[30.955218] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so\n'}
+[30.955809] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so\n'}
+[30.956761] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so\n'}
+[30.957140] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so\n'}
+[30.995558] (-) TimerEvent: {}
+[30.997146] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system \n'}
+[30.998163] (bravo_cathode_protection) StderrLine: {'line': b'CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):\n'}
+[30.998387] (bravo_cathode_protection) StderrLine: {'line': b"  Please update your CMake from 'hpp-fcl' to 'coal'\n"}
+[30.998494] (bravo_cathode_protection) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[30.998583] (bravo_cathode_protection) StderrLine: {'line': b'  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)\n'}
+[30.998663] (bravo_cathode_protection) StderrLine: {'line': b'  /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)\n'}
+[30.998738] (bravo_cathode_protection) StderrLine: {'line': b'  CMakeLists.txt:18 (find_package)\n'}
+[30.999022] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[30.999118] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[30.999194] (bravo_cathode_protection) StdoutLine: {'line': b'-- coal FOUND. coal at /opt/openrobots/lib/libcoal.so\n'}
+[31.015533] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: chrono thread date_time serialization filesystem atomic \n'}
+[31.095681] (-) TimerEvent: {}
+[31.196084] (-) TimerEvent: {}
+[31.296268] (-) TimerEvent: {}
+[31.357614] (bravo_cathode_protection) StdoutLine: {'line': b'-- Default C++ standard: 202002\n'}
+[31.357833] (bravo_cathode_protection) StdoutLine: {'line': b'-- Minimal C++ standard upgraded to 11\n'}
+[31.357936] (bravo_cathode_protection) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 20\n'}
+[31.359532] (bravo_cathode_protection) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 20\n'}
+[31.361145] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[31.387410] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[31.396407] (-) TimerEvent: {}
+[31.405334] (bravo_cathode_protection) StderrLine: {'line': b'CMake Error at CMakeLists.txt:24 (find_package):\n'}
+[31.405542] (bravo_cathode_protection) StderrLine: {'line': b'  By not providing "Findgeneral_libs_unite.cmake" in CMAKE_MODULE_PATH this\n'}
+[31.405618] (bravo_cathode_protection) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[31.405679] (bravo_cathode_protection) StderrLine: {'line': b'  "general_libs_unite", but CMake did not find one.\n'}
+[31.405735] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[31.405791] (bravo_cathode_protection) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[31.405847] (bravo_cathode_protection) StderrLine: {'line': b'  "general_libs_unite" with any of the following names:\n'}
+[31.405902] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[31.405957] (bravo_cathode_protection) StderrLine: {'line': b'    general_libs_uniteConfig.cmake\n'}
+[31.406011] (bravo_cathode_protection) StderrLine: {'line': b'    general_libs_unite-config.cmake\n'}
+[31.406065] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[31.406119] (bravo_cathode_protection) StderrLine: {'line': b'  Add the installation prefix of "general_libs_unite" to CMAKE_PREFIX_PATH or\n'}
+[31.406174] (bravo_cathode_protection) StderrLine: {'line': b'  set "general_libs_unite_DIR" to a directory containing one of the above\n'}
+[31.406228] (bravo_cathode_protection) StderrLine: {'line': b'  files.  If "general_libs_unite" provides a separate development package or\n'}
+[31.406290] (bravo_cathode_protection) StderrLine: {'line': b'  SDK, be sure it has been installed.\n'}
+[31.406353] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[31.406414] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[31.406533] (bravo_cathode_protection) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[31.406578] (bravo_cathode_protection) StdoutLine: {'line': b'See also "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection/CMakeFiles/CMakeOutput.log".\n'}
+[31.496603] (-) TimerEvent: {}
+[31.596803] (-) TimerEvent: {}
+[31.697108] (-) TimerEvent: {}
+[31.797310] (-) TimerEvent: {}
+[31.897480] (-) TimerEvent: {}
+[31.997648] (-) TimerEvent: {}
+[32.097923] (-) TimerEvent: {}
+[32.198143] (-) TimerEvent: {}
+[32.298351] (-) TimerEvent: {}
+[32.398529] (-) TimerEvent: {}
+[32.498706] (-) TimerEvent: {}
+[32.598882] (-) TimerEvent: {}
+[32.699098] (-) TimerEvent: {}
+[32.799356] (-) TimerEvent: {}
+[32.899526] (-) TimerEvent: {}
+[32.999692] (-) TimerEvent: {}
+[33.099923] (-) TimerEvent: {}
+[33.200111] (-) TimerEvent: {}
+[33.300264] (-) TimerEvent: {}
+[33.400432] (-) TimerEvent: {}
+[33.500590] (-) TimerEvent: {}
+[33.600781] (-) TimerEvent: {}
+[33.701061] (-) TimerEvent: {}
+[33.801335] (-) TimerEvent: {}
+[33.901555] (-) TimerEvent: {}
+[34.001842] (-) TimerEvent: {}
+[34.102053] (-) TimerEvent: {}
+[34.202298] (-) TimerEvent: {}
+[34.302519] (-) TimerEvent: {}
+[34.402778] (-) TimerEvent: {}
+[34.502990] (-) TimerEvent: {}
+[34.603213] (-) TimerEvent: {}
+[34.703464] (-) TimerEvent: {}
+[34.803732] (-) TimerEvent: {}
+[34.903994] (-) TimerEvent: {}
+[35.004265] (-) TimerEvent: {}
+[35.104509] (-) TimerEvent: {}
+[35.204721] (-) TimerEvent: {}
+[35.304948] (-) TimerEvent: {}
+[35.405237] (-) TimerEvent: {}
+[35.505599] (-) TimerEvent: {}
+[35.605791] (-) TimerEvent: {}
+[35.706090] (-) TimerEvent: {}
+[35.806411] (-) TimerEvent: {}
+[35.906741] (-) TimerEvent: {}
+[36.006965] (-) TimerEvent: {}
+[36.107202] (-) TimerEvent: {}
+[36.207553] (-) TimerEvent: {}
+[36.307776] (-) TimerEvent: {}
+[36.407957] (-) TimerEvent: {}
+[36.508180] (-) TimerEvent: {}
+[36.608353] (-) TimerEvent: {}
+[36.708564] (-) TimerEvent: {}
+[36.808846] (-) TimerEvent: {}
+[36.909142] (-) TimerEvent: {}
+[37.009401] (-) TimerEvent: {}
+[37.109600] (-) TimerEvent: {}
+[37.209855] (-) TimerEvent: {}
+[37.310109] (-) TimerEvent: {}
+[37.410369] (-) TimerEvent: {}
+[37.510620] (-) TimerEvent: {}
+[37.610801] (-) TimerEvent: {}
+[37.711067] (-) TimerEvent: {}
+[37.811308] (-) TimerEvent: {}
+[37.911546] (-) TimerEvent: {}
+[38.011765] (-) TimerEvent: {}
+[38.111941] (-) TimerEvent: {}
+[38.212165] (-) TimerEvent: {}
+[38.312379] (-) TimerEvent: {}
+[38.412554] (-) TimerEvent: {}
+[38.512770] (-) TimerEvent: {}
+[38.613036] (-) TimerEvent: {}
+[38.713315] (-) TimerEvent: {}
+[38.813569] (-) TimerEvent: {}
+[38.913818] (-) TimerEvent: {}
+[39.014138] (-) TimerEvent: {}
+[39.114330] (-) TimerEvent: {}
+[39.214499] (-) TimerEvent: {}
+[39.314704] (-) TimerEvent: {}
+[39.414962] (-) TimerEvent: {}
+[39.515131] (-) TimerEvent: {}
+[39.615408] (-) TimerEvent: {}
+[39.715588] (-) TimerEvent: {}
+[39.815803] (-) TimerEvent: {}
+[39.916028] (-) TimerEvent: {}
+[40.016365] (-) TimerEvent: {}
+[40.116613] (-) TimerEvent: {}
+[40.217008] (-) TimerEvent: {}
+[40.317219] (-) TimerEvent: {}
+[40.417477] (-) TimerEvent: {}
+[40.517755] (-) TimerEvent: {}
+[40.618023] (-) TimerEvent: {}
+[40.718214] (-) TimerEvent: {}
+[40.818408] (-) TimerEvent: {}
+[40.918739] (-) TimerEvent: {}
+[41.018977] (-) TimerEvent: {}
+[41.119365] (-) TimerEvent: {}
+[41.219653] (-) TimerEvent: {}
+[41.320017] (-) TimerEvent: {}
+[41.420247] (-) TimerEvent: {}
+[41.520522] (-) TimerEvent: {}
+[41.620724] (-) TimerEvent: {}
+[41.720916] (-) TimerEvent: {}
+[41.821131] (-) TimerEvent: {}
+[41.921347] (-) TimerEvent: {}
+[42.021555] (-) TimerEvent: {}
+[42.121764] (-) TimerEvent: {}
+[42.222092] (-) TimerEvent: {}
+[42.322289] (-) TimerEvent: {}
+[42.422476] (-) TimerEvent: {}
+[42.522665] (-) TimerEvent: {}
+[42.623003] (-) TimerEvent: {}
+[42.723209] (-) TimerEvent: {}
+[42.823397] (-) TimerEvent: {}
+[42.923722] (-) TimerEvent: {}
+[43.024023] (-) TimerEvent: {}
+[43.124271] (-) TimerEvent: {}
+[43.224446] (-) TimerEvent: {}
+[43.324744] (-) TimerEvent: {}
+[43.424996] (-) TimerEvent: {}
+[43.525269] (-) TimerEvent: {}
+[43.625738] (-) TimerEvent: {}
+[43.726191] (-) TimerEvent: {}
+[43.826704] (-) TimerEvent: {}
+[43.927073] (-) TimerEvent: {}
+[44.027357] (-) TimerEvent: {}
+[44.127636] (-) TimerEvent: {}
+[44.228091] (-) TimerEvent: {}
+[44.328384] (-) TimerEvent: {}
+[44.428559] (-) TimerEvent: {}
+[44.528752] (-) TimerEvent: {}
+[44.629002] (-) TimerEvent: {}
+[44.729311] (-) TimerEvent: {}
+[44.829565] (-) TimerEvent: {}
+[44.929838] (-) TimerEvent: {}
+[45.030148] (-) TimerEvent: {}
+[45.130424] (-) TimerEvent: {}
+[45.230725] (-) TimerEvent: {}
+[45.331090] (-) TimerEvent: {}
+[45.431311] (-) TimerEvent: {}
+[45.531502] (-) TimerEvent: {}
+[45.631707] (-) TimerEvent: {}
+[45.731960] (-) TimerEvent: {}
+[45.832246] (-) TimerEvent: {}
+[45.932540] (-) TimerEvent: {}
+[46.032732] (-) TimerEvent: {}
+[46.132899] (-) TimerEvent: {}
+[46.233079] (-) TimerEvent: {}
+[46.333310] (-) TimerEvent: {}
+[46.433598] (-) TimerEvent: {}
+[46.533932] (-) TimerEvent: {}
+[46.634222] (-) TimerEvent: {}
+[46.734620] (-) TimerEvent: {}
+[46.834910] (-) TimerEvent: {}
+[46.935200] (-) TimerEvent: {}
+[47.035608] (-) TimerEvent: {}
+[47.135825] (-) TimerEvent: {}
+[47.236074] (-) TimerEvent: {}
+[47.336272] (-) TimerEvent: {}
+[47.436645] (-) TimerEvent: {}
+[47.536930] (-) TimerEvent: {}
+[47.637325] (-) TimerEvent: {}
+[47.737783] (-) TimerEvent: {}
+[47.838121] (-) TimerEvent: {}
+[47.938496] (-) TimerEvent: {}
+[48.038877] (-) TimerEvent: {}
+[48.139206] (-) TimerEvent: {}
+[48.239535] (-) TimerEvent: {}
+[48.339840] (-) TimerEvent: {}
+[48.440168] (-) TimerEvent: {}
+[48.540475] (-) TimerEvent: {}
+[48.640720] (-) TimerEvent: {}
+[48.741017] (-) TimerEvent: {}
+[48.841326] (-) TimerEvent: {}
+[48.941567] (-) TimerEvent: {}
+[49.041885] (-) TimerEvent: {}
+[49.142238] (-) TimerEvent: {}
+[49.242676] (-) TimerEvent: {}
+[49.343025] (-) TimerEvent: {}
+[49.443396] (-) TimerEvent: {}
+[49.543790] (-) TimerEvent: {}
+[49.644090] (-) TimerEvent: {}
+[49.744402] (-) TimerEvent: {}
+[49.844661] (-) TimerEvent: {}
+[49.944902] (-) TimerEvent: {}
+[50.045208] (-) TimerEvent: {}
+[50.145621] (-) TimerEvent: {}
+[50.245930] (-) TimerEvent: {}
+[50.346240] (-) TimerEvent: {}
+[50.446557] (-) TimerEvent: {}
+[50.546928] (-) TimerEvent: {}
+[50.647384] (-) TimerEvent: {}
+[50.747686] (-) TimerEvent: {}
+[50.847971] (-) TimerEvent: {}
+[50.948255] (-) TimerEvent: {}
+[51.048558] (-) TimerEvent: {}
+[51.148903] (-) TimerEvent: {}
+[51.249362] (-) TimerEvent: {}
+[51.349646] (-) TimerEvent: {}
+[51.449942] (-) TimerEvent: {}
+[51.550348] (-) TimerEvent: {}
+[51.650603] (-) TimerEvent: {}
+[51.750909] (-) TimerEvent: {}
+[51.851210] (-) TimerEvent: {}
+[51.951625] (-) TimerEvent: {}
+[52.051906] (-) TimerEvent: {}
+[52.152199] (-) TimerEvent: {}
+[52.252516] (-) TimerEvent: {}
+[52.352760] (-) TimerEvent: {}
+[52.453015] (-) TimerEvent: {}
+[52.553378] (-) TimerEvent: {}
+[52.653693] (-) TimerEvent: {}
+[52.754120] (-) TimerEvent: {}
+[52.854515] (-) TimerEvent: {}
+[52.955036] (-) TimerEvent: {}
+[53.055382] (-) TimerEvent: {}
+[53.155640] (-) TimerEvent: {}
+[53.255843] (-) TimerEvent: {}
+[53.356124] (-) TimerEvent: {}
+[53.456377] (-) TimerEvent: {}
+[53.556639] (-) TimerEvent: {}
+[53.657011] (-) TimerEvent: {}
+[53.757357] (-) TimerEvent: {}
+[53.857731] (-) TimerEvent: {}
+[53.958111] (-) TimerEvent: {}
+[54.058461] (-) TimerEvent: {}
+[54.158850] (-) TimerEvent: {}
+[54.259220] (-) TimerEvent: {}
+[54.359576] (-) TimerEvent: {}
+[54.459916] (-) TimerEvent: {}
+[54.560440] (-) TimerEvent: {}
+[54.660772] (-) TimerEvent: {}
+[54.761130] (-) TimerEvent: {}
+[54.861400] (-) TimerEvent: {}
+[54.961755] (-) TimerEvent: {}
+[55.062061] (-) TimerEvent: {}
+[55.162322] (-) TimerEvent: {}
+[55.262580] (-) TimerEvent: {}
+[55.362840] (-) TimerEvent: {}
+[55.463160] (-) TimerEvent: {}
+[55.563519] (-) TimerEvent: {}
+[55.663786] (-) TimerEvent: {}
+[55.764148] (-) TimerEvent: {}
+[55.864748] (-) TimerEvent: {}
+[55.965148] (-) TimerEvent: {}
+[56.065436] (-) TimerEvent: {}
+[56.165670] (-) TimerEvent: {}
+[56.265892] (-) TimerEvent: {}
+[56.366169] (-) TimerEvent: {}
+[56.466343] (-) TimerEvent: {}
+[56.566578] (-) TimerEvent: {}
+[56.666769] (-) TimerEvent: {}
+[56.766993] (-) TimerEvent: {}
+[56.867182] (-) TimerEvent: {}
+[56.967341] (-) TimerEvent: {}
+[57.067530] (-) TimerEvent: {}
+[57.167738] (-) TimerEvent: {}
+[57.267985] (-) TimerEvent: {}
+[57.368242] (-) TimerEvent: {}
+[57.468589] (-) TimerEvent: {}
+[57.569007] (-) TimerEvent: {}
+[57.669487] (-) TimerEvent: {}
+[57.769793] (-) TimerEvent: {}
+[57.870147] (-) TimerEvent: {}
+[57.970578] (-) TimerEvent: {}
+[58.070883] (-) TimerEvent: {}
+[58.171229] (-) TimerEvent: {}
+[58.271673] (-) TimerEvent: {}
+[58.372078] (-) TimerEvent: {}
+[58.472339] (-) TimerEvent: {}
+[58.572582] (-) TimerEvent: {}
+[58.672828] (-) TimerEvent: {}
+[58.773158] (-) TimerEvent: {}
+[58.873562] (-) TimerEvent: {}
+[58.973840] (-) TimerEvent: {}
+[59.074086] (-) TimerEvent: {}
+[59.174277] (-) TimerEvent: {}
+[59.274482] (-) TimerEvent: {}
+[59.374664] (-) TimerEvent: {}
+[59.474896] (-) TimerEvent: {}
+[59.575185] (-) TimerEvent: {}
+[59.675499] (-) TimerEvent: {}
+[59.775838] (-) TimerEvent: {}
+[59.876182] (-) TimerEvent: {}
+[59.976414] (-) TimerEvent: {}
+[60.061522] (bravo_cathode_protection) CommandEnded: {'returncode': 1}
+[60.076266] (bravo_cathode_protection) JobEnded: {'identifier': 'bravo_cathode_protection', 'rc': 1}
+[60.076780] (-) TimerEvent: {}
+[60.086642] (-) EventReactorShutdown: {}

@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-ac60b39ddd7ef7686cb7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "bravo_cathode_protection",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_fixed_axis::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_fixed_axis-56a6ad296c35f21aa4bb.json",
+					"name" : "bravo5_cp_fixed_axis",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_mobile_axis::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_mobile_axis-98f3269a2d1a8a43622c.json",
+					"name" : "bravo5_cp_mobile_axis",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_whole_program_7::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_whole_program_7-710a8981fee926ea447c.json",
+					"name" : "bravo5_cp_whole_program_7",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_gravity_and_joint_friction_identification::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_gravity_and_joint_friction_identification-9cfc0bbb21f4f2d6b482.json",
+					"name" : "bravo5_gravity_and_joint_friction_identification",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo_cathode_protection_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo_cathode_protection_uninstall-a0dfd9db83f5c375eecb.json",
+					"name" : "bravo_cathode_protection_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo_handler_v2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo_handler_v2-9d6ae508f3d9c5b4b7be.json",
+					"name" : "bravo_handler_v2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-09295a7940bd8bd3d718.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection",
+		"source" : "/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

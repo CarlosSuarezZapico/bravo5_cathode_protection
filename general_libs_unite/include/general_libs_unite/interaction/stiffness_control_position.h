@@ -93,6 +93,8 @@ template <FloatingPoint T>
             Eigen::Vector<T, 3> desired_force{10.0, 0.0, 0.0};
             Eigen::Vector<T, 3> ref_ee_pos;    //! REQUIRES careful initialization
             bool ref_initialized = false;
+            bool reference_motion_in_local_frame = false;
+            Eigen::Matrix<T, 3, 3> local_to_world_rotation = Eigen::Matrix<T, 3, 3>::Identity();
 
             //& SAFETY LIMITS
             Eigen::Vector<T, 3> MAX_TASK_VEL{0.25, 0.25, 0.25}; 
@@ -133,6 +135,10 @@ template <FloatingPoint T>
             void set_max_vel(Eigen::Vector<T, 3> maximum_velocity_input);
 
             void set_ref_ee_position(Eigen::Vector<T, 3> position);
+
+            void set_reference_integration_local(bool use_local_frame);
+
+            void set_reference_integration_rotation(const Eigen::Matrix<T, 3, 3>& rotation_local_to_world);
 
             Eigen::Vector<T, 3> get_ref_ee_position();
 
