@@ -302,7 +302,8 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             mA_joint_current_cmd = bravo->torqueNm_2_currentmA(Nm_gravity).array() + mA_friction_compensation.array() + mA_pd_current_cmd.array();
         }
         bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA); 
-
+        
+        //& DASHBOARD UPDATE
         if (dashboard) {
             dashboard->setInteractionStatusX(
                 dashboard_vel_ee_x,
