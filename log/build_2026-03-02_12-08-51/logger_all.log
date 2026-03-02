@@ -1,0 +1,166 @@
+[0.183s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'bravo_cathode_protection', '--base-paths', '/home/carlos/bravo5_cp_ws/src', '--build-base', '/tmp/bravo_build', '--install-base', '/tmp/bravo_install', '--merge-install']
+[0.183s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='/tmp/bravo_build', install_base='/tmp/bravo_install', merge_install=True, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/carlos/bravo5_cp_ws/src'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['bravo_cathode_protection'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7020cc23bdc0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7020cc23b370>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7020cc23b370>>, mixin_verb=('build',))
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.318s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/carlos/bravo5_cp_ws/src'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'ignore'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'ignore_ament_install'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['colcon_pkg']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'colcon_pkg'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['colcon_meta']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'colcon_meta'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['ros']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'ros'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['cmake', 'python']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'cmake'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'python'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extensions ['python_setup_py']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src) by extension 'python_setup_py'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extensions ['ignore', 'ignore_ament_install']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extension 'ignore'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extension 'ignore_ament_install'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extensions ['colcon_pkg']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extension 'colcon_pkg'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extensions ['colcon_meta']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extension 'colcon_meta'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extensions ['ros']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection) by extension 'ros'
+[0.331s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection' with type 'ros.ament_cmake' and name 'bravo_cathode_protection'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/build) by extension 'ignore'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/build) ignored
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extensions ['ignore', 'ignore_ament_install']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extension 'ignore'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extension 'ignore_ament_install'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extensions ['colcon_pkg']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extension 'colcon_pkg'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extensions ['colcon_meta']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extension 'colcon_meta'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extensions ['ros']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/general_libs_unite) by extension 'ros'
+[0.332s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/general_libs_unite' with type 'ros.ament_cmake' and name 'general_libs_unite'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/install) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/install) ignored
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/log) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/log) ignored
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'ignore_ament_install'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['colcon_pkg']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'colcon_pkg'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['colcon_meta']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'colcon_meta'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['ros']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'ros'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['cmake', 'python']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'cmake'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'python'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extensions ['python_setup_py']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions) by extension 'python_setup_py'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extension 'ignore'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extension 'ignore_ament_install'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extensions ['colcon_pkg']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extension 'colcon_pkg'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extensions ['colcon_meta']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extension 'colcon_meta'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extensions ['ros']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description) by extension 'ros'
+[0.333s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description' with type 'ros.ament_cmake' and name 'bpl_bravo_description'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extensions ['ignore', 'ignore_ament_install']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extension 'ignore'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extension 'ignore_ament_install'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extensions ['colcon_pkg']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extension 'colcon_pkg'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extensions ['colcon_meta']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extension 'colcon_meta'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extensions ['ros']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description) by extension 'ros'
+[0.334s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description' with type 'ros.ament_cmake' and name 'bravo_arm_description'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extensions ['ignore', 'ignore_ament_install']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extension 'ignore'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extension 'ignore_ament_install'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extensions ['colcon_pkg']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extension 'colcon_pkg'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extensions ['colcon_meta']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extension 'colcon_meta'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extensions ['ros']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data) by extension 'ros'
+[0.335s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data' with type 'ros.ament_cmake' and name 'example-robot-data'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extension 'ignore'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extension 'ignore_ament_install'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extensions ['colcon_pkg']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extension 'colcon_pkg'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extensions ['colcon_meta']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extension 'colcon_meta'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extensions ['ros']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description) by extension 'ros'
+[0.336s] DEBUG:colcon.colcon_core.package_identification:Package '/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description' with type 'ros.ament_cmake' and name 'uvm_description'
+[0.336s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.366s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'bpl_bravo_description' in '/home/carlos/bravo5_cp_ws/src/robot_descriptions/bpl_bravo_description'
+[0.366s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'bravo_arm_description' in '/home/carlos/bravo5_cp_ws/src/robot_descriptions/bravo_arm_description'
+[0.366s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'example-robot-data' in '/home/carlos/bravo5_cp_ws/src/robot_descriptions/example-robot-data'
+[0.366s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'general_libs_unite' in '/home/carlos/bravo5_cp_ws/src/general_libs_unite'
+[0.366s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'uvm_description' in '/home/carlos/bravo5_cp_ws/src/robot_descriptions/uvm_description'
+[0.367s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.367s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.370s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 273 installed packages in /opt/ros/humble
+[0.370s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_args' from command line to 'None'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_target' from command line to 'None'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_clean_cache' from command line to 'False'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_clean_first' from command line to 'False'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'cmake_force_configure' from command line to 'False'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'ament_cmake_args' from command line to 'None'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'catkin_cmake_args' from command line to 'None'
+[0.390s] Level 5:colcon.colcon_core.verb:set package 'bravo_cathode_protection' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.390s] DEBUG:colcon.colcon_core.verb:Building package 'bravo_cathode_protection' with the following arguments: {'ament_cmake_args': None, 'build_base': '/tmp/bravo_build/bravo_cathode_protection', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/tmp/bravo_install', 'merge_install': True, 'path': '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection', 'symlink_install': False, 'test_result_base': None}
+[0.390s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.391s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.391s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection' with build type 'ament_cmake'
+[0.392s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection'
+[0.394s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.394s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.394s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.400s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/tmp/bravo_build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/tmp/bravo_install
+[1.613s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/tmp/bravo_build/bravo_cathode_protection' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/tmp/bravo_install
+[30.412s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bravo_cathode_protection)
+[30.427s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install' for CMake module files
+[30.427s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install' for CMake config files
+[30.428s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install/bin'
+[30.428s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install/lib/pkgconfig/bravo_cathode_protection.pc'
+[30.428s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install/lib/python3.10/site-packages'
+[30.429s] Level 1:colcon.colcon_core.environment:checking '/tmp/bravo_install/bin'
+[30.429s] INFO:colcon.colcon_core.shell:Creating package script '/tmp/bravo_install/share/bravo_cathode_protection/package.ps1'
+[30.431s] INFO:colcon.colcon_core.shell:Creating package descriptor '/tmp/bravo_install/share/bravo_cathode_protection/package.dsv'
+[30.431s] INFO:colcon.colcon_core.shell:Creating package script '/tmp/bravo_install/share/bravo_cathode_protection/package.sh'
+[30.432s] INFO:colcon.colcon_core.shell:Creating package script '/tmp/bravo_install/share/bravo_cathode_protection/package.bash'
+[30.433s] INFO:colcon.colcon_core.shell:Creating package script '/tmp/bravo_install/share/bravo_cathode_protection/package.zsh'
+[30.434s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/tmp/bravo_install/share/colcon-core/packages/bravo_cathode_protection)
+[30.445s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[30.445s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[30.445s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[30.445s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[30.456s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[30.456s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[30.456s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[30.456s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.AccessDenied: Failed to connect to socket /run/user/1002/bus: Operation not permitted
+[30.456s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[30.456s] INFO:colcon.colcon_core.shell:Creating prefix script '/tmp/bravo_install/local_setup.ps1'
+[30.458s] INFO:colcon.colcon_core.shell:Creating prefix util module '/tmp/bravo_install/_local_setup_util_ps1.py'
+[30.460s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/tmp/bravo_install/setup.ps1'
+[30.462s] INFO:colcon.colcon_core.shell:Creating prefix script '/tmp/bravo_install/local_setup.sh'
+[30.463s] INFO:colcon.colcon_core.shell:Creating prefix util module '/tmp/bravo_install/_local_setup_util_sh.py'
+[30.463s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/tmp/bravo_install/setup.sh'
+[30.464s] INFO:colcon.colcon_core.shell:Creating prefix script '/tmp/bravo_install/local_setup.bash'
+[30.465s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/tmp/bravo_install/setup.bash'
+[30.466s] INFO:colcon.colcon_core.shell:Creating prefix script '/tmp/bravo_install/local_setup.zsh'
+[30.466s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/tmp/bravo_install/setup.zsh'

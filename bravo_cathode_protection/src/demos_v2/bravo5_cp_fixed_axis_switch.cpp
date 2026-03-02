@@ -124,8 +124,9 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     double manipulabilityXy = 0.0;
     double manipulabilityXz = 0.0;
     double manipulability = 0.0;
-    bool   motion_teleop   = false;
-    bool   perform_reading = false;
+    bool   CMD_ENABLE_TELEOP   = false;
+    bool   CMD_GO_HOME    = false;
+    bool   CMD_MAKE_READING = false;
     
     //! GRAVITY VECTOR FOR ARM MOUNTING POINT
     bravo->kinodynamics.change_gravity_vector(GRAVITY_VECTOR); //!changing gravity compensation
@@ -177,21 +178,93 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
         twist_joy_fixed[0] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[0], MAX_SPEED_JOY, -MAX_SPEED_JOY);
         twist_joy_fixed[1] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[1], MAX_SPEED_JOY, -MAX_SPEED_JOY);
         twist_joy_fixed[2] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[2], MAX_SPEED_JOY, -MAX_SPEED_JOY);
-        motion_teleop = airbus_joy->enableBaseMotion;
-        perform_reading = airbus_joy->makeReading;
+        CMD_ENABLE_TELEOP = airbus_joy->enableBaseMotion;
+        CMD_GO_HOME = airbus_joy->goHome;
+        CMD_MAKE_READING = airbus_joy->makeReading;
         const auto now_steady = std::chrono::steady_clock::now();
 
-        //& MACHINE STATES (legacy one-pass state branching)
-        if ((manipulability > MAX_MANIPULABILITY) || airbus_joy->goHome || !arrived2HOME) {
-            force_go_home = true;
+        //&MACHINE STATES
+        switch(current_state) {
+            case StateMachine::GO_HOME:
+                if (prev_state != StateMachine::GO_HOME){     
+                    prev_state = StateMachine::GO_HOME; 
+                }
+                desired_joint_pos = HOME;
+                arrived2HOME = bravo->is_in_desired_configuration(0.2, desired_joint_pos, joint_postion_fdb);
+                joint_velocity_friction = joint_velocity_fdb;
+                joint_velocity_cmd = Eigen::Vector4d::Zero();
+                break;
+            case StateMachine::HOME_WAITING:
+                if (prev_state != StateMachine::HOME_WAITING){    
+                    prev_state = StateMachine::HOME_WAITING;  
+                }
+                break;
+            case StateMachine::TELEOP:
+                if (prev_state != StateMachine::TELEOP){      
+                    prev_state = StateMachine::TELEOP;
+                    sim_joint_whole_integration = joint_postion_fdb;
+                    sim_start_integration_time  = std::chrono::high_resolution_clock::now();
+                    sim_finish_integration_time = std::chrono::high_resolution_clock::now();
+                }
+                const Eigen::Vector<double, 4> sim_joint_vel_integration = jacobian3x4.colPivHouseholderQr().solve(twist_joy_fixed); //! MAYBE BETTER USE DAMPING 
+                joint_velocity_cmd = sim_joint_vel_integration;
+                sim_finish_integration_time = std::chrono::high_resolution_clock::now();
+                const std::chrono::duration<double> elapsed = sim_finish_integration_time - sim_start_integration_time;
+                sim_joint_whole_integration = sim_joint_whole_integration + sim_joint_vel_integration * elapsed.count();
+                sim_start_integration_time = std::chrono::high_resolution_clock::now();
+                desired_joint_pos = sim_joint_whole_integration;
+                joint_velocity_friction = sim_joint_vel_integration;
+                dashboard_vel_ee_x = 0.0;
+                dashboard_exerted_force_x = 0.0;
+                break;
+            case StateMachine::STIFFNESS_CONTROL:
+                if (prev_state != StateMachine::STIFFNESS_CONTROL){  
+                    prev_state = StateMachine::STIFFNESS_CONTROL;
+                    stiffness_controller.set_ref_ee_position(bravo->kinodynamics.FK_ee_pos(joint_postion_fdb));  
+                }
+                const Eigen::Vector3d output_vel_ee = stiffness_controller.get_vel_ee();
+                force_cmd = stiffness_controller.compute_force_action(
+                            stiffness_controller.get_ref_ee_position() - bravo->kinodynamics.FK_ee_pos(joint_postion_fdb), 
+                            output_vel_ee - jacobian3x4 * joint_velocity_fdb, CMD_MAKE_READING);
+                joint_velocity_cmd = jacobian3x4.colPivHouseholderQr().solve(output_vel_ee);
+                joint_velocity_friction = joint_velocity_fdb;
+                joint_torque_cmd = jacobian3x4.colPivHouseholderQr().solve(force_cmd); // ! MAYBE BETTER USE DAMPING
+                mA_stiffness_current_cmd = bravo->torqueNm_2_currentmA(joint_torque_cmd);          
+                dashboard_vel_ee_x = output_vel_ee[0];
+                dashboard_exerted_force_x = force_cmd[0];
+                break;
         }
+
+        //& MACHINE STATES TRANSITIONS 
+
+        if ((manipulability > MAX_MANIPULABILITY) || CMD_GO_HOME || !arrived2HOME) {
+            current_state = StateMachine::GO_HOME;
+        }
+        else if ((manipulabilityXy < MAX_RATIO_FORCE_ELLIPSOID) || (manipulabilityXz < MAX_RATIO_FORCE_ELLIPSOID)) {
+            current_state = StateMachine::GO_HOME;
+        }
+        else if ((!MAKE_CP_READING) && (!CMD_ENABLE_TELEOP)){
+            if (prev_state != StateMachine::HOME_WAITING){      
+            }
+            if (CMD_MAKE_READING){
+                MAKE_CP_READING = true;
+            }
+        }
+        else if (CMD_ENABLE_TELEOP){
+            current_state = StateMachine::TELEOP;
+        }
+        else{
+            current_state = StateMachine::STIFFNESS_CONTROL;
+        }
+         
+
 
         if (force_go_home){
             if (prev_state != StateMachine::GO_HOME){      
             }
             desired_joint_pos = HOME;
             const bool arm_at_home = bravo->is_in_desired_configuration(0.2, desired_joint_pos, joint_postion_fdb);
-            const bool can_exit_go_home = arm_at_home && !airbus_joy->goHome &&
+            const bool can_exit_go_home = arm_at_home && !CMD_GO_HOME &&
                                           (manipulability < MAX_MANIPULABILITY_RELEASE_HOME);
             if (can_exit_go_home) {
                 if (!home_stability_timer_running) {
@@ -219,10 +292,10 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             prev_state = StateMachine::GO_HOME;
             current_state = StateMachine::GO_HOME;
         }
-        else if ((!MAKE_CP_READING) && (!motion_teleop)){
+        else if ((!MAKE_CP_READING) && (!CMD_ENABLE_TELEOP)){
             if (prev_state != StateMachine::HOME_WAITING){      
             }
-            if (perform_reading){
+            if (CMD_MAKE_READING){
                 MAKE_CP_READING = true;
             }
             dashboard_vel_ee_x = 0.0;
@@ -230,7 +303,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             prev_state = StateMachine::HOME_WAITING;
             current_state = StateMachine::HOME_WAITING;
         }
-        else if (motion_teleop){
+        else if (CMD_ENABLE_TELEOP){
             if (prev_state != StateMachine::TELEOP){      
                 sim_joint_whole_integration = bravo->get_bravo_joint_states();
                 sim_start_integration_time  = std::chrono::high_resolution_clock::now();
@@ -257,7 +330,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             const Eigen::Vector3d output_vel_ee = stiffness_controller.get_vel_ee();
             force_cmd = stiffness_controller.compute_force_action(
                         stiffness_controller.get_ref_ee_position() - bravo->kinodynamics.FK_ee_pos(bravo->get_bravo_joint_states()), 
-                        output_vel_ee - jacobian3x4 * joint_velocity_fdb, perform_reading);
+                        output_vel_ee - jacobian3x4 * joint_velocity_fdb, CMD_MAKE_READING);
             joint_velocity_cmd = jacobian3x4.colPivHouseholderQr().solve(output_vel_ee);
             joint_velocity_friction = bravo->get_bravo_joint_velocities();
             joint_torque_cmd = jacobian3x4.colPivHouseholderQr().solve(force_cmd); // ! MAYBE BETTER USE DAMPING

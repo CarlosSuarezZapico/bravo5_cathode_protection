@@ -80,7 +80,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
                     0.0, 0.0, 0.0, 13.98409, 12.97659, 21.69165,  // Joint 3
                     0.0, 0.0, 0.0, 15.82785, 14.35639, 24.04595;  // Joint 4
     const double FRICTION_SATURATION = 60; 
-    bool reading_latched = false;
+    bool MAKE_CP_READING = false;
 
     //& VARIABLES DIFF KINEMATICS
     std::chrono::high_resolution_clock::time_point sim_finish_integration_time = std::chrono::high_resolution_clock::now();
@@ -218,17 +218,17 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             }
             joint_velocity_friction = joint_velocity_fdb;
             joint_velocity_cmd = Eigen::Vector4d::Zero();
-            reading_latched = false;
+            MAKE_CP_READING = false;
             dashboard_vel_ee_x = 0.0;
             dashboard_exerted_force_x = 0.0;
             prev_state = StateMachine::GO_HOME;
             current_state = StateMachine::GO_HOME;
         }
-        else if ((!reading_latched) && (!motion_teleop)){
+        else if ((!MAKE_CP_READING) && (!motion_teleop)){
             if (prev_state != StateMachine::HOME_WAITING){      
             }
             if (perform_reading){
-                reading_latched = true;
+                MAKE_CP_READING = true;
             }
             dashboard_vel_ee_x = 0.0;
             dashboard_exerted_force_x = 0.0;
@@ -366,7 +366,7 @@ int main(int argc, char ** argv)
         BRAVO_LOG_INFO(*shared_logger, "[main] Using ee frame: ", tool_link);
 
         auto joystick         = std::make_shared<airbus_joystick_bravo5_CP>();
-        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, ip_address, udp_port, true, shared_logger);//(urdf_filename);
+        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address, udp_port, shared_logger);//(urdf_filename);
         auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
         executor->add_node(joystick);
         std::thread executor_thread([&executor]() {

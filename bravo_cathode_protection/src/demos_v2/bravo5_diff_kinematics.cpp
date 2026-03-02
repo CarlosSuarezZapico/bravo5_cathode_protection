@@ -158,7 +158,7 @@ int main(int argc, char ** argv)
     const std::string tool_link = std::string("contact_point");
     const std::string ip_address = std::string("192.168.2.51");
     auto joystick         = std::make_shared<airbus_joystick_bravo_twist_ee>();
-    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, ip_address);//(urdf_filename); //! CONSTRUCTOR
+    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address);//(urdf_filename); //! CONSTRUCTOR
     auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
     executor->add_node(joystick);
     std::thread executor_thread([&executor]() {
@@ -169,5 +169,4 @@ int main(int argc, char ** argv)
     rclcpp::shutdown();
     return 0;
 }
-
 

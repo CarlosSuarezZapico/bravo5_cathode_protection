@@ -17,20 +17,13 @@
 #ifndef _BRAVO_HANDLER_V2_
 #define _BRAVO_HANDLER_V2_
 
-#include "rclcpp/rclcpp.hpp"
 #include <cstdlib> 
 #include <thread>
 #include <atomic>
 #include <cmath>
 #include <memory>
-
-#include <urdf/model.h>
-#include <geometry_msgs/msg/twist.hpp>	
-#include <geometry_msgs/msg/vector3.hpp>	
-#include <geometry_msgs/msg/vector3_stamped.hpp>
-#include <geometry_msgs/msg/pose_stamped.hpp>
-#include <sensor_msgs/msg/joint_state.hpp>
-#include <geometry_msgs/msg/wrench_stamped.hpp>
+#include <string>
+#include <vector>
 
 #include "general_libs_unite/serial_manipulator/kinodynamics_manipulator.h"
 #include "bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h"
@@ -42,7 +35,7 @@ enum set_bravo_control_mode {position_control, velocity_control, current_control
 
 
 template <bravo_control::Floating32or64 T_data>
-	class bravo_handler : public rclcpp::Node{
+	class bravo_handler {
 			public: 
 				//& PINOCCHIO LIBRARY FOR KINODYNAMICS
 				kinodynamics_manipulator<T_data> kinodynamics;	
@@ -64,12 +57,6 @@ template <bravo_control::Floating32or64 T_data>
 			//& CURRENT MOTOR CONSTANT (Nm/A)
 			Eigen::Vector<T_data, Eigen::Dynamic> motor_constants;
 
-			//& ROS PUBLISHERS SUBSCRIBBERS
-			//$PUBLISHERS
-			rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr       pubWrenchEstimation;
-			rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr            pubFdbJointStates;
-			rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr            pubJointsStateRviz;
-
 		//MEMBER FUNCTIONS
 		public:
 			/**
@@ -77,17 +64,17 @@ template <bravo_control::Floating32or64 T_data>
 			 * 
 			 * @param urdf_filename urdf file location
 			 * @param toolLink ee frame name
+			 * @param robot_model robot model selector (bravo5 or bravo7)
 			 * @param ip optional ip address of the arm. If empty, defaults are:
 			 * bravo5 -> 10.43.0.146, bravo7 -> 192.168.2.51
 			 * @param port port for the communication
-			 * @param ROS_enable if true, it initializes the ROS publishers for the feedback from the arm
 			 * @param shared_logger optional logger created in main and shared with handler/udp
 			 */
 			bravo_handler(const std::string urdf_filename,
 			             const std::string &toolLink,
+			             bravo_control::ArmModel robot_model,
 			             const std::string& ip = "",
 			             int port = 6789,
-			             bool ROS_enable = true,
 			             std::shared_ptr<bravo_utils::Logger> shared_logger = nullptr);
 
 			~bravo_handler();
@@ -154,19 +141,6 @@ template <bravo_control::Floating32or64 T_data>
 
 			Eigen::Vector<T_data, Eigen::Dynamic> get_bravo_joint_penalization(std::vector<T_data> joint_states);
 			
-			/**
-			 * @brief  Visualization and simulation
-			 * @param q_arm arm joint position to plot
-			 * &TODO JOINT NAMES MUST MATCH THE URDF 
-			 */
-			void publish_RVIZ_sim_bravo_joint_states(Eigen::Vector<T_data, Eigen::Dynamic> q_arm, T_data gripper);
-
-			void publish_bravo_joint_states();
-
-			void publish_wrench_estimation(const Eigen::Vector<T_data, Eigen::Dynamic> force_estimation);
-
-			void publish_force_estimation(const Eigen::Vector3d force_estimation);
-
     	    T_data signedAngleDistance(T_data goal, T_data current);
 
 			Eigen::Vector<T_data, Eigen::Dynamic> signedAngleDistance(const Eigen::Vector<T_data, Eigen::Dynamic>& goal, const Eigen::Vector<T_data, Eigen::Dynamic>& current);

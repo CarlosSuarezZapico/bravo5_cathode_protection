@@ -353,7 +353,7 @@ int main(int argc, char ** argv)
             return 1;
         }
         auto joystick         = std::make_shared<airbus_joystick_bravo5_CP>();
-        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link);//(urdf_filename);
+        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5);//(urdf_filename);
         auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
         executor->add_node(joystick);
         std::thread executor_thread([&executor]() {

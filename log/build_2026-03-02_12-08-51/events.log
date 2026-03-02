@@ -1,0 +1,383 @@
+[0.000000] (-) TimerEvent: {}
+[0.000145] (-) JobUnselected: {'identifier': 'bpl_bravo_description'}
+[0.000408] (-) JobUnselected: {'identifier': 'bravo_arm_description'}
+[0.000495] (-) JobUnselected: {'identifier': 'example-robot-data'}
+[0.000513] (-) JobUnselected: {'identifier': 'general_libs_unite'}
+[0.000527] (-) JobUnselected: {'identifier': 'uvm_description'}
+[0.000543] (bravo_cathode_protection) JobQueued: {'identifier': 'bravo_cathode_protection', 'dependencies': OrderedDict()}
+[0.000561] (bravo_cathode_protection) JobStarted: {'identifier': 'bravo_cathode_protection'}
+[0.006972] (bravo_cathode_protection) JobProgress: {'identifier': 'bravo_cathode_protection', 'progress': 'cmake'}
+[0.007461] (bravo_cathode_protection) Command: {'cmd': ['/usr/bin/cmake', '/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection', '-DCMAKE_INSTALL_PREFIX=/tmp/bravo_install'], 'cwd': '/tmp/bravo_build/bravo_cathode_protection', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2317'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2746'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '10532'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:13017'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg07h9tXi:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-0.4.78-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2703,unix/carlos:/tmp/.ICE-unix/2703'), ('INVOCATION_ID', '90081fe7070c42d19a4d10d6ac9ba4f4'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'C.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019cae6f-0806-7681-b6dc-65e60d3f8d86'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/tmp/bravo_build/bravo_cathode_protection'), ('LC_ALL', 'C.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '10532')]), 'shell': False}
+[0.095515] (bravo_cathode_protection) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099888] (-) TimerEvent: {}
+[0.161659] (bravo_cathode_protection) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.170059] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199988] (-) TimerEvent: {}
+[0.231690] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.236211] (bravo_cathode_protection) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.236355] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.236952] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.239379] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.298124] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.300048] (-) TimerEvent: {}
+[0.302693] (bravo_cathode_protection) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.302771] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.302989] (bravo_cathode_protection) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.308015] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.400179] (-) TimerEvent: {}
+[0.402110] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.466957] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.469883] (bravo_cathode_protection) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.475487] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.500296] (-) TimerEvent: {}
+[0.510205] (bravo_cathode_protection) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.538150] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.578827] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.580981] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.600485] (-) TimerEvent: {}
+[0.661104] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.680172] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.700584] (-) TimerEvent: {}
+[0.705830] (bravo_cathode_protection) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.714067] (bravo_cathode_protection) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.765621] (bravo_cathode_protection) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.765961] (bravo_cathode_protection) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.800682] (-) TimerEvent: {}
+[0.821586] (bravo_cathode_protection) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.822308] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.864597] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so\n'}
+[0.864754] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so\n'}
+[0.864817] (bravo_cathode_protection) StdoutLine: {'line': b'-- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so\n'}
+[0.865458] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so\n'}
+[0.865828] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so\n'}
+[0.866331] (bravo_cathode_protection) StdoutLine: {'line': b'-- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so\n'}
+[0.900803] (-) TimerEvent: {}
+[0.903681] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system \n'}
+[0.904505] (bravo_cathode_protection) StderrLine: {'line': b'CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):\n'}
+[0.904570] (bravo_cathode_protection) StderrLine: {'line': b"  Please update your CMake from 'hpp-fcl' to 'coal'\n"}
+[0.904602] (bravo_cathode_protection) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.904630] (bravo_cathode_protection) StderrLine: {'line': b'  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)\n'}
+[0.904655] (bravo_cathode_protection) StderrLine: {'line': b'  /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)\n'}
+[0.904680] (bravo_cathode_protection) StderrLine: {'line': b'  CMakeLists.txt:18 (find_package)\n'}
+[0.904705] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[0.904731] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[0.905251] (bravo_cathode_protection) StdoutLine: {'line': b'-- coal FOUND. coal at /opt/openrobots/lib/libcoal.so\n'}
+[0.918960] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found Boost: /usr/include (found version "1.74.0") found components: chrono thread date_time serialization filesystem atomic \n'}
+[1.000898] (-) TimerEvent: {}
+[1.101105] (-) TimerEvent: {}
+[1.170733] (bravo_cathode_protection) StdoutLine: {'line': b'-- Default C++ standard: 202002\n'}
+[1.170853] (bravo_cathode_protection) StdoutLine: {'line': b'-- Minimal C++ standard upgraded to 11\n'}
+[1.170887] (bravo_cathode_protection) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 20\n'}
+[1.171815] (bravo_cathode_protection) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 20\n'}
+[1.173637] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.197214] (bravo_cathode_protection) StdoutLine: {'line': b'-- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[1.201173] (-) TimerEvent: {}
+[1.215387] (bravo_cathode_protection) StderrLine: {'line': b'CMake Error at CMakeLists.txt:24 (find_package):\n'}
+[1.215493] (bravo_cathode_protection) StderrLine: {'line': b'  By not providing "Findgeneral_libs_unite.cmake" in CMAKE_MODULE_PATH this\n'}
+[1.215531] (bravo_cathode_protection) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[1.215559] (bravo_cathode_protection) StderrLine: {'line': b'  "general_libs_unite", but CMake did not find one.\n'}
+[1.215584] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[1.215609] (bravo_cathode_protection) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[1.215633] (bravo_cathode_protection) StderrLine: {'line': b'  "general_libs_unite" with any of the following names:\n'}
+[1.215656] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[1.215680] (bravo_cathode_protection) StderrLine: {'line': b'    general_libs_uniteConfig.cmake\n'}
+[1.215705] (bravo_cathode_protection) StderrLine: {'line': b'    general_libs_unite-config.cmake\n'}
+[1.215727] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[1.215750] (bravo_cathode_protection) StderrLine: {'line': b'  Add the installation prefix of "general_libs_unite" to CMAKE_PREFIX_PATH or\n'}
+[1.215774] (bravo_cathode_protection) StderrLine: {'line': b'  set "general_libs_unite_DIR" to a directory containing one of the above\n'}
+[1.215796] (bravo_cathode_protection) StderrLine: {'line': b'  files.  If "general_libs_unite" provides a separate development package or\n'}
+[1.215820] (bravo_cathode_protection) StderrLine: {'line': b'  SDK, be sure it has been installed.\n'}
+[1.215843] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[1.215866] (bravo_cathode_protection) StderrLine: {'line': b'\n'}
+[1.215889] (bravo_cathode_protection) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.215915] (bravo_cathode_protection) StdoutLine: {'line': b'See also "/tmp/bravo_build/bravo_cathode_protection/CMakeFiles/CMakeOutput.log".\n'}
+[1.221417] (bravo_cathode_protection) CommandEnded: {'returncode': 1}
+[1.301418] (-) TimerEvent: {}
+[1.401802] (-) TimerEvent: {}
+[1.502259] (-) TimerEvent: {}
+[1.602602] (-) TimerEvent: {}
+[1.702975] (-) TimerEvent: {}
+[1.803338] (-) TimerEvent: {}
+[1.903624] (-) TimerEvent: {}
+[2.003860] (-) TimerEvent: {}
+[2.104138] (-) TimerEvent: {}
+[2.204445] (-) TimerEvent: {}
+[2.304620] (-) TimerEvent: {}
+[2.404822] (-) TimerEvent: {}
+[2.505015] (-) TimerEvent: {}
+[2.605238] (-) TimerEvent: {}
+[2.705493] (-) TimerEvent: {}
+[2.805751] (-) TimerEvent: {}
+[2.906009] (-) TimerEvent: {}
+[3.006250] (-) TimerEvent: {}
+[3.106614] (-) TimerEvent: {}
+[3.206889] (-) TimerEvent: {}
+[3.307054] (-) TimerEvent: {}
+[3.407248] (-) TimerEvent: {}
+[3.507481] (-) TimerEvent: {}
+[3.607688] (-) TimerEvent: {}
+[3.707944] (-) TimerEvent: {}
+[3.808221] (-) TimerEvent: {}
+[3.908587] (-) TimerEvent: {}
+[4.008819] (-) TimerEvent: {}
+[4.109134] (-) TimerEvent: {}
+[4.209407] (-) TimerEvent: {}
+[4.309648] (-) TimerEvent: {}
+[4.409994] (-) TimerEvent: {}
+[4.510369] (-) TimerEvent: {}
+[4.610537] (-) TimerEvent: {}
+[4.710726] (-) TimerEvent: {}
+[4.811013] (-) TimerEvent: {}
+[4.911204] (-) TimerEvent: {}
+[5.011411] (-) TimerEvent: {}
+[5.111611] (-) TimerEvent: {}
+[5.211959] (-) TimerEvent: {}
+[5.312172] (-) TimerEvent: {}
+[5.412533] (-) TimerEvent: {}
+[5.512779] (-) TimerEvent: {}
+[5.613124] (-) TimerEvent: {}
+[5.713476] (-) TimerEvent: {}
+[5.813736] (-) TimerEvent: {}
+[5.914011] (-) TimerEvent: {}
+[6.014370] (-) TimerEvent: {}
+[6.114746] (-) TimerEvent: {}
+[6.215091] (-) TimerEvent: {}
+[6.315438] (-) TimerEvent: {}
+[6.415720] (-) TimerEvent: {}
+[6.515951] (-) TimerEvent: {}
+[6.616277] (-) TimerEvent: {}
+[6.716588] (-) TimerEvent: {}
+[6.816961] (-) TimerEvent: {}
+[6.917230] (-) TimerEvent: {}
+[7.017525] (-) TimerEvent: {}
+[7.117842] (-) TimerEvent: {}
+[7.218165] (-) TimerEvent: {}
+[7.318510] (-) TimerEvent: {}
+[7.418789] (-) TimerEvent: {}
+[7.519088] (-) TimerEvent: {}
+[7.619372] (-) TimerEvent: {}
+[7.719741] (-) TimerEvent: {}
+[7.820035] (-) TimerEvent: {}
+[7.920354] (-) TimerEvent: {}
+[8.020631] (-) TimerEvent: {}
+[8.120892] (-) TimerEvent: {}
+[8.221246] (-) TimerEvent: {}
+[8.321565] (-) TimerEvent: {}
+[8.421956] (-) TimerEvent: {}
+[8.522251] (-) TimerEvent: {}
+[8.622550] (-) TimerEvent: {}
+[8.722889] (-) TimerEvent: {}
+[8.823266] (-) TimerEvent: {}
+[8.923554] (-) TimerEvent: {}
+[9.023908] (-) TimerEvent: {}
+[9.124266] (-) TimerEvent: {}
+[9.224543] (-) TimerEvent: {}
+[9.324753] (-) TimerEvent: {}
+[9.424947] (-) TimerEvent: {}
+[9.525274] (-) TimerEvent: {}
+[9.625570] (-) TimerEvent: {}
+[9.725886] (-) TimerEvent: {}
+[9.826168] (-) TimerEvent: {}
+[9.926491] (-) TimerEvent: {}
+[10.026808] (-) TimerEvent: {}
+[10.127105] (-) TimerEvent: {}
+[10.227397] (-) TimerEvent: {}
+[10.327742] (-) TimerEvent: {}
+[10.428058] (-) TimerEvent: {}
+[10.528475] (-) TimerEvent: {}
+[10.628757] (-) TimerEvent: {}
+[10.729091] (-) TimerEvent: {}
+[10.829408] (-) TimerEvent: {}
+[10.929787] (-) TimerEvent: {}
+[11.030063] (-) TimerEvent: {}
+[11.130438] (-) TimerEvent: {}
+[11.230856] (-) TimerEvent: {}
+[11.331167] (-) TimerEvent: {}
+[11.431448] (-) TimerEvent: {}
+[11.531840] (-) TimerEvent: {}
+[11.632107] (-) TimerEvent: {}
+[11.732426] (-) TimerEvent: {}
+[11.832748] (-) TimerEvent: {}
+[11.933052] (-) TimerEvent: {}
+[12.033409] (-) TimerEvent: {}
+[12.133741] (-) TimerEvent: {}
+[12.234114] (-) TimerEvent: {}
+[12.334443] (-) TimerEvent: {}
+[12.434723] (-) TimerEvent: {}
+[12.535025] (-) TimerEvent: {}
+[12.635353] (-) TimerEvent: {}
+[12.735648] (-) TimerEvent: {}
+[12.835937] (-) TimerEvent: {}
+[12.936243] (-) TimerEvent: {}
+[13.036547] (-) TimerEvent: {}
+[13.136820] (-) TimerEvent: {}
+[13.237106] (-) TimerEvent: {}
+[13.337466] (-) TimerEvent: {}
+[13.437716] (-) TimerEvent: {}
+[13.538024] (-) TimerEvent: {}
+[13.638441] (-) TimerEvent: {}
+[13.738738] (-) TimerEvent: {}
+[13.839047] (-) TimerEvent: {}
+[13.939412] (-) TimerEvent: {}
+[14.039669] (-) TimerEvent: {}
+[14.139981] (-) TimerEvent: {}
+[14.240276] (-) TimerEvent: {}
+[14.340586] (-) TimerEvent: {}
+[14.440863] (-) TimerEvent: {}
+[14.541090] (-) TimerEvent: {}
+[14.641314] (-) TimerEvent: {}
+[14.741584] (-) TimerEvent: {}
+[14.841849] (-) TimerEvent: {}
+[14.942118] (-) TimerEvent: {}
+[15.042394] (-) TimerEvent: {}
+[15.142657] (-) TimerEvent: {}
+[15.242951] (-) TimerEvent: {}
+[15.343266] (-) TimerEvent: {}
+[15.443499] (-) TimerEvent: {}
+[15.543763] (-) TimerEvent: {}
+[15.644062] (-) TimerEvent: {}
+[15.744398] (-) TimerEvent: {}
+[15.844687] (-) TimerEvent: {}
+[15.945091] (-) TimerEvent: {}
+[16.045377] (-) TimerEvent: {}
+[16.145681] (-) TimerEvent: {}
+[16.246049] (-) TimerEvent: {}
+[16.346423] (-) TimerEvent: {}
+[16.446696] (-) TimerEvent: {}
+[16.547081] (-) TimerEvent: {}
+[16.647474] (-) TimerEvent: {}
+[16.747773] (-) TimerEvent: {}
+[16.848150] (-) TimerEvent: {}
+[16.948512] (-) TimerEvent: {}
+[17.048731] (-) TimerEvent: {}
+[17.148993] (-) TimerEvent: {}
+[17.249178] (-) TimerEvent: {}
+[17.349562] (-) TimerEvent: {}
+[17.449821] (-) TimerEvent: {}
+[17.550099] (-) TimerEvent: {}
+[17.650257] (-) TimerEvent: {}
+[17.750398] (-) TimerEvent: {}
+[17.850555] (-) TimerEvent: {}
+[17.950819] (-) TimerEvent: {}
+[18.051043] (-) TimerEvent: {}
+[18.151256] (-) TimerEvent: {}
+[18.251511] (-) TimerEvent: {}
+[18.351882] (-) TimerEvent: {}
+[18.452051] (-) TimerEvent: {}
+[18.552242] (-) TimerEvent: {}
+[18.652465] (-) TimerEvent: {}
+[18.752680] (-) TimerEvent: {}
+[18.852886] (-) TimerEvent: {}
+[18.953056] (-) TimerEvent: {}
+[19.053353] (-) TimerEvent: {}
+[19.153547] (-) TimerEvent: {}
+[19.253861] (-) TimerEvent: {}
+[19.354183] (-) TimerEvent: {}
+[19.454638] (-) TimerEvent: {}
+[19.555036] (-) TimerEvent: {}
+[19.655308] (-) TimerEvent: {}
+[19.755541] (-) TimerEvent: {}
+[19.855700] (-) TimerEvent: {}
+[19.955935] (-) TimerEvent: {}
+[20.056276] (-) TimerEvent: {}
+[20.156464] (-) TimerEvent: {}
+[20.256639] (-) TimerEvent: {}
+[20.356899] (-) TimerEvent: {}
+[20.457194] (-) TimerEvent: {}
+[20.557370] (-) TimerEvent: {}
+[20.657550] (-) TimerEvent: {}
+[20.757732] (-) TimerEvent: {}
+[20.857946] (-) TimerEvent: {}
+[20.958226] (-) TimerEvent: {}
+[21.058441] (-) TimerEvent: {}
+[21.158667] (-) TimerEvent: {}
+[21.258902] (-) TimerEvent: {}
+[21.359179] (-) TimerEvent: {}
+[21.459412] (-) TimerEvent: {}
+[21.559574] (-) TimerEvent: {}
+[21.659877] (-) TimerEvent: {}
+[21.760155] (-) TimerEvent: {}
+[21.860349] (-) TimerEvent: {}
+[21.960563] (-) TimerEvent: {}
+[22.060789] (-) TimerEvent: {}
+[22.160995] (-) TimerEvent: {}
+[22.261232] (-) TimerEvent: {}
+[22.361479] (-) TimerEvent: {}
+[22.461742] (-) TimerEvent: {}
+[22.562014] (-) TimerEvent: {}
+[22.662359] (-) TimerEvent: {}
+[22.762538] (-) TimerEvent: {}
+[22.862880] (-) TimerEvent: {}
+[22.963279] (-) TimerEvent: {}
+[23.063525] (-) TimerEvent: {}
+[23.163726] (-) TimerEvent: {}
+[23.263924] (-) TimerEvent: {}
+[23.364131] (-) TimerEvent: {}
+[23.464388] (-) TimerEvent: {}
+[23.564631] (-) TimerEvent: {}
+[23.664917] (-) TimerEvent: {}
+[23.765141] (-) TimerEvent: {}
+[23.865452] (-) TimerEvent: {}
+[23.965639] (-) TimerEvent: {}
+[24.065973] (-) TimerEvent: {}
+[24.166249] (-) TimerEvent: {}
+[24.266621] (-) TimerEvent: {}
+[24.366903] (-) TimerEvent: {}
+[24.467110] (-) TimerEvent: {}
+[24.567280] (-) TimerEvent: {}
+[24.667474] (-) TimerEvent: {}
+[24.767767] (-) TimerEvent: {}
+[24.867986] (-) TimerEvent: {}
+[24.968224] (-) TimerEvent: {}
+[25.068379] (-) TimerEvent: {}
+[25.168561] (-) TimerEvent: {}
+[25.268781] (-) TimerEvent: {}
+[25.369139] (-) TimerEvent: {}
+[25.469436] (-) TimerEvent: {}
+[25.569815] (-) TimerEvent: {}
+[25.670054] (-) TimerEvent: {}
+[25.770491] (-) TimerEvent: {}
+[25.870982] (-) TimerEvent: {}
+[25.971499] (-) TimerEvent: {}
+[26.071927] (-) TimerEvent: {}
+[26.172091] (-) TimerEvent: {}
+[26.272389] (-) TimerEvent: {}
+[26.372573] (-) TimerEvent: {}
+[26.472839] (-) TimerEvent: {}
+[26.573147] (-) TimerEvent: {}
+[26.673585] (-) TimerEvent: {}
+[26.773992] (-) TimerEvent: {}
+[26.874341] (-) TimerEvent: {}
+[26.974599] (-) TimerEvent: {}
+[27.075060] (-) TimerEvent: {}
+[27.175487] (-) TimerEvent: {}
+[27.275880] (-) TimerEvent: {}
+[27.376295] (-) TimerEvent: {}
+[27.476717] (-) TimerEvent: {}
+[27.577150] (-) TimerEvent: {}
+[27.677583] (-) TimerEvent: {}
+[27.777919] (-) TimerEvent: {}
+[27.878400] (-) TimerEvent: {}
+[27.978795] (-) TimerEvent: {}
+[28.079146] (-) TimerEvent: {}
+[28.179449] (-) TimerEvent: {}
+[28.279905] (-) TimerEvent: {}
+[28.380227] (-) TimerEvent: {}
+[28.480592] (-) TimerEvent: {}
+[28.580903] (-) TimerEvent: {}
+[28.681378] (-) TimerEvent: {}
+[28.781886] (-) TimerEvent: {}
+[28.882181] (-) TimerEvent: {}
+[28.982467] (-) TimerEvent: {}
+[29.082712] (-) TimerEvent: {}
+[29.183108] (-) TimerEvent: {}
+[29.283476] (-) TimerEvent: {}
+[29.383691] (-) TimerEvent: {}
+[29.484003] (-) TimerEvent: {}
+[29.584402] (-) TimerEvent: {}
+[29.684829] (-) TimerEvent: {}
+[29.785179] (-) TimerEvent: {}
+[29.885581] (-) TimerEvent: {}
+[29.985968] (-) TimerEvent: {}
+[30.043388] (bravo_cathode_protection) JobEnded: {'identifier': 'bravo_cathode_protection', 'rc': 1}
+[30.054361] (-) EventReactorShutdown: {}

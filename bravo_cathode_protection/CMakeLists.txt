@@ -23,7 +23,6 @@ find_package(geometry_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(general_libs_unite REQUIRED)
 find_package(yaml-cpp REQUIRED)
-find_package(urdf REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 # uncomment the following section in order to fill in
@@ -38,7 +37,6 @@ set(dependencies
     Eigen3
     visualization_msgs
     general_libs_unite
-    urdf
 )
 
 
@@ -73,7 +71,7 @@ add_library(bravo_handler_v2 SHARED include/bravo_cathode_protection/bravo_cpp/b
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp)
-ament_target_dependencies(bravo_handler_v2 rclcpp std_msgs sensor_msgs urdf Eigen3 visualization_msgs general_libs_unite)
+ament_target_dependencies(bravo_handler_v2 Eigen3 general_libs_unite)
 ament_export_libraries(bravo_handler_v2)
 ament_export_include_directories(include)
 

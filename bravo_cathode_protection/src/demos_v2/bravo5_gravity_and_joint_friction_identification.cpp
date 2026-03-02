@@ -116,7 +116,7 @@ int main(int argc, char ** argv)
     const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bpl_bravo_description") + "/urdf/bravo_5_dynamics_no_ee_pinocchio_rov_mount.urdf";
     const std::string tool_link = std::string("contact_point");
     const std::string ip_address = std::string("192.168.2.51");
-    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, ip_address);//(urdf_filename); //! CONSTRUCTOR
+    auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address);//(urdf_filename); //! CONSTRUCTOR
     auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
     std::thread executor_thread([&executor]() {
             executor->spin();
@@ -126,6 +126,5 @@ int main(int argc, char ** argv)
     rclcpp::shutdown();
     return 0;
 }
-
 
 
