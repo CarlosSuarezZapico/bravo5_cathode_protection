@@ -327,14 +327,14 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy, std::sh
         }
         Nm_joint_cmd = bravo->currentmA_2_torqueNm(mA_joint_current_cmd);
         bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA); 
-        bravo->publish_bravo_joint_states();
+        //bravo->publish_bravo_joint_states();
         loop_rate.sleep();
     }
     
     // & SAFETY: STOP THE ARM WITH ONLY GRAVITY COMPENSATION
     mA_joint_current_cmd = bravo->torqueNm_2_currentmA(Nm_gravity).array();
     bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA);
-    bravo->publish_bravo_joint_states();
+    //bravo->publish_bravo_joint_states();
 }
 
 int main(int argc, char ** argv)

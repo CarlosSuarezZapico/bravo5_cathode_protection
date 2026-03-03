@@ -105,7 +105,7 @@ void program_loop(std::shared_ptr<bravo_handler<double>> bravo){
         mA_joint_current_cmd = bravo->torqueNm_2_currentmA(tau_gravity);
         mA_joint_current_cmd = mA_joint_current_cmd.array() + mA_friction_compensation.array(); // Add stiction compensation
         bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA);
-        bravo->publish_bravo_joint_states();
+        //bravo->publish_bravo_joint_states();
     }
 }
 //&  MAIN 

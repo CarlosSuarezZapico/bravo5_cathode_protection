@@ -314,6 +314,10 @@ add_executable(bravo5_cp_fixed_axis  src/demos_v2/bravo5_cp_fixed_axis.cpp)
 ament_target_dependencies(bravo5_cp_fixed_axis rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 target_link_libraries(bravo5_cp_fixed_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
 
+add_executable(bravo5_cp_fixed_axis_switch  src/demos_v2/bravo5_cp_fixed_axis_switch.cpp)
+ament_target_dependencies(bravo5_cp_fixed_axis_switch rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
+target_link_libraries(bravo5_cp_fixed_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
+
 add_executable(bravo5_cp_mobile_axis  src/demos_v2/bravo5_cp_mobile_axis.cpp)
 ament_target_dependencies(bravo5_cp_mobile_axis rclcpp std_msgs sensor_msgs general_libs_unite ${TEST_SOURCES} ${dependencies})
 target_link_libraries(bravo5_cp_mobile_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
@@ -389,6 +393,7 @@ install(TARGETS
   # bravo_cathode_protection_whole_program_3
   bravo5_cp_whole_program_7
   bravo5_cp_fixed_axis
+  bravo5_cp_fixed_axis_switch
   bravo5_cp_mobile_axis
   #bravo7_cp_compliance
   #gravity_compensation_and_stiction_stribeck_smooth
