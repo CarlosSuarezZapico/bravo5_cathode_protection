@@ -18,7 +18,6 @@ find_package(pinocchio REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
-find_package(general_libs_unite REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 
@@ -26,7 +25,6 @@ set(dependencies
     rclcpp
     sensor_msgs
     Eigen3
-    general_libs_unite
 )
 
 
@@ -51,6 +49,22 @@ install(
     DIRECTORY launch/
     DESTINATION share/${PROJECT_NAME})
 
+add_library(airbus_joystick SHARED include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.cpp)
+ament_target_dependencies(airbus_joystick rclcpp sensor_msgs)
+target_include_directories(airbus_joystick PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+# Install the library
+install(TARGETS airbus_joystick
+        EXPORT export_airbus_joystick
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+)
+
+
 add_library(bravo_handler_v2 SHARED include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp
@@ -59,7 +73,7 @@ add_library(bravo_handler_v2 SHARED include/bravo_cathode_protection/bravo_cpp/b
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp)
-ament_target_dependencies(bravo_handler_v2 Eigen3 general_libs_unite)
+ament_target_dependencies(bravo_handler_v2 Eigen3 )
 ament_export_libraries(bravo_handler_v2)
 ament_export_include_directories(include)
 
@@ -69,38 +83,52 @@ install(TARGETS bravo_handler_v2
         ARCHIVE DESTINATION lib
         RUNTIME DESTINATION bin)
 
+add_library(kinodynamics_manipulator SHARED include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp)
+target_link_libraries(kinodynamics_manipulator )
+target_include_directories(kinodynamics_manipulator PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include> 
+)
+
+# Install the library
+install(TARGETS kinodynamics_manipulator
+        EXPORT export_kinodynamics_manipulator
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+)
+
+add_library(stiffness_control_position SHARED include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp)
+target_link_libraries(stiffness_control_position)
+target_include_directories(stiffness_control_position PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include> 
+)
+
+# Install the library
+install(TARGETS stiffness_control_position
+        EXPORT  export_stiffness_control_position
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+)
+
 add_executable(bravo5_gravity_and_joint_friction_identification            src/bravo5_gravity_and_joint_friction_identification.cpp)
 ament_target_dependencies(bravo5_gravity_and_joint_friction_identification ${dependencies})
-target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
-add_executable(bravo5_cp_whole_program_7  src/bravo5_cp_whole_program_7.cpp)
-ament_target_dependencies(bravo5_cp_whole_program_7 ${dependencies})
-target_link_libraries(bravo5_cp_whole_program_7 pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
-add_executable(bravo5_cp_fixed_axis  src/bravo5_cp_fixed_axis.cpp)
-ament_target_dependencies(bravo5_cp_fixed_axis ${dependencies})
-target_link_libraries(bravo5_cp_fixed_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
+target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 airbus_joystick ${PINOCCHIO_LIBRARIES})
 
 add_executable(bravo5_cp_fixed_axis_switch  src/bravo5_cp_fixed_axis_switch.cpp)
 ament_target_dependencies(bravo5_cp_fixed_axis_switch ${dependencies})
-target_link_libraries(bravo5_cp_fixed_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
+target_link_libraries(bravo5_cp_fixed_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position ${PINOCCHIO_LIBRARIES})
 
 add_executable(bravo5_cp_mobile_axis_switch  src/bravo5_cp_mobile_axis_switch.cpp)
 ament_target_dependencies(bravo5_cp_mobile_axis_switch ${dependencies})
-target_link_libraries(bravo5_cp_mobile_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
-add_executable(bravo5_cp_mobile_axis  src/bravo5_cp_mobile_axis.cpp)
-ament_target_dependencies(bravo5_cp_mobile_axis ${dependencies})
-target_link_libraries(bravo5_cp_mobile_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 general_libs_unite::airbus_joystick general_libs_unite::general_utils ${PINOCCHIO_LIBRARIES})
-
+target_link_libraries(bravo5_cp_mobile_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position ${PINOCCHIO_LIBRARIES})
 
 install(TARGETS
   bravo5_gravity_and_joint_friction_identification
-  bravo5_cp_whole_program_7
-  bravo5_cp_fixed_axis
   bravo5_cp_fixed_axis_switch
   bravo5_cp_mobile_axis_switch
-  bravo5_cp_mobile_axis
   DESTINATION lib/${PROJECT_NAME}
 )
 

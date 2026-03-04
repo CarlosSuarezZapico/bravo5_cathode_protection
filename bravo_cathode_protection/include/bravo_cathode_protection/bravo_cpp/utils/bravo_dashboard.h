@@ -224,14 +224,16 @@ namespace bravo_utils
 
             print_line("\x1b[31m=== BRAVO5 CATHODE PROTECTION DASHBOARD ===\x1b[0m");
             print_line("");
-            print_line("Arm Status:");
-            print_line(" CP state:                " + sanitizeAndClamp(arm_state, 48));
-            print_line("  manipulability:       " + std::to_string(manip));
-            print_line(std::string("  udp running:          ") + (udp_running ? "YES" : "NO"));
-            print_line("  Freq Feedback [Hz]:     " + formatHz(udp_rx_hz));
-            print_line("  vel_ee.x [m/s]:         " + std::to_string(vel_ee_x));
-            print_line("  desired_force.x [N]:    " + std::to_string(desired_force_x));
-            print_line("  exerted_force.x [N]:    " + std::to_string(exerted_force_x));
+            print_line("ARM STATUS:");
+            print_line(std::string("  udp running:          ") + (udp_running ? "\x1b[32mYES\x1b[0m" : "\x1b[31mNO\x1b[0m"));
+            print_line("  Freq Feedback [Hz]:   " + formatHz(udp_rx_hz));
+            print_line("  Manipulability:       " + std::to_string(manip));
+            print_line("");
+            print_line("CP APPLICATION:");
+            print_line("   CP state:                " + sanitizeAndClamp(arm_state, 48));
+            print_line("   vel_ee [m/s]:         " + std::to_string(vel_ee_x));
+            print_line("   desired_force:        " + std::to_string(desired_force_x));
+            print_line("   exerted_force:        " + std::to_string(exerted_force_x));
             print_line("----------------------------------------");
             print_line("Recent logs (tail):");
 

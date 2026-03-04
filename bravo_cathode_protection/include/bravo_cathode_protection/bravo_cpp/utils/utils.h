@@ -19,10 +19,98 @@
 #include <math.h>
 #include <chrono>
 #include <vector>
+#include <algorithm>
+#include <concepts>
+#include <limits>
 
 
 namespace bravo_utils
 {
+    template<typename T>
+        concept FloatingPID =  std::same_as<T, float> || std::same_as<T, double>;
+
+    template<FloatingPID T>
+        class PID {
+            public:
+                PID(T kp, T ki, T kd, T min_out, T max_out)
+                : kp_(kp),
+                  ki_(ki),
+                  kd_(kd),
+                  min_out_(min_out),
+                  max_out_(max_out),
+                  min_integral_(std::numeric_limits<T>::lowest()),
+                  max_integral_(std::numeric_limits<T>::max()),
+                  integral_(T(0)),
+                  prev_error_(T(0)),
+                  first_run_(true)
+                {}
+
+                PID(T kp, T ki, T kd, T min_out, T max_out, T min_integral, T max_integral)
+                : kp_(kp),
+                  ki_(ki),
+                  kd_(kd),
+                  min_out_(min_out),
+                  max_out_(max_out),
+                  min_integral_(min_integral),
+                  max_integral_(max_integral),
+                  integral_(T(0)),
+                  prev_error_(T(0)),
+                  first_run_(true)
+                {}
+
+                T compute(T error, T dt)
+                {
+                    if (dt <= std::numeric_limits<T>::epsilon()) {
+                        dt = static_cast<T>(1e-6);
+                    }
+                    integral_ += error * dt;
+                    integral_ = std::clamp(integral_, min_integral_, max_integral_);
+                    T derivative = T(0);
+                    if (!first_run_) {
+                        derivative = (error - prev_error_) / dt;
+                    } else {
+                        first_run_ = false;
+                    }
+                    prev_error_ = error;
+                    T output = kp_ * error + ki_ * integral_ + kd_ * derivative;
+                    return std::clamp(output, min_out_, max_out_);
+                }
+
+                void reset()
+                {
+                    integral_ = T(0);
+                    prev_error_ = T(0);
+                    first_run_ = true;
+                }
+
+                void setGains(T kp, T ki, T kd)
+                {
+                    kp_ = kp;
+                    ki_ = ki;
+                    kd_ = kd;
+                }
+
+                void setOutputLimits(T min_out, T max_out)
+                {
+                    min_out_ = min_out;
+                    max_out_ = max_out;
+                }
+
+                void setIntegralLimits(T min_integral, T max_integral)
+                {
+                    min_integral_ = min_integral;
+                    max_integral_ = max_integral;
+                }
+
+            private:
+                T kp_, ki_, kd_;
+                T min_out_, max_out_;
+                T min_integral_, max_integral_;
+                T integral_;
+                T prev_error_;
+                bool first_run_;
+        };
+
     template <typename T> 
         struct recv_feedback{    
             T data;                  // Main information of the variable (joint pos, joint torques....)  

@@ -16,8 +16,8 @@
 #include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h"
-#include "bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h"
-#include "bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h"
+#include "general_libs_unite/joysticks/airbus_joystick.h"
+#include "general_libs_unite/interaction/stiffness_control_position.h"
 
 #include <iostream>
 #include "pinocchio/fwd.hpp"
@@ -135,8 +135,8 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     const double MAX_RATIO_FORCE_ELLIPSOID = runtime_config.max_ratio_force_ellipsoid;    // Unitless
     const double MAX_SPEED_TELEOP          = runtime_config.max_speed_teleop;   // m/s
     const double LOOP_FREQUENCY            = runtime_config.loop_frequency;  // Hz (Similar to the arm frequency)
-    const Eigen::Vector<double, 4> HOME    = runtime_config.home; //! define home for bravo5
-    const Eigen::Vector3d GRAVITY_VECTOR   = runtime_config.gravity_vector;
+    const Eigen::Vector<double, 4> HOME  = runtime_config.home; //! define home for bravo5
+    const Eigen::Vector3d GRAVITY_VECTOR = runtime_config.gravity_vector;
     //Joint friction compensation parameters
     Eigen::Matrix<double,4,6> FRICTION_MAT;
     FRICTION_MAT << 0.0, 0.0, 0.0, 14.66651, 10.09561,  1.25110,  // Joint 1
@@ -225,14 +225,13 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     }    
 
     //& STIFFNESS CONTROLLER PARAMETERS
-
+    Eigen::Vector4d ref_joint_pos = bravo->get_bravo_joint_states();
     stiffness_controller.set_pos_stiffness(stiff_params.pos_stiffness);
     stiffness_controller.set_pos_damping(stiff_params.pos_damping);
     stiffness_controller.set_gain_force(stiff_params.gain_force);
     stiffness_controller.set_nominal_vel(stiff_params.nominal_vel);
     stiffness_controller.set_desired_force(stiff_params.desired_force);
     stiffness_controller.set_max_vel(stiff_params.maximum_vel);
-    Eigen::Vector4d ref_joint_pos = bravo->get_bravo_joint_states();
     stiffness_controller.set_ref_ee_position(bravo->kinodynamics.FK_ee_pos(ref_joint_pos));
 
     rclcpp::Rate loop_rate(LOOP_FREQUENCY);  
@@ -407,9 +406,9 @@ int main(int argc, char ** argv)
 {
         rclcpp::init(argc, argv);
         const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().string();
-        const std::string config_stiff_control_file = (package_path + "/config/stiff_control_params/bravo5_cp_compliance_fixed_axis.json");
-        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_fixed_axis_switch_runtime.json");
-        const std::string urdf_filename             = (package_path + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf");
+        const std::string config_stiff_control_file = (package_path + "/config/stiffness_controller/bravo5_cp_compliance_fixed_axis.json");
+        const std::string config_runtime_file       = (package_path + "/config/bravo5_cp_fixed_axis_switch_runtime.json");
+        const std::string urdf_filename             = (package_path + "/urdf/bravo_5_dynamics_pinocchio.urdf");
         auto shared_logger = std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
         RuntimeConfig runtime_config;
         //& PARAMETERS LOADED FROM JSON CONFIG FILE

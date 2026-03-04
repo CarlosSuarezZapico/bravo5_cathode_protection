@@ -25,7 +25,7 @@
 #include <string>
 #include <vector>
 
-#include "general_libs_unite/serial_manipulator/kinodynamics_manipulator.h"
+#include "bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h"
 #include "bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/utils.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h"

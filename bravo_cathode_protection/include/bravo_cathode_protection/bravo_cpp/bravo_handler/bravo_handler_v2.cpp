@@ -65,8 +65,7 @@ template <bravo_control::Floating32or64 T_data>
                     std::exit(EXIT_FAILURE);
             }
 
-            number_joints = bravo_io->get_number_joints()-1; //without gripper
-            std::cout << "OK UNTIL HERE, NUMBER OF JOINTS IS " << number_joints;          
+            number_joints = bravo_io->get_number_joints()-1; //without gripper       
             //& DEFINING BRAVO JOINT LIMITS  
             //* The first, fourth and sixth joints are continuous so they have no limits
             T_data angle_limit_smooth = 10;
