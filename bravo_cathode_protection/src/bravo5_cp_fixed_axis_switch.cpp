@@ -12,7 +12,6 @@
  *    Company  Heriot-Watt University / National Robotarium
  * ===============================================================
  */
-#include "pinocchio/fwd.hpp"
 
 #include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h"
@@ -21,6 +20,7 @@
 #include "general_libs_unite/interaction/stiffness_control_position.h"
 
 #include <iostream>
+#include "pinocchio/fwd.hpp"
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
 #include <stdexcept>
@@ -62,14 +62,16 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     const auto active_logger = logger ? logger : std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
 
     //& PARAMETERS
-    const double MAX_CURRENT_mA = 2000.0;
-    const double MAX_CURRENT_mA_GO_HOME = 1000.0;
-    const double MAX_MANIPULABILITY = 6.0;
-    const double HOME_STABLE_DWELL_SEC = 0.35;
-    const double MAX_RATIO_FORCE_ELLIPSOID = 0.3;
-    const double MAX_SPEED_JOY = 0.25; // m/s
-    const Eigen::Vector<double, 4> HOME = (Eigen::Vector<double, 4>() << 3.14, 2.706, 0.946, 0.0).finished(); //! define home for bravo5
-    const Eigen::Vector3d GRAVITY_VECTOR = (Eigen::Vector3d() << 0.0, 0.0, -9.81).finished();
+    const double MAX_CURRENT_mA            = 2000.0; // mA
+    const double MAX_CURRENT_mA_GO_HOME    = 1000.0; // mA
+    const double MAX_MANIPULABILITY        = 6.0;    // Unitless
+    const double HOME_STABLE_DWELL_SEC     = 0.35;   // seconds
+    const double MAX_RATIO_FORCE_ELLIPSOID = 0.3;    // Unitless
+    const double MAX_SPEED_TELEOP          = 0.25;   // m/s
+    const double LOOP_FREQUENCY            = 250.0;  // Hz (Similar to the arm frequency)
+    const Eigen::Vector<double, 4> HOME  = (Eigen::Vector<double, 4>() << 3.14, 2.857, 1.362, 0.0).finished(); //! define home for bravo5
+    const Eigen::Vector3d GRAVITY_VECTOR = (Eigen::Vector3d() << 0.0, 0.0, 9.81).finished();
+    //Joint friction compensation parameters
     Eigen::Matrix<double,4,6> FRICTION_MAT;
     FRICTION_MAT << 0.0, 0.0, 0.0, 14.66651, 10.09561,  1.25110,  // Joint 1
                     0.0, 0.0, 0.0, 14.50959, 10.09275,  1.14381,  // Joint 2
@@ -116,14 +118,12 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     Eigen::Vector3d twist_joy_fixed          = Eigen::Vector3d::Zero();
     double manipulabilityXy = 0.0;
     double manipulabilityXz = 0.0;
-    double manipulability = 0.0;
-    bool   CMD_ENABLE_TELEOP = false;
-    bool   CMD_GO_HOME       = false;
-    bool   CMD_MAKE_READING  = false;
-    bool   MAKE_CP_READING   = false;
+    double manipulability   = 0.0;
+    bool   CMD_ENABLE_TELEOP  = false;
+    bool   CMD_GO_HOME        = false;
+    bool   CMD_MAKE_READING   = false;
     bool   ALLOW_LEAVING_HOME = false;
     bool   LEAVE_HOME_FLAG    = false;
-    double LOOP_FREQUENCY = 250.0;  // Hz (Matching the arm frequency)
 
     sensor_msgs::msg::JointState joint_state_msg;
     joint_state_msg.name = {"joint1", "joint2", "joint3", "joint4"};
@@ -182,9 +182,9 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
 
         //& MAPPING JOYSTICK
         twist_joy_fixed << airbus_joy->teleop_VelZ, airbus_joy->teleop_VelX, airbus_joy->teleop_VelY; 
-        twist_joy_fixed[0] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[0], MAX_SPEED_JOY, -MAX_SPEED_JOY);
-        twist_joy_fixed[1] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[1], MAX_SPEED_JOY, -MAX_SPEED_JOY);
-        twist_joy_fixed[2] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[2], MAX_SPEED_JOY, -MAX_SPEED_JOY);
+        twist_joy_fixed[0] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[0], MAX_SPEED_TELEOP, -MAX_SPEED_TELEOP);
+        twist_joy_fixed[1] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[1], MAX_SPEED_TELEOP, -MAX_SPEED_TELEOP);
+        twist_joy_fixed[2] = bravo_utils::VAL_SAT<double>(twist_joy_fixed[2], MAX_SPEED_TELEOP, -MAX_SPEED_TELEOP);
         CMD_ENABLE_TELEOP = airbus_joy->enableBaseMotion;
         CMD_GO_HOME       = airbus_joy->goHome;
         CMD_MAKE_READING  = airbus_joy->makeReading;
@@ -339,7 +339,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
 int main(int argc, char ** argv)
 {
         rclcpp::init(argc, argv);
-        const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path().string();
+        const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().string();
         const std::string config_filename = (package_path + "/config/bravo5_cp_compliance_fixed_axis.json");
         const std::string urdf_filename   = (package_path + "/urdf/bravo_5_dynamics_pinocchio.urdf");
         const std::string tool_link  = std::string("contact_point");

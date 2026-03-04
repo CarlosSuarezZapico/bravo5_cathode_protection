@@ -82,7 +82,6 @@ namespace bravo_utils
                     return *this;
                 }
                 operator double() const { return total_ / std::min(num_samples_, N); }
-
             private:
                 T samples_[N];
                 size_t num_samples_{0};
