@@ -42,7 +42,7 @@ template <bravo_control::Floating32or64 T_data>
                     BRAVO_LOG_INFO((*logger_), "[bravo_handler]: Initializing BRAVO 5 model");
                     if (resolved_ip.empty()) {
                         resolved_ip = "10.43.0.146";
-                        BRAVO_LOG_INFO((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 5 IP: ", resolved_ip);
+                        BRAVO_LOG_WARN((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 5 IP: ", resolved_ip);
                     }
                     bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo5, resolved_ip, port, udp_log_callback);
                     motor_constants.resize(4);
@@ -53,7 +53,7 @@ template <bravo_control::Floating32or64 T_data>
                     BRAVO_LOG_INFO((*logger_), "[bravo_handler]: Initializing BRAVO 7 model");
                     if (resolved_ip.empty()) {
                         resolved_ip = "192.168.2.51";
-                        BRAVO_LOG_INFO((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 7 IP: ", resolved_ip);
+                        BRAVO_LOG_WARN((*logger_), "[bravo_handler]: No IP provided, using default BRAVO 7 IP: ", resolved_ip);
                     }
                     bravo_io = std::make_unique<bravo_control::bravo_udp<T_data>>(bravo_control::ArmModel::bravo7, resolved_ip, port, udp_log_callback);
                     motor_constants.resize(6);
@@ -61,7 +61,7 @@ template <bravo_control::Floating32or64 T_data>
                     break;
 
                 default:
-                    BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Unsupported robot model enum value");
+                    BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Unsupported robot model enum value");
                     std::exit(EXIT_FAILURE);
             }
 
@@ -90,6 +90,9 @@ template <bravo_control::Floating32or64 T_data>
     template <bravo_control::Floating32or64 T_data>
         bravo_handler<T_data>::~bravo_handler(){
             bravo_io_run_thread = false;
+            if (bravo_io) {
+                bravo_io->stop_io_loop();
+            }
             if (bravo_io_thread.joinable()) {
                 bravo_io_thread.join();
             }
@@ -97,9 +100,10 @@ template <bravo_control::Floating32or64 T_data>
 
     template <bravo_control::Floating32or64 T_data>
         void bravo_handler<T_data>::bravo_io_thread_function(){
-            while (bravo_io_run_thread) {
+            if (bravo_io) {
                 bravo_io->req_and_recv();
             }
+            bravo_io_run_thread = false;
         }
 
     template <bravo_control::Floating32or64 T_data>
@@ -120,7 +124,7 @@ template <bravo_control::Floating32or64 T_data>
                 break;		
             default:
                 bravo_io->set_mode_all_devices(bravo_control::control_mode_states::joint_position_mode);
-                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Control mode not recognized, setting to position control by default");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Control mode not recognized, setting to position control by default");
                 break;
             }
         }
@@ -136,7 +140,7 @@ template <bravo_control::Floating32or64 T_data>
                 bravo_io->set_joint_cmd_current(cmdJointCurrent);
             }
             else{
-                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointCurrent does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Number of components received for cmdJointCurrent does not match the number of joints");
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
 		}
@@ -146,12 +150,24 @@ template <bravo_control::Floating32or64 T_data>
             if(cmdJointCurrent.size() == number_joints){
                 Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_current(number_joints);
                 for (int i = 0; i < number_joints; i++){
+                    if ((cmdJointCurrent(i) > MAX) || (cmdJointCurrent(i) < -MAX)) {
+                        BRAVO_LOG_WARN((*logger_),
+                                       "[bravo_handler]:❗cmdJointCurrent_SAT clipping joint ",
+                                       i + 1,
+                                       " current command from ",
+                                       cmdJointCurrent(i),
+                                       " to range [",
+                                       -MAX,
+                                       ", ",
+                                       MAX,
+                                       "]");
+                    }
                     joint_cmd_current(i) = bravo_utils::VAL_SAT<T_data>(cmdJointCurrent(i), MAX, -MAX);
                 }
                 bravo_io->set_joint_cmd_current(joint_cmd_current);
             }
             else{
-                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointCurrent_SAT does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Number of components received for cmdJointCurrent_SAT does not match the number of joints");
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
 		}
@@ -162,7 +178,7 @@ template <bravo_control::Floating32or64 T_data>
                 bravo_io->set_joint_cmd_velocity(cmdJointVel);
             }
             else{
-                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointVelocity does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Number of components received for cmdJointVelocity does not match the number of joints");
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
 		}
@@ -177,7 +193,7 @@ template <bravo_control::Floating32or64 T_data>
                 bravo_io->set_joint_cmd_velocity(joint_cmd_velocity);
             }
             else{
-                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: Number of components received for cmdJointVelocity_SAT does not match the number of joints");
+                BRAVO_LOG_ERROR((*logger_), "[bravo_handler]: ❌ Number of components received for cmdJointVelocity_SAT does not match the number of joints");
                 std::exit(EXIT_FAILURE); // Exit the program with an error code
             }
 		}
@@ -306,11 +322,11 @@ template <bravo_control::Floating32or64 T_data>
             const std::vector<T_data>& joint_states = bravo_io->get_bravo_joint_states(); // no copy
 
             if (joint_states.size() < 1) {
-                throw std::runtime_error("[bravo_handler]: joint_states empty");
+                throw std::runtime_error("[bravo_handler]: ❌ joint_states empty");
             }
             const Eigen::Index n = static_cast<Eigen::Index>(joint_states.size() - 1); // exclude gripper
             if (n <= 0) {
-                throw std::runtime_error("[bravo_handler]: no non-gripper joints");
+                throw std::runtime_error("[bravo_handler]: ❌ no non-gripper joints");
             }
 
             // Copy into Eigen vector (safe)
@@ -322,11 +338,11 @@ template <bravo_control::Floating32or64 T_data>
             const std::vector<T_data>& joint_states = bravo_io->get_bravo_joint_velocities(); // no copy
 
             if (joint_states.size() < 1) {
-                throw std::runtime_error("[bravo_handler]: joint_states empty");
+                throw std::runtime_error("[bravo_handler]: ❌ joint_states empty");
             }
             const Eigen::Index n = static_cast<Eigen::Index>(joint_states.size() - 1); // exclude gripper
             if (n <= 0) {
-                throw std::runtime_error("[bravo_handler]: no non-gripper joints");
+                throw std::runtime_error("[bravo_handler]: ❌ no non-gripper joints");
             }
 
             // Copy into Eigen vector (safe)
@@ -339,11 +355,11 @@ template <bravo_control::Floating32or64 T_data>
             const std::vector<T_data>& joint_states = bravo_io->get_bravo_joint_currents(); // no copy
 
             if (joint_states.size() < 1) {
-                throw std::runtime_error("[bravo_handler]: joint_states empty");
+                throw std::runtime_error("[bravo_handler]: ❌ joint_states empty");
             }
             const Eigen::Index n = static_cast<Eigen::Index>(joint_states.size() - 1); // exclude gripper
             if (n <= 0) {
-                throw std::runtime_error("[bravo_handler]: no non-gripper joints");
+                throw std::runtime_error("[bravo_handler]: ❌ no non-gripper joints");
             }
 
             // Copy into Eigen vector (safe)
@@ -355,11 +371,11 @@ template <bravo_control::Floating32or64 T_data>
             const std::vector<T_data>& joint_states = bravo_io->get_bravo_joint_torques(); // no copy
 
             if (joint_states.size() < 1) {
-                throw std::runtime_error("[bravo_handler]: joint_states empty");
+                throw std::runtime_error("[bravo_handler]: ❌ joint_states empty");
             }
             const Eigen::Index n = static_cast<Eigen::Index>(joint_states.size() - 1); // exclude gripper
             if (n <= 0) {
-                throw std::runtime_error("[bravo_handler]: no non-gripper joints");
+                throw std::runtime_error("[bravo_handler]: ❌ no non-gripper joints");
             }
 
             // Copy into Eigen vector (safe)

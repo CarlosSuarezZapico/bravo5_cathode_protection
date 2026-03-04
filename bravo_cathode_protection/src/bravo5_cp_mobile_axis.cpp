@@ -16,8 +16,8 @@
 #include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h"
 #include "bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h"
-#include "general_libs_unite/joysticks/airbus_joystick.h"
-#include "general_libs_unite/interaction/stiffness_control_position.h"
+#include "bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h"
+#include "bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h"
 
 #include <iostream>
 #include "pinocchio/fwd.hpp"
@@ -26,6 +26,7 @@
 #include <stdexcept>
 #include <filesystem>
 #include <thread>
+#include <fstream>
 
 using namespace pinocchio;
 using namespace Eigen;
@@ -50,9 +51,74 @@ static const char* state_machine_to_string(StateMachine state)
     }
 }
 
-void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
+struct RuntimeConfig
+{
+    std::string ip_address = "10.43.0.146";
+    int udp_port = 6789;
+    Eigen::Vector4d home = (Eigen::Vector4d() << 3.14, 2.857, 1.362, 0.0).finished();
+    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, 9.81).finished();
+    double max_current_mA = 2000.0;
+    double max_current_mA_go_home = 1000.0;
+    double max_manipulability = 6.0;
+    double max_ratio_force_ellipsoid = 0.3;
+    double max_speed_teleop = 0.25;
+    double loop_frequency = 250.0;
+    std::string tool_link = "contact_point";
+};
+
+static Eigen::Vector4d json_vec4(const nlohmann::json& j, const std::string& key)
+{
+    if (!j.contains(key) || !j.at(key).is_array() || j.at(key).size() != 4) {
+        throw std::runtime_error("JSON key '" + key + "' must be an array of 4 numbers");
+    }
+    return Eigen::Vector4d(
+        j.at(key).at(0).get<double>(),
+        j.at(key).at(1).get<double>(),
+        j.at(key).at(2).get<double>(),
+        j.at(key).at(3).get<double>());
+}
+
+static Eigen::Vector3d json_vec3(const nlohmann::json& j, const std::string& key)
+{
+    if (!j.contains(key) || !j.at(key).is_array() || j.at(key).size() != 3) {
+        throw std::runtime_error("JSON key '" + key + "' must be an array of 3 numbers");
+    }
+    return Eigen::Vector3d(
+        j.at(key).at(0).get<double>(),
+        j.at(key).at(1).get<double>(),
+        j.at(key).at(2).get<double>());
+}
+
+static RuntimeConfig load_runtime_config_json(const std::string& path)
+{
+    std::ifstream file(path);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open runtime config file: " + path);
+    }
+
+    nlohmann::json j;
+    file >> j;
+
+    RuntimeConfig cfg;
+    cfg.ip_address = j.at("IP").get<std::string>();
+    cfg.udp_port = j.at("port").get<int>();
+    cfg.home = json_vec4(j, "HOME");
+    cfg.gravity_vector = json_vec3(j, "GRAVITY_VECTOR");
+    cfg.max_current_mA = j.at("MAX_CURRENT_mA").get<double>();
+    cfg.max_current_mA_go_home = j.at("MAX_CURRENT_mA_GO_HOME").get<double>();
+    cfg.max_manipulability = j.at("MAX_MANIPULABILITY").get<double>();
+    cfg.max_ratio_force_ellipsoid = j.at("MAX_RATIO_FORCE_ELLIPSOID").get<double>();
+    cfg.max_speed_teleop = j.at("MAX_SPEED_TELEOP").get<double>();
+    cfg.loop_frequency = j.at("LOOP_FREQUENCY").get<double>();
+    cfg.tool_link = j.at("tool_link").get<std::string>();
+
+    return cfg;
+}
+
+bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
                   std::shared_ptr<bravo_handler<double>> bravo,
                   const stiffness_control_config::StiffnessJsonParams& stiff_params,
+                  const RuntimeConfig& runtime_config,
                   const rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr& joint_state_pub,
                   const std::shared_ptr<rclcpp::Node>& joint_state_node,
                   const std::shared_ptr<bravo_utils::TerminalDashboard>& dashboard,
@@ -62,15 +128,15 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     const auto active_logger = logger ? logger : std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
 
     //& PARAMETERS
-    const double MAX_CURRENT_mA            = 2000.0; // mA
-    const double MAX_CURRENT_mA_GO_HOME    = 1000.0; // mA
-    const double MAX_MANIPULABILITY        = 6.0;    // Unitless
+    const double MAX_CURRENT_mA            = runtime_config.max_current_mA; // mA
+    const double MAX_CURRENT_mA_GO_HOME    = runtime_config.max_current_mA_go_home; // mA
+    const double MAX_MANIPULABILITY        = runtime_config.max_manipulability;    // Unitless
     const double HOME_STABLE_DWELL_SEC     = 0.35;   // seconds
-    const double MAX_RATIO_FORCE_ELLIPSOID = 0.3;    // Unitless
-    const double MAX_SPEED_TELEOP          = 0.25;   // m/s
-    const double LOOP_FREQUENCY            = 250.0;  // Hz (Similar to the arm frequency)
-    const Eigen::Vector<double, 4> HOME  = (Eigen::Vector<double, 4>() << 3.14, 2.857, 1.362, 0.0).finished(); //! define home for bravo5
-    const Eigen::Vector3d GRAVITY_VECTOR = (Eigen::Vector3d() << 0.0, 0.0, 9.81).finished();
+    const double MAX_RATIO_FORCE_ELLIPSOID = runtime_config.max_ratio_force_ellipsoid;    // Unitless
+    const double MAX_SPEED_TELEOP          = runtime_config.max_speed_teleop;   // m/s
+    const double LOOP_FREQUENCY            = runtime_config.loop_frequency;  // Hz (Similar to the arm frequency)
+    const Eigen::Vector<double, 4> HOME    = runtime_config.home; //! define home for bravo5
+    const Eigen::Vector3d GRAVITY_VECTOR   = runtime_config.gravity_vector;
     //Joint friction compensation parameters
     Eigen::Matrix<double,4,6> FRICTION_MAT;
     FRICTION_MAT << 0.0, 0.0, 0.0, 14.66651, 10.09561,  1.25110,  // Joint 1
@@ -154,7 +220,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             if (dashboard) {
                 dashboard->setArmStatus("DISCONNECTED", manipulability, false, 0.0);
             }
-            return;
+            return false;
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }    
@@ -178,6 +244,15 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
 
     //& ------MAIN LOOP--------
     while (rclcpp::ok()) {
+        //& SHUTDOWN IF ARM DISCONNECTED
+        if (!bravo->isConnected()) {
+            BRAVO_LOG_ERROR(*active_logger, "[safety] Bravo arm communication lost. Controller is shutting down for safety.");
+            if (dashboard) {
+                dashboard->setArmStatus("DISCONNECTED", manipulability, false, bravo->get_udp_rx_frequency_hz());
+            }
+            rclcpp::shutdown();
+            return false;
+        }
         //& RECURRENT CALCULATIONS
         joint_postion_fdb  = bravo->get_bravo_joint_states();
         joint_velocity_fdb = bravo->get_bravo_joint_velocities();
@@ -344,25 +419,26 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     // & SAFETY: STOP THE ARM WITH ONLY GRAVITY COMPENSATION
     mA_joint_current_cmd = bravo->torqueNm_2_currentmA(Nm_gravity_compensation).array();
     bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA);
+    return true;
 }
 
 int main(int argc, char ** argv)
 {
         rclcpp::init(argc, argv);
         const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().string();
-        const std::string config_stiff_control_file = (package_path + "/config/stiffness_controller/bravo5_cp_compliance_mobile_axis.json");
+        const std::string config_stiff_control_file = (package_path + "/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.json");
+        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_mobile_axis_runtime.json");
         const std::string urdf_filename             = (package_path + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf");
-        const std::string tool_link = std::string("cp_probe_1");
-        const std::string ip_address = std::string("10.43.0.146");
-        const int udp_port = 6789;
         auto shared_logger = std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
+        RuntimeConfig runtime_config;
         //& PARAMETERS LOADED FROM JSON CONFIG FILE
         stiffness_control_config::StiffnessJsonParams stiff_params;
         try {
             stiff_params = stiffness_control_config::load_stiffness_params_json(config_stiff_control_file);
+            runtime_config = load_runtime_config_json(config_runtime_file);
         }
         catch (const std::exception& e) {
-            BRAVO_LOG_ERROR(*shared_logger, "[stiffness json] ", e.what());
+            BRAVO_LOG_ERROR(*shared_logger, "[json config] ", e.what());
             rclcpp::shutdown();
             return 1;
         }
@@ -375,25 +451,27 @@ int main(int argc, char ** argv)
             [dashboard](bravo_utils::LogLevel level, std::string_view message) {
                 dashboard->push(level, std::string(message));
             }));
-        BRAVO_LOG_INFO(*shared_logger, "[main] Bravo UDP target: ", ip_address, ":", udp_port);
-        BRAVO_LOG_INFO(*shared_logger, "[main] Using ee frame: ", tool_link);
+        BRAVO_LOG_INFO(*shared_logger, "[main] Bravo UDP target: ", runtime_config.ip_address, ":", runtime_config.udp_port);
+        BRAVO_LOG_INFO(*shared_logger, "[main] Using ee frame: ", runtime_config.tool_link);
 
         auto joystick         = std::make_shared<airbus_joystick_bravo5_CP>();
-        auto joint_state_node = std::make_shared<rclcpp::Node>("bravo5_cp_mobile_axis_switch_joint_state_pub");
+        auto joint_state_node = std::make_shared<rclcpp::Node>("bravo5_cp_mobile_axis_joint_state_pub");
         auto joint_state_pub  = joint_state_node->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
-        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address, udp_port, shared_logger);//(urdf_filename);
+        auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, runtime_config.tool_link, bravo_control::ArmModel::bravo5, runtime_config.ip_address, runtime_config.udp_port, shared_logger);//(urdf_filename);
         auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
         executor->add_node(joystick);
         executor->add_node(joint_state_node);
         std::thread executor_thread([&executor]() {
                 executor->spin();
         });
-        program_loop(joystick, bravo, stiff_params, joint_state_pub, joint_state_node, dashboard, shared_logger, ip_address, udp_port);
+        const bool program_ok = program_loop(joystick, bravo, stiff_params, runtime_config, joint_state_pub, joint_state_node, dashboard, shared_logger, runtime_config.ip_address, runtime_config.udp_port);
         executor->cancel();
         if (rclcpp::ok()) {
             rclcpp::shutdown();
         }
         executor_thread.join();
-        rclcpp::shutdown();
+        if (!program_ok) {
+            return 1;
+        }
         return 0;
 }

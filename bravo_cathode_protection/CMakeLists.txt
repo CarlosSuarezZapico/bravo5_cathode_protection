@@ -115,20 +115,20 @@ install(TARGETS stiffness_control_position
 
 add_executable(bravo5_gravity_and_joint_friction_identification            src/bravo5_gravity_and_joint_friction_identification.cpp)
 ament_target_dependencies(bravo5_gravity_and_joint_friction_identification ${dependencies})
-target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 airbus_joystick ${PINOCCHIO_LIBRARIES})
+target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 airbus_joystick)
 
-add_executable(bravo5_cp_fixed_axis_switch  src/bravo5_cp_fixed_axis_switch.cpp)
-ament_target_dependencies(bravo5_cp_fixed_axis_switch ${dependencies})
-target_link_libraries(bravo5_cp_fixed_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position ${PINOCCHIO_LIBRARIES})
+add_executable(bravo5_cp_fixed_axis  src/bravo5_cp_fixed_axis.cpp)
+ament_target_dependencies(bravo5_cp_fixed_axis ${dependencies})
+target_link_libraries(bravo5_cp_fixed_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
 
-add_executable(bravo5_cp_mobile_axis_switch  src/bravo5_cp_mobile_axis_switch.cpp)
-ament_target_dependencies(bravo5_cp_mobile_axis_switch ${dependencies})
-target_link_libraries(bravo5_cp_mobile_axis_switch pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position ${PINOCCHIO_LIBRARIES})
+add_executable(bravo5_cp_mobile_axis  src/bravo5_cp_mobile_axis.cpp)
+ament_target_dependencies(bravo5_cp_mobile_axis ${dependencies})
+target_link_libraries(bravo5_cp_mobile_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
 
 install(TARGETS
   bravo5_gravity_and_joint_friction_identification
-  bravo5_cp_fixed_axis_switch
-  bravo5_cp_mobile_axis_switch
+  bravo5_cp_fixed_axis
+  bravo5_cp_mobile_axis
   DESTINATION lib/${PROJECT_NAME}
 )
 

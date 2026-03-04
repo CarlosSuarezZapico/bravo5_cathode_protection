@@ -206,6 +206,8 @@ namespace bravo_control
 
                 void req_and_recv();                 
 
+                void stop_io_loop();
+
                 void processDiagnosticByte(uint8_t byte, int byteIndex);
 
                 void init_prebuilt_packets();

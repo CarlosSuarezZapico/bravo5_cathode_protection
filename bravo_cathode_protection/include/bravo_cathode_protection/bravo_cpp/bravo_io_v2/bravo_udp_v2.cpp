@@ -67,7 +67,7 @@ namespace bravo_control{
             }
             else {
                 BRAVO_LOG_INFO(logger_, "[bravo_UDP]: ✅ Connected to bravo using IP: ",
-                               ip, "and port ", port, "...ok!");
+                               ip, " and port ", port, "...ok!");
             }
             control_mode_state = control_mode_states::joint_current_mode;
             // Initialize the joint positions (example: home position)
@@ -447,6 +447,9 @@ namespace bravo_control{
                         if (have_last_full_feedback_cycle &&
                             (now - last_full_feedback_cycle > std::chrono::milliseconds(300))) {
                             rx_packet_frequency_hz.store(T_data(0), std::memory_order_relaxed);
+                            BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Feedback timeout (>300 ms). Communication with Bravo arm appears lost; stopping bravo_io thread.");
+                            running_loop = false;
+                            break;
                         }
                         if (now - last_no_data_warn > std::chrono::milliseconds(50)) {
                             BRAVO_LOG_WARN(logger_, "[bravo_UDP]: recv() No data received from Bravo Arm");
@@ -523,6 +526,12 @@ namespace bravo_control{
                     }   
                 }
             }
+        }
+
+    template <typename T_data>
+        void bravo_udp<T_data>::stop_io_loop()
+        {
+            running_loop = false;
         }
 
 

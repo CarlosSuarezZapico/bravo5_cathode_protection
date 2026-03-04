@@ -115,7 +115,7 @@ static RuntimeConfig load_runtime_config_json(const std::string& path)
     return cfg;
 }
 
-void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
+bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
                   std::shared_ptr<bravo_handler<double>> bravo,
                   const stiffness_control_config::StiffnessJsonParams& stiff_params,
                   const RuntimeConfig& runtime_config,
@@ -219,7 +219,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
             if (dashboard) {
                 dashboard->setArmStatus("DISCONNECTED", manipulability, false, 0.0);
             }
-            return;
+            return false;
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }    
@@ -239,6 +239,15 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
 
     //& ------MAIN LOOP--------
     while (rclcpp::ok()) {
+        //& SHUTDOWN IF ARM DISCONNECTED
+        if (!bravo->isConnected()) {
+            BRAVO_LOG_ERROR(*active_logger, "[safety] Bravo arm communication lost. Controller is shutting down for safety.");
+            if (dashboard) {
+                dashboard->setArmStatus("DISCONNECTED", manipulability, false, bravo->get_udp_rx_frequency_hz());
+            }
+            rclcpp::shutdown();
+            return false;
+        }
         //& RECURRENT CALCULATIONS
         joint_postion_fdb  = bravo->get_bravo_joint_states();
         joint_velocity_fdb = bravo->get_bravo_joint_velocities();
@@ -401,6 +410,7 @@ void program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     // & SAFETY: STOP THE ARM WITH ONLY GRAVITY COMPENSATION
     mA_joint_current_cmd = bravo->torqueNm_2_currentmA(Nm_gravity_compensation).array();
     bravo->cmdJointCurrent_SAT(mA_joint_current_cmd, MAX_CURRENT_mA);
+    return true;
 }
 
 int main(int argc, char ** argv)
@@ -408,7 +418,7 @@ int main(int argc, char ** argv)
         rclcpp::init(argc, argv);
         const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().string();
         const std::string config_stiff_control_file = (package_path + "/config/stiff_control_params/bravo5_cp_compliance_fixed_axis.json");
-        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_fixed_axis_switch_runtime.json");
+        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_fixed_axis_runtime.json");
         const std::string urdf_filename             = (package_path + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf");
         auto shared_logger = std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
         RuntimeConfig runtime_config;
@@ -436,7 +446,7 @@ int main(int argc, char ** argv)
         BRAVO_LOG_INFO(*shared_logger, "[main] Using ee frame: ", runtime_config.tool_link);
 
         auto joystick         = std::make_shared<airbus_joystick_bravo5_CP>();
-        auto joint_state_node = std::make_shared<rclcpp::Node>("bravo5_cp_fixed_axis_switch_joint_state_pub");
+        auto joint_state_node = std::make_shared<rclcpp::Node>("bravo5_cp_fixed_axis_joint_state_pub");
         auto joint_state_pub  = joint_state_node->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
         auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, runtime_config.tool_link, bravo_control::ArmModel::bravo5, runtime_config.ip_address, runtime_config.udp_port, shared_logger);//(urdf_filename);
         auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
@@ -445,12 +455,14 @@ int main(int argc, char ** argv)
         std::thread executor_thread([&executor]() {
                 executor->spin();
         });
-        program_loop(joystick, bravo, stiff_params, runtime_config, joint_state_pub, joint_state_node, dashboard, shared_logger, runtime_config.ip_address, runtime_config.udp_port);
+        const bool program_ok = program_loop(joystick, bravo, stiff_params, runtime_config, joint_state_pub, joint_state_node, dashboard, shared_logger, runtime_config.ip_address, runtime_config.udp_port);
         executor->cancel();
         if (rclcpp::ok()) {
             rclcpp::shutdown();
         }
         executor_thread.join();
-        rclcpp::shutdown();
+        if (!program_ok) {
+            return 1;
+        }
         return 0;
 }

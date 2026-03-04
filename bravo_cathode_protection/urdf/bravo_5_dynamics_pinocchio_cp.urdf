@@ -203,4 +203,11 @@
             <parent link="contact_point"/>
             <child link="cp_probe_2"/>
         </joint>
+
+        <link name="cp_probe_3"/>
+        <joint name="cp_probe_3_joint" type="fixed">
+            <origin rpy="0 0 -1.57" xyz="0 0 0"/>
+            <parent link="cp_probe_1"/>
+            <child link="cp_probe_3"/>
+        </joint>
     </robot>
