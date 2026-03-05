@@ -112,13 +112,6 @@ size_t encodePacket_unite(uint8_t* packet_buffer, struct Packet* packet);
  */
 size_t encodeFloat(uint8_t* outputBuffer, float f);
 
-/**
- * @brief Encodes a single float into 4 Bytes.
- * @param f Float to encode.
- * @param outputBuffer Output buffer to encoded bytes to fill.
- */
-uint8_t* encodeFloat(float f);
-
 size_t encode_packet_float_list(uint8_t* packet_buffer, uint8_t packetID, uint8_t deviceID, float *floatList, size_t lengthList);
 
 size_t cmdJoint_encodePacket_unite(uint8_t* packet_buffer, uint8_t packetID, uint8_t deviceID, float value);

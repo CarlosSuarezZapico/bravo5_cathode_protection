@@ -136,7 +136,8 @@ template <bravo_control::Floating32or64 T_data>
 
     template <bravo_control::Floating32or64 T_data>
         void bravo_handler<T_data>::cmdJointCurrent(const Eigen::Vector<T_data, Eigen::Dynamic> &cmdJointCurrent){
-            if(cmdJointCurrent.size() == number_joints){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
+            if(cmdJointCurrent.size() == joint_count){
                 bravo_io->set_joint_cmd_current(cmdJointCurrent);
             }
             else{
@@ -147,13 +148,14 @@ template <bravo_control::Floating32or64 T_data>
     
     template <bravo_control::Floating32or64 T_data>
         void bravo_handler<T_data>::cmdJointCurrent_SAT(const Eigen::Vector<T_data, Eigen::Dynamic> &cmdJointCurrent, const T_data MAX){
-            if(cmdJointCurrent.size() == number_joints){
-                Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_current(number_joints);
-                for (int i = 0; i < number_joints; i++){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
+            if(cmdJointCurrent.size() == joint_count){
+                Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_current(joint_count);
+                for (Eigen::Index i = 0; i < joint_count; i++){
                     if ((cmdJointCurrent(i) > MAX) || (cmdJointCurrent(i) < -MAX)) {
                         BRAVO_LOG_WARN((*logger_),
                                        "[bravo_handler]:❗cmdJointCurrent_SAT clipping joint ",
-                                       i + 1,
+                                        i + 1,
                                        " current command from ",
                                        cmdJointCurrent(i),
                                        " to range [",
@@ -174,7 +176,8 @@ template <bravo_control::Floating32or64 T_data>
 
     template <bravo_control::Floating32or64 T_data>
         void bravo_handler<T_data>::cmdJointVelocity(const Eigen::Vector<T_data, Eigen::Dynamic> &cmdJointVel){
-            if(cmdJointVel.size() == number_joints){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
+            if(cmdJointVel.size() == joint_count){
                 bravo_io->set_joint_cmd_velocity(cmdJointVel);
             }
             else{
@@ -185,9 +188,10 @@ template <bravo_control::Floating32or64 T_data>
     
     template <bravo_control::Floating32or64 T_data>
         void bravo_handler<T_data>::cmdJointVelocity_SAT(const Eigen::Vector<T_data, Eigen::Dynamic> &cmdJointVel, const T_data MAX){
-            if(cmdJointVel.size() == number_joints){
-                Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_velocity(number_joints);
-                for (int i = 0; i < number_joints; i++){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
+            if(cmdJointVel.size() == joint_count){
+                Eigen::Vector<T_data, Eigen::Dynamic> joint_cmd_velocity(joint_count);
+                for (Eigen::Index i = 0; i < joint_count; i++){
                     joint_cmd_velocity(i) = bravo_utils::VAL_SAT<T_data>(cmdJointVel(i), MAX, -MAX);
                 }
                 bravo_io->set_joint_cmd_velocity(joint_cmd_velocity);
@@ -207,9 +211,10 @@ template <bravo_control::Floating32or64 T_data>
          */   
     template <bravo_control::Floating32or64 T_data>
         bool bravo_handler<T_data>::is_in_desired_configuration(T_data tolerance, Eigen::Vector<T_data, Eigen::Dynamic> goal_joint_position, Eigen::Vector<T_data, Eigen::Dynamic> current_joint_position){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
             Eigen::Vector<T_data, Eigen::Dynamic> error; 
-            error.resize(number_joints);
-            for (int i=0; i< number_joints; i++){   
+            error.resize(joint_count);
+            for (Eigen::Index i = 0; i < joint_count; i++){   
                 error[i] = abs(fmod(goal_joint_position[i] - current_joint_position[i]+ 3 * M_PI, 2 * M_PI) - M_PI); //THE JOINTS HAVE A RANGE FROM 0.0 TO 6.28, for that reason we use this formula 
                 if (error[i] > tolerance){
                     return false;
@@ -220,9 +225,10 @@ template <bravo_control::Floating32or64 T_data>
 
     template <bravo_control::Floating32or64 T_data>
         Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::std_2_eigen(std::vector<T_data> std_vector){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(number_joints);
             Eigen::Vector<T_data, Eigen::Dynamic> eigen_vector;
-            eigen_vector.resize(number_joints);
-            for (int i=0; i<number_joints; i++){
+            eigen_vector.resize(joint_count);
+            for (Eigen::Index i = 0; i < joint_count; i++){
                 eigen_vector(i) = std_vector[i];
             }
             return eigen_vector;
@@ -298,9 +304,10 @@ template <bravo_control::Floating32or64 T_data>
         Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::get_bravo_joint_penalization(){
             Eigen::Vector<T_data, Eigen::Dynamic> joint_penalization;
             std::vector<T_data> joint_states = bravo_io->get_bravo_joint_states();
-            Eigen::Vector<T_data, Eigen::Dynamic> eigen_joint_states = Eigen::Map<Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), joint_states.size()-1);
-            joint_penalization.resize(joint_states.size()-1);   
-            for(int i=0; i<(joint_states.size()-1); i++){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(joint_states.size() - 1);
+            Eigen::Vector<T_data, Eigen::Dynamic> eigen_joint_states = Eigen::Map<Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), joint_count);
+            joint_penalization.resize(joint_count);   
+            for(Eigen::Index i = 0; i < joint_count; i++){
                 joint_penalization(i) = weight_joint_limit_smooth(eigen_joint_states(i), lowerJointLimits(i), lowerJointInfLimits(i), upperJointInfLimits(i), upperJointLimits(i));
             }
             return joint_penalization;
@@ -309,9 +316,10 @@ template <bravo_control::Floating32or64 T_data>
     template <bravo_control::Floating32or64 T_data>
         Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::get_bravo_joint_penalization(std::vector<T_data> joint_states){
             Eigen::Vector<T_data, Eigen::Dynamic> joint_penalization;
-            Eigen::Vector<T_data, Eigen::Dynamic> eigen_joint_states = Eigen::Map<Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), joint_states.size());
-            joint_penalization.resize(joint_states.size());   
-            for(int i=0; i<(joint_states.size()); i++){
+            const Eigen::Index joint_count = static_cast<Eigen::Index>(joint_states.size());
+            Eigen::Vector<T_data, Eigen::Dynamic> eigen_joint_states = Eigen::Map<Eigen::Vector<T_data, Eigen::Dynamic>>(joint_states.data(), joint_count);
+            joint_penalization.resize(joint_count);   
+            for(Eigen::Index i = 0; i < joint_count; i++){
                 joint_penalization(i) = weight_joint_limit_smooth(eigen_joint_states(i), lowerJointLimits(i), lowerJointInfLimits(i), upperJointInfLimits(i), upperJointLimits(i));
             }
             return joint_penalization;
@@ -397,7 +405,7 @@ template <bravo_control::Floating32or64 T_data>
     template <bravo_control::Floating32or64 T_data>  
         Eigen::Vector<T_data, Eigen::Dynamic> bravo_handler<T_data>::signedAngleDistance(const Eigen::Vector<T_data, Eigen::Dynamic>& goal, const Eigen::Vector<T_data, Eigen::Dynamic>& current) {
             Eigen::Vector<T_data, Eigen::Dynamic> diff = current - goal;
-            for (int i = 0; i < diff.size(); ++i) {
+            for (Eigen::Index i = 0; i < diff.size(); ++i) {
                 diff[i] = signedAngleDistance(goal[i], current[i]);
             }
             return diff;

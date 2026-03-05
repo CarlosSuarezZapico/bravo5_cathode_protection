@@ -14,23 +14,24 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+# Workaround for CMake 3.22 FindBoost not mapping python310+ component headers.
+# pinocchio/eigenpy can request python310 on ROS Humble, triggering a warning.
+if(CMAKE_VERSION VERSION_LESS "3.24")
+  foreach(_py_comp 310 311 312 313)
+    set("_Boost_PYTHON${_py_comp}_HEADERS" "boost/python.hpp")
+  endforeach()
+endif()
 find_package(pinocchio REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(visualization_msgs REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 
-set(dependencies
+set(ros_dependencies
     rclcpp
     sensor_msgs
     Eigen3
 )
-
-
-include_directories(include
-                    ${PINOCCHIO_INCLUDE_DIRS}
-                    ${EIGEN3_INCLUDE_DIR})
 
 install(
     DIRECTORY include/
@@ -40,6 +41,10 @@ install(DIRECTORY config
     DESTINATION share/${PROJECT_NAME}
   )
 
+install(DIRECTORY rviz
+    DESTINATION share/${PROJECT_NAME}
+  )
+  
 install(
     DIRECTORY urdf meshes
     DESTINATION share/${PROJECT_NAME}
@@ -73,7 +78,12 @@ add_library(bravo_handler_v2 SHARED include/bravo_cathode_protection/bravo_cpp/b
                                   include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
                                   include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp)
-ament_target_dependencies(bravo_handler_v2 Eigen3 )
+ament_target_dependencies(bravo_handler_v2 Eigen3)
+target_include_directories(bravo_handler_v2 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+target_link_libraries(bravo_handler_v2 PUBLIC pinocchio::pinocchio)
 ament_export_libraries(bravo_handler_v2)
 ament_export_include_directories(include)
 
@@ -84,7 +94,8 @@ install(TARGETS bravo_handler_v2
         RUNTIME DESTINATION bin)
 
 add_library(kinodynamics_manipulator SHARED include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp)
-target_link_libraries(kinodynamics_manipulator )
+ament_target_dependencies(kinodynamics_manipulator Eigen3)
+target_link_libraries(kinodynamics_manipulator PUBLIC pinocchio::pinocchio)
 target_include_directories(kinodynamics_manipulator PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include> 
@@ -99,7 +110,8 @@ install(TARGETS kinodynamics_manipulator
 )
 
 add_library(stiffness_control_position SHARED include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp)
-target_link_libraries(stiffness_control_position)
+ament_target_dependencies(stiffness_control_position Eigen3)
+target_link_libraries(stiffness_control_position PUBLIC nlohmann_json::nlohmann_json)
 target_include_directories(stiffness_control_position PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include> 
@@ -114,16 +126,16 @@ install(TARGETS stiffness_control_position
 )
 
 add_executable(bravo5_gravity_and_joint_friction_identification            src/bravo5_gravity_and_joint_friction_identification.cpp)
-ament_target_dependencies(bravo5_gravity_and_joint_friction_identification ${dependencies})
-target_link_libraries(bravo5_gravity_and_joint_friction_identification     pinocchio::pinocchio bravo_handler_v2 airbus_joystick)
+ament_target_dependencies(bravo5_gravity_and_joint_friction_identification ${ros_dependencies})
+target_link_libraries(bravo5_gravity_and_joint_friction_identification     bravo_handler_v2 airbus_joystick)
 
 add_executable(bravo5_cp_fixed_axis  src/bravo5_cp_fixed_axis.cpp)
-ament_target_dependencies(bravo5_cp_fixed_axis ${dependencies})
-target_link_libraries(bravo5_cp_fixed_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
+ament_target_dependencies(bravo5_cp_fixed_axis ${ros_dependencies})
+target_link_libraries(bravo5_cp_fixed_axis nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
 
 add_executable(bravo5_cp_mobile_axis  src/bravo5_cp_mobile_axis.cpp)
-ament_target_dependencies(bravo5_cp_mobile_axis ${dependencies})
-target_link_libraries(bravo5_cp_mobile_axis pinocchio::pinocchio nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
+ament_target_dependencies(bravo5_cp_mobile_axis ${ros_dependencies})
+target_link_libraries(bravo5_cp_mobile_axis nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
 
 install(TARGETS
   bravo5_gravity_and_joint_friction_identification
@@ -131,6 +143,15 @@ install(TARGETS
   bravo5_cp_mobile_axis
   DESTINATION lib/${PROJECT_NAME}
 )
+
+ament_export_targets(
+  export_airbus_joystick
+  export_bravo_handler_v2
+  export_kinodynamics_manipulator
+  export_stiffness_control_position
+  HAS_LIBRARY_TARGET
+)
+ament_export_dependencies(rclcpp sensor_msgs Eigen3 pinocchio nlohmann_json)
 
 
 if(BUILD_TESTING)

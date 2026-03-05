@@ -23,6 +23,7 @@ namespace bravo_control{
      */
     template <typename T> 
         bool bravo_udp<T>::processJointFdbPacket(Packet& packet, feedback<T>& joint_feedback) {
+            std::lock_guard<std::mutex> lock(io_mutex_);
             float data = decodeFloat_unite(packet.data);
             if (arm_model == bravo_control::ArmModel::bravo5) {
                 switch (packet.deviceID) {
@@ -50,9 +51,8 @@ namespace bravo_control{
             }
             else{
                 BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ FATAL Unknown arm model configured.");
-                std::exit(EXIT_FAILURE);
+                return false;
             }
-
             // Check if all joints received
             if (std::all_of(joint_feedback.joints_received.begin(), joint_feedback.joints_received.end() - 1, [](bool received){ return received; })) {
                 joint_feedback.received = true;
@@ -67,6 +67,7 @@ namespace bravo_control{
 
     template <typename T> 
         void bravo_udp<T>::processControlModePacket(Packet& packet) {
+            std::lock_guard<std::mutex> lock(io_mutex_);
             switch (packet.data[0]) {
                 case 0x00: control_mode_state = control_mode_states::standby;             break;
                 case 0x01: control_mode_state = control_mode_states::disable;             break;
@@ -80,4 +81,3 @@ namespace bravo_control{
             }
         }
 }
-

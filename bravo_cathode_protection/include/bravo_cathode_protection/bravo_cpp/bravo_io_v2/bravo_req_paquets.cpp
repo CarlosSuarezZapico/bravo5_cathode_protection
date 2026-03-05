@@ -77,6 +77,7 @@ namespace bravo_control{
         {
             //& REQUEST ALL FEEDBACK
             sendto(sockfd, encoded_feedback_request, size_feedback_request , 0, (const struct sockaddr *)&servaddr, sizeof(servaddr));
+            std::lock_guard<std::mutex> lock(io_mutex_);
             last_request_time = std::chrono::high_resolution_clock::now();
         }
     
@@ -87,35 +88,46 @@ namespace bravo_control{
             packetID cmd_packetID = packetID::POSITION; // Default command packet ID
             bool joint_command = true; // Flag to check if joint command is set
             std::vector<T> joint_cmd; 
+            std::array<float, 6> twist_ee_cmd_list{};
             //* DETERMINE CURRENT CONTROL MODE
-            switch (options_fdb_cmd.control_mode_cmd){
-                case control_mode_states::joint_position_mode:
-                    cmd_packetID = packetID::POSITION;
-                    joint_cmd = joint_cmd_position;
-                    break;                
-                case control_mode_states::joint_velocity_mode:
-                    cmd_packetID = packetID::VELOCITY;
-                    joint_cmd = joint_cmd_velocity;
-                    break;
-                case control_mode_states::joint_torque_mode:
-                    cmd_packetID = packetID::TORQUE;
-                    joint_cmd = joint_cmd_torque;
-                    break;
-                case control_mode_states::joint_current_mode:
-                    cmd_packetID = packetID::CURRENT;
-                    joint_cmd = joint_cmd_current;
-                    break;              
-                case control_mode_states::local_twist_ee_mode:
-                    cmd_packetID = packetID::KM_END_VEL_LOCAL;
-                    joint_command = false; // No joint command for local twist
-                    break;         
-                default:
-                    break;
+            {
+                std::lock_guard<std::mutex> lock(io_mutex_);
+                switch (command_mode_state){
+                    case control_mode_states::joint_position_mode:
+                        cmd_packetID = packetID::POSITION;
+                        joint_cmd = joint_cmd_position;
+                        break;
+                    case control_mode_states::joint_velocity_mode:
+                        cmd_packetID = packetID::VELOCITY;
+                        joint_cmd = joint_cmd_velocity;
+                        break;
+                    case control_mode_states::joint_torque_mode:
+                        cmd_packetID = packetID::TORQUE;
+                        joint_cmd = joint_cmd_torque;
+                        break;
+                    case control_mode_states::joint_current_mode:
+                        cmd_packetID = packetID::CURRENT;
+                        joint_cmd = joint_cmd_current;
+                        break;
+                    case control_mode_states::local_twist_ee_mode:
+                        cmd_packetID = packetID::KM_END_VEL_LOCAL;
+                        joint_command = false; // No joint command for local twist
+                        for (size_t i = 0; i < twist_ee_cmd_list.size(); ++i) {
+                            twist_ee_cmd_list[i] = static_cast<float>(twist_ee_cmd[i]);
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
             //* WHOLE JOINT COMMAND PACKET
             if (joint_command)
             {
-                for(int i= 0; i<number_joints; i++){
+                if (joint_cmd.size() != number_joints) {
+                    BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Joint command vector size mismatch; command request skipped");
+                    return;
+                }
+                for (size_t i = 0; i < number_joints; ++i) {
                     cmdJoint_encodePacket_unite(encoded_single_jointCmd_request, cmd_packetID, device_ids[i], joint_cmd[i]);                         
                     std::copy(encoded_single_jointCmd_request, encoded_single_jointCmd_request + size_per_jointCmd_request, encoded_whole_jointCmd_request + i * size_per_jointCmd_request);       
                 }
@@ -123,13 +135,13 @@ namespace bravo_control{
             }
             //* TASK-SPACE COMMAND PACKET
             else{
-                float twist_ee_cmd_list[6];
-                for (size_t i = 0; i < 6; ++i)
-                    twist_ee_cmd_list[i] = static_cast<float>(twist_ee_cmd[i]);
-                encode_packet_float_list(encoded_localTwisteeCmd_request, cmd_packetID, 0x0E, twist_ee_cmd_list, 6);
+                encode_packet_float_list(encoded_localTwisteeCmd_request, cmd_packetID, 0x0E, twist_ee_cmd_list.data(), 6);
                 sendto(sockfd, encoded_localTwisteeCmd_request, size_Local_Twist_ee_request , 0, (const struct sockaddr *)&servaddr, sizeof(servaddr)); //10 is the size of each joint packet
             }
-            last_request_time = std::chrono::high_resolution_clock::now();
+            {
+                std::lock_guard<std::mutex> lock(io_mutex_);
+                last_request_time = std::chrono::high_resolution_clock::now();
+            }
         }
 
     template <typename T> 
@@ -138,36 +150,47 @@ namespace bravo_control{
             packetID cmd_packetID = packetID::POSITION; // Default command packet ID
             bool joint_command = true; // Flag to check if joint command is set
             std::vector<T> joint_cmd; 
+            std::array<float, 6> twist_ee_cmd_list{};
             //* DETERMINE CURRENT CONTROL MODE
-            switch (options_fdb_cmd.control_mode_cmd)
             {
-                case control_mode_states::joint_position_mode:
-                    cmd_packetID = packetID::POSITION;
-                    joint_cmd = joint_cmd_position;
-                    break;                
-                case control_mode_states::joint_velocity_mode:
-                    cmd_packetID = packetID::VELOCITY;
-                    joint_cmd = joint_cmd_velocity;
-                    break;
-                case control_mode_states::joint_torque_mode:
-                    cmd_packetID = packetID::TORQUE;
-                    joint_cmd = joint_cmd_torque;
-                    break;
-                case control_mode_states::joint_current_mode:
-                    cmd_packetID = packetID::CURRENT;
-                    joint_cmd = joint_cmd_current;
-                    break;              
-                case control_mode_states::local_twist_ee_mode:
-                    cmd_packetID = packetID::KM_END_VEL_LOCAL;
-                    joint_command = false; // No joint command for local twist
-                    break;         
-                default:
-                    break;
+                std::lock_guard<std::mutex> lock(io_mutex_);
+                switch (command_mode_state)
+                {
+                    case control_mode_states::joint_position_mode:
+                        cmd_packetID = packetID::POSITION;
+                        joint_cmd = joint_cmd_position;
+                        break;
+                    case control_mode_states::joint_velocity_mode:
+                        cmd_packetID = packetID::VELOCITY;
+                        joint_cmd = joint_cmd_velocity;
+                        break;
+                    case control_mode_states::joint_torque_mode:
+                        cmd_packetID = packetID::TORQUE;
+                        joint_cmd = joint_cmd_torque;
+                        break;
+                    case control_mode_states::joint_current_mode:
+                        cmd_packetID = packetID::CURRENT;
+                        joint_cmd = joint_cmd_current;
+                        break;
+                    case control_mode_states::local_twist_ee_mode:
+                        cmd_packetID = packetID::KM_END_VEL_LOCAL;
+                        joint_command = false; // No joint command for local twist
+                        for (size_t i = 0; i < twist_ee_cmd_list.size(); ++i) {
+                            twist_ee_cmd_list[i] = static_cast<float>(twist_ee_cmd[i]);
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
             //* WHOLE JOINT COMMAND PACKET
             if (joint_command)
             {
-                for(int i= 0; i<number_joints; i++){
+                if (joint_cmd.size() != number_joints) {
+                    BRAVO_LOG_ERROR(logger_, "[bravo_UDP]: ❌ Joint command vector size mismatch; command+feedback request skipped");
+                    return;
+                }
+                for (size_t i = 0; i < number_joints; ++i) {
                     cmdJoint_encodePacket_unite(encoded_single_jointCmd_request, cmd_packetID, device_ids[i], joint_cmd[i]);                         
                     std::copy(encoded_single_jointCmd_request, encoded_single_jointCmd_request + size_per_jointCmd_request, encoded_jointCmd_feedback_request + size_feedback_request + i * size_per_jointCmd_request);       
                 }
@@ -176,15 +199,13 @@ namespace bravo_control{
             //* TASK-SPACE COMMAND PACKET
             else
             {
-                float twist_ee_cmd_list[6];
-                for (size_t i = 0; i < 6; ++i)
-                    twist_ee_cmd_list[i] = static_cast<float>(twist_ee_cmd[i]);
-                encode_packet_float_list(encoded_localTwisteeCmd_request, cmd_packetID, 0x0E, twist_ee_cmd_list, 6);
+                encode_packet_float_list(encoded_localTwisteeCmd_request, cmd_packetID, 0x0E, twist_ee_cmd_list.data(), 6);
                 std::copy(encoded_localTwisteeCmd_request,  encoded_localTwisteeCmd_request + size_Local_Twist_ee_request,  encoded_taskCmd_feedback_request + size_feedback_request); 
                 sendto(sockfd, encoded_taskCmd_feedback_request, size_feedback_request + size_Local_Twist_ee_request , 0, (const struct sockaddr *)&servaddr, sizeof(servaddr)); //10 is the size of each joint packet
             }
-            last_request_time = std::chrono::high_resolution_clock::now();
+            {
+                std::lock_guard<std::mutex> lock(io_mutex_);
+                last_request_time = std::chrono::high_resolution_clock::now();
+            }
         }
 }
-
-

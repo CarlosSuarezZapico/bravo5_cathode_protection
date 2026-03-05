@@ -42,11 +42,11 @@ class airbus_joystick_bravo5_CP : public rclcpp::Node{
                         double knob = msg->axes[3];        
                         double vel = (1 + knob)*vel_max/2;      
                         enableBaseMotion = (bool)(msg->buttons[0]);
-                        makeReading = (bool)(msg->buttons[2]);
-                        goHome = (bool)(msg->buttons[1]);
+                        makeReading      = (bool)(msg->buttons[2]);
+                        goHome           = (bool)(msg->buttons[1]);
                         if (enableBaseMotion){        
                               teleop_VelX = -msg->axes[0]*vel;
-                              teleop_VelY = msg->axes[1]*vel;
+                              teleop_VelY =  msg->axes[1]*vel;
                               teleop_VelZ = -msg->axes[2]*vel;
                         }
                         else{

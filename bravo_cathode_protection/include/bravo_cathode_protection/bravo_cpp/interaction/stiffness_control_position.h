@@ -96,11 +96,6 @@ template <FloatingPoint T>
 
             Eigen::Vector<T, 3>  vel_ee;
 
-            //& DEBUG
-            T debug_stiffness = 0.0;
-            T debug_duration = 0.0;
-
-            T position_error = 0.0; 
 
         private:
             void motion_integration(double elapsed, Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> Jacobian);
@@ -137,8 +132,6 @@ template <FloatingPoint T>
             Eigen::Vector<T, 3> compute_force_action(Eigen::Vector<T, 3> pos_error, Eigen::Vector<T, 3> vel_error, bool compute_motion_ref);
 
             std::tuple<T, T> compute_X_compliance_ratios(const Eigen::Matrix<T, 3, Eigen::Dynamic> Jacobian_linear);
-
-            void debug_controller();
     };
 
 #endif 

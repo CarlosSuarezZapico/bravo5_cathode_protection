@@ -56,7 +56,7 @@ struct RuntimeConfig
     std::string ip_address = "10.43.0.146";
     int udp_port = 6789;
     Eigen::Vector4d home = (Eigen::Vector4d() << 3.14, 2.857, 1.362, 0.0).finished();
-    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, 9.81).finished();
+    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, -9.81).finished();
     double max_current_mA = 2000.0;
     double max_current_mA_go_home = 1000.0;
     double max_manipulability = 6.0;
@@ -199,7 +199,7 @@ bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     
     //! GRAVITY VECTOR FOR ARM MOUNTING POINT
     bravo->kinodynamics.change_gravity_vector(GRAVITY_VECTOR); //!changing gravity compensation
-    bravo->set_bravo_frequency_packet_exchange(200); //! Set frequency of requests  
+    bravo->set_bravo_frequency_packet_exchange(300); //! Set frequency of requests  
     auto start_time = std::chrono::steady_clock::now();
 
     if (dashboard) {

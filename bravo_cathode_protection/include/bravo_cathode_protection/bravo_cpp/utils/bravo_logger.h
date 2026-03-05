@@ -14,6 +14,7 @@
  */
 #pragma once
 #include <cstdint>
+#include <cstdlib>
 #include <functional>
 #include <iostream>
 #include <mutex>
@@ -21,6 +22,7 @@
 #include <string>
 #include <string_view>
 #include <utility>
+#include <unistd.h>
 
 namespace bravo_utils {
 
@@ -38,9 +40,32 @@ namespace bravo_utils {
         return "[INFO ]";
     }
 
+    inline const char* log_level_color_ansi(LogLevel lvl) noexcept {
+        switch (lvl) {
+            case LogLevel::Debug: return "\x1b[36m"; // cyan
+            case LogLevel::Info:  return "\x1b[34m"; // blue
+            case LogLevel::Warn:  return "\x1b[33m"; // yellow
+            case LogLevel::Error: return "\x1b[31m"; // red
+        }
+        return "\x1b[34m";
+    }
+
+    inline bool should_color_stderr() noexcept {
+        const char* no_color = std::getenv("NO_COLOR");
+        return (::isatty(STDERR_FILENO) == 1) && (no_color == nullptr);
+    }
+
     inline void write_log_stderr(LogLevel lvl, std::string_view message) {
         static std::mutex output_mutex;
         std::lock_guard<std::mutex> lock(output_mutex);
+        if (should_color_stderr()) {
+            std::cerr << log_level_color_ansi(lvl)
+                      << log_level_tag(lvl)
+                      << " "
+                      << message
+                      << "\x1b[0m\n";
+            return;
+        }
         std::cerr << log_level_tag(lvl) << " " << message << '\n';
     }
 

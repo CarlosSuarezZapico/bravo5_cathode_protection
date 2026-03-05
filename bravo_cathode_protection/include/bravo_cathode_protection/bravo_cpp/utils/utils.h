@@ -151,8 +151,6 @@ namespace bravo_utils
             }
     }
 
-    void GetEulerAngles(Eigen::Quaterniond q, double& yaw, double& pitch, double& roll);
-
     template <typename T, typename Total, std::size_t N>
         class Moving_Average{
             public:

@@ -36,15 +36,15 @@ enum set_bravo_control_mode {position_control, velocity_control, current_control
 
 template <bravo_control::Floating32or64 T_data>
 	class bravo_handler {
-			public: 
-				//& PINOCCHIO LIBRARY FOR KINODYNAMICS
-				kinodynamics_manipulator<T_data> kinodynamics;	
-			private:
-				//& LOGGER SHARED WITH MAIN/HANDLER/UDP
-				std::shared_ptr<bravo_utils::Logger> logger_;
+		public: 
+			//& PINOCCHIO LIBRARY FOR KINODYNAMICS
+			kinodynamics_manipulator<T_data> kinodynamics;	
+		private:
+			//& LOGGER SHARED WITH MAIN/HANDLER/UDP
+			std::shared_ptr<bravo_utils::Logger> logger_;
 
-				//& LOW-LEVEL INTERFACE WITH BRAVO
-				std::unique_ptr<bravo_control::bravo_udp<T_data>> bravo_io;
+			//& LOW-LEVEL INTERFACE WITH BRAVO
+			std::unique_ptr<bravo_control::bravo_udp<T_data>> bravo_io;
 			size_t number_joints; 
 
 			//& THREAD FOR BRAVO IO INPUT/OUTPUT

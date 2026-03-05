@@ -23,14 +23,6 @@
             <color rgba="1 0.369 0.047 1"/>
         </material>
 
-        <link name = "world"/>
-
-        <joint name="base_static_joint" type="fixed">
-            <origin rpy="0 3.141592654  0" xyz="0 0 0"/>
-            <parent link="world"/>
-            <child link="link1"/>
-        </joint>
-
         <link name="link1">
             <visual>
                 <geometry>

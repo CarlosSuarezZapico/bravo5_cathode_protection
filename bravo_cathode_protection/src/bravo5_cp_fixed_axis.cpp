@@ -56,7 +56,7 @@ struct RuntimeConfig
     std::string ip_address = "10.43.0.146";
     int udp_port = 6789;
     Eigen::Vector4d home = (Eigen::Vector4d() << 3.14, 2.857, 1.362, 0.0).finished();
-    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, 9.81).finished();
+    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, -9.81).finished();
     double max_current_mA = 2000.0;
     double max_current_mA_go_home = 1000.0;
     double max_manipulability = 6.0;
@@ -111,7 +111,6 @@ static RuntimeConfig load_runtime_config_json(const std::string& path)
     cfg.max_speed_teleop = j.at("MAX_SPEED_TELEOP").get<double>();
     cfg.loop_frequency = j.at("LOOP_FREQUENCY").get<double>();
     cfg.tool_link = j.at("tool_link").get<std::string>();
-
     return cfg;
 }
 

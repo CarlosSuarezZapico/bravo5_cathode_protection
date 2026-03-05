@@ -77,7 +77,7 @@ void program_loop(std::shared_ptr<bravo_handler<double>> bravo){
 int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);       
-    const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bravo_cathode_protection") + "/urdf/bravo_5_dynamics_pinocchio.urdf";
+    const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bravo_cathode_protection") + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf";
     const std::string tool_link = std::string("contact_point");
     const std::string ip_address = std::string("10.43.0.146");
     auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address);

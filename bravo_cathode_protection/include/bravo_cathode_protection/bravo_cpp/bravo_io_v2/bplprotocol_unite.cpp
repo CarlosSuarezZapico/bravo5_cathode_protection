@@ -49,12 +49,13 @@ uint8_t cobs_encode_unite2(const std::vector<uint8_t>& input, size_t length, std
     uint8_t write_index = 1; // Start from 1 to leave space for the first code
     uint8_t code_index = 0; // Index where the next code will be inserted
     uint8_t code = 1; // Initialize code value
+    const size_t encode_length = (length < input.size()) ? length : input.size();
 
     // Ensure the output vector is clear and has an initial size set to at least input size + 1 for safety
     output.clear();
-    output.resize(input.size() + 1);
+    output.resize(encode_length + 1);
 
-    while(read_index < input.size()) {
+    while(read_index < encode_length) {
         if(input[read_index] == 0) {
             output[code_index] = code;
             code = 1;
@@ -198,20 +199,10 @@ size_t encodeFloat(uint8_t* outputBuffer, float f)
 	return 4;
 }
 
-uint8_t* encodeFloat(float f){
-    uint8_t outputBuffer[4];
-    uint32_t asInt = *((uint32_t*)&f);
-    int i;
-    for (i = 0; i < 4; i++) {
-        outputBuffer[i] = (asInt >> 8 * i) & 0xFF;
-    }
-    return outputBuffer;
-}
-
 size_t encode_packet_float_list(uint8_t* packet_buffer, uint8_t packetID, uint8_t deviceID, float *floatList, size_t lengthList){
-    uint8_t encodedFloatData[4*lengthList];
-    size_t dataLength = encodeFloats(encodedFloatData, floatList, lengthList);
-    size_t packetLength = encodePacketBare_unite(packet_buffer, deviceID, packetID, encodedFloatData, dataLength);
+    std::vector<uint8_t> encodedFloatData(4 * lengthList);
+    size_t dataLength = encodeFloats(encodedFloatData.data(), floatList, lengthList);
+    size_t packetLength = encodePacketBare_unite(packet_buffer, deviceID, packetID, encodedFloatData.data(), dataLength);
     return (size_t) packetLength;
 }
 
@@ -265,7 +256,7 @@ size_t decodeFloats_unite(float* outputFloatBuffer, uint8_t* inputBuffer, size_t
     size_t floatLength = inputBufferLength/4;
     uint8_t* inputBufferPointer;
     uint32_t asInt;
-    for(int i = 0; i < floatLength; i++)
+    for(size_t i = 0; i < floatLength; i++)
     {   
         asInt = 0;
         inputBufferPointer = &inputBuffer[i*4];
@@ -426,8 +417,12 @@ std::tuple<int, int, std::vector<uint8_t>, int> BPLProtocol::parse_packet(const 
     }
     try {
         std::vector<uint8_t> decoded_packet;                
-        uint8_t size_decoded = cobs_decode_unite(packet_in, decoded_packet);
-        if (decoded_packet[decoded_packet.size() - 2] != decoded_packet.size()) {
+        const uint8_t size_decoded = cobs_decode_unite(packet_in, decoded_packet);
+        if ((size_decoded == 0) || (decoded_packet.size() < HEADER_SIZE)) {
+            error = -4;
+            return std::make_tuple(0, 0, std::vector<uint8_t>{}, error);
+        }
+        if (decoded_packet[decoded_packet.size() - 2] != size_decoded) {
             // Incorrect length
             error = -2;
             return std::make_tuple(0, 0, std::vector<uint8_t>{}, error);

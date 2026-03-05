@@ -209,10 +209,12 @@ namespace bravo_utils
                 } else if (l.lvl == LogLevel::Debug) {
                     tag = "[DEBUG]";
                 }
-                std::string row = std::string(tag) + " " + sanitizeAndClamp(l.text, max_log_chars_);
+                std::string row = std::string(log_level_color_ansi(l.lvl)) +
+                                  tag + " " + sanitizeAndClamp(l.text, max_log_chars_);
                 if (l.repeat_count > 1) {
                     row += " (x" + std::to_string(l.repeat_count) + ")";
                 }
+                row += "\x1b[0m";
                 log_rows.push_back(std::move(row));
             }
 
@@ -230,7 +232,7 @@ namespace bravo_utils
             print_line("  Manipulability:       " + std::to_string(manip));
             print_line("");
             print_line("CP APPLICATION:");
-            print_line("   CP state:                " + sanitizeAndClamp(arm_state, 48));
+            print_line("   CP state:             " + sanitizeAndClamp(arm_state, 48));
             print_line("   vel_ee [m/s]:         " + std::to_string(vel_ee_x));
             print_line("   desired_force:        " + std::to_string(desired_force_x));
             print_line("   exerted_force:        " + std::to_string(exerted_force_x));
