@@ -1,0 +1,116 @@
+[  9%] Built target airbus_joystick
+[ 19%] Built target stiffness_control_position
+[ 28%] Built target kinodynamics_manipulator
+[ 71%] Built target bravo_handler_v2
+[ 80%] Built target bravo5_gravity_and_joint_friction_identification
+Consolidate compiler generated dependencies of target bravo5_cp_mobile_axis
+[ 90%] Built target bravo5_cp_fixed_axis
+[ 95%] Building CXX object CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o
+[100%] Linking CXX executable bravo5_cp_mobile_axis
+[100%] Built target bravo5_cp_mobile_axis
+-- Install configuration: ""
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/packetID.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.cpp
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_fixed_axis_runtime.yaml
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_mobile_axis_runtime.yaml
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params/joint_friction_bravo5.yaml
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_STRONG.json
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_WEAK.json
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_STRONG.json
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_WEAK.json
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/WEAK_LOW_STIFF.json
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_fixed_axis.yaml
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.yaml
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz/bravo5_cp.rviz
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_pinocchio_cp.urdf
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214_convex_hull.stl
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/view_bravo_5.launch.py
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libairbus_joystick.so
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.sh
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so
+-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so" to ""
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libkinodynamics_manipulator.so
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libstiffness_control_position.so
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification
+-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification" to ""
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis
+-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis" to ""
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis
+-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis" to ""
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/package_run_dependencies/bravo_cathode_protection
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/parent_prefix_path/bravo_cathode_protection
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.sh
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.sh
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.dsv
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.bash
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.sh
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.zsh
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.dsv
+-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.dsv
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/packages/bravo_cathode_protection
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport-noconfig.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export-noconfig.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport-noconfig.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport-noconfig.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig-version.cmake
+-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.xml

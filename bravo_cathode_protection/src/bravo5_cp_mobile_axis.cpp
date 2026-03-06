@@ -19,6 +19,7 @@
 #include "bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h"
 #include "bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h"
 
+#include <ament_index_cpp/get_package_share_directory.hpp>
 #include <iostream>
 #include "pinocchio/fwd.hpp"
 #include <rclcpp/rclcpp.hpp>
@@ -27,6 +28,8 @@
 #include <filesystem>
 #include <thread>
 #include <fstream>
+#include <cmath>
+#include <yaml-cpp/yaml.h>
 
 using namespace pinocchio;
 using namespace Eigen;
@@ -51,74 +54,11 @@ static const char* state_machine_to_string(StateMachine state)
     }
 }
 
-struct RuntimeConfig
-{
-    std::string ip_address = "10.43.0.146";
-    int udp_port = 6789;
-    Eigen::Vector4d home = (Eigen::Vector4d() << 3.14, 2.857, 1.362, 0.0).finished();
-    Eigen::Vector3d gravity_vector = (Eigen::Vector3d() << 0.0, 0.0, -9.81).finished();
-    double max_current_mA = 2000.0;
-    double max_current_mA_go_home = 1000.0;
-    double max_manipulability = 6.0;
-    double max_ratio_force_ellipsoid = 0.3;
-    double max_speed_teleop = 0.25;
-    double loop_frequency = 250.0;
-    std::string tool_link = "contact_point";
-};
-
-static Eigen::Vector4d json_vec4(const nlohmann::json& j, const std::string& key)
-{
-    if (!j.contains(key) || !j.at(key).is_array() || j.at(key).size() != 4) {
-        throw std::runtime_error("JSON key '" + key + "' must be an array of 4 numbers");
-    }
-    return Eigen::Vector4d(
-        j.at(key).at(0).get<double>(),
-        j.at(key).at(1).get<double>(),
-        j.at(key).at(2).get<double>(),
-        j.at(key).at(3).get<double>());
-}
-
-static Eigen::Vector3d json_vec3(const nlohmann::json& j, const std::string& key)
-{
-    if (!j.contains(key) || !j.at(key).is_array() || j.at(key).size() != 3) {
-        throw std::runtime_error("JSON key '" + key + "' must be an array of 3 numbers");
-    }
-    return Eigen::Vector3d(
-        j.at(key).at(0).get<double>(),
-        j.at(key).at(1).get<double>(),
-        j.at(key).at(2).get<double>());
-}
-
-static RuntimeConfig load_runtime_config_json(const std::string& path)
-{
-    std::ifstream file(path);
-    if (!file.is_open()) {
-        throw std::runtime_error("Could not open runtime config file: " + path);
-    }
-
-    nlohmann::json j;
-    file >> j;
-
-    RuntimeConfig cfg;
-    cfg.ip_address = j.at("IP").get<std::string>();
-    cfg.udp_port = j.at("port").get<int>();
-    cfg.home = json_vec4(j, "HOME");
-    cfg.gravity_vector = json_vec3(j, "GRAVITY_VECTOR");
-    cfg.max_current_mA = j.at("MAX_CURRENT_mA").get<double>();
-    cfg.max_current_mA_go_home = j.at("MAX_CURRENT_mA_GO_HOME").get<double>();
-    cfg.max_manipulability = j.at("MAX_MANIPULABILITY").get<double>();
-    cfg.max_ratio_force_ellipsoid = j.at("MAX_RATIO_FORCE_ELLIPSOID").get<double>();
-    cfg.max_speed_teleop = j.at("MAX_SPEED_TELEOP").get<double>();
-    cfg.loop_frequency = j.at("LOOP_FREQUENCY").get<double>();
-    cfg.tool_link = j.at("tool_link").get<std::string>();
-
-    return cfg;
-}
-
 bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
                   std::shared_ptr<bravo_handler<double>> bravo,
-                  const stiffness_control_config::StiffnessJsonParams& stiff_params,
-                  const RuntimeConfig& runtime_config,
+                  const stiffness_control_config::StiffnessParams& stiff_params,
+                  const bravo_utils::RuntimeConfig& runtime_config,
+                  const bravo_utils::FrictionConfig& friction_config,
                   const rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr& joint_state_pub,
                   const std::shared_ptr<rclcpp::Node>& joint_state_node,
                   const std::shared_ptr<bravo_utils::TerminalDashboard>& dashboard,
@@ -137,13 +77,8 @@ bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
     const double LOOP_FREQUENCY            = runtime_config.loop_frequency;  // Hz (Similar to the arm frequency)
     const Eigen::Vector<double, 4> HOME    = runtime_config.home; //! define home for bravo5
     const Eigen::Vector3d GRAVITY_VECTOR   = runtime_config.gravity_vector;
-    //Joint friction compensation parameters
-    Eigen::Matrix<double,4,6> FRICTION_MAT;
-    FRICTION_MAT << 0.0, 0.0, 0.0, 14.66651, 10.09561,  1.25110,  // Joint 1
-                    0.0, 0.0, 0.0, 14.50959, 10.09275,  1.14381,  // Joint 2
-                    0.0, 0.0, 0.0, 13.98409, 12.97659, 21.69165,  // Joint 3
-                    0.0, 0.0, 0.0, 15.82785, 14.35639, 24.04595;  // Joint 4
-    const double FRICTION_SATURATION = 60; 
+    const Eigen::Matrix<double,4,6>& FRICTION_MAT = friction_config.friction_mat;
+    const double FRICTION_SATURATION = friction_config.friction_saturation; 
 
     //& VARIABLES DIFF KINEMATICS
     std::chrono::steady_clock::time_point sim_finish_integration_time = std::chrono::steady_clock::now();
@@ -257,7 +192,7 @@ bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
         joint_postion_fdb  = bravo->get_bravo_joint_states();
         joint_velocity_fdb = bravo->get_bravo_joint_velocities();
         jacobian3x4        = bravo->kinodynamics.localJacobian(joint_postion_fdb).topRows(3);
-        manipulability     = bravo->compute_manipulability_position();
+        manipulability     = bravo->kinodynamics.compute_manipulability_position(bravo->get_bravo_joint_states());
         std::tie(manipulabilityXy, manipulabilityXz) = stiffness_controller.compute_X_compliance_ratios(jacobian3x4);
         const auto now_steady = std::chrono::steady_clock::now();
 
@@ -425,20 +360,23 @@ bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP> airbus_joy,
 int main(int argc, char ** argv)
 {
         rclcpp::init(argc, argv);
-        const std::string package_path = std::filesystem::path(__FILE__).parent_path().parent_path().string();
-        const std::string config_stiff_control_file = (package_path + "/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.json");
-        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_mobile_axis_runtime.json");
+        const std::string package_path = ament_index_cpp::get_package_share_directory("bravo_cathode_protection");
+        const std::string config_stiff_control_file = (package_path + "/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.yaml");
+        const std::string config_runtime_file       = (package_path + "/config/program_params/bravo5_cp_mobile_axis_runtime.yaml");
+        const std::string config_friction_file      = (package_path + "/config/joint_friction_params/joint_friction_bravo5.yaml");
         const std::string urdf_filename             = (package_path + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf");
         auto shared_logger = std::make_shared<bravo_utils::Logger>(bravo_utils::write_log_stderr);
-        RuntimeConfig runtime_config;
-        //& PARAMETERS LOADED FROM JSON CONFIG FILE
-        stiffness_control_config::StiffnessJsonParams stiff_params;
+        bravo_utils::RuntimeConfig runtime_config;
+        bravo_utils::FrictionConfig friction_config;
+        //& PARAMETERS LOADED FROM YAML CONFIG FILE
+        stiffness_control_config::StiffnessParams stiff_params;
         try {
-            stiff_params = stiffness_control_config::load_stiffness_params_json(config_stiff_control_file);
-            runtime_config = load_runtime_config_json(config_runtime_file);
+            stiff_params = stiffness_control_config::load_stiffness_params_yaml(config_stiff_control_file);
+            runtime_config = bravo_utils::load_runtime_config_yaml(config_runtime_file);
+            friction_config = bravo_utils::load_friction_config_yaml(config_friction_file);
         }
         catch (const std::exception& e) {
-            BRAVO_LOG_ERROR(*shared_logger, "[json config] ", e.what());
+            BRAVO_LOG_ERROR(*shared_logger, "[yaml config] ", e.what());
             rclcpp::shutdown();
             return 1;
         }
@@ -464,7 +402,7 @@ int main(int argc, char ** argv)
         std::thread executor_thread([&executor]() {
                 executor->spin();
         });
-        const bool program_ok = program_loop(joystick, bravo, stiff_params, runtime_config, joint_state_pub, joint_state_node, dashboard, shared_logger, runtime_config.ip_address, runtime_config.udp_port);
+        const bool program_ok = program_loop(joystick, bravo, stiff_params, runtime_config, friction_config, joint_state_pub, joint_state_node, dashboard, shared_logger, runtime_config.ip_address, runtime_config.udp_port);
         executor->cancel();
         if (rclcpp::ok()) {
             rclcpp::shutdown();

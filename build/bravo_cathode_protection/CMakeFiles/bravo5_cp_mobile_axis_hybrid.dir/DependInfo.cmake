@@ -1,0 +1,22 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis_hybrid.cpp" "CMakeFiles/bravo5_cp_mobile_axis_hybrid.dir/src/bravo5_cp_mobile_axis_hybrid.cpp.o" "gcc" "CMakeFiles/bravo5_cp_mobile_axis_hybrid.dir/src/bravo5_cp_mobile_axis_hybrid.cpp.o.d"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection/CMakeFiles/bravo_handler_v2.dir/DependInfo.cmake"
+  "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection/CMakeFiles/airbus_joystick.dir/DependInfo.cmake"
+  "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection/CMakeFiles/stiffness_control_position.dir/DependInfo.cmake"
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

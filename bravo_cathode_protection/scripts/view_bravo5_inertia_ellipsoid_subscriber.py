@@ -25,7 +25,7 @@ ELLIPSOID_FRAME = "contact_point"
 
 
 def default_urdf_path() -> Path:
-    return Path(__file__).resolve().parents[1] / "urdf" / "bravo_5_dynamics_pinocchio.urdf"
+    return Path(__file__).resolve().parents[1] / "urdf" / "bravo_5_dynamics_pinocchio_cp.urdf"
 
 
 def default_package_dir() -> Path:

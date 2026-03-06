@@ -1,0 +1,413 @@
+[0.000000] (-) TimerEvent: {}
+[0.000145] (bravo_cathode_protection) JobQueued: {'identifier': 'bravo_cathode_protection', 'dependencies': OrderedDict()}
+[0.000294] (bravo_cathode_protection) JobStarted: {'identifier': 'bravo_cathode_protection'}
+[0.005093] (bravo_cathode_protection) JobProgress: {'identifier': 'bravo_cathode_protection', 'progress': 'cmake'}
+[0.005326] (bravo_cathode_protection) JobProgress: {'identifier': 'bravo_cathode_protection', 'progress': 'build'}
+[0.005784] (bravo_cathode_protection) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection', '--', '-j20', '-l20'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/carlos/bravo5_cp_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2336'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2753'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '45600'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:4857'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0EF4wDf:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-26.304.20706-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2723,unix/carlos:/tmp/.ICE-unix/2723'), ('INVOCATION_ID', '74c898a76d844ff4903414d2d0535069'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019cc43e-60a8-73f3-8c49-517017193630'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '45600')]), 'shell': False}
+[0.046733] (bravo_cathode_protection) StdoutLine: {'line': b'[  9%] Built target airbus_joystick\n'}
+[0.050456] (bravo_cathode_protection) StdoutLine: {'line': b'[ 19%] Built target stiffness_control_position\n'}
+[0.057057] (bravo_cathode_protection) StdoutLine: {'line': b'[ 28%] Built target kinodynamics_manipulator\n'}
+[0.060135] (bravo_cathode_protection) StdoutLine: {'line': b'[ 71%] Built target bravo_handler_v2\n'}
+[0.092440] (bravo_cathode_protection) StdoutLine: {'line': b'[ 80%] Built target bravo5_gravity_and_joint_friction_identification\n'}
+[0.093691] (bravo_cathode_protection) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target bravo5_cp_mobile_axis\n'}
+[0.094253] (bravo_cathode_protection) StdoutLine: {'line': b'[ 90%] Built target bravo5_cp_fixed_axis\n'}
+[0.099869] (-) TimerEvent: {}
+[0.114626] (bravo_cathode_protection) StdoutLine: {'line': b'[ 95%] Building CXX object CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o\n'}
+[0.199976] (-) TimerEvent: {}
+[0.300386] (-) TimerEvent: {}
+[0.400561] (-) TimerEvent: {}
+[0.500863] (-) TimerEvent: {}
+[0.601185] (-) TimerEvent: {}
+[0.701351] (-) TimerEvent: {}
+[0.801545] (-) TimerEvent: {}
+[0.901773] (-) TimerEvent: {}
+[1.001949] (-) TimerEvent: {}
+[1.102155] (-) TimerEvent: {}
+[1.202448] (-) TimerEvent: {}
+[1.302626] (-) TimerEvent: {}
+[1.402840] (-) TimerEvent: {}
+[1.503051] (-) TimerEvent: {}
+[1.603279] (-) TimerEvent: {}
+[1.703464] (-) TimerEvent: {}
+[1.803647] (-) TimerEvent: {}
+[1.903856] (-) TimerEvent: {}
+[2.004041] (-) TimerEvent: {}
+[2.104236] (-) TimerEvent: {}
+[2.204431] (-) TimerEvent: {}
+[2.304609] (-) TimerEvent: {}
+[2.404821] (-) TimerEvent: {}
+[2.504999] (-) TimerEvent: {}
+[2.605210] (-) TimerEvent: {}
+[2.653162] (bravo_cathode_protection) StderrLine: {'line': b'In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,\n'}
+[2.653384] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,\n'}
+[2.653460] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,\n'}
+[2.653528] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,\n'}
+[2.653594] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,\n'}
+[2.653658] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,\n'}
+[2.653721] (bravo_cathode_protection) StderrLine: {'line': b'                 from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,\n'}
+[2.653785] (bravo_cathode_protection) StderrLine: {'line': b'                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,\n'}
+[2.653863] (bravo_cathode_protection) StderrLine: {'line': b'                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,\n'}
+[2.653941] (bravo_cathode_protection) StderrLine: {'line': b'                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:\n'}
+[2.654024] (bravo_cathode_protection) StderrLine: {'line': b"/opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: \xe2\x80\x98#pragma message: Please update your includes from 'hpp/fcl' to 'coal'\xe2\x80\x99\n"}
+[2.654106] (bravo_cathode_protection) StderrLine: {'line': b'   10 | #pragma message("Please update your includes from \'hpp/fcl\' to \'coal\'")\n'}
+[2.654177] (bravo_cathode_protection) StderrLine: {'line': b'      |                                                                       ^\n'}
+[2.705338] (-) TimerEvent: {}
+[2.805555] (-) TimerEvent: {}
+[2.905798] (-) TimerEvent: {}
+[3.005998] (-) TimerEvent: {}
+[3.106158] (-) TimerEvent: {}
+[3.206327] (-) TimerEvent: {}
+[3.306494] (-) TimerEvent: {}
+[3.406745] (-) TimerEvent: {}
+[3.506951] (-) TimerEvent: {}
+[3.607149] (-) TimerEvent: {}
+[3.707370] (-) TimerEvent: {}
+[3.807572] (-) TimerEvent: {}
+[3.907799] (-) TimerEvent: {}
+[4.008022] (-) TimerEvent: {}
+[4.108307] (-) TimerEvent: {}
+[4.208507] (-) TimerEvent: {}
+[4.308696] (-) TimerEvent: {}
+[4.408878] (-) TimerEvent: {}
+[4.509093] (-) TimerEvent: {}
+[4.609288] (-) TimerEvent: {}
+[4.709486] (-) TimerEvent: {}
+[4.809668] (-) TimerEvent: {}
+[4.909868] (-) TimerEvent: {}
+[5.010045] (-) TimerEvent: {}
+[5.110229] (-) TimerEvent: {}
+[5.210410] (-) TimerEvent: {}
+[5.310622] (-) TimerEvent: {}
+[5.410803] (-) TimerEvent: {}
+[5.510990] (-) TimerEvent: {}
+[5.611285] (-) TimerEvent: {}
+[5.711492] (-) TimerEvent: {}
+[5.811707] (-) TimerEvent: {}
+[5.911995] (-) TimerEvent: {}
+[6.012173] (-) TimerEvent: {}
+[6.112361] (-) TimerEvent: {}
+[6.212539] (-) TimerEvent: {}
+[6.312745] (-) TimerEvent: {}
+[6.412925] (-) TimerEvent: {}
+[6.513240] (-) TimerEvent: {}
+[6.613475] (-) TimerEvent: {}
+[6.713715] (-) TimerEvent: {}
+[6.813913] (-) TimerEvent: {}
+[6.914082] (-) TimerEvent: {}
+[7.014289] (-) TimerEvent: {}
+[7.114448] (-) TimerEvent: {}
+[7.214616] (-) TimerEvent: {}
+[7.314821] (-) TimerEvent: {}
+[7.415036] (-) TimerEvent: {}
+[7.515339] (-) TimerEvent: {}
+[7.615655] (-) TimerEvent: {}
+[7.715854] (-) TimerEvent: {}
+[7.816143] (-) TimerEvent: {}
+[7.916397] (-) TimerEvent: {}
+[8.016560] (-) TimerEvent: {}
+[8.116754] (-) TimerEvent: {}
+[8.216913] (-) TimerEvent: {}
+[8.317196] (-) TimerEvent: {}
+[8.417359] (-) TimerEvent: {}
+[8.517517] (-) TimerEvent: {}
+[8.617801] (-) TimerEvent: {}
+[8.717964] (-) TimerEvent: {}
+[8.818160] (-) TimerEvent: {}
+[8.918333] (-) TimerEvent: {}
+[9.018493] (-) TimerEvent: {}
+[9.118655] (-) TimerEvent: {}
+[9.218811] (-) TimerEvent: {}
+[9.319111] (-) TimerEvent: {}
+[9.419276] (-) TimerEvent: {}
+[9.519448] (-) TimerEvent: {}
+[9.619718] (-) TimerEvent: {}
+[9.719889] (-) TimerEvent: {}
+[9.820054] (-) TimerEvent: {}
+[9.920275] (-) TimerEvent: {}
+[10.020447] (-) TimerEvent: {}
+[10.120627] (-) TimerEvent: {}
+[10.220848] (-) TimerEvent: {}
+[10.321049] (-) TimerEvent: {}
+[10.421243] (-) TimerEvent: {}
+[10.521404] (-) TimerEvent: {}
+[10.621565] (-) TimerEvent: {}
+[10.721759] (-) TimerEvent: {}
+[10.821952] (-) TimerEvent: {}
+[10.922124] (-) TimerEvent: {}
+[11.022329] (-) TimerEvent: {}
+[11.122493] (-) TimerEvent: {}
+[11.222690] (-) TimerEvent: {}
+[11.322893] (-) TimerEvent: {}
+[11.423094] (-) TimerEvent: {}
+[11.523296] (-) TimerEvent: {}
+[11.623460] (-) TimerEvent: {}
+[11.723736] (-) TimerEvent: {}
+[11.823903] (-) TimerEvent: {}
+[11.924105] (-) TimerEvent: {}
+[12.024401] (-) TimerEvent: {}
+[12.124584] (-) TimerEvent: {}
+[12.224782] (-) TimerEvent: {}
+[12.325044] (-) TimerEvent: {}
+[12.425254] (-) TimerEvent: {}
+[12.525412] (-) TimerEvent: {}
+[12.625581] (-) TimerEvent: {}
+[12.725786] (-) TimerEvent: {}
+[12.826016] (-) TimerEvent: {}
+[12.926343] (-) TimerEvent: {}
+[13.026522] (-) TimerEvent: {}
+[13.126705] (-) TimerEvent: {}
+[13.226890] (-) TimerEvent: {}
+[13.327189] (-) TimerEvent: {}
+[13.427518] (-) TimerEvent: {}
+[13.527740] (-) TimerEvent: {}
+[13.627964] (-) TimerEvent: {}
+[13.728160] (-) TimerEvent: {}
+[13.828388] (-) TimerEvent: {}
+[13.928578] (-) TimerEvent: {}
+[14.028871] (-) TimerEvent: {}
+[14.129080] (-) TimerEvent: {}
+[14.229340] (-) TimerEvent: {}
+[14.329517] (-) TimerEvent: {}
+[14.429842] (-) TimerEvent: {}
+[14.530054] (-) TimerEvent: {}
+[14.630261] (-) TimerEvent: {}
+[14.730442] (-) TimerEvent: {}
+[14.830654] (-) TimerEvent: {}
+[14.930888] (-) TimerEvent: {}
+[15.031068] (-) TimerEvent: {}
+[15.131424] (-) TimerEvent: {}
+[15.231613] (-) TimerEvent: {}
+[15.331804] (-) TimerEvent: {}
+[15.431994] (-) TimerEvent: {}
+[15.532174] (-) TimerEvent: {}
+[15.632359] (-) TimerEvent: {}
+[15.732537] (-) TimerEvent: {}
+[15.832711] (-) TimerEvent: {}
+[15.932892] (-) TimerEvent: {}
+[16.033073] (-) TimerEvent: {}
+[16.133287] (-) TimerEvent: {}
+[16.233469] (-) TimerEvent: {}
+[16.333657] (-) TimerEvent: {}
+[16.433850] (-) TimerEvent: {}
+[16.534063] (-) TimerEvent: {}
+[16.634257] (-) TimerEvent: {}
+[16.688773] (bravo_cathode_protection) StderrLine: {'line': b'In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,\n'}
+[16.688954] (bravo_cathode_protection) StderrLine: {'line': b'                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,\n'}
+[16.689028] (bravo_cathode_protection) StderrLine: {'line': b'                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:\n'}
+[16.689092] (bravo_cathode_protection) StderrLine: {'line': b'/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: \xe2\x80\x98bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)\xe2\x80\x99 defined but not used [-Wunused-function]\n'}
+[16.689167] (bravo_cathode_protection) StderrLine: {'line': b'  256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)\n'}
+[16.689255] (bravo_cathode_protection) StderrLine: {'line': b'      |                          ^~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[16.689325] (bravo_cathode_protection) StderrLine: {'line': b'/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: \xe2\x80\x98bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)\xe2\x80\x99 defined but not used [-Wunused-function]\n'}
+[16.689389] (bravo_cathode_protection) StderrLine: {'line': b'  187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)\n'}
+[16.689460] (bravo_cathode_protection) StderrLine: {'line': b'      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[16.734373] (-) TimerEvent: {}
+[16.834667] (-) TimerEvent: {}
+[16.934896] (-) TimerEvent: {}
+[17.035094] (-) TimerEvent: {}
+[17.135339] (-) TimerEvent: {}
+[17.235532] (-) TimerEvent: {}
+[17.335763] (-) TimerEvent: {}
+[17.435961] (-) TimerEvent: {}
+[17.536179] (-) TimerEvent: {}
+[17.636411] (-) TimerEvent: {}
+[17.736606] (-) TimerEvent: {}
+[17.836813] (-) TimerEvent: {}
+[17.937071] (-) TimerEvent: {}
+[18.037384] (-) TimerEvent: {}
+[18.137550] (-) TimerEvent: {}
+[18.237730] (-) TimerEvent: {}
+[18.337904] (-) TimerEvent: {}
+[18.438116] (-) TimerEvent: {}
+[18.538431] (-) TimerEvent: {}
+[18.638637] (-) TimerEvent: {}
+[18.738846] (-) TimerEvent: {}
+[18.839051] (-) TimerEvent: {}
+[18.939227] (-) TimerEvent: {}
+[19.039349] (-) TimerEvent: {}
+[19.139516] (-) TimerEvent: {}
+[19.239825] (-) TimerEvent: {}
+[19.340025] (-) TimerEvent: {}
+[19.440234] (-) TimerEvent: {}
+[19.540402] (-) TimerEvent: {}
+[19.640697] (-) TimerEvent: {}
+[19.740870] (-) TimerEvent: {}
+[19.841086] (-) TimerEvent: {}
+[19.941290] (-) TimerEvent: {}
+[20.041462] (-) TimerEvent: {}
+[20.141764] (-) TimerEvent: {}
+[20.241929] (-) TimerEvent: {}
+[20.342128] (-) TimerEvent: {}
+[20.442416] (-) TimerEvent: {}
+[20.542707] (-) TimerEvent: {}
+[20.642995] (-) TimerEvent: {}
+[20.743199] (-) TimerEvent: {}
+[20.843382] (-) TimerEvent: {}
+[20.943680] (-) TimerEvent: {}
+[21.043880] (-) TimerEvent: {}
+[21.144120] (-) TimerEvent: {}
+[21.244279] (-) TimerEvent: {}
+[21.344454] (-) TimerEvent: {}
+[21.444723] (-) TimerEvent: {}
+[21.544891] (-) TimerEvent: {}
+[21.645104] (-) TimerEvent: {}
+[21.745296] (-) TimerEvent: {}
+[21.845462] (-) TimerEvent: {}
+[21.945642] (-) TimerEvent: {}
+[22.045826] (-) TimerEvent: {}
+[22.146038] (-) TimerEvent: {}
+[22.246328] (-) TimerEvent: {}
+[22.346484] (-) TimerEvent: {}
+[22.446668] (-) TimerEvent: {}
+[22.546843] (-) TimerEvent: {}
+[22.647001] (-) TimerEvent: {}
+[22.747199] (-) TimerEvent: {}
+[22.847376] (-) TimerEvent: {}
+[22.947667] (-) TimerEvent: {}
+[23.047876] (-) TimerEvent: {}
+[23.148071] (-) TimerEvent: {}
+[23.248229] (-) TimerEvent: {}
+[23.348390] (-) TimerEvent: {}
+[23.448661] (-) TimerEvent: {}
+[23.548819] (-) TimerEvent: {}
+[23.649005] (-) TimerEvent: {}
+[23.749154] (-) TimerEvent: {}
+[23.849264] (-) TimerEvent: {}
+[23.949445] (-) TimerEvent: {}
+[24.049709] (-) TimerEvent: {}
+[24.149870] (-) TimerEvent: {}
+[24.250047] (-) TimerEvent: {}
+[24.350264] (-) TimerEvent: {}
+[24.450445] (-) TimerEvent: {}
+[24.550631] (-) TimerEvent: {}
+[24.650814] (-) TimerEvent: {}
+[24.750993] (-) TimerEvent: {}
+[24.851195] (-) TimerEvent: {}
+[24.951389] (-) TimerEvent: {}
+[25.051583] (-) TimerEvent: {}
+[25.151762] (-) TimerEvent: {}
+[25.251997] (-) TimerEvent: {}
+[25.301093] (bravo_cathode_protection) StdoutLine: {'line': b'[100%] Linking CXX executable bravo5_cp_mobile_axis\n'}
+[25.352106] (-) TimerEvent: {}
+[25.452356] (-) TimerEvent: {}
+[25.552542] (-) TimerEvent: {}
+[25.652751] (-) TimerEvent: {}
+[25.753064] (-) TimerEvent: {}
+[25.853275] (-) TimerEvent: {}
+[25.953478] (-) TimerEvent: {}
+[26.053680] (-) TimerEvent: {}
+[26.153859] (-) TimerEvent: {}
+[26.254077] (-) TimerEvent: {}
+[26.314425] (bravo_cathode_protection) StdoutLine: {'line': b'[100%] Built target bravo5_cp_mobile_axis\n'}
+[26.323125] (bravo_cathode_protection) CommandEnded: {'returncode': 0}
+[26.323684] (bravo_cathode_protection) JobProgress: {'identifier': 'bravo_cathode_protection', 'progress': 'install'}
+[26.331544] (bravo_cathode_protection) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection'], 'cwd': '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/carlos'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'carlos'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-gb","osLocale":"en-gb","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/carlos'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/carlos/bravo5_cp_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1002/vscode-97977744-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('MANAGERPID', '2336'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '2753'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1002/bus'), ('COLORTERM', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '45600'), ('_colcon_cd_root', '/opt/ros/humble/'), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('IM_CONFIG_PHASE', '1'), ('APPLICATION_INSIGHTS_NO_STATSBEAT', 'true'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'carlos'), ('JOURNAL_STREAM', '8:4857'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'carlos'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/carlos/.local/bin:/home/carlos/.codex/tmp/arg0/codex-arg0EF4wDf:/home/carlos/.local/bin:/opt/openrobots/bin:/opt/ros/humble/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/carlos/.vscode/extensions/openai.chatgpt-26.304.20706-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/carlos:@/tmp/.ICE-unix/2723,unix/carlos:/tmp/.ICE-unix/2723'), ('INVOCATION_ID', '74c898a76d844ff4903414d2d0535069'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1002'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1002/gdm/Xauthority'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1002/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019cc43e-60a8-73f3-8c49-517017193630'), ('GPG_AGENT_INFO', '/run/user/1002/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/carlos/.config/Code/CachedData/c3a26841a84f20dfe0850d0a5a9bd01da4f003ea'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/carlos/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots::/opt/ros/humble'), ('VSCODE_PID', '45600')]), 'shell': False}
+[26.338690] (bravo_cathode_protection) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[26.338930] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include\n'}
+[26.339241] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection\n'}
+[26.339417] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp\n'}
+[26.339767] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks\n'}
+[26.339813] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.cpp\n'}
+[26.339852] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h\n'}
+[26.339889] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2\n'}
+[26.339923] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp\n'}
+[26.339989] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp\n'}
+[26.340022] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp\n'}
+[26.340053] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/packetID.h\n'}
+[26.340085] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h\n'}
+[26.340120] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp\n'}
+[26.340155] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp\n'}
+[26.340309] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.h\n'}
+[26.340545] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator\n'}
+[26.340649] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h\n'}
+[26.340741] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp\n'}
+[26.340828] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler\n'}
+[26.340912] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp\n'}
+[26.340993] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h\n'}
+[26.341076] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction\n'}
+[26.341164] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h\n'}
+[26.341300] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp\n'}
+[26.341430] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils\n'}
+[26.341569] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h\n'}
+[26.341693] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp\n'}
+[26.341828] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h\n'}
+[26.341970] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h\n'}
+[26.342093] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp\n'}
+[26.342231] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.cpp\n'}
+[26.342370] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config\n'}
+[26.342494] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params\n'}
+[26.342641] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_fixed_axis_runtime.yaml\n'}
+[26.342820] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_mobile_axis_runtime.yaml\n'}
+[26.343008] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params\n'}
+[26.343248] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params/joint_friction_bravo5.yaml\n'}
+[26.343463] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params\n'}
+[26.343626] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_STRONG.json\n'}
+[26.343781] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_WEAK.json\n'}
+[26.343954] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_STRONG.json\n'}
+[26.344136] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_WEAK.json\n'}
+[26.344335] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/WEAK_LOW_STIFF.json\n'}
+[26.344554] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_fixed_axis.yaml\n'}
+[26.344787] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.yaml\n'}
+[26.344891] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz\n'}
+[26.345010] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz/bravo5_cp.rviz\n'}
+[26.345213] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf\n'}
+[26.346040] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_pinocchio_cp.urdf\n'}
+[26.346669] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes\n'}
+[26.346946] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266_convex_hull.stl\n'}
+[26.347172] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217_convex_hull.stl\n'}
+[26.347433] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217.stl\n'}
+[26.347679] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268_convex_hull.stl\n'}
+[26.347898] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266.stl\n'}
+[26.348091] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214.stl\n'}
+[26.348309] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180_convex_hull.stl\n'}
+[26.348508] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268.stl\n'}
+[26.348680] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors\n'}
+[26.348845] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere_convex_hull.stl\n'}
+[26.349010] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere.stl\n'}
+[26.349172] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180.stl\n'}
+[26.349362] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214_convex_hull.stl\n'}
+[26.349530] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection\n'}
+[26.349706] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/view_bravo_5.launch.py\n'}
+[26.349903] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libairbus_joystick.so\n'}
+[26.350097] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.sh\n'}
+[26.350470] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.dsv\n'}
+[26.350731] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so\n'}
+[26.350923] (bravo_cathode_protection) StdoutLine: {'line': b'-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so" to ""\n'}
+[26.351123] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libkinodynamics_manipulator.so\n'}
+[26.351342] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libstiffness_control_position.so\n'}
+[26.354247] (-) TimerEvent: {}
+[26.354871] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification\n'}
+[26.362200] (bravo_cathode_protection) StdoutLine: {'line': b'-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification" to ""\n'}
+[26.362385] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis\n'}
+[26.372685] (bravo_cathode_protection) StdoutLine: {'line': b'-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis" to ""\n'}
+[26.372888] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis\n'}
+[26.382202] (bravo_cathode_protection) StdoutLine: {'line': b'-- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis" to ""\n'}
+[26.382438] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/package_run_dependencies/bravo_cathode_protection\n'}
+[26.382541] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/parent_prefix_path/bravo_cathode_protection\n'}
+[26.382912] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.sh\n'}
+[26.383108] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.dsv\n'}
+[26.383389] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.sh\n'}
+[26.383481] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.dsv\n'}
+[26.383560] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.bash\n'}
+[26.383632] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.sh\n'}
+[26.383702] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.zsh\n'}
+[26.383771] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.dsv\n'}
+[26.383845] (bravo_cathode_protection) StdoutLine: {'line': b'-- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.dsv\n'}
+[26.383916] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/packages/bravo_cathode_protection\n'}
+[26.383986] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport.cmake\n'}
+[26.384056] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport-noconfig.cmake\n'}
+[26.384125] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export.cmake\n'}
+[26.384195] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export-noconfig.cmake\n'}
+[26.384295] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport.cmake\n'}
+[26.384377] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport-noconfig.cmake\n'}
+[26.384456] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport.cmake\n'}
+[26.384540] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport-noconfig.cmake\n'}
+[26.384619] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[26.384696] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[26.384780] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[26.385014] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[26.385211] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig.cmake\n'}
+[26.385793] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig-version.cmake\n'}
+[26.386055] (bravo_cathode_protection) StdoutLine: {'line': b'-- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.xml\n'}
+[26.386193] (bravo_cathode_protection) CommandEnded: {'returncode': 0}
+[26.407970] (bravo_cathode_protection) JobEnded: {'identifier': 'bravo_cathode_protection', 'rc': 0}
+[26.408377] (-) EventReactorShutdown: {}

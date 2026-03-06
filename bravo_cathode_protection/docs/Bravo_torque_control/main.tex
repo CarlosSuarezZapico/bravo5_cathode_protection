@@ -6,15 +6,27 @@
  \usepackage{amsmath} 
 \usepackage[legalpaper, portrait, margin=0.5in]{geometry}
 
-\title{Bravo Torque Control}
+\title{Bravo 5: Cathode Protection}
 \author{Carlos Suarez Zapico}
-\date{August 2025}
+\date{March 2026}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
+\section{Neccesary Conditions for the arm}
+\begin{itemize}
+    \item Slip rings in continuous rotation joints to avoid cable twisting.
+    \item Joint current control watchdog to prevent arm from going haywire if communication is lost.
+\end{itemize}
+
+\begin{figure*}[h!]
+\begin{center}
+     \includegraphics[width=0.7\linewidth]{images/IDE_terminal.png}
+     \caption{Terminal graphical interface for the arm and CP application.}
+     \label{fig:IDE_terminal}
+\end{center}
+\end{figure*}
 
 \begin{equation}
     \begin{align*}       

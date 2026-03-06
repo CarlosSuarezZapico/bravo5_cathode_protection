@@ -1,0 +1,233 @@
+[0.008s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20
+[0.039s] Consolidate compiler generated dependencies of target stiffness_control_position
+[0.043s] Consolidate compiler generated dependencies of target airbus_joystick
+[0.046s] Consolidate compiler generated dependencies of target kinodynamics_manipulator
+[0.050s] [  4%] Building CXX object CMakeFiles/stiffness_control_position.dir/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp.o
+[0.054s] Consolidate compiler generated dependencies of target bravo_handler_v2
+[0.054s] [ 14%] Built target airbus_joystick
+[0.060s] [ 23%] Built target kinodynamics_manipulator
+[0.077s] [ 28%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp.o
+[0.077s] [ 33%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp.o
+[0.078s] [ 38%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp.o
+[0.079s] [ 42%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp.o
+[0.080s] [ 47%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp.o
+[0.082s] [ 52%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp.o
+[1.399s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp:15:
+[1.399s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.399s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[1.399s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[1.399s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.399s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[1.399s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[1.542s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[1.542s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp:15:
+[1.542s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.542s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[1.542s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[1.542s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.542s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[1.543s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[1.546s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[1.546s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp:15:
+[1.546s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.546s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[1.546s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[1.546s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.547s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[1.547s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[1.571s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[1.572s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp:16:
+[1.572s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.572s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[1.572s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[1.572s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.572s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[1.572s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[1.983s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[1.984s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp:15:
+[1.984s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.984s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[1.984s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[1.984s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[1.984s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[1.984s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[2.936s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[2.936s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[2.936s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[2.936s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[2.936s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[2.936s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[2.936s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[2.936s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[2.937s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[2.937s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:16:
+[2.937s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[2.937s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[2.937s]       |                                                                       ^
+[4.084s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h:25,
+[4.084s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp:17:
+[4.085s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[4.085s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[4.085s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[4.085s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[4.085s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[4.085s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[5.880s] [ 57%] Linking CXX shared library libstiffness_control_position.so
+[6.044s] [ 57%] Built target stiffness_control_position
+[7.362s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[7.362s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[7.362s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:16:
+[7.362s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[7.362s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[7.362s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[7.362s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[7.362s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[7.362s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[8.609s] [ 61%] Linking CXX shared library libbravo_handler_v2.so
+[8.825s] [ 71%] Built target bravo_handler_v2
+[8.845s] Consolidate compiler generated dependencies of target bravo5_cp_fixed_axis
+[8.846s] Consolidate compiler generated dependencies of target bravo5_gravity_and_joint_friction_identification
+[8.846s] Consolidate compiler generated dependencies of target bravo5_cp_mobile_axis
+[8.865s] [ 76%] Building CXX object CMakeFiles/bravo5_gravity_and_joint_friction_identification.dir/src/bravo5_gravity_and_joint_friction_identification.cpp.o
+[8.865s] [ 80%] Building CXX object CMakeFiles/bravo5_cp_fixed_axis.dir/src/bravo5_cp_fixed_axis.cpp.o
+[8.866s] [ 85%] Building CXX object CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o
+[11.612s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[11.612s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[11.612s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[11.612s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[11.612s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[11.612s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[11.612s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[11.612s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[11.612s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[11.612s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_fixed_axis.cpp:16:
+[11.612s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[11.612s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[11.613s]       |                                                                       ^
+[11.628s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[11.628s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[11.628s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[11.628s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[11.628s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[11.628s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[11.628s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[11.629s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_gravity_and_joint_friction_identification.cpp:18:
+[11.629s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[11.629s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[11.629s]       |                                                                       ^
+[11.663s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[11.663s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[11.663s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[11.663s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[11.663s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[11.663s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[11.663s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[11.663s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[11.663s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[11.664s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[11.664s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[11.664s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[11.664s]       |                                                                       ^
+[14.235s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:95:8: error: reference to ‘RuntimeConfig’ is ambiguous
+[14.235s]    95 | static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[14.235s]       |        ^~~~~~~~~~~~~
+[14.236s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[14.236s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[14.236s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[14.236s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:216:12: note: candidates are: ‘struct bravo_utils::RuntimeConfig’
+[14.236s]   216 |     struct RuntimeConfig
+[14.236s]       |            ^~~~~~~~~~~~~
+[14.236s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:55:8: note:                 ‘struct RuntimeConfig’
+[14.236s]    55 | struct RuntimeConfig
+[14.236s]       |        ^~~~~~~~~~~~~
+[14.236s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:122:25: error: reference to ‘RuntimeConfig’ is ambiguous
+[14.236s]   122 |                   const RuntimeConfig& runtime_config,
+[14.236s]       |                         ^~~~~~~~~~~~~
+[14.236s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[14.237s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[14.237s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[14.237s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:216:12: note: candidates are: ‘struct bravo_utils::RuntimeConfig’
+[14.237s]   216 |     struct RuntimeConfig
+[14.237s]       |            ^~~~~~~~~~~~~
+[14.237s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:55:8: note:                 ‘struct RuntimeConfig’
+[14.237s]    55 | struct RuntimeConfig
+[14.237s]       |        ^~~~~~~~~~~~~
+[14.241s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp: In function ‘bool program_loop(std::shared_ptr<airbus_joystick_bravo5_CP>, std::shared_ptr<bravo_handler<double> >, const stiffness_control_config::StiffnessParams&, const int&, const SharedPtr&, const std::shared_ptr<rclcpp::Node>&, const std::shared_ptr<bravo_utils::TerminalDashboard>&, const std::shared_ptr<bravo_utils::Logger>&, const string&, int)’:
+[14.241s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:132:61: error: request for member ‘max_current_mA’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.241s]   132 |     const double MAX_CURRENT_mA            = runtime_config.max_current_mA; // mA
+[14.241s]       |                                                             ^~~~~~~~~~~~~~
+[14.241s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:133:61: error: request for member ‘max_current_mA_go_home’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.241s]   133 |     const double MAX_CURRENT_mA_GO_HOME    = runtime_config.max_current_mA_go_home; // mA
+[14.241s]       |                                                             ^~~~~~~~~~~~~~~~~~~~~~
+[14.241s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:134:61: error: request for member ‘max_manipulability’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.241s]   134 |     const double MAX_MANIPULABILITY        = runtime_config.max_manipulability;    // Unitless
+[14.242s]       |                                                             ^~~~~~~~~~~~~~~~~~
+[14.242s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:136:61: error: request for member ‘max_ratio_force_ellipsoid’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.242s]   136 |     const double MAX_RATIO_FORCE_ELLIPSOID = runtime_config.max_ratio_force_ellipsoid;    // Unitless
+[14.242s]       |                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~
+[14.242s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:137:61: error: request for member ‘max_speed_teleop’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.242s]   137 |     const double MAX_SPEED_TELEOP          = runtime_config.max_speed_teleop;   // m/s
+[14.242s]       |                                                             ^~~~~~~~~~~~~~~~
+[14.242s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:138:61: error: request for member ‘loop_frequency’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.242s]   138 |     const double LOOP_FREQUENCY            = runtime_config.loop_frequency;  // Hz (Similar to the arm frequency)
+[14.242s]       |                                                             ^~~~~~~~~~~~~~
+[14.243s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:139:61: error: request for member ‘home’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.243s]   139 |     const Eigen::Vector<double, 4> HOME    = runtime_config.home; //! define home for bravo5
+[14.243s]       |                                                             ^~~~
+[14.243s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:140:61: error: request for member ‘gravity_vector’ in ‘runtime_config’, which is of non-class type ‘const int’
+[14.243s]   140 |     const Eigen::Vector3d GRAVITY_VECTOR   = runtime_config.gravity_vector;
+[14.243s]       |                                                             ^~~~~~~~~~~~~~
+[14.419s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp: In function ‘int main(int, char**)’:
+[14.419s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:434:9: error: reference to ‘RuntimeConfig’ is ambiguous
+[14.419s]   434 |         RuntimeConfig runtime_config;
+[14.419s]       |         ^~~~~~~~~~~~~
+[14.419s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[14.419s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[14.419s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[14.420s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:216:12: note: candidates are: ‘struct bravo_utils::RuntimeConfig’
+[14.420s]   216 |     struct RuntimeConfig
+[14.420s]       |            ^~~~~~~~~~~~~
+[14.420s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:55:8: note:                 ‘struct RuntimeConfig’
+[14.420s]    55 | struct RuntimeConfig
+[14.420s]       |        ^~~~~~~~~~~~~
+[14.427s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:439:13: error: ‘runtime_config’ was not declared in this scope; did you mean ‘RuntimeConfig’?
+[14.427s]   439 |             runtime_config = load_runtime_config_yaml(config_runtime_file);
+[14.427s]       |             ^~~~~~~~~~~~~~
+[14.427s]       |             RuntimeConfig
+[14.436s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:38,
+[14.437s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[14.437s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[14.437s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:455:69: error: ‘runtime_config’ was not declared in this scope; did you mean ‘RuntimeConfig’?
+[14.437s]   455 |         BRAVO_LOG_INFO(*shared_logger, "[main] Bravo UDP target: ", runtime_config.ip_address, ":", runtime_config.udp_port);
+[14.437s]       |                                                                     ^~~~~~~~~~~~~~
+[14.437s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h:114:90: note: in definition of macro ‘BRAVO_LOG_INFO’
+[14.437s]   114 | #define BRAVO_LOG_INFO(logger, ...)  (logger).log_stream(::bravo_utils::LogLevel::Info,  __VA_ARGS__)
+[14.437s]       |                                                                                          ^~~~~~~~~~~
+[24.587s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[24.587s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[24.587s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_gravity_and_joint_friction_identification.cpp:24:
+[24.587s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[24.588s]   256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+[24.588s]       |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+[27.784s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp: At global scope:
+[27.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:83:24: warning: ‘Eigen::Vector3d yaml_vec3(const YAML::Node&, const string&)’ defined but not used [-Wunused-function]
+[27.785s]    83 | static Eigen::Vector3d yaml_vec3(const YAML::Node& node, const std::string& key)
+[27.785s]       |                        ^~~~~~~~~
+[27.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:70:24: warning: ‘Eigen::Vector4d yaml_vec4(const YAML::Node&, const string&)’ defined but not used [-Wunused-function]
+[27.785s]    70 | static Eigen::Vector4d yaml_vec4(const YAML::Node& node, const std::string& key)
+[27.785s]       |                        ^~~~~~~~~
+[27.785s] In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+[27.785s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+[27.785s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[27.785s] /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+[27.785s]   187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+[27.785s]       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+[27.885s] gmake[2]: *** [CMakeFiles/bravo5_cp_mobile_axis.dir/build.make:76: CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o] Error 1
+[27.885s] gmake[1]: *** [CMakeFiles/Makefile2:310: CMakeFiles/bravo5_cp_mobile_axis.dir/all] Error 2
+[27.885s] gmake[1]: *** Waiting for unfinished jobs....
+[30.310s] [ 90%] Linking CXX executable bravo5_gravity_and_joint_friction_identification
+[31.000s] [ 90%] Built target bravo5_gravity_and_joint_friction_identification
+[36.417s] [ 95%] Linking CXX executable bravo5_cp_fixed_axis
+[37.542s] [ 95%] Built target bravo5_cp_fixed_axis
+[37.542s] gmake: *** [Makefile:146: all] Error 2
+[37.545s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20

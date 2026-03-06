@@ -1,0 +1,260 @@
+[0.008s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection
+[0.116s] -- The C compiler identification is GNU 11.4.0
+[0.179s] -- The CXX compiler identification is GNU 11.4.0
+[0.187s] -- Detecting C compiler ABI info
+[0.244s] -- Detecting C compiler ABI info - done
+[0.248s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.249s] -- Detecting C compile features
+[0.249s] -- Detecting C compile features - done
+[0.252s] -- Detecting CXX compiler ABI info
+[0.312s] -- Detecting CXX compiler ABI info - done
+[0.317s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.317s] -- Detecting CXX compile features
+[0.318s] -- Detecting CXX compile features - done
+[0.323s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.427s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.495s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.540s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.544s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.553s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.565s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.578s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.617s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.620s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.694s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.713s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.742s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.749s] -- Looking for pthread.h
+[0.808s] -- Looking for pthread.h - found
+[0.808s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.866s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.867s] -- Found Threads: TRUE  
+[0.919s] -- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so
+[0.919s] -- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so
+[0.919s] -- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so
+[0.920s] -- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+[0.921s] -- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so
+[0.921s] -- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so
+[0.962s] -- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+[0.963s] CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+[0.963s]   Please update your CMake from 'hpp-fcl' to 'coal'
+[0.963s] Call Stack (most recent call first):
+[0.963s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[0.963s]   /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+[0.963s]   CMakeLists.txt:24 (find_package)
+[0.963s] 
+[0.963s] 
+[0.964s] -- coal FOUND. coal at /opt/openrobots/lib/libcoal.so
+[0.980s] -- Found Boost: /usr/include (found version "1.74.0") found components: chrono thread date_time serialization filesystem atomic 
+[1.267s] -- Default C++ standard: 202002
+[1.267s] -- Minimal C++ standard upgraded to 11
+[1.267s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[1.269s] -- C++ standard sufficient: Minimal required 11, currently defined: 20
+[1.272s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.305s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.359s] -- Configuring done
+[1.385s] -- Generating done
+[1.392s] -- Build files have been written to: /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection
+[1.402s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection -DCMAKE_INSTALL_PREFIX=/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection
+[1.403s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20
+[1.445s] [  4%] Building CXX object CMakeFiles/stiffness_control_position.dir/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp.o
+[1.446s] [  9%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp.o
+[1.446s] [ 14%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp.o
+[1.447s] [ 19%] Building CXX object CMakeFiles/kinodynamics_manipulator.dir/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp.o
+[1.447s] [ 23%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp.o
+[1.447s] [ 33%] Building CXX object CMakeFiles/airbus_joystick.dir/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.cpp.o
+[1.447s] [ 33%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp.o
+[1.447s] [ 38%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp.o
+[1.447s] [ 42%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp.o
+[1.448s] [ 52%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp.o
+[1.448s] [ 52%] Building CXX object CMakeFiles/bravo_handler_v2.dir/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp.o
+[4.754s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[4.754s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[4.754s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[4.754s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[4.754s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[4.755s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[4.755s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[4.755s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[4.755s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp:17:
+[4.755s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[4.755s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[4.755s]       |                                                                       ^
+[4.781s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[4.782s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[4.782s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[4.782s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[4.782s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[4.782s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[4.782s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[4.782s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[4.782s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[4.782s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp:16:
+[4.782s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[4.782s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[4.783s]       |                                                                       ^
+[5.697s] [ 57%] Linking CXX shared library libairbus_joystick.so
+[5.833s] [ 57%] Built target airbus_joystick
+[7.185s] [ 61%] Linking CXX shared library libstiffness_control_position.so
+[7.343s] [ 61%] Built target stiffness_control_position
+[10.388s] [ 66%] Linking CXX shared library libbravo_handler_v2.so
+[10.569s] [ 66%] Built target bravo_handler_v2
+[10.586s] [ 71%] Building CXX object CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o
+[10.587s] [ 80%] Building CXX object CMakeFiles/bravo5_gravity_and_joint_friction_identification.dir/src/bravo5_gravity_and_joint_friction_identification.cpp.o
+[10.587s] [ 80%] Building CXX object CMakeFiles/bravo5_cp_fixed_axis.dir/src/bravo5_cp_fixed_axis.cpp.o
+[13.459s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[13.460s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[13.460s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[13.460s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[13.460s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[13.460s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[13.460s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[13.460s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_gravity_and_joint_friction_identification.cpp:18:
+[13.460s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[13.460s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[13.460s]       |                                                                       ^
+[13.479s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[13.479s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[13.479s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[13.479s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[13.479s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[13.479s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[13.480s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[13.480s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[13.480s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[13.480s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_fixed_axis.cpp:16:
+[13.480s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[13.480s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[13.480s]       |                                                                       ^
+[13.492s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[13.492s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[13.492s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[13.493s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[13.493s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[13.493s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[13.493s]                  from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+[13.493s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+[13.493s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+[13.493s]                  from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+[13.493s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[13.493s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[13.493s]       |                                                                       ^
+[35.610s] [ 85%] Linking CXX executable bravo5_gravity_and_joint_friction_identification
+[36.414s] [ 85%] Built target bravo5_gravity_and_joint_friction_identification
+[37.268s] [ 90%] Linking CXX shared library libkinodynamics_manipulator.so
+[38.396s] [ 90%] Built target kinodynamics_manipulator
+[42.072s] [ 95%] Linking CXX executable bravo5_cp_fixed_axis
+[42.668s] [100%] Linking CXX executable bravo5_cp_mobile_axis
+[43.189s] [100%] Built target bravo5_cp_fixed_axis
+[43.677s] [100%] Built target bravo5_cp_mobile_axis
+[43.729s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection -- -j20 -l20
+[43.768s] Invoking command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection
+[43.775s] -- Install configuration: ""
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.cpp
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/joysticks/airbus_joystick.h
+[43.775s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_diagnosis.cpp
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_req_paquets.cpp
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.cpp
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/packetID.h
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h
+[43.776s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.cpp
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_process_fdb.cpp
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bplprotocol_unite.h
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.cpp
+[43.778s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.cpp
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.h
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.h
+[43.779s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.cpp
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_logger.h
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.cpp
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/bravo_dashboard.cpp
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config
+[43.780s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params
+[43.781s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_fixed_axis_runtime.yaml
+[43.781s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/program_params/bravo5_cp_mobile_axis_runtime.yaml
+[43.781s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params
+[43.781s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/joint_friction_params/joint_friction_bravo5.yaml
+[43.781s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_STRONG.json
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/FAST_WEAK.json
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_STRONG.json
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/SLOW_WEAK.json
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/WEAK_LOW_STIFF.json
+[43.782s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_fixed_axis.yaml
+[43.783s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/config/stiff_control_params/bravo5_cp_compliance_mobile_axis.yaml
+[43.783s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz
+[43.783s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/rviz/bravo5_cp.rviz
+[43.783s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf
+[43.783s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/urdf/bravo_5_dynamics_pinocchio_cp.urdf
+[43.784s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes
+[43.784s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266_convex_hull.stl
+[43.784s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217_convex_hull.stl
+[43.784s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-217.stl
+[43.785s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268_convex_hull.stl
+[43.785s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-266.stl
+[43.789s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214.stl
+[43.792s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180_convex_hull.stl
+[43.792s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-268.stl
+[43.793s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors
+[43.794s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere_convex_hull.stl
+[43.794s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/end_effectors/contact_sphere.stl
+[43.795s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-180.stl
+[43.798s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/meshes/RS2-250-212-214_convex_hull.stl
+[43.798s] -- Up-to-date: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection
+[43.798s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/view_bravo_5.launch.py
+[43.799s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libairbus_joystick.so
+[43.799s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libairbus_joystick.so" to ""
+[43.799s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.sh
+[43.799s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/library_path.dsv
+[43.799s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so
+[43.802s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libbravo_handler_v2.so" to ""
+[43.802s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libkinodynamics_manipulator.so
+[43.822s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libkinodynamics_manipulator.so" to ""
+[43.822s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/libstiffness_control_position.so
+[43.825s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification
+[43.831s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_gravity_and_joint_friction_identification" to ""
+[43.831s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis
+[43.841s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_fixed_axis" to ""
+[43.841s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis
+[43.851s] -- Set runtime path of "/home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/lib/bravo_cathode_protection/bravo5_cp_mobile_axis" to ""
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/package_run_dependencies/bravo_cathode_protection
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/parent_prefix_path/bravo_cathode_protection
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.sh
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/ament_prefix_path.dsv
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.sh
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/environment/path.dsv
+[43.851s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.bash
+[43.852s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.sh
+[43.852s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.zsh
+[43.852s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/local_setup.dsv
+[43.852s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.dsv
+[43.852s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/ament_index/resource_index/packages/bravo_cathode_protection
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_airbus_joystickExport-noconfig.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_bravo_handler_v2Export-noconfig.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_kinodynamics_manipulatorExport-noconfig.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/export_stiffness_control_positionExport-noconfig.cmake
+[43.853s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_libraries-extras.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_include_directories-extras.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_targets-extras.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/ament_cmake_export_dependencies-extras.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/cmake/bravo_cathode_protectionConfig-version.cmake
+[43.854s] -- Installing: /home/carlos/bravo5_cp_ws/src/install/bravo_cathode_protection/share/bravo_cathode_protection/package.xml
+[43.865s] Invoked command in '/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection

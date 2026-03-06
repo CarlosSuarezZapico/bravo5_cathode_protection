@@ -24,7 +24,7 @@ endif()
 find_package(pinocchio REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(nlohmann_json REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 
 set(ros_dependencies
@@ -111,7 +111,7 @@ install(TARGETS kinodynamics_manipulator
 
 add_library(stiffness_control_position SHARED include/bravo_cathode_protection/bravo_cpp/interaction/stiffness_control_position.cpp)
 ament_target_dependencies(stiffness_control_position Eigen3)
-target_link_libraries(stiffness_control_position PUBLIC nlohmann_json::nlohmann_json)
+target_link_libraries(stiffness_control_position PUBLIC yaml-cpp)
 target_include_directories(stiffness_control_position PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include> 
@@ -127,20 +127,30 @@ install(TARGETS stiffness_control_position
 
 add_executable(bravo5_gravity_and_joint_friction_identification            src/bravo5_gravity_and_joint_friction_identification.cpp)
 ament_target_dependencies(bravo5_gravity_and_joint_friction_identification ${ros_dependencies})
-target_link_libraries(bravo5_gravity_and_joint_friction_identification     bravo_handler_v2 airbus_joystick)
+target_link_libraries(bravo5_gravity_and_joint_friction_identification     yaml-cpp bravo_handler_v2 airbus_joystick)
 
 add_executable(bravo5_cp_fixed_axis  src/bravo5_cp_fixed_axis.cpp)
 ament_target_dependencies(bravo5_cp_fixed_axis ${ros_dependencies})
-target_link_libraries(bravo5_cp_fixed_axis nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
+target_link_libraries(bravo5_cp_fixed_axis yaml-cpp bravo_handler_v2 airbus_joystick stiffness_control_position)
+
+add_executable(bravo5_cp_mobile_axis_hybrid  src/bravo5_cp_mobile_axis_hybrid.cpp)
+ament_target_dependencies(bravo5_cp_mobile_axis_hybrid ${ros_dependencies})
+target_link_libraries(bravo5_cp_mobile_axis_hybrid yaml-cpp bravo_handler_v2 airbus_joystick stiffness_control_position)
+
+add_executable(bravo5_cp_mobile_axis_hybrid2  src/bravo5_cp_mobile_axis_hybrid2.cpp)
+ament_target_dependencies(bravo5_cp_mobile_axis_hybrid2 ${ros_dependencies})
+target_link_libraries(bravo5_cp_mobile_axis_hybrid2 yaml-cpp bravo_handler_v2 airbus_joystick stiffness_control_position)
 
 add_executable(bravo5_cp_mobile_axis  src/bravo5_cp_mobile_axis.cpp)
 ament_target_dependencies(bravo5_cp_mobile_axis ${ros_dependencies})
-target_link_libraries(bravo5_cp_mobile_axis nlohmann_json::nlohmann_json bravo_handler_v2 airbus_joystick stiffness_control_position)
+target_link_libraries(bravo5_cp_mobile_axis yaml-cpp bravo_handler_v2 airbus_joystick stiffness_control_position)
 
 install(TARGETS
   bravo5_gravity_and_joint_friction_identification
   bravo5_cp_fixed_axis
   bravo5_cp_mobile_axis
+  bravo5_cp_mobile_axis_hybrid
+  bravo5_cp_mobile_axis_hybrid2
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -151,7 +161,7 @@ ament_export_targets(
   export_stiffness_control_position
   HAS_LIBRARY_TARGET
 )
-ament_export_dependencies(rclcpp sensor_msgs Eigen3 pinocchio nlohmann_json)
+ament_export_dependencies(rclcpp sensor_msgs Eigen3 pinocchio yaml-cpp)
 
 
 if(BUILD_TESTING)

@@ -1,0 +1,12 @@
+Consolidate compiler generated dependencies of target stiffness_control_position
+[  9%] Built target stiffness_control_position
+Consolidate compiler generated dependencies of target bravo_handler_v2
+[ 19%] Built target kinodynamics_manipulator
+[ 28%] Built target airbus_joystick
+[ 71%] Built target bravo_handler_v2
+Consolidate compiler generated dependencies of target bravo5_gravity_and_joint_friction_identification
+Consolidate compiler generated dependencies of target bravo5_cp_mobile_axis
+Consolidate compiler generated dependencies of target bravo5_cp_fixed_axis
+[ 80%] Built target bravo5_gravity_and_joint_friction_identification
+[ 90%] Built target bravo5_cp_fixed_axis
+[ 95%] Building CXX object CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o

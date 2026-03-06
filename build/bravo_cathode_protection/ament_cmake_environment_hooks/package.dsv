@@ -1,0 +1,4 @@
+source;share/bravo_cathode_protection/local_setup.bash
+source;share/bravo_cathode_protection/local_setup.dsv
+source;share/bravo_cathode_protection/local_setup.sh
+source;share/bravo_cathode_protection/local_setup.zsh

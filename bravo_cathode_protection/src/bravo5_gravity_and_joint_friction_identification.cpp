@@ -24,6 +24,8 @@
 #include "bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h"
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <yaml-cpp/yaml.h>
 #include <rclcpp/rclcpp.hpp>
 
 using namespace pinocchio;
@@ -31,20 +33,14 @@ using namespace Eigen;
 using namespace std;
 using namespace bravo_utils;
 
-void program_loop(std::shared_ptr<bravo_handler<double>> bravo){     
-    Eigen::Matrix<double,4,6> FRICTION_MAT;
-    FRICTION_MAT << 0.0, 0.0, 0.0, 14.66651, 10.09561,  1.25110,  // Joint 1
-                    0.0, 0.0, 0.0, 14.50959, 10.09275,  1.14381,  // Joint 2
-                    0.0, 0.0, 0.0, 13.98409, 12.97659, 21.69165,  // Joint 3
-                    0.0, 0.0, 0.0, 15.82785, 14.35639, 24.04595;  // Joint 4
-    const double FRICTION_SATURATION = 60; 
+
+void program_loop(std::shared_ptr<bravo_handler<double>> bravo, const bravo_utils::FrictionConfig& friction_config){     
+    const Eigen::Matrix<double,4,6>& FRICTION_MAT = friction_config.friction_mat;
+    const double FRICTION_SATURATION = friction_config.friction_saturation;
     auto start_time = std::chrono::steady_clock::now();
-    Eigen::Vector3d gravity_vector;
-    gravity_vector << 0.0, 0.0, 9.81;              //! GRAVITY VECTOR FOR ARM MOUNTING POINT
-    bravo->kinodynamics.change_gravity_vector(gravity_vector); 
+    bravo->kinodynamics.change_gravity_vector((Eigen::Vector3d() << 0.0, 0.0, 9.81).finished()); //! GRAVITY VECTOR FOR ARM MOUNTING POINT
     while (!bravo->isConnected()){
         bravo->set_bravo_frequency_packet_exchange(200); //! Set frequency of requests
-        // Check for 5-second timeout
         if (std::chrono::steady_clock::now() - start_time > std::chrono::seconds(5)) {
             std::cerr << "Timeout: Bravo connection failed after 5 seconds.\n";
             break; 
@@ -58,7 +54,7 @@ void program_loop(std::shared_ptr<bravo_handler<double>> bravo){
     
     while (rclcpp::ok()) {
         //& PLOT MANIPULABILITY
-        std::cout << "Manipulablity: "<< bravo->compute_manipulability_position() << std::endl;
+        std::cout << "Manipulablity: "<< bravo->kinodynamics.compute_manipulability_position(bravo->get_bravo_joint_states()) << std::endl;
         Eigen::VectorXd joint_velocity_friction = bravo->get_bravo_joint_velocities();
         //& FRICTION COMPENSATION
         Nm_friction_compensation[0] = bravo->kinodynamics.computeFriction(joint_velocity_friction[0], FRICTION_MAT(0,0), FRICTION_MAT(0,1), FRICTION_MAT(0,2), FRICTION_MAT(0,3), FRICTION_MAT(0,4), FRICTION_MAT(0,5), FRICTION_SATURATION);
@@ -77,18 +73,27 @@ void program_loop(std::shared_ptr<bravo_handler<double>> bravo){
 int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);       
-    const std::string urdf_filename = ament_index_cpp::get_package_share_directory("bravo_cathode_protection") + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf";
+    const std::string package_share = ament_index_cpp::get_package_share_directory("bravo_cathode_protection");
+    const std::string urdf_filename = package_share + "/urdf/bravo_5_dynamics_pinocchio_cp.urdf";
+    const std::string config_friction_file = package_share + "/config/joint_friction_params/joint_friction_bravo5.yaml";
     const std::string tool_link = std::string("contact_point");
     const std::string ip_address = std::string("10.43.0.146");
+    bravo_utils::FrictionConfig friction_config;
+    try {
+        friction_config = bravo_utils::load_friction_config_yaml(config_friction_file);
+    }
+    catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
+        rclcpp::shutdown();
+        return 1;
+    }
     auto bravo            = std::make_shared<bravo_handler<double>>(urdf_filename, tool_link, bravo_control::ArmModel::bravo5, ip_address);
     auto executor         = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();        
     std::thread executor_thread([&executor]() {
             executor->spin();
     });
-    program_loop(bravo);
+    program_loop(bravo, friction_config);
     executor_thread.join();
     rclcpp::shutdown();
     return 0;
 }
-
-

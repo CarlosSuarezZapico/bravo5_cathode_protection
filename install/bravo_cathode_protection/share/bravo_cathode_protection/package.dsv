@@ -1,0 +1,11 @@
+source;share/bravo_cathode_protection/hook/cmake_prefix_path.ps1
+source;share/bravo_cathode_protection/hook/cmake_prefix_path.dsv
+source;share/bravo_cathode_protection/hook/cmake_prefix_path.sh
+source;share/bravo_cathode_protection/hook/ld_library_path_lib.ps1
+source;share/bravo_cathode_protection/hook/ld_library_path_lib.dsv
+source;share/bravo_cathode_protection/hook/ld_library_path_lib.sh
+source;share/bravo_cathode_protection/local_setup.bash
+source;share/bravo_cathode_protection/local_setup.dsv
+source;share/bravo_cathode_protection/local_setup.ps1
+source;share/bravo_cathode_protection/local_setup.sh
+source;share/bravo_cathode_protection/local_setup.zsh

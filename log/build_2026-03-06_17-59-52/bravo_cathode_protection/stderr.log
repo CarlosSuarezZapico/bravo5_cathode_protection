@@ -1,0 +1,57 @@
+In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+                 from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+                 from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+                 from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+                 from /opt/openrobots/include/pinocchio/parsers/urdf.hpp:9,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/serial_manipulator/kinodynamics_manipulator.h:30,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:28,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+/opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+   10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+      |                                                                       ^
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp: In function ‘MobileRuntimeConfig load_mobile_runtime_config_yaml(const string&)’:
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:106:25: error: call of overloaded ‘yaml_vec4(const YAML::Node&, const char [5])’ is ambiguous
+  106 |     cfg.home = yaml_vec4(node, "HOME");
+      |                ~~~~~~~~~^~~~~~~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:70:24: note: candidate: ‘Eigen::Vector4d yaml_vec4(const YAML::Node&, const string&)’
+   70 | static Eigen::Vector4d yaml_vec4(const YAML::Node& node, const std::string& key)
+      |                        ^~~~~~~~~
+In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:231:28: note: candidate: ‘Eigen::Vector4d bravo_utils::yaml_vec4(const YAML::Node&, const string&)’
+  231 |     static Eigen::Vector4d yaml_vec4(const YAML::Node& node, const std::string& key)
+      |                            ^~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:107:35: error: call of overloaded ‘yaml_vec3(const YAML::Node&, const char [15])’ is ambiguous
+  107 |     cfg.gravity_vector = yaml_vec3(node, "GRAVITY_VECTOR");
+      |                          ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:83:24: note: candidate: ‘Eigen::Vector3d yaml_vec3(const YAML::Node&, const string&)’
+   83 | static Eigen::Vector3d yaml_vec3(const YAML::Node& node, const std::string& key)
+      |                        ^~~~~~~~~
+In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:244:28: note: candidate: ‘Eigen::Vector3d bravo_utils::yaml_vec3(const YAML::Node&, const string&)’
+  244 |     static Eigen::Vector3d yaml_vec3(const YAML::Node& node, const std::string& key)
+      |                            ^~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp: At global scope:
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:83:24: warning: ‘Eigen::Vector3d yaml_vec3(const YAML::Node&, const string&)’ defined but not used [-Wunused-function]
+   83 | static Eigen::Vector3d yaml_vec3(const YAML::Node& node, const std::string& key)
+      |                        ^~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:70:24: warning: ‘Eigen::Vector4d yaml_vec4(const YAML::Node&, const string&)’ defined but not used [-Wunused-function]
+   70 | static Eigen::Vector4d yaml_vec4(const YAML::Node& node, const std::string& key)
+      |                        ^~~~~~~~~
+In file included from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_io_v2/bravo_udp_v2.h:37,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/bravo_handler/bravo_handler_v2.h:29,
+                 from /home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/src/bravo5_cp_mobile_axis.cpp:16:
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:256:26: warning: ‘bravo_utils::RuntimeConfig bravo_utils::load_runtime_config_yaml(const string&)’ defined but not used [-Wunused-function]
+  256 |     static RuntimeConfig load_runtime_config_yaml(const std::string& path)
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection/include/bravo_cathode_protection/bravo_cpp/utils/utils.h:187:27: warning: ‘bravo_utils::FrictionConfig bravo_utils::load_friction_config_yaml(const string&)’ defined but not used [-Wunused-function]
+  187 |     static FrictionConfig load_friction_config_yaml(const std::string& path)
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/bravo5_cp_mobile_axis.dir/build.make:76: CMakeFiles/bravo5_cp_mobile_axis.dir/src/bravo5_cp_mobile_axis.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:310: CMakeFiles/bravo5_cp_mobile_axis.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

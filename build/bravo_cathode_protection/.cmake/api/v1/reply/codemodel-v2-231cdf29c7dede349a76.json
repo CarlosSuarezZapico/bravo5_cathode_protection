@@ -1,0 +1,151 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-766d00e5a378265444d9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "bravo_cathode_protection",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "airbus_joystick::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-airbus_joystick-1caf28199661c43fa8bd.json",
+					"name" : "airbus_joystick",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_fixed_axis::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_fixed_axis-9bd3a7eaeef47a97ce66.json",
+					"name" : "bravo5_cp_fixed_axis",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_mobile_axis::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_mobile_axis-75a72a80960af02c8e26.json",
+					"name" : "bravo5_cp_mobile_axis",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_mobile_axis_hybrid::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_mobile_axis_hybrid-22f399b97c9d95ed5429.json",
+					"name" : "bravo5_cp_mobile_axis_hybrid",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_cp_mobile_axis_hybrid2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_cp_mobile_axis_hybrid2-0a6761483a17651ab558.json",
+					"name" : "bravo5_cp_mobile_axis_hybrid2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo5_gravity_and_joint_friction_identification::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo5_gravity_and_joint_friction_identification-0a4e64dcdbc42de4ca63.json",
+					"name" : "bravo5_gravity_and_joint_friction_identification",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo_cathode_protection_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo_cathode_protection_uninstall-a0dfd9db83f5c375eecb.json",
+					"name" : "bravo_cathode_protection_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bravo_handler_v2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bravo_handler_v2-42503c054cdf5f48e92d.json",
+					"name" : "bravo_handler_v2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kinodynamics_manipulator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kinodynamics_manipulator-770f6899fd032b5dedb7.json",
+					"name" : "kinodynamics_manipulator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stiffness_control_position::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stiffness_control_position-d9475293af26ce1370d3.json",
+					"name" : "stiffness_control_position",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-09295a7940bd8bd3d718.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/carlos/bravo5_cp_ws/src/build/bravo_cathode_protection",
+		"source" : "/home/carlos/bravo5_cp_ws/src/bravo_cathode_protection"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
